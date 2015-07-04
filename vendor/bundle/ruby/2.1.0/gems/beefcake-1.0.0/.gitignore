@@ -1,3 +1,0 @@
-*.gem
-Gemfile.lock
-bench/beefcake.prof.*
