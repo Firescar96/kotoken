@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src='http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js'></script>
+  <title>Amazing App</title>
+</head>
+
+<body id="homes" class="aligner container-fluid">
+  <div class="aligner-item text-center">
+    <h1>Amazing Project</h1>
+    <br/>
+    <div class="row">
+      <div class="col-xs-6">
+        <h4>Enter a passcode for your account<h4>
+        <form id="createForm">
+          <input id="createcode1" class="createcode" placeholder="7 digit passcode" />
+          <input id="createcode2" class="createcode" placeholder="confirm passcode" />
+
+          <button id="create" type="submit" class="btn btn-warning">Create Account</button>
+          <div class="switch-toggle switch-candy switch-">
+            <input id="brick" name="view" type="radio" checked>
+            <label for="brick">Brick</label>
+
+            <input id="steak" name="view" type="radio">
+            <label for="steak">Steak</label>
+
+            <input id="bitcoin" name="view" type="radio">
+            <label for="bitcoin">Bitcoin</label>
+
+            <input id="phone" name="view" type="radio">
+            <label for="phone">Phone</label>
+          </div>
+        </form>
+      </div>
+      <div class="col-xs-6">
+        <h4>Enter your account details<h4>a
+        <input id="useid" placeholder="unique id">
+        <input id="logincode" placeholder="passcode" />
+        <button id="login" class="btn btn-warning">Login</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

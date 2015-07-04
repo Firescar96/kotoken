@@ -1,0 +1,24 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "VAlign.css";
+@import "toggle-switch.css";
+
+#homes {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#752201+51,bf6e4e+100 */
+  background: #752201; /* Old browsers */
+  background: -moz-linear-gradient(top, #752201 51%, #bf6e4e 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(51%,#752201), color-stop(100%,#bf6e4e)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #752201 51%,#bf6e4e 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #752201 51%,#bf6e4e 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #752201 51%,#bf6e4e 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #752201 51%,#bf6e4e 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#752201', endColorstr='#bf6e4e',GradientType=0 ); /* IE6-9 */
+
+  color: #fff !important;
+
+  input {
+    color: #000;
+  }
+}

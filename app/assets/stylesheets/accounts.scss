@@ -1,0 +1,148 @@
+// Place all the styles related to the accounts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "VAlign.css";
+
+@mixin colorize($bg, $txt) {
+  background-color: $bg;
+  color: $txt;
+
+  &.checked {
+    background-color: tint( $bg, 30% );
+    //color: shade( $txt, 50% );
+  }
+}
+@function tint($color, $percent){
+  @return mix(white, $color, $percent);
+}
+@function shade($color, $percent){
+  @return mix(black, $color, $percent);
+}
+
+#accounts {
+  background-color: #aa6c39;
+  color: #fff;
+
+  ::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #ccc;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+     color:    #ccc;
+     opacity:  1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+     color:    #ccc;
+     opacity:  1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10+ */
+     color:    #ccc;
+  }
+
+  input[type=text] {
+    color: black;
+    font-size: 25px;
+    background-color: transparent;
+    padding: 10px;
+    border: none;
+    outline: 0;
+    border-bottom: solid 2px #c9c9c9;
+    transition: border 0.3s;
+
+    &:focus {
+      border: none;
+      border-left: solid 1px #999;
+      border-right: solid 1px #999;
+      border-top: solid 1px #999;
+      border-bottom: solid 2px #c9c9c9;
+    }
+
+    &[placeholder] {
+      color: white;
+    }
+  }
+
+  .inline {
+    display: inline-block;
+  }
+
+  .vcenter {
+      display: inline-block;
+      vertical-align: middle;
+      float: none;
+  }
+
+  .row {
+    display: flex;
+  }
+
+  td {
+    border: none;
+  }
+
+  .table-striped>tbody>tr:nth-child(odd)>td{
+      background-color:#552700;
+  }
+
+    #token-select {
+      width: 100%;
+      height: 50%;
+      display: block;
+      min-height: 100px;
+      margin: 0;
+
+      div {
+        padding: 0;
+        height: 200px;
+
+        label {
+          width: 100%;
+          height: 50%;
+          //@include transition(color 0.2s ease-out);
+          &[for=brick] {
+            @include colorize(#800, #f00);
+          }
+          &[for=steak] {
+            @include colorize(#580, #0f0);
+          }
+          &[for=bitcoin] {
+            @include colorize(#d80, #ff0);
+          }
+          &[for=phone] {
+            @include colorize(#00a, #0af);
+          }
+
+          input {
+            display: none;
+
+            + span {
+              position: absolute;
+              top: 50%;
+              transform: translate(0, -50%);
+              position: relative;
+              text-align: center;
+              font-size: 30px;
+            }
+
+            &:checked + span {
+              text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+            }
+          }
+        }
+      }
+  }
+
+  .bg-success {
+    color: #0f0;
+    background-color: #00a
+  }
+
+  .bg-warning {
+    color: #d80;
+    background-color: #800
+  }
+
+  #make-transaction {
+    font-size: 24px;
+  }
+}

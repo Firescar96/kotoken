@@ -1,0 +1,96 @@
+<body id="accounts">
+  <div class="container-fluid">
+    <div>
+      <h2 id="useid"></h2>
+    </div>
+    <div class="text-center row">
+      <div class="col-xs-3">
+        <h3>Brick</h3>
+        <h3 class="inline">#</h3>
+        <h4 id="brickAmt" class="inline">0</h4>
+      </div>
+      <div class="col-xs-3">
+        <h3>Steak</h3>
+        <h3 class="inline">#</h3>
+        <h4 id="steakAmt" class="inline">0</h4>
+      </div>
+      <div class="col-xs-3">
+        <h3>Bitcoin</h3>
+        <h3 class="inline">#</h3>
+        <h4 id="bitcoinAmt" class="inline">0</h4>
+      </div>
+      <div class="col-xs-3">
+        <h3>Phone</h3>
+        <h3 class="inline">#</h3>
+        <h4 id="phoneAmt" class="inline">0</h4>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-xs-6">
+        <h3>Transaction Ledger</h3>
+        <br/>
+        <br/>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Header</th><th>Header</th><th>Header</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Content</td><td>1</td><td>a</td>
+            </tr>
+            <tr>
+              <td>Content</td><td>2</td><td>b</td>
+            </tr>
+            <tr>
+              <td>Content</td><td>3</td><td>c</td>
+            </tr>
+            <tr>
+              <td>Content</td><td>4</td><td>d</td>
+            </tr>
+            <tr>
+              <td>Content</td><td>5</td><td>e</td>
+            </tr>
+            <tr>
+              <td>Content</td><td>6</td><td>f</td>
+            </tr>
+          </tbody>
+      </table>
+      </div>
+      <div class="col-xs-6 vcenter aligner">
+        <h3>Send Token</h3>
+        <br/>
+        <h2 id="transaction-result"></h2>
+        <br/>
+        <div id="token-select" class="row text-center">
+          <div class="col-xs-6">
+            <label for="brick">
+              <input id="brick" name="token" type="radio" value="AaLWdxW4mCB4Z7i2nW5ocgM6cT7jWEybcD"/>
+              <span>Brick</span>
+            </label>
+
+            <label for="steak">
+              <input id="steak" name="token" type="radio" value="AVBLsxjac7LCYxiXcMnUAricYxVq1YgbkZ"/>
+              <span>Steak</span>
+              </label>
+          </div>
+          <div class="col-xs-6">
+            <label for="bitcoin">
+              <input id="bitcoin" name="token" type="radio" value="AL9VwZMgDQ2bqLXorU2bJoiMu3MjamZQFm"/>
+              <span>Bitcoin</span>
+            </label>
+
+            <label for="phone">
+              <input id="phone" name="token" type="radio" value="AcPeTwYT5s2xJmXpDCuMr3JWGvJ9vEMkNF"/>
+              <span>Phone</span>
+            </label>
+          </div>
+        </div>
+        <br/>
+        <input id="toid" type="text" name="token" placeholder="receiving user id">
+        <input id="make-transaction" class="btn btn-danger" type="button" name="token" value="Make Transaction">
+      </div>
+    </div>
+  </div>
+</body>
