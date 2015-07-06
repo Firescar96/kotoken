@@ -20,3 +20,37 @@ html {
   width: height;
   height: 100%;
 }
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color:    #ccc;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #ccc;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #ccc;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #ccc;
+}
+
+input[type=text] {
+  color: #fff;
+  font-size: 25px;
+  background-color: transparent;
+  padding: 10px;
+  border: none;
+  outline: 0;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+
+  &:focus {
+    border: none;
+    border-left: solid 1px #999;
+    border-right: solid 1px #999;
+    border-top: solid 1px #999;
+    border-bottom: solid 2px #c9c9c9;
+  }
+}

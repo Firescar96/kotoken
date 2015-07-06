@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "VAlign.css";
-@import "toggle-switch.css";
+@import "mixins";
 
 #homes {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#752201+51,bf6e4e+100 */
@@ -18,7 +18,64 @@
 
   color: #fff !important;
 
-  input {
-    color: #000;
+  height: 100%;
+
+  .bg-warning {
+    color: #d80;
+    background-color: #800
+  }
+
+  #token-select {
+    width: 100%;
+    height: 50%;
+    display: block;
+    margin: auto;
+
+    label {
+      width: 25%;
+      height: 50%;
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+      //@include transition(color 0.2s ease-out);
+      &[for=brick] {
+        @include colorize(#800, #f00);
+      }
+      &[for=steak] {
+        @include colorize(#580, #0f0);
+      }
+      &[for=bitcoin] {
+        @include colorize(#d80, #ff0);
+      }
+      &[for=phone] {
+        @include colorize(#00a, #0af);
+      }
+
+      input {
+        display: none;
+
+        + span {
+          position: absolute;
+          top: 50%;
+          transform: translate(0, -50%);
+          position: relative;
+          text-align: center;
+          font-size: 30px;
+        }
+
+        &:checked + span {
+          text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+        }
+      }
+    }
+  }
+
+  #create, #login {
+    font-size: 24px;
+  }
+
+  #useid, #logincode {
+    margin: 0% 1%;
+    width: 48%;
   }
 }

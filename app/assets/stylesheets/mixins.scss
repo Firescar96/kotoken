@@ -1,0 +1,15 @@
+@mixin colorize($bg, $txt) {
+  background-color: $bg;
+  color: $txt;
+
+  &.checked {
+    background-color: tint( $bg, 30% );
+    //color: shade( $txt, 50% );
+  }
+}
+@function tint($color, $percent){
+  @return mix(white, $color, $percent);
+}
+@function shade($color, $percent){
+  @return mix(black, $color, $percent);
+}

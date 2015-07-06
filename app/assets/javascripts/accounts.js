@@ -1,5 +1,4 @@
-//$('#token-select').css({'height': $('#token-select').width()+'px'});
-$("#accounts").ready(function() {
+$("#accounts").load(function() {
   var brickAsset = "AaLWdxW4mCB4Z7i2nW5ocgM6cT7jWEybcD"
   var steakAsset = "AVBLsxjac7LCYxiXcMnUAricYxVq1YgbkZ"
   var bitcoinAsset = "AL9VwZMgDQ2bqLXorU2bJoiMu3MjamZQFm"
@@ -14,15 +13,14 @@ $("#accounts").ready(function() {
 */
   $('#useid').text(localStorage.getItem("useid"))
 
-  setInterval(function(){
+  var updateBalance = function(){
     $.get( "/accounts", {flag: "balance", bucket_id: localStorage.getItem("bucket_id")})
       .done(function(data) {
         data = JSON.parse(data);
         $.each(data, function( index, asset) {
           switch(asset.asset_id) {
             case brickAsset:
-              console.log($("#brickAmt"));
-              $("#brick Amt").text(asset.total)
+              $("#brickAmt").text(asset.total)
               break;
             case steakAsset:
               $("#steakAmt").text(asset.total)
@@ -38,17 +36,19 @@ $("#accounts").ready(function() {
           }
         });
       });
-  }, 10000);
-
+  }
+  updateBalance();
+  setInterval(updateBalance, 10000);
 
   $('input[type=radio]').click(function() {
-    $('label').toggleClass('checked', false);
+    $('#token-select label').toggleClass('checked', false);
+    $("#transaction-result").text("").removeClass("bg-warning bg-success");
     $(this).parent().toggleClass('checked', this.checked);
   });
 
-  $("input[placeholder]").each(function () {
-    $(this).attr('size', $(this).attr('placeholder').length);
-  });
+  /*$("input[placeholder]").each(function () {
+    $(this).css('min-width', $(this).attr('placeholder').length);
+  });*/
 
   $("#make-transaction").click(function() {
     var error = "";
@@ -72,8 +72,11 @@ $("#accounts").ready(function() {
     .done(function(data) {
       data = JSON.parse(data);
       console.log(data.message);
-      if(data.success)
+      if(data.success) {
         $("#transaction-result").text("Success").removeClass("bg-warning").addClass("bg-success");
+        $('#token-select label').toggleClass('checked', false);
+        $("#toid").val("");
+      }
       else
         $("#transaction-result").html(data.message).removeClass("bg-success").addClass("bg-warning");
     });

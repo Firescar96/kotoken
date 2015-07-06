@@ -1,7 +1,4 @@
-//createClick = () -> $.post( "/accounts/new", { name: "John", time: "2pm" } );
-//test = () -> console.log("hello world")
-
-$('document').ready(function() {
+$('#homes').ready(function() {
   $("#create").click(function(event) {
     var error = ""
 
@@ -15,8 +12,11 @@ $('document').ready(function() {
         error = "Please use at least 7 digits";
     });
 
+    if( $('input[name=token]:checked').val() == undefined)
+      error = "choose an initial token";
+
     if(error == "") {
-      $.post( "/accounts", { passcode1: $("#createcode1").val(), passcode2: $("#createcode2").val() } )
+      $.post( "/accounts", { passcode: $("#createcode1").val(), asset: $('input[name=token]:checked').val()} )
         .done(function(data) {
           data = jQuery.parseJSON(data);
 
@@ -24,12 +24,18 @@ $('document').ready(function() {
           localStorage.setItem("passcode",data.passcode);
           localStorage.setItem("bucket_id",data.bucket_id);
 
+          $( '#createForm' ).each(function(){
+            this.reset();
+          });
+
+          $("#createerror").text("").removeClass("bg-warning");
+
           location.href = "/accounts/"+data.useid;
         });
     }
     else {
       event.preventDefault();
-      alert(error);
+      $("#createerror").text(error).addClass("bg-warning");
       console.error(error);
     }
 
@@ -39,12 +45,20 @@ $('document').ready(function() {
     $.get( "/accounts", { flag: "bucket_id", useid: $("#useid").val(), passcode: $("#logincode").val() } )
       .done(function(data) {
         data = jQuery.parseJSON(data);
+        console.log(data);
 
-        localStorage.setItem("useid",$("#useid").val());
-        localStorage.setItem("passcode",$("#logincode").val());
-        localStorage.setItem("bucket_id",data.bucket_id);
+        if(data.success) {
+          localStorage.setItem("useid",$("#useid").val());
+          localStorage.setItem("passcode",$("#logincode").val());
+          localStorage.setItem("bucket_id",data.bucket_id);
 
-        location.href = "/accounts/"+$("#useid").val();
+          $("#loginerror").text("").removeClass("bg-warning");
+          location.href = "/accounts/"+$("#useid").val();
+        }else {
+          event.preventDefault();
+          $("#loginerror").text(data.message).addClass("bg-warning");
+          console.error(data.message);
+        }
       });
   });
 });
