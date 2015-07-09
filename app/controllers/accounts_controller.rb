@@ -10,11 +10,16 @@ class AccountsController < ApplicationController
     response = {}
     if params['flag'] == "balance"
       balance = chain_client.get_bucket_asset_balance(params["bucket_id"])
+      puts "balance"
+      puts balance
       respond_to do |format|
         format.html { render :text => balance.to_json.to_s}
       end
     end
     if params['flag'] == "bucket_id"
+      @account  = Account.where(useid: params['useid']).take
+      puts @account.passcode
+      puts params[:passcode]
       @account  = Account.where(useid: params[:useid], passcode: params[:passcode]).take
       if @account == nil
         response["success"] = false
@@ -24,7 +29,7 @@ class AccountsController < ApplicationController
         end
         return
       end
-      response["success"] = false
+      response["success"] = true
       response["bucket_id"] = @account.bucket_id
       respond_to do |format|
         format.html { render :text =>  JSON.generate(response)}
@@ -92,9 +97,8 @@ class AccountsController < ApplicationController
     bucket = chain_client.create_bucket("d9e0997d-43da-4770-9f0e-2b96913bfc13")
     @account.bucket_id = bucket["bucket_id"]
     asset = params['asset']
-    puts asset
 
-    puts chain_client.issue_asset(
+    trans = chain_client.issue_asset(
       asset,
       [
         {
@@ -103,6 +107,14 @@ class AccountsController < ApplicationController
         }
       ]
     )
+    puts "client parameters"
+    puts params
+    puts "bucket"
+    puts bucket["bucket_id"]
+    puts "asset:"
+    puts asset
+    puts "transaction"
+    puts trans
 
     respond_to do |format|
     response["useid"] = @account.useid

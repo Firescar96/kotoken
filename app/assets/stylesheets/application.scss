@@ -19,6 +19,14 @@
 html {
   width: height;
   height: 100%;
+
+body {
+  height: 100%;
+  background: #fff; /* Old browsers */
+  font-family: 'Overlock', cursive !important;
+  font-weight: 900 !important;
+  font-style: italic !important;
+  color: #000 !important;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
@@ -53,4 +61,6 @@ input[type=text] {
     border-top: solid 1px #999;
     border-bottom: solid 2px #c9c9c9;
   }
+}
+
 }

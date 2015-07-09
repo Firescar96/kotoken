@@ -3,8 +3,9 @@
   color: $txt;
 
   &.checked {
-    background-color: tint( $bg, 30% );
-    //color: shade( $txt, 50% );
+    //background-color: tint( $bg, 30% );
+    background-color: $txt;
+    color: $bg;
   }
 }
 @function tint($color, $percent){
@@ -13,3 +14,5 @@
 @function shade($color, $percent){
   @return mix(black, $color, $percent);
 }
+
+@import url(http://fonts.googleapis.com/css?family=Overlock:900italic);

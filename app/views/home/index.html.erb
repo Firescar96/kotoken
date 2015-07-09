@@ -1,58 +1,58 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Amazing App</title>
-</head>
+<div id="homes">
+  <header class="aligner">
+    <div class"aligner-item">
+      <%= image_tag("knottymasthead.png") %>
+      <h3>apertures and entanglements</h3>
+      <br/>
+  </div>
+  </header>
+  <main class="aligner">
+    <div class="aligner-item container-fluid">
+      <div class="row text-center">
+        <div id="createsection" class="col-xs-12 col-md-6">
+          <h2>Register with passcode<h2>
+          <h3 id="createerror"></h3>
+          <form id="createForm">
+            <div id="token-select" class="row text-center">
+              <label for="brick">
+                <input id="brick" name="token" type="radio" value="AaLWdxW4mCB4Z7i2nW5ocgM6cT7jWEybcD"/>
+                <span>Brick</span>
+              </label><!--
+              --><label for="steak">
+                <input id="steak" name="token" type="radio" value="AVBLsxjac7LCYxiXcMnUAricYxVq1YgbkZ"/>
+                <span>Steak</span>
+              </label><!--
+              --><label for="bitcoin">
+                <input id="bitcoin" name="token" type="radio" value="AL9VwZMgDQ2bqLXorU2bJoiMu3MjamZQFm"/>
+                <span>Bitcoin</span>
+              </label><!--
+              --><label for="phone">
+                <input id="phone" name="token" type="radio" value="AcPeTwYT5s2xJmXpDCuMr3JWGvJ9vEMkNF"/>
+                <span>Phone</span>
+              </label>
+            </div>
+            <br/>
 
-<body id="homes" class="aligner container-fluid">
-  <div class="aligner-item text-center">
-    <h1>Amazing Project</h1>
-    <br/>
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <h2>Register with passcode<h2>
-        <h3 id="createerror"></h3>
-        <form id="createForm">
-          <div id="token-select" class="row text-center">
-            <label for="brick">
-              <input id="brick" name="token" type="radio" value="AaLWdxW4mCB4Z7i2nW5ocgM6cT7jWEybcD"/>
-              <span>Brick</span>
-            </label><!--
-            --><label for="steak">
-              <input id="steak" name="token" type="radio" value="AVBLsxjac7LCYxiXcMnUAricYxVq1YgbkZ"/>
-              <span>Steak</span>
-            </label><!--
-            --><label for="bitcoin">
-              <input id="bitcoin" name="token" type="radio" value="AL9VwZMgDQ2bqLXorU2bJoiMu3MjamZQFm"/>
-              <span>Bitcoin</span>
-            </label><!--
-            --><label for="phone">
-              <input id="phone" name="token" type="radio" value="AcPeTwYT5s2xJmXpDCuMr3JWGvJ9vEMkNF"/>
-              <span>Phone</span>
-            </label>
-          </div>
-          <br/>
-
-          <input id="createcode1" type="text" class="createcode" placeholder="7 digit passcode" />
-          <input id="createcode2" type="text" class="createcode" placeholder="confirm passcode" />
+            <input id="createcode1" type="text" class="createcode" placeholder="7 digit passcode" />
+            <input id="createcode2" type="text" class="createcode" placeholder="confirm passcode" />
+            <br/>
+            <br/>
+            <button id="create" type="submit" class="btn btn-warning">Create Account</button>
+          </form>
           <br/>
           <br/>
-          <button id="create" type="submit" class="btn btn-warning">Create Account</button>
-        </form>
-        <br/>
-        <br/>
-        <br/>
-      </div>
-      <div class="col-xs-12 col-md-6">
-        <h2>Sign in<h2>
-        <h3 id="loginerror"></h3>
-        <input id="useid" type="text" placeholder="5 digit address"><!--
-        --><input id="logincode" type="text" placeholder="passcode" />
-        <br/>
-        <br/>
-        <button id="login" class="btn btn-warning">Login</button>
+          <br/>
+        </div>
+        <div id="loginsection" class="col-xs-12 col-md-6">
+          <h2>Sign in<h2>
+          <h3 id="loginerror"></h3>
+          <input id="useid" type="text" placeholder="5 digit address"><!--
+          --><input id="logincode" type="text" placeholder="passcode" />
+          <br/>
+          <br/>
+          <button id="login" class="btn btn-warning">Login</button>
+        </div>
       </div>
     </div>
-  </div>
-</body>
-</html>
+  </main>
+</div>

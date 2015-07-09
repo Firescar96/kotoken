@@ -7,13 +7,11 @@
 .aligner {
   display: flex;
   align-items: center;
-  height: 24em; /* 1 */
   justify-content: center;
 }
 @supports not (-ms-flex: 1) {
   .aligner {
     height: inherit; /* 2 */
-    min-height: 24em; /* 2 */
   }
 }
 

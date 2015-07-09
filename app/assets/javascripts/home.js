@@ -61,4 +61,10 @@ $('#homes').ready(function() {
         }
       });
   });
+
+  $('#token-select input[type=radio]').click(function() {
+    $('#token-select label').toggleClass('checked', false);
+    $("#createerror").text("").removeClass("bg-warning bg-success");
+    $(this).parent().toggleClass('checked', this.checked);
+  });
 });

@@ -1,4 +1,4 @@
-$("#accounts").load(function() {
+$("#accounts").ready(function() {
   var brickAsset = "AaLWdxW4mCB4Z7i2nW5ocgM6cT7jWEybcD"
   var steakAsset = "AVBLsxjac7LCYxiXcMnUAricYxVq1YgbkZ"
   var bitcoinAsset = "AL9VwZMgDQ2bqLXorU2bJoiMu3MjamZQFm"
