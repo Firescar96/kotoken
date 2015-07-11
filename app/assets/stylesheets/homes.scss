@@ -5,6 +5,11 @@
 @import "VAlign.css";
 @import "mixins";
 
+$headColor : #000;
+$bgColor : #2D2D2D;
+$buttonbgColor : #7D7D7D;
+$txtbgColor : #fff;
+
 #homes {
   height: 100%;
 
@@ -15,9 +20,9 @@
 
   header{
     text-align: center;
-    background-color: #d80;
+    background-color: $headColor;
     color: #fff;
-    border-bottom: solid 10px #b50;
+    border-bottom: solid 10px $bgColor;
     height: 20%;
   }
 
@@ -41,7 +46,7 @@
   main {
     height: 80%;
     margin: auto;
-    background-color: #b50;
+    background-color: $bgColor;
 
     >div {
       width: 80%;
@@ -86,16 +91,16 @@
         display: inline-block;
         //@include transition(color 0.2s ease-out);
         &[for=brick] {
-          @include colorize(#800, #f00);
+          @include colorize($buttonbgColor, $txtbgColor);
         }
         &[for=steak] {
-          @include colorize(#580, #0f0);
+          @include colorize($buttonbgColor, $txtbgColor);
         }
         &[for=bitcoin] {
-          @include colorize(#d80, #ff0);
+          @include colorize($buttonbgColor, $txtbgColor);
         }
         &[for=phone] {
-          @include colorize(#00a, #0af);
+          @include colorize($buttonbgColor, $txtbgColor);
         }
 
         input {

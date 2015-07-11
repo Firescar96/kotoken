@@ -16,9 +16,12 @@
  *= require accounts
  */
 
+ $bgColor : #2D2D2D;
+
 html {
   width: height;
   height: 100%;
+  background-color: $bgColor;
 
 body {
   height: 100%;
