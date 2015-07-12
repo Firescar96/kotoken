@@ -71,7 +71,7 @@ $("#accounts").ready(function() {
         $('#token-select label2').toggleClass('checked', false);
         $("#toid2").val("");
 
-        $("#stoken-page").toggleClass("hidden",true)
+        $("#token-page").toggleClass("hidden",true)
         $("#status-page").toggleClass("hidden",false)
       }
       else
