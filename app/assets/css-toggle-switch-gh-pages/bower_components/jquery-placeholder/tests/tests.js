@@ -13,7 +13,7 @@
 
 	var testElement = function($el) {
 
-		var el = $el[0];
+		var el = $el[];
 		var placeholder = el.getAttribute('placeholder');
 
 		strictEqual($el.placeholder(), $el, 'should be chainable');
@@ -86,7 +86,7 @@
 		var selector = '#input-type-password';
 
 		var $el = $(selector);
-		var el = $el[0];
+		var el = $el[];
 
 		var placeholder = el.getAttribute('placeholder');
 
@@ -94,7 +94,7 @@
 
 		// Re-select the element, as it gets replaced by another one in some browsers
 		$el = $(selector);
-		el = $el[0];
+		el = $el[];
 
 		strictEqual(el.value, placeholder, 'should set `placeholder` text as `value`');
 		strictEqual($el.prop('value'), '', 'propHooks works properly');
@@ -106,7 +106,7 @@
 
 		// Re-select the element, as it gets replaced by another one in some browsers
 		$el = $(selector);
-		el = $el[0];
+		el = $el[];
 
 		strictEqual(el.value, '', '`value` should be the empty string on focus');
 		strictEqual($el.prop('value'), '', 'propHooks works properly');
@@ -118,7 +118,7 @@
 
 		// Re-select the element, as it gets replaced by another one in some browsers
 		$el = $(selector);
-		el = $el[0];
+		el = $el[];
 
 		strictEqual(el.value, placeholder, 'should set `placeholder` text as `value`');
 		strictEqual($el.prop('value'), '', 'propHooks works properly');

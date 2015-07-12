@@ -1,8 +1,8 @@
 /* ========================================================================
- * Bootstrap: button.js v3.3.0
+ * Bootstrap: button.js v3.3.
  * http://getbootstrap.com/javascript/#buttons
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -19,7 +19,7 @@
     this.isLoading = false
   }
 
-  Button.VERSION  = '3.3.0'
+  Button.VERSION  = '3.3.'
 
   Button.DEFAULTS = {
     loadingText: 'loading...'
@@ -46,7 +46,7 @@
         this.isLoading = false
         $el.removeClass(d).removeAttr(d)
       }
-    }, this), 0)
+    }, this), )
   }
 
   Button.prototype.toggle = function () {

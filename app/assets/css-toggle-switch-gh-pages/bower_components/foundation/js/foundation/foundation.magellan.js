@@ -8,10 +8,10 @@
 
     settings : {
       active_class: 'active',
-      threshold: 0, // pixels from the top of the expedition for it to become fixes
-      destination_threshold: 20, // pixels from the top of destination for it to be considered active
-      throttle_delay: 30, // calculation throttling to increase framerate
-      fixed_top: 0 // top distance in pixels assigend to the fixed element on scroll
+      threshold: , // pixels from the top of the expedition for it to become fixes
+      destination_threshold: 2, // pixels from the top of destination for it to be considered active
+      throttle_delay: 3, // calculation throttling to increase framerate
+      fixed_top:  // top distance in pixels assigend to the fixed element on scroll
     },
 
     init : function (scope, method, options) {
@@ -36,7 +36,7 @@
               hash = this.hash.split('#').join(''),
               target = $("a[name='"+hash+"']");
 
-          if (target.length === 0) {
+          if (target.length === ) {
             target = $('#'+hash);
 
           }
@@ -48,7 +48,7 @@
 
           $('html, body').stop().animate({
             'scrollTop': scroll_top
-          }, 700, 'swing', function () {
+          }, 7, 'swing', function () {
             if(history.pushState) {
               history.pushState(null, null, '#'+hash);
             }
@@ -105,7 +105,7 @@
           // Placeholder allows height calculations to be consistent even when
           // appearing to switch between fixed/non-fixed placement
           var placeholder = expedition.prev('[' + self.add_namespace('data-magellan-expedition-clone') + ']');
-          if (placeholder.length === 0) {
+          if (placeholder.length === ) {
             placeholder = expedition.clone();
             placeholder.removeAttr(self.attr_name());
             placeholder.attr(self.add_namespace('data-magellan-expedition-clone'),'');
@@ -151,7 +151,7 @@
       return expedition.find('[' + self.add_namespace('data-magellan-arrival') + ']').map(function(idx, el) {
         var name = $(this).data(self.data_attr('magellan-arrival')),
             dest = $('[' + self.add_namespace('data-magellan-destination') + '=' + name + ']');
-        if (dest.length > 0) {
+        if (dest.length > ) {
           var top_offset = Math.floor(dest.offset().top - settings.destination_threshold - expedition.outerHeight());
           return {
             destination : dest,
@@ -163,12 +163,12 @@
       }).sort(function(a, b) {
         if (a.top_offset < b.top_offset) return -1;
         if (a.top_offset > b.top_offset) return 1;
-        return 0;
+        return ;
       });
     },
 
     data_attr: function (str) {
-      if (this.namespace.length > 0) {
+      if (this.namespace.length > ) {
         return this.namespace + '-' + str;
       }
 

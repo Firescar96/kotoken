@@ -1,12 +1,12 @@
 /*!
- * QUnit 1.15.0
+ * QUnit 1.15.
  * http://qunitjs.com/
  *
- * Copyright 2014 jQuery Foundation and other contributors
+ * Copyright 214 jQuery Foundation and other contributors
  * Released under the MIT license
  * http://jquery.org/license
  *
- * Date: 2014-08-08T16:00Z
+ * Date: 214-8-8T16:Z
  */
 
 (function( window ) {
@@ -14,7 +14,7 @@
 var QUnit,
 	config,
 	onErrorFnPrev,
-	fileName = ( sourceFromStacktrace( 0 ) || "" ).replace( /(:\d+)+\)?/, "" ).replace( /.+\//, "" ),
+	fileName = ( sourceFromStacktrace(  ) || "" ).replace( /(:\d+)+\)?/, "" ).replace( /.+\//, "" ),
 	toString = Object.prototype.toString,
 	hasOwn = Object.prototype.hasOwnProperty,
 	// Keep a local reference to Date (GH-283)
@@ -51,7 +51,7 @@ var QUnit,
 	errorString = function( error ) {
 		var name, message,
 			errorString = error.toString();
-		if ( errorString.substring( 0, 7 ) === "[object" ) {
+		if ( errorString.substring( , 7 ) === "[object" ) {
 			name = error.name ? error.name.toString() : "Error";
 			message = error.message ? error.message.toString() : "";
 			if ( name && message ) {
@@ -148,17 +148,17 @@ QUnit = {
 
 		config.semaphore -= count || 1;
 		// don't start until equal number of stop-calls
-		if ( config.semaphore > 0 ) {
+		if ( config.semaphore >  ) {
 			return;
 		}
 
 		// Set the starting time when the first test is run
 		QUnit.config.started = QUnit.config.started || now();
 		// ignore if start is called more often then stop
-		if ( config.semaphore < 0 ) {
-			config.semaphore = 0;
+		if ( config.semaphore <  ) {
+			config.semaphore = ;
 
-			message = "Called start() while already started (QUnit.config.semaphore was 0 already)";
+			message = "Called start() while already started (QUnit.config.semaphore was  already)";
 
 			if ( config.current ) {
 				QUnit.pushFailure( message, sourceFromStacktrace( 2 ) );
@@ -171,7 +171,7 @@ QUnit = {
 		// A slight delay, to avoid any current callbacks
 		if ( defined.setTimeout ) {
 			setTimeout(function() {
-				if ( config.semaphore > 0 ) {
+				if ( config.semaphore >  ) {
 					return;
 				}
 				if ( config.timeout ) {
@@ -271,17 +271,17 @@ config = {
 		length = params.length,
 		urlParams = {};
 
-	if ( params[ 0 ] ) {
-		for ( i = 0; i < length; i++ ) {
+	if ( params[  ] ) {
+		for ( i = ; i < length; i++ ) {
 			current = params[ i ].split( "=" );
-			current[ 0 ] = decodeURIComponent( current[ 0 ] );
+			current[  ] = decodeURIComponent( current[  ] );
 
 			// allow just a key to turn on a flag, e.g., test.html?noglobals
 			current[ 1 ] = current[ 1 ] ? decodeURIComponent( current[ 1 ] ) : true;
-			if ( urlParams[ current[ 0 ] ] ) {
-				urlParams[ current[ 0 ] ] = [].concat( urlParams[ current[ 0 ] ], current[ 1 ] );
+			if ( urlParams[ current[  ] ] ) {
+				urlParams[ current[  ] ] = [].concat( urlParams[ current[  ] ], current[ 1 ] );
 			} else {
-				urlParams[ current[ 0 ] ] = current[ 1 ];
+				urlParams[ current[  ] ] = current[ 1 ];
 			}
 		}
 	}
@@ -299,9 +299,9 @@ config = {
 
 		// Ensure that urlParams.testNumber is an array
 		urlParams.testNumber = [].concat( urlParams.testNumber );
-		for ( i = 0; i < urlParams.testNumber.length; i++ ) {
+		for ( i = ; i < urlParams.testNumber.length; i++ ) {
 			current = urlParams.testNumber[ i ];
-			config.testNumber.push( parseInt( current, 10 ) );
+			config.testNumber.push( parseInt( current, 1 ) );
 		}
 	}
 
@@ -363,7 +363,7 @@ extend( QUnit, {
 			}
 		}
 		return window.location.protocol + "//" + window.location.host +
-			window.location.pathname + querystring.slice( 0, -1 );
+			window.location.pathname + querystring.slice( , -1 );
 	},
 
 	extend: extend
@@ -408,10 +408,10 @@ QUnit.load = function() {
 
 	// Initialize the configuration options
 	extend( config, {
-		stats: { all: 0, bad: 0 },
-		moduleStats: { all: 0, bad: 0 },
-		started: 0,
-		updateRate: 1000,
+		stats: { all: , bad:  },
+		moduleStats: { all: , bad:  },
+		started: ,
+		updateRate: 1,
 		autostart: true,
 		filter: "",
 		semaphore: 1
@@ -494,8 +494,8 @@ function validTest( test ) {
 		return true;
 	}
 
-	if ( config.testNumber.length > 0 ) {
-		if ( inArray( test.testNumber, config.testNumber ) < 0 ) {
+	if ( config.testNumber.length >  ) {
+		if ( inArray( test.testNumber, config.testNumber ) <  ) {
 			return false;
 		}
 	}
@@ -508,7 +508,7 @@ function validTest( test ) {
 		return true;
 	}
 
-	include = filter.charAt( 0 ) !== "!";
+	include = filter.charAt(  ) !== "!";
 	if ( !include ) {
 		filter = filter.slice( 1 );
 	}
@@ -535,9 +535,9 @@ function extractStacktrace( e, offset ) {
 		return e.stacktrace.split( "\n" )[ offset + 3 ];
 	} else if ( e.stack ) {
 
-		// Firefox, Chrome, Safari 6+, IE10+, PhantomJS and Node
+		// Firefox, Chrome, Safari 6+, IE1+, PhantomJS and Node
 		stack = e.stack.split( "\n" );
-		if ( /^error$/i.test( stack[ 0 ] ) ) {
+		if ( /^error$/i.test( stack[  ] ) ) {
 			stack.shift();
 		}
 		if ( fileName ) {
@@ -589,7 +589,7 @@ function process( last ) {
 	config.depth = config.depth ? config.depth + 1 : 1;
 
 	while ( config.queue.length && !config.blocking ) {
-		if ( !defined.setTimeout || config.updateRate <= 0 || ( ( now() - start ) < config.updateRate ) ) {
+		if ( !defined.setTimeout || config.updateRate <=  || ( ( now() - start ) < config.updateRate ) ) {
 			config.queue.shift()();
 		} else {
 			setTimeout( next, 13 );
@@ -597,7 +597,7 @@ function process( last ) {
 		}
 	}
 	config.depth--;
-	if ( last && !config.blocking && !config.queue.length && config.depth === 0 ) {
+	if ( last && !config.blocking && !config.queue.length && config.depth ===  ) {
 		done();
 	}
 }
@@ -626,12 +626,12 @@ function checkPollution() {
 	saveGlobal();
 
 	newGlobals = diff( config.pollution, old );
-	if ( newGlobals.length > 0 ) {
+	if ( newGlobals.length >  ) {
 		QUnit.pushFailure( "Introduced global variable(s): " + newGlobals.join( ", " ) );
 	}
 
 	deletedGlobals = diff( old, config.pollution );
-	if ( deletedGlobals.length > 0 ) {
+	if ( deletedGlobals.length >  ) {
 		QUnit.pushFailure( "Deleted global variable(s): " + deletedGlobals.join( ", " ) );
 	}
 }
@@ -641,8 +641,8 @@ function diff( a, b ) {
 	var i, j,
 		result = a.slice();
 
-	for ( i = 0; i < result.length; i++ ) {
-		for ( j = 0; j < b.length; j++ ) {
+	for ( i = ; i < result.length; i++ ) {
+		for ( j = ; j < b.length; j++ ) {
 			if ( result[ i ] === b[ j ] ) {
 				result.splice( i, 1 );
 				i--;
@@ -687,7 +687,7 @@ function runLoggingCallbacks( key, args ) {
 	var i, l, callbacks;
 
 	callbacks = config.callbacks[ key ];
-	for ( i = 0, l = callbacks.length; i < l; i++ ) {
+	for ( i = , l = callbacks.length; i < l; i++ ) {
 		callbacks[ i ]( args );
 	}
 }
@@ -698,7 +698,7 @@ function inArray( elem, array ) {
 		return array.indexOf( elem );
 	}
 
-	for ( var i = 0, length = array.length; i < length; i++ ) {
+	for ( var i = , length = array.length; i < length; i++ ) {
 		if ( array[ i ] === elem ) {
 			return i;
 		}
@@ -714,7 +714,7 @@ function Test( settings ) {
 	this.testNumber = ++Test.count;
 }
 
-Test.count = 0;
+Test.count = ;
 
 Test.prototype = {
 	setup: function() {
@@ -738,7 +738,7 @@ Test.prototype = {
 				});
 			}
 			config.previousModule = this.module;
-			config.moduleStats = { all: 0, bad: 0 };
+			config.moduleStats = { all: , bad:  };
 			runLoggingCallbacks( "moduleStart", {
 				name: this.module
 			});
@@ -768,7 +768,7 @@ Test.prototype = {
 		try {
 			this.testEnvironment.setup.call( this.testEnvironment, this.assert );
 		} catch ( e ) {
-			this.pushFailure( "Setup failed on " + this.testName + ": " + ( e.message || e ), extractStacktrace( e, 0 ) );
+			this.pushFailure( "Setup failed on " + this.testName + ": " + ( e.message || e ), extractStacktrace( e,  ) );
 		}
 	},
 	run: function() {
@@ -792,7 +792,7 @@ Test.prototype = {
 		} catch ( e ) {
 			this.callbackRuntime = now() - this.callbackStarted;
 
-			this.pushFailure( "Died on test #" + ( this.assertions.length + 1 ) + " " + this.stack + ": " + ( e.message || e ), extractStacktrace( e, 0 ) );
+			this.pushFailure( "Died on test #" + ( this.assertions.length + 1 ) + " " + this.stack + ": " + ( e.message || e ), extractStacktrace( e,  ) );
 
 			// else next test will carry the responsibility
 			saveGlobal();
@@ -815,7 +815,7 @@ Test.prototype = {
 			try {
 				this.testEnvironment.teardown.call( this.testEnvironment, this.assert );
 			} catch ( e ) {
-				this.pushFailure( "Teardown failed on " + this.testName + ": " + ( e.message || e ), extractStacktrace( e, 0 ) );
+				this.pushFailure( "Teardown failed on " + this.testName + ": " + ( e.message || e ), extractStacktrace( e,  ) );
 			}
 		}
 		checkPollution();
@@ -827,17 +827,17 @@ Test.prototype = {
 		} else if ( this.expected !== null && this.expected !== this.assertions.length ) {
 			this.pushFailure( "Expected " + this.expected + " assertions, but " + this.assertions.length + " were run", this.stack );
 		} else if ( this.expected === null && !this.assertions.length ) {
-			this.pushFailure( "Expected at least one assertion, but none were run - call expect(0) to accept zero assertions.", this.stack );
+			this.pushFailure( "Expected at least one assertion, but none were run - call expect() to accept zero assertions.", this.stack );
 		}
 
 		var i,
-			bad = 0;
+			bad = ;
 
 		this.runtime = now() - this.started;
 		config.stats.all += this.assertions.length;
 		config.moduleStats.all += this.assertions.length;
 
-		for ( i = 0; i < this.assertions.length; i++ ) {
+		for ( i = ; i < this.assertions.length; i++ ) {
 			if ( !this.assertions[ i ].result ) {
 				bad++;
 				config.stats.bad++;
@@ -857,7 +857,7 @@ Test.prototype = {
 			assertions: this.assertions,
 			testNumber: this.testNumber,
 
-			// DEPRECATED: this property will be removed in 2.0.0, use runtime instead
+			// DEPRECATED: this property will be removed in 2.., use runtime instead
 			duration: this.runtime
 		});
 
@@ -1017,7 +1017,7 @@ QUnit.assert = Assert.prototype = {
 	 * Prints out both actual and expected values.
 	 * @name equal
 	 * @function
-	 * @example equal( format( "Received {0} bytes.", 2), "Received 2 bytes.", "format() replaces {0} with next argument" );
+	 * @example equal( format( "Received {} bytes.", 2), "Received 2 bytes.", "format() replaces {} with next argument" );
 	 */
 	equal: function( actual, expected, message ) {
 		/*jshint eqeqeq:false */
@@ -1246,9 +1246,9 @@ QUnit.equiv = (function() {
 					// track reference to avoid circular references
 					parents.push( a );
 					parentsB.push( b );
-					for ( i = 0; i < len; i++ ) {
+					for ( i = ; i < len; i++ ) {
 						loop = false;
-						for ( j = 0; j < parents.length; j++ ) {
+						for ( j = ; j < parents.length; j++ ) {
 							aCircular = parents[ j ] === a[ i ];
 							bCircular = parentsB[ j ] === b[ i ];
 							if ( aCircular || bCircular ) {
@@ -1303,7 +1303,7 @@ QUnit.equiv = (function() {
 					// be strict: don't ensure hasOwnProperty and go deep
 					for ( i in a ) {
 						loop = false;
-						for ( j = 0; j < parents.length; j++ ) {
+						for ( j = ; j < parents.length; j++ ) {
 							aCircular = parents[ j ] === a[ i ];
 							bCircular = parentsB[ j ] === b[ i ];
 							if ( aCircular || bCircular ) {
@@ -1356,14 +1356,14 @@ QUnit.equiv = (function() {
 			}
 
 			// apply transition with (1..n) arguments
-		}( args[ 0 ], args[ 1 ] ) ) && innerEquiv.apply( this, args.splice( 1, args.length - 1 ) ) );
+		}( args[  ], args[ 1 ] ) ) && innerEquiv.apply( this, args.splice( 1, args.length - 1 ) ) );
 	};
 
 	return innerEquiv;
 }());
 
 // Based on jsDump by Ariel Flesler
-// http://flesler.blogspot.com/2008/05/jsdump-pretty-dump-of-any-javascript.html
+// http://flesler.blogspot.com/28/5/jsdump-pretty-dump-of-any-javascript.html
 QUnit.dump = (function() {
 	function quote( str ) {
 		return "\"" + str.toString().replace( /"/g, "\\\"" ) + "\"";
@@ -1440,7 +1440,7 @@ QUnit.dump = (function() {
 					toString.call( obj ) === "[object Array]" ||
 
 					// NodeList objects
-					( typeof obj.length === "number" && typeof obj.item !== "undefined" && ( obj.length ? obj.item( 0 ) === obj[ 0 ] : ( obj.item( 0 ) === null && typeof obj[ 0 ] === "undefined" ) ) )
+					( typeof obj.length === "number" && typeof obj.item !== "undefined" && ( obj.length ? obj.item(  ) === obj[  ] : ( obj.item(  ) === null && typeof obj[  ] === "undefined" ) ) )
 				) {
 					type = "array";
 				} else if ( obj.constructor === Error.prototype.constructor ) {
@@ -1462,7 +1462,7 @@ QUnit.dump = (function() {
 				if ( this.HTML ) {
 					chr = chr.replace( /\t/g, "   " ).replace( / /g, "&nbsp;" );
 				}
-				return new Array( this.depth + ( extra || 0 ) ).join( chr );
+				return new Array( this.depth + ( extra ||  ) ).join( chr );
 			},
 			up: function( a ) {
 				this.depth += a || 1;
@@ -1523,7 +1523,7 @@ QUnit.dump = (function() {
 						}
 					}
 					keys.sort();
-					for ( i = 0; i < keys.length; i++ ) {
+					for ( i = ; i < keys.length; i++ ) {
 						key = keys[ i ];
 						val = map[ key ];
 						ret.push( dump.parse( key, "key" ) + ": " + dump.parse( val, undefined, stack ) );
@@ -1540,11 +1540,11 @@ QUnit.dump = (function() {
 						attrs = node.attributes;
 
 					if ( attrs ) {
-						for ( i = 0, len = attrs.length; i < len; i++ ) {
+						for ( i = , len = attrs.length; i < len; i++ ) {
 							val = attrs[ i ].nodeValue;
 
 							// IE6 includes all attributes in .attributes, even ones not explicitly set.
-							// Those have values like undefined, null, 0, false, "" or "inherit".
+							// Those have values like undefined, null, , false, "" or "inherit".
 							if ( val && val !== "inherit" ) {
 								ret += " " + attrs[ i ].nodeName + "=" + dump.parse( val, "attribute" );
 							}
@@ -1645,7 +1645,7 @@ if ( typeof window !== "undefined" ) {
 				"throws"
 			];
 
-		for ( i = 0, l = keys.length; i < l; i++ ) {
+		for ( i = , l = keys.length; i < l; i++ ) {
 			window[ keys[ i ] ] = QUnit[ keys[ i ] ];
 		}
 	})();
@@ -1687,7 +1687,7 @@ QUnit.diff = (function() {
 			ns = {},
 			os = {};
 
-		for ( i = 0; i < n.length; i++ ) {
+		for ( i = ; i < n.length; i++ ) {
 			if ( !hasOwn.call( ns, n[ i ] ) ) {
 				ns[ n[ i ] ] = {
 					rows: [],
@@ -1697,7 +1697,7 @@ QUnit.diff = (function() {
 			ns[ n[ i ] ].rows.push( i );
 		}
 
-		for ( i = 0; i < o.length; i++ ) {
+		for ( i = ; i < o.length; i++ ) {
 			if ( !hasOwn.call( os, o[ i ] ) ) {
 				os[ o[ i ] ] = {
 					rows: [],
@@ -1710,19 +1710,19 @@ QUnit.diff = (function() {
 		for ( i in ns ) {
 			if ( hasOwn.call( ns, i ) ) {
 				if ( ns[ i ].rows.length === 1 && hasOwn.call( os, i ) && os[ i ].rows.length === 1 ) {
-					n[ ns[ i ].rows[ 0 ] ] = {
-						text: n[ ns[ i ].rows[ 0 ] ],
-						row: os[ i ].rows[ 0 ]
+					n[ ns[ i ].rows[  ] ] = {
+						text: n[ ns[ i ].rows[  ] ],
+						row: os[ i ].rows[  ]
 					};
-					o[ os[ i ].rows[ 0 ] ] = {
-						text: o[ os[ i ].rows[ 0 ] ],
-						row: ns[ i ].rows[ 0 ]
+					o[ os[ i ].rows[  ] ] = {
+						text: o[ os[ i ].rows[  ] ],
+						row: ns[ i ].rows[  ]
 					};
 				}
 			}
 		}
 
-		for ( i = 0; i < n.length - 1; i++ ) {
+		for ( i = ; i < n.length - 1; i++ ) {
 			if ( n[ i ].text != null && n[ i + 1 ].text == null && n[ i ].row + 1 < o.length && o[ n[ i ].row + 1 ].text == null &&
 				n[ i + 1 ] == o[ n[ i ].row + 1 ] ) {
 
@@ -1737,8 +1737,8 @@ QUnit.diff = (function() {
 			}
 		}
 
-		for ( i = n.length - 1; i > 0; i-- ) {
-			if ( n[ i ].text != null && n[ i - 1 ].text == null && n[ i ].row > 0 && o[ n[ i ].row - 1 ].text == null &&
+		for ( i = n.length - 1; i > ; i-- ) {
+			if ( n[ i ].text != null && n[ i - 1 ].text == null && n[ i ].row >  && o[ n[ i ].row - 1 ].text == null &&
 				n[ i - 1 ] == o[ n[ i ].row - 1 ] ) {
 
 				n[ i - 1 ] = {
@@ -1780,18 +1780,18 @@ QUnit.diff = (function() {
 			nSpace.push( " " );
 		}
 
-		if ( out.n.length === 0 ) {
-			for ( i = 0; i < out.o.length; i++ ) {
+		if ( out.n.length ===  ) {
+			for ( i = ; i < out.o.length; i++ ) {
 				str += "<del>" + out.o[ i ] + oSpace[ i ] + "</del>";
 			}
 		} else {
-			if ( out.n[ 0 ].text == null ) {
-				for ( n = 0; n < out.o.length && out.o[ n ].text == null; n++ ) {
+			if ( out.n[  ].text == null ) {
+				for ( n = ; n < out.o.length && out.o[ n ].text == null; n++ ) {
 					str += "<del>" + out.o[ n ] + oSpace[ n ] + "</del>";
 				}
 			}
 
-			for ( i = 0; i < out.n.length; i++ ) {
+			for ( i = ; i < out.n.length; i++ ) {
 				if ( out.n[ i ].text == null ) {
 					str += "<ins>" + out.n[ i ] + nSpace[ i ] + "</ins>";
 				} else {
@@ -1813,16 +1813,16 @@ QUnit.diff = (function() {
 
 (function() {
 
-// Deprecated QUnit.init - Ref #530
+// Deprecated QUnit.init - Ref #53
 // Re-initialize the configuration options
 QUnit.init = function() {
 	var tests, banner, result, qunit,
 		config = QUnit.config;
 
-	config.stats = { all: 0, bad: 0 };
-	config.moduleStats = { all: 0, bad: 0 };
-	config.started = 0;
-	config.updateRate = 1000;
+	config.stats = { all: , bad:  };
+	config.moduleStats = { all: , bad:  };
+	config.started = ;
+	config.updateRate = 1;
 	config.blocking = false;
 	config.autostart = true;
 	config.autorun = false;
@@ -1875,7 +1875,7 @@ QUnit.init = function() {
 /*
 DEPRECATED: Use multiple tests instead of resetting inside a test.
 Use testStart or testDone for custom cleanup.
-This method will throw an error in 2.0, and will be removed in 2.1
+This method will throw an error in 2., and will be removed in 2.1
 */
 QUnit.reset = function() {
 
@@ -1925,7 +1925,7 @@ function escapeText( s ) {
 	return s.replace( /['"<>&]/g, function( s ) {
 		switch ( s ) {
 		case "'":
-			return "&#039;";
+			return "&#39;";
 		case "\"":
 			return "&quot;";
 		case "<":
@@ -1968,7 +1968,7 @@ function addEvents( elems, type, fn ) {
 }
 
 function hasClass( elem, name ) {
-	return ( " " + elem.className + " " ).indexOf( " " + name + " " ) >= 0;
+	return ( " " + elem.className + " " ).indexOf( " " + name + " " ) >= ;
 }
 
 function addClass( elem, name ) {
@@ -1989,7 +1989,7 @@ function removeClass( elem, name ) {
 	var set = " " + elem.className + " ";
 
 	// Class name may appear multiple times
-	while ( set.indexOf( " " + name + " " ) >= 0 ) {
+	while ( set.indexOf( " " + name + " " ) >=  ) {
 		set = set.replace( " " + name + " ", " " );
 	}
 
@@ -2008,7 +2008,7 @@ function getUrlConfigHtml() {
 		len = config.urlConfig.length,
 		urlConfigHtml = "";
 
-	for ( i = 0; i < len; i++ ) {
+	for ( i = ; i < len; i++ ) {
 		val = config.urlConfig[ i ];
 		if ( typeof val === "string" ) {
 			val = {
@@ -2035,7 +2035,7 @@ function getUrlConfigHtml() {
 				"' name='" + escaped + "' title='" + escapedTooltip + "'><option></option>";
 
 			if ( QUnit.is( "array", val.value ) ) {
-				for ( j = 0; j < val.value.length; j++ ) {
+				for ( j = ; j < val.value.length; j++ ) {
 					escaped = escapeText( val.value[ j ] );
 					urlConfigHtml += "<option value='" + escaped + "'" +
 						( config[ val.id ] === val.value[ j ] ?
@@ -2122,7 +2122,7 @@ function toolbarModuleFilterHtml() {
 		( config.module === undefined ? "selected='selected'" : "" ) +
 		">< All Modules ></option>";
 
-	for ( i = 0; i < moduleNames.length; i++ ) {
+	for ( i = ; i < moduleNames.length; i++ ) {
 		moduleFilterHtml += "<option value='" +
 			escapeText( encodeURIComponent( moduleNames[ i ] ) ) + "' " +
 			( config.module === moduleNames[ i ] ? "selected='selected'" : "" ) +
@@ -2145,7 +2145,7 @@ function toolbarModuleFilter() {
 	moduleFilter.innerHTML = moduleFilterHtml;
 
 	addEvent( moduleFilter.lastChild, "change", function() {
-		var selectBox = moduleFilter.getElementsByTagName( "select" )[ 0 ],
+		var selectBox = moduleFilter.getElementsByTagName( "select" )[  ],
 			selectedModule = decodeURIComponent( selectBox.options[ selectBox.selectedIndex ].value );
 
 		window.location = QUnit.url({
@@ -2315,10 +2315,10 @@ QUnit.done(function( details ) {
 	}
 
 	// clear own sessionStorage items if all tests passed
-	if ( config.reorder && defined.sessionStorage && details.failed === 0 ) {
-		for ( i = 0; i < sessionStorage.length; i++ ) {
+	if ( config.reorder && defined.sessionStorage && details.failed ===  ) {
+		for ( i = ; i < sessionStorage.length; i++ ) {
 			key = sessionStorage.key( i++ );
-			if ( key.indexOf( "qunit-test-" ) === 0 ) {
+			if ( key.indexOf( "qunit-test-" ) ===  ) {
 				sessionStorage.removeItem( key );
 			}
 		}
@@ -2326,7 +2326,7 @@ QUnit.done(function( details ) {
 
 	// scroll back to top to show results
 	if ( config.scrolltop && window.scrollTo ) {
-		window.scrollTo( 0, 0 );
+		window.scrollTo( ,  );
 	}
 });
 
@@ -2420,7 +2420,7 @@ QUnit.log(function( details ) {
 			"</table>";
 	}
 
-	assertList = testItem.getElementsByTagName( "ol" )[ 0 ];
+	assertList = testItem.getElementsByTagName( "ol" )[  ];
 
 	assertLi = document.createElement( "li" );
 	assertLi.className = details.result ? "pass" : "fail";
@@ -2434,7 +2434,7 @@ QUnit.testDone(function( details ) {
 		tests = id( "qunit-tests" );
 
 	// QUnit.reset() is deprecated and will be replaced for a new
-	// fixture reset function on QUnit 2.0/2.1.
+	// fixture reset function on QUnit 2./2.1.
 	// It's still called here for backwards compatibility handling
 	QUnit.reset();
 
@@ -2443,7 +2443,7 @@ QUnit.testDone(function( details ) {
 	}
 
 	testItem = id( "qunit-test-output" + details.testNumber );
-	assertList = testItem.getElementsByTagName( "ol" )[ 0 ];
+	assertList = testItem.getElementsByTagName( "ol" )[  ];
 
 	good = details.passed;
 	bad = details.failed;
@@ -2457,7 +2457,7 @@ QUnit.testDone(function( details ) {
 		}
 	}
 
-	if ( bad === 0 ) {
+	if ( bad ===  ) {
 		addClass( assertList, "qunit-collapsed" );
 	}
 

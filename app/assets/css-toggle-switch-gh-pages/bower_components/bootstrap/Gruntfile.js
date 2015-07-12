@@ -1,7 +1,7 @@
 /*!
  * Bootstrap's Gruntfile
  * http://getbootstrap.com
- * Copyright 2013-2014 Twitter, Inc.
+ * Copyright 213-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
@@ -35,7 +35,7 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
     banner: '/*!\n' +
             ' * Bootstrap v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
-            ' * Copyright 2011-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+            ' * Copyright 211-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
             ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' +
             ' */\n',
     // NOTE: This jqueryCheck/jqueryVersionCheck code is duplicated in customizer.js;
@@ -47,8 +47,8 @@ module.exports = function (grunt) {
     ].join('\n'),
     jqueryVersionCheck: [
       '+function ($) {',
-      '  var version = $.fn.jquery.split(\' \')[0].split(\'.\')',
-      '  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1)) {',
+      '  var version = $.fn.jquery.split(\' \')[].split(\'.\')',
+      '  if ((version[] < 2 && version[1] < 9) || (version[] == 1 && version[1] == 9 && version[2] < 1)) {',
       '    throw new Error(\'Bootstrap\\\'s JavaScript requires jQuery version 1.9.1 or higher\')',
       '  }',
       '}(jQuery);\n\n'
@@ -198,7 +198,7 @@ module.exports = function (grunt) {
         browsers: [
           'Android 2.3',
           'Android >= 4',
-          'Chrome >= 20',
+          'Chrome >= 2',
           'Firefox >= 24', // Firefox 24 is the latest ESR
           'Explorer >= 8',
           'iOS >= 6',
@@ -318,7 +318,7 @@ module.exports = function (grunt) {
     connect: {
       server: {
         options: {
-          port: 3000,
+          port: 3,
           base: '.'
         }
       }
@@ -391,9 +391,9 @@ module.exports = function (grunt) {
       all: {
         options: {
           build: process.env.TRAVIS_JOB_ID,
-          concurrency: 10,
+          concurrency: 1,
           maxRetries: 3,
-          urls: ['http://127.0.0.1:3000/js/tests/index.html'],
+          urls: ['http://127...1:3/js/tests/index.html'],
           browsers: grunt.file.readYAML('grunt/sauce_browsers.yml')
         }
       }
@@ -418,7 +418,7 @@ module.exports = function (grunt) {
     return !process.env.TWBS_TEST || process.env.TWBS_TEST === subset;
   };
   var isUndefOrNonZero = function (val) {
-    return val === undefined || val !== '0';
+    return val === undefined || val !== '';
   };
 
   // Test task.

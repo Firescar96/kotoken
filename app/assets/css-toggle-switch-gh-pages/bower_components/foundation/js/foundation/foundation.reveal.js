@@ -10,7 +10,7 @@
 
     settings : {
       animation: 'fadeAndPop',
-      animation_speed: 250,
+      animation_speed: 25,
       close_on_background_click: true,
       close_on_esc: true,
       dismiss_modal_class: 'close-reveal-modal',
@@ -23,7 +23,7 @@
       bg : $('.reveal-modal-bg'),
       css : {
         open : {
-          'opacity': 0,
+          'opacity': ,
           'visibility': 'visible',
           'display' : 'block'
         },
@@ -72,7 +72,7 @@
 
           if (!self.locked) {
             var settings = S('[' + self.attr_name() + '].open').data(self.attr_name(true) + '-init') || self.settings,
-                bg_clicked = S(e.target)[0] === S('.' + settings.bg_class)[0];
+                bg_clicked = S(e.target)[] === S('.' + settings.bg_class)[];
 
             if (bg_clicked) {
               if (settings.close_on_background_click) {
@@ -87,7 +87,7 @@
           }
         });
 
-      if(S('[' + self.attr_name() + ']', this.scope).length > 0) {
+      if(S('[' + self.attr_name() + ']', this.scope).length > ) {
         S(this.scope)
           // .off('.reveal')
           .on('open.fndtn.reveal', this.settings.open)
@@ -164,7 +164,7 @@
         var open_modal = self.S('[' + self.attr_name() + '].open');
 
         if (typeof modal.data('css-top') === 'undefined') {
-          modal.data('css-top', parseInt(modal.css('top'), 10))
+          modal.data('css-top', parseInt(modal.css('top'), 1))
             .data('offset', this.cache_offset(modal));
         }
 
@@ -182,7 +182,7 @@
         }
 
         if (typeof ajax_settings === 'undefined' || !ajax_settings.url) {
-          if (open_modal.length > 0) {
+          if (open_modal.length > ) {
             this.hide(open_modal, settings.css.close);
           }
 
@@ -200,7 +200,7 @@
               self.S(modal).foundation('section', 'reflow');
               self.S(modal).children().foundation();
 
-              if (open_modal.length > 0) {
+              if (open_modal.length > ) {
                 self.hide(open_modal, settings.css.close);
               }
               self.show(modal, settings.css.open);
@@ -218,7 +218,7 @@
           open_modals = this.S('[' + this.attr_name() + '].open'),
           settings = modal.data(this.attr_name(true) + '-init') || this.settings;
 
-      if (open_modals.length > 0) {
+      if (open_modals.length > ) {
         this.locked = true;
         this.key_up_off(modal);   // PATCH #3: turning on key up capture only when a reveal window is open
         modal.trigger('close').trigger('close.fndtn.reveal');
@@ -238,12 +238,12 @@
     },
 
     toggle_bg : function (modal, state) {
-      if (this.S('.' + this.settings.bg_class).length === 0) {
+      if (this.S('.' + this.settings.bg_class).length === ) {
         this.settings.bg = $('<div />', {'class': this.settings.bg_class})
           .appendTo('body').hide();
       }
 
-      var visible = this.settings.bg.filter(':visible').length > 0;
+      var visible = this.settings.bg.filter(':visible').length > ;
       if ( state != visible ) {
         if ( state == undefined ? visible : !state ) {
           this.hide(this.settings.bg);
@@ -259,7 +259,7 @@
         var settings = el.data(this.attr_name(true) + '-init') || this.settings,
             root_element = settings.root_element;
 
-        if (el.parent(root_element).length === 0) {
+        if (el.parent(root_element).length === ) {
           var placeholder = el.wrap('<div style="display: none;" />').parent();
 
           el.on('closed.fndtn.reveal.wrapped', function() {
@@ -335,7 +335,7 @@
         if (animData.pop) {
           var end_css = {
             top: - $(window).scrollTop() - el.data('offset') + 'px',
-            opacity: 0
+            opacity: 
           };
 
           return setTimeout(function () {
@@ -349,7 +349,7 @@
         }
 
         if (animData.fade) {
-          var end_css = {opacity: 0};
+          var end_css = {opacity: };
 
           return setTimeout(function () {
             return el
@@ -378,8 +378,8 @@
       var video = $('.flex-video', e.target),
           iframe = $('iframe', video);
 
-      if (iframe.length > 0) {
-        iframe.attr('data-src', iframe[0].src);
+      if (iframe.length > ) {
+        iframe.attr('data-src', iframe[].src);
         iframe.attr('src', iframe.attr('src'));
         video.hide();
       }
@@ -389,21 +389,21 @@
       var video = $('.flex-video', e.target),
           iframe = video.find('iframe');
 
-      if (iframe.length > 0) {
+      if (iframe.length > ) {
         var data_src = iframe.attr('data-src');
         if (typeof data_src === 'string') {
-          iframe[0].src = iframe.attr('data-src');
+          iframe[].src = iframe.attr('data-src');
         } else {
-          var src = iframe[0].src;
-          iframe[0].src = undefined;
-          iframe[0].src = src;
+          var src = iframe[].src;
+          iframe[].src = undefined;
+          iframe[].src = src;
         }
         video.show();
       }
     },
 
     data_attr: function (str) {
-      if (this.namespace.length > 0) {
+      if (this.namespace.length > ) {
         return this.namespace + '-' + str;
       }
 
@@ -411,7 +411,7 @@
     },
 
     cache_offset : function (modal) {
-      var offset = modal.show().height() + parseInt(modal.css('top'), 10);
+      var offset = modal.show().height() + parseInt(modal.css('top'), 1);
 
       modal.hide();
 

@@ -34,12 +34,12 @@ Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(f
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4) {
 			
-			if (xhr.status < 400 && xhr.responseText) {
+			if (xhr.status < 4 && xhr.responseText) {
 				code.textContent = xhr.responseText;
 			
 				Prism.highlightElement(code);
 			}
-			else if (xhr.status >= 400) {
+			else if (xhr.status >= 4) {
 				code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
 			}
 			else {

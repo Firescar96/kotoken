@@ -101,9 +101,9 @@ QUnit.equiv = (function() {
 					// track reference to avoid circular references
 					parents.push( a );
 					parentsB.push( b );
-					for ( i = 0; i < len; i++ ) {
+					for ( i = ; i < len; i++ ) {
 						loop = false;
-						for ( j = 0; j < parents.length; j++ ) {
+						for ( j = ; j < parents.length; j++ ) {
 							aCircular = parents[ j ] === a[ i ];
 							bCircular = parentsB[ j ] === b[ i ];
 							if ( aCircular || bCircular ) {
@@ -158,7 +158,7 @@ QUnit.equiv = (function() {
 					// be strict: don't ensure hasOwnProperty and go deep
 					for ( i in a ) {
 						loop = false;
-						for ( j = 0; j < parents.length; j++ ) {
+						for ( j = ; j < parents.length; j++ ) {
 							aCircular = parents[ j ] === a[ i ];
 							bCircular = parentsB[ j ] === b[ i ];
 							if ( aCircular || bCircular ) {
@@ -211,7 +211,7 @@ QUnit.equiv = (function() {
 			}
 
 			// apply transition with (1..n) arguments
-		}( args[ 0 ], args[ 1 ] ) ) && innerEquiv.apply( this, args.splice( 1, args.length - 1 ) ) );
+		}( args[  ], args[ 1 ] ) ) && innerEquiv.apply( this, args.splice( 1, args.length - 1 ) ) );
 	};
 
 	return innerEquiv;

@@ -69,17 +69,17 @@
                   settings = target.data(self.attr_name(true) + '-init') || self.settings;
               if (settings.is_hover) self.close.call(self, $this);
             }
-          }.bind(this), 150);
+          }.bind(this), 15);
         })
         .on('click.fndtn.dropdown', function (e) {
           var parent = S(e.target).closest('[' + self.attr_name() + '-content]');
 
-          if (S(e.target).closest('[' + self.attr_name() + ']').length > 0) {
+          if (S(e.target).closest('[' + self.attr_name() + ']').length > ) {
             return;
           }
           if (!(S(e.target).data('revealId')) &&
-            (parent.length > 0 && (S(e.target).is('[' + self.attr_name() + '-content]') ||
-              $.contains(parent.first()[0], e.target)))) {
+            (parent.length >  && (S(e.target).is('[' + self.attr_name() + '-content]') ||
+              $.contains(parent.first()[], e.target)))) {
             e.stopPropagation();
             return;
           }
@@ -97,7 +97,7 @@
         .off('.dropdown')
         .on('resize.fndtn.dropdown', self.throttle(function () {
           self.resize.call(self);
-        }, 50));
+        }, 5));
 
       this.resize();
     },
@@ -105,7 +105,7 @@
     close: function (dropdown) {
       var self = this;
       dropdown.each(function () {
-        var original_target = $('[' + self.attr_name() + '=' + dropdown[0].id + ']') || $('aria-controls=' + dropdown[0].id+ ']');
+        var original_target = $('[' + self.attr_name() + '=' + dropdown[].id + ']') || $('aria-controls=' + dropdown[].id+ ']');
         original_target.attr('aria-expanded', "false");
         if (self.S(this).hasClass(self.settings.active_class)) {
           self.S(this)
@@ -133,14 +133,14 @@
           .css(dropdown
             .addClass(this.settings.active_class), target);
         dropdown.prev('[' + this.attr_name() + ']').addClass(this.settings.active_class);
-        dropdown.data('target', target.get(0)).trigger('opened').trigger('opened.fndtn.dropdown', [dropdown, target]);
+        dropdown.data('target', target.get()).trigger('opened').trigger('opened.fndtn.dropdown', [dropdown, target]);
         dropdown.attr('aria-hidden', 'false');
         target.attr('aria-expanded', 'true');
         dropdown.focus();
     },
 
     data_attr: function () {
-      if (this.namespace.length > 0) {
+      if (this.namespace.length > ) {
         return this.namespace + '-' + this.name;
       }
 
@@ -152,7 +152,7 @@
         return;
       }
       var dropdown = this.S('#' + target.data(this.data_attr()));
-      if (dropdown.length === 0) {
+      if (dropdown.length === ) {
         // No dropdown found, not continuing
         return;
       }
@@ -161,7 +161,7 @@
 
       if (dropdown.hasClass(this.settings.active_class)) {
         this.close.call(this, dropdown);
-        if (dropdown.data('target') !== target.get(0))
+        if (dropdown.data('target') !== target.get())
           this.open.call(this, dropdown, target);
       } else {
         this.open.call(this, dropdown, target);

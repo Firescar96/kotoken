@@ -11,37 +11,37 @@
       focus_on_invalid : true,
       error_labels: true, // labels with a for="inputId" will recieve an `error` class
       error_class: 'error',
-      timeout : 1000,
+      timeout : 1,
       patterns : {
         alpha: /^[a-zA-Z]+$/,
-        alpha_numeric : /^[a-zA-Z0-9]+$/,
+        alpha_numeric : /^[a-zA-Z-9]+$/,
         integer: /^[-+]?\d+$/,
         number: /^[-+]?\d*(?:[\.\,]\d+)?$/,
 
         // amex, visa, diners
-        card : /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/,
-        cvv : /^([0-9]){3,4}$/,
+        card : /^(?:4[-9]{12}(?:[-9]{3})?|5[1-5][-9]{14}|6(?:11|5[-9][-9])[-9]{12}|3[47][-9]{13}|3(?:[-5]|[68][-9])[-9]{11}|(?:2131|18|35\d{3})\d{11})$/,
+        cvv : /^([-9]){3,4}$/,
 
         // http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#valid-e-mail-address
-        email : /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/,
+        email : /^[a-zA-Z-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z-9](?:[a-zA-Z-9-]{,61}[a-zA-Z-9])?(?:\.[a-zA-Z-9](?:[a-zA-Z-9-]{,61}[a-zA-Z-9])?)+$/,
 
-        url: /^(https?|ftp|file|ssh):\/\/(((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/,
+        url: /^(https?|ftp|file|ssh):\/\/(((([a-zA-Z]|\d|-|\.|_|~|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[-4]\d|25[-5])\.(\d|[1-9]\d|1\d\d|2[-4]\d|25[-5])\.(\d|[1-9]\d|1\d\d|2[-4]\d|25[-5])\.(\d|[1-9]\d|1\d\d|2[-4]\d|25[-5]))|((([a-zA-Z]|\d|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])|(([a-zA-Z]|\d|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])*([a-zA-Z]|\d|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])))\.)+(([a-zA-Z]|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])|(([a-zA-Z]|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])*([a-zA-Z]|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])))\.?)(:\d*)?)(\/((([a-zA-Z]|\d|-|\.|_|~|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-zA-Z]|\d|-|\.|_|~|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-zA-Z]|\d|-|\.|_|~|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE-\uF8FF]|\/|\?)*)?(\#((([a-zA-Z]|\d|-|\.|_|~|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/,
         // abc.de
-        domain: /^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/,
+        domain: /^([a-zA-Z-9]([a-zA-Z-9\-]{,61}[a-zA-Z-9])?\.)+[a-zA-Z]{2,6}$/,
 
-        datetime: /^([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])T([0-5][0-9])\:([0-5][0-9])\:([0-5][0-9])(Z|([\-\+]([0-1][0-9])\:00))$/,
+        datetime: /^([-2][-9]{3})\-([-1][-9])\-([-3][-9])T([-5][-9])\:([-5][-9])\:([-5][-9])(Z|([\-\+]([-1][-9])\:))$/,
         // YYYY-MM-DD
-        date: /(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))$/,
+        date: /(?:19|2)[-9]{2}-(?:(?:[1-9]|1[-2])-(?:[1-9]|1[-9]|2[-9])|(?:(?!2)(?:[1-9]|1[-2])-(?:3))|(?:(?:[13578]|1[2])-31))$/,
         // HH:MM:SS
-        time : /^(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}$/,
+        time : /^([-9]|1[-9]|2[-3])(:[-5][-9]){2}$/,
         dateISO: /^\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}$/,
         // MM/DD/YYYY
-        month_day_year : /^(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.]\d{4}$/,
+        month_day_year : /^([1-9]|1[12])[- \/.]([1-9]|[12][-9]|3[1])[- \/.]\d{4}$/,
         // DD/MM/YYYY
-        day_month_year : /^(0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.]\d{4}$/,
+        day_month_year : /^([1-9]|[12][-9]|3[1])[- \/.]([1-9]|1[12])[- \/.]\d{4}$/,
 
         // #FFF or #FFFFFF
-        color: /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/
+        color: /^#?([a-fA-F-9]{6}|[a-fA-F-9]{3})$/
       },
       validators : {
         equalTo: function(el, required, parent) {
@@ -100,11 +100,11 @@
     validate : function (els, e, is_ajax) {
       var validations = this.parse_patterns(els),
           validation_count = validations.length,
-          form = this.S(els[0]).closest('form'),
+          form = this.S(els[]).closest('form'),
           submit_event = /submit/.test(e.type);
 
       // Has to count up to make sure the focus gets applied to the top error
-      for (var i=0; i < validation_count; i++) {
+      for (var i=; i < validation_count; i++) {
         if (!validations[i] && (submit_event || is_ajax)) {
           if (this.settings.focus_on_invalid) els[i].focus();
           form.trigger('invalid');
@@ -141,9 +141,9 @@
 
       var pattern = el.getAttribute('pattern') || '';
 
-      if (this.settings.patterns.hasOwnProperty(pattern) && pattern.length > 0) {
+      if (this.settings.patterns.hasOwnProperty(pattern) && pattern.length > ) {
         return [el, this.settings.patterns[pattern], required];
-      } else if (pattern.length > 0) {
+      } else if (pattern.length > ) {
         return [el, new RegExp(pattern), required];
       }
 
@@ -159,10 +159,10 @@
     check_validation_and_apply_styles : function (el_patterns) {
       var i = el_patterns.length,
           validations = [],
-          form = this.S(el_patterns[0][0]).closest('[data-' + this.attr_name(true) + ']'),
+          form = this.S(el_patterns[][]).closest('[data-' + this.attr_name(true) + ']'),
           settings = form.data(this.attr_name(true) + '-init') || {};
       while (i--) {
-        var el = el_patterns[i][0],
+        var el = el_patterns[i][],
             required = el_patterns[i][2],
             value = el.value.trim(),
             direct_parent = this.S(el).parent(),
@@ -170,7 +170,7 @@
             is_radio = el.type === "radio",
             is_checkbox = el.type === "checkbox",
             label = this.S('label[for="' + el.getAttribute('id') + '"]'),
-            valid_length = (required) ? (el.value.length > 0) : true,
+            valid_length = (required) ? (el.value.length > ) : true,
             el_validations = [];
 
         var parent, valid;
@@ -204,12 +204,12 @@
 
           el_validations = [el_validations.every(function(valid){return valid;})];
 
-          if(el_validations[0]){
+          if(el_validations[]){
             this.S(el).removeAttr(this.invalid_attr);
             el.setAttribute('aria-invalid', 'false');
             el.removeAttribute('aria-describedby');
             parent.removeClass(this.settings.error_class);
-            if (label.length > 0 && this.settings.error_labels) {
+            if (label.length >  && this.settings.error_labels) {
               label.removeClass(this.settings.error_class).removeAttr('role');
             }
             $(el).triggerHandler('valid');
@@ -219,18 +219,18 @@
 
             // Try to find the error associated with the input
             var errorElem = parent.find('small.'+this.settings.error_class, 'span.'+this.settings.error_class);
-            var errorID = errorElem.length > 0 ? errorElem[0].id : "";
-            if (errorID.length > 0) el.setAttribute('aria-describedby', errorID);
+            var errorID = errorElem.length >  ? errorElem[].id : "";
+            if (errorID.length > ) el.setAttribute('aria-describedby', errorID);
 
-            // el.setAttribute('aria-describedby', $(el).find('.error')[0].id);
+            // el.setAttribute('aria-describedby', $(el).find('.error')[].id);
             parent.addClass(this.settings.error_class);
-            if (label.length > 0 && this.settings.error_labels) {
+            if (label.length >  && this.settings.error_labels) {
               label.addClass(this.settings.error_class).attr('role', 'alert');
             }
             $(el).triggerHandler('invalid');
           }
         }
-        validations.push(el_validations[0]);
+        validations.push(el_validations[]);
       }
       validations = [validations.every(function(valid){return valid;})];
       return validations;
@@ -256,12 +256,12 @@
           valid = false;
 
       // Has to count up to make sure the focus gets applied to the top error
-      for (var i=0; i < count; i++) {
+      for (var i=; i < count; i++) {
         if (group[i].checked) valid = true;
       }
 
       // Has to count up to make sure the focus gets applied to the top error
-      for (var i=0; i < count; i++) {
+      for (var i=; i < count; i++) {
         if (valid) {
           this.S(group[i]).removeAttr(this.invalid_attr).parent().removeClass(this.settings.error_class);
         } else {
@@ -280,11 +280,11 @@
       if (valid) {
         this.S(el).removeAttr(this.invalid_attr);
         parent.removeClass(this.settings.error_class);
-        if (label.length > 0 && settings.error_labels) label.removeClass(this.settings.error_class);
+        if (label.length >  && settings.error_labels) label.removeClass(this.settings.error_class);
       } else {
         this.S(el).attr(this.invalid_attr, '');
         parent.addClass(this.settings.error_class);
-        if (label.length > 0 && settings.error_labels) label.addClass(this.settings.error_class);
+        if (label.length >  && settings.error_labels) label.addClass(this.settings.error_class);
       }
 
       return valid;
@@ -293,7 +293,7 @@
     valid_oneof: function(el, required, parent, doNotValidateOthers) {
       var el = this.S(el),
         others = this.S('[' + this.add_namespace('data-oneof') + ']'),
-        valid = others.filter(':checked').length > 0;
+        valid = others.filter(':checked').length > ;
 
       if (valid) {
         el.removeAttr(this.invalid_attr).parent().removeClass(this.settings.error_class);

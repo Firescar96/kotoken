@@ -1,5 +1,5 @@
 // Blob constructor
-// http://dev.w3.org/2006/webapi/FileAPI/#constructorBlob
+// http://dev.w3.org/26/webapi/FileAPI/#constructorBlob
 
 Modernizr.addTest('blobconstructor', function () {
     try {

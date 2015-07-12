@@ -17,7 +17,7 @@ $keystroke-font-color-alt: $white !default;
 $keystroke-function-factor: -7% !default;
 
 // We use this to control keystroke padding.
-$keystroke-padding: rem-calc(2 4 0) !default;
+$keystroke-padding: rem-calc(2 4 ) !default;
 
 // We use these to control background and border styles.
 $keystroke-bg: scale-color($white, $lightness: $keystroke-function-factor) !default;
@@ -39,12 +39,12 @@ $keystroke-radius: $global-radius !default;
   border-color: scale-color($bg, $lightness: $keystroke-function-factor);
 
   // We adjust the font color based on the brightness of the background.
-  @if $bg-lightness > 70% { color: $keystroke-font-color; }
+  @if $bg-lightness > 7% { color: $keystroke-font-color; }
   @else { color: $keystroke-font-color-alt; }
 
   border-style: $keystroke-border-style;
   border-width: $keystroke-border-width;
-  margin: 0;
+  margin: ;
   font-family: $keystroke-font;
   font-size: $keystroke-font-size;
   padding: $keystroke-padding;

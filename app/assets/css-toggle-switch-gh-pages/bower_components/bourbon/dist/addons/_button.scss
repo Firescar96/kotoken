@@ -1,4 +1,4 @@
-@mixin button ($style: simple, $base-color: #4294f0, $text-size: inherit, $padding: 7px 18px) {
+@mixin button ($style: simple, $base-color: #4294f, $text-size: inherit, $padding: 7px 18px) {
 
   @if type-of($style) == string and type-of($base-color) == color {
     @include buttonstyle($style, $base-color, $text-size, $padding);
@@ -7,7 +7,7 @@
   @if type-of($style) == string and type-of($base-color) == number {
     $padding: $text-size;
     $text-size: $base-color;
-    $base-color: #4294f0;
+    $base-color: #4294f;
 
     @if $padding == inherit {
       $padding: 7px 18px;
@@ -38,10 +38,10 @@
   @if type-of($style) == number {
     $padding: $base-color;
     $text-size: $style;
-    $base-color: #4294f0;
+    $base-color: #4294f;
     $style: simple;
 
-    @if $padding == #4294f0 {
+    @if $padding == #4294f {
       $padding: 7px 18px;
     }
 
@@ -49,7 +49,7 @@
   }
 
   &:disabled {
-    opacity: 0.5;
+    opacity: .5;
     cursor: not-allowed;
   }
 }
@@ -97,15 +97,15 @@
 // Simple Button
 //************************************************************************//
 @mixin simple($base-color, $grayscale: false, $textsize: inherit, $padding: 7px 18px) {
-  $color:         hsl(0, 0, 100%);
+  $color:         hsl(, , 1%);
   $border:        adjust-color($base-color, $saturation:  9%,  $lightness: -14%);
   $inset-shadow:  adjust-color($base-color, $saturation: -8%,  $lightness:  15%);
   $stop-gradient: adjust-color($base-color, $saturation:  9%,  $lightness: -11%);
   $text-shadow:   adjust-color($base-color, $saturation:  15%, $lightness: -18%);
 
   @if is-light($base-color) {
-    $color:       hsl(0, 0, 20%);
-    $text-shadow: adjust-color($base-color, $saturation: 10%, $lightness: 4%);
+    $color:       hsl(, , 2%);
+    $text-shadow: adjust-color($base-color, $saturation: 1%, $lightness: 4%);
   }
 
   @if $grayscale == true {
@@ -117,7 +117,7 @@
 
   border: 1px solid $border;
   border-radius: 3px;
-  box-shadow: inset 0 1px 0 0 $inset-shadow;
+  box-shadow: inset  1px   $inset-shadow;
   color: $color;
   display: inline-block;
   font-size: $textsize;
@@ -125,7 +125,7 @@
   @include linear-gradient ($base-color, $stop-gradient);
   padding: $padding;
   text-decoration: none;
-  text-shadow: 0 1px 0 $text-shadow;
+  text-shadow:  1px  $text-shadow;
   background-clip: padding-box;
 
   &:hover:not(:disabled) {
@@ -139,7 +139,7 @@
       $stop-gradient-hover: grayscale($stop-gradient-hover);
     }
 
-    box-shadow: inset 0 1px 0 0 $inset-shadow-hover;
+    box-shadow: inset  1px   $inset-shadow-hover;
     cursor: pointer;
     @include linear-gradient ($base-color-hover, $stop-gradient-hover);
   }
@@ -155,7 +155,7 @@
     }
 
     border: 1px solid $border-active;
-    box-shadow: inset 0 0 8px 4px $inset-shadow-active, inset 0 0 8px 4px $inset-shadow-active;
+    box-shadow: inset   8px 4px $inset-shadow-active, inset   8px 4px $inset-shadow-active;
   }
 }
 
@@ -163,18 +163,18 @@
 // Shiny Button
 //************************************************************************//
 @mixin shiny($base-color, $grayscale: false, $textsize: inherit, $padding: 7px 18px) {
-  $color:         hsl(0, 0, 100%);
+  $color:         hsl(, , 1%);
   $border:        adjust-color($base-color, $red: -117, $green: -111, $blue: -81);
   $border-bottom: adjust-color($base-color, $red: -126, $green: -127, $blue: -122);
-  $fourth-stop:   adjust-color($base-color, $red: -79,  $green: -70,  $blue: -46);
+  $fourth-stop:   adjust-color($base-color, $red: -79,  $green: -7,  $blue: -46);
   $inset-shadow:  adjust-color($base-color, $red:  37,  $green:  29,  $blue:  12);
-  $second-stop:   adjust-color($base-color, $red: -56,  $green: -50,  $blue: -33);
-  $text-shadow:   adjust-color($base-color, $red: -140, $green: -141, $blue: -114);
+  $second-stop:   adjust-color($base-color, $red: -56,  $green: -5,  $blue: -33);
+  $text-shadow:   adjust-color($base-color, $red: -14, $green: -141, $blue: -114);
   $third-stop:    adjust-color($base-color, $red: -86,  $green: -75,  $blue: -48);
 
   @if is-light($base-color) {
-    $color:       hsl(0, 0, 20%);
-    $text-shadow: adjust-color($base-color, $saturation: 10%, $lightness: 4%);
+    $color:       hsl(, , 2%);
+    $text-shadow: adjust-color($base-color, $saturation: 1%, $lightness: 4%);
   }
 
   @if $grayscale == true {
@@ -190,22 +190,22 @@
   border: 1px solid $border;
   border-bottom: 1px solid $border-bottom;
   border-radius: 5px;
-  box-shadow: inset 0 1px 0 0 $inset-shadow;
+  box-shadow: inset  1px   $inset-shadow;
   color: $color;
   display: inline-block;
   font-size: $textsize;
   font-weight: bold;
-  @include linear-gradient(top, $base-color 0%, $second-stop 50%, $third-stop 50%, $fourth-stop 100%);
+  @include linear-gradient(top, $base-color %, $second-stop 5%, $third-stop 5%, $fourth-stop 1%);
   padding: $padding;
   text-align: center;
   text-decoration: none;
-  text-shadow: 0 -1px 1px $text-shadow;
+  text-shadow:  -1px 1px $text-shadow;
 
   &:hover:not(:disabled) {
     $first-stop-hover:  adjust-color($base-color, $red: -13, $green: -15, $blue: -18);
     $second-stop-hover: adjust-color($base-color, $red: -66, $green: -62, $blue: -51);
     $third-stop-hover:  adjust-color($base-color, $red: -93, $green: -85, $blue: -66);
-    $fourth-stop-hover: adjust-color($base-color, $red: -86, $green: -80, $blue: -63);
+    $fourth-stop-hover: adjust-color($base-color, $red: -86, $green: -8, $blue: -63);
 
     @if $grayscale == true {
       $first-stop-hover:  grayscale($first-stop-hover);
@@ -215,10 +215,10 @@
     }
 
     cursor: pointer;
-    @include linear-gradient(top, $first-stop-hover  0%,
-                                  $second-stop-hover 50%,
-                                  $third-stop-hover  50%,
-                                  $fourth-stop-hover 100%);
+    @include linear-gradient(top, $first-stop-hover  %,
+                                  $second-stop-hover 5%,
+                                  $third-stop-hover  5%,
+                                  $fourth-stop-hover 1%);
   }
 
   &:active:not(:disabled),
@@ -229,7 +229,7 @@
       $inset-shadow-active: grayscale($inset-shadow-active);
     }
 
-    box-shadow: inset 0 0 20px 0 $inset-shadow-active;
+    box-shadow: inset   2  $inset-shadow-active;
   }
 }
 
@@ -237,17 +237,17 @@
 // Pill Button
 //************************************************************************//
 @mixin pill($base-color, $grayscale: false, $textsize: inherit, $padding: 7px 18px) {
-  $color:         hsl(0, 0, 100%);
+  $color:         hsl(, , 1%);
   $border-bottom: adjust-color($base-color, $hue:  8, $saturation: -11%, $lightness: -26%);
   $border-sides:  adjust-color($base-color, $hue:  4, $saturation: -21%, $lightness: -21%);
-  $border-top:    adjust-color($base-color, $hue: -1, $saturation: -30%, $lightness: -15%);
+  $border-top:    adjust-color($base-color, $hue: -1, $saturation: -3%, $lightness: -15%);
   $inset-shadow:  adjust-color($base-color, $hue: -1, $saturation: -1%,  $lightness:  7%);
-  $stop-gradient: adjust-color($base-color, $hue:  8, $saturation:  14%, $lightness: -10%);
+  $stop-gradient: adjust-color($base-color, $hue:  8, $saturation:  14%, $lightness: -1%);
   $text-shadow:   adjust-color($base-color, $hue:  5, $saturation: -19%, $lightness: -15%);
 
   @if is-light($base-color) {
-    $color:       hsl(0, 0, 20%);
-    $text-shadow: adjust-color($base-color, $saturation: 10%, $lightness: 4%);
+    $color:       hsl(, , 2%);
+    $text-shadow: adjust-color($base-color, $saturation: 1%, $lightness: 4%);
   }
 
   @if $grayscale == true {
@@ -262,7 +262,7 @@
   border: 1px solid $border-top;
   border-color: $border-top $border-sides $border-bottom;
   border-radius: 16px;
-  box-shadow: inset 0 1px 0 0 $inset-shadow;
+  box-shadow: inset  1px   $inset-shadow;
   color: $color;
   display: inline-block;
   font-size: $textsize;
@@ -272,7 +272,7 @@
   padding: $padding;
   text-align: center;
   text-decoration: none;
-  text-shadow: 0 -1px 1px $text-shadow;
+  text-shadow:  -1px 1px $text-shadow;
   background-clip: padding-box;
 
   &:hover:not(:disabled) {
@@ -296,17 +296,17 @@
 
     border: 1px solid $border-top;
     border-color: $border-top $border-sides $border-bottom;
-    box-shadow: inset 0 1px 0 0 $inset-shadow-hover;
+    box-shadow: inset  1px   $inset-shadow-hover;
     cursor: pointer;
     @include linear-gradient ($base-color-hover, $stop-gradient-hover);
-    text-shadow: 0 -1px 1px $text-shadow-hover;
+    text-shadow:  -1px 1px $text-shadow-hover;
     background-clip: padding-box;
   }
 
   &:active:not(:disabled),
   &:focus:not(:disabled) {
-    $active-color:         adjust-color($base-color, $hue: 4,  $saturation: -12%,  $lightness: -10%);
-    $border-active:        adjust-color($base-color, $hue: 6,  $saturation: -2.5%, $lightness: -30%);
+    $active-color:         adjust-color($base-color, $hue: 4,  $saturation: -12%,  $lightness: -1%);
+    $border-active:        adjust-color($base-color, $hue: 6,  $saturation: -2.5%, $lightness: -3%);
     $border-bottom-active: adjust-color($base-color, $hue: 11, $saturation:  6%,   $lightness: -31%);
     $inset-shadow-active:  adjust-color($base-color, $hue: 9,  $saturation:  2%,   $lightness: -21.5%);
     $text-shadow-active:   adjust-color($base-color, $hue: 5,  $saturation: -12%,  $lightness: -21.5%);
@@ -322,8 +322,8 @@
     background: $active-color;
     border: 1px solid $border-active;
     border-bottom: 1px solid $border-bottom-active;
-    box-shadow: inset 0 0 6px 3px $inset-shadow-active;
-    text-shadow: 0 -1px 1px $text-shadow-active;
+    box-shadow: inset   6px 3px $inset-shadow-active;
+    text-shadow:  -1px 1px $text-shadow-active;
   }
 }
 
@@ -332,10 +332,10 @@
 // Flat Button
 //************************************************************************//
 @mixin flat($base-color, $grayscale: false, $textsize: inherit, $padding: 7px 18px) {
-  $color:         hsl(0, 0, 100%);
+  $color:         hsl(, , 1%);
 
   @if is-light($base-color) {
-    $color:       hsl(0, 0, 20%);
+    $color:       hsl(, , 2%);
   }
 
   background-color: $base-color;

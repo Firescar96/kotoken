@@ -41,7 +41,7 @@ var
 	 */
 	transports = {},
 
-	// Avoid comment-prolog char sequence (#10098); must appease lint and evade compression
+	// Avoid comment-prolog char sequence (#198); must appease lint and evade compression
 	allTypes = "*/".concat("*");
 
 // #8138, IE may throw an exception when accessing
@@ -71,14 +71,14 @@ function addToPrefiltersOrTransports( structure ) {
 		}
 
 		var dataType,
-			i = 0,
+			i = ,
 			dataTypes = dataTypeExpression.toLowerCase().match( rnotwhite ) || [];
 
 		if ( jQuery.isFunction( func ) ) {
 			// For each dataType in the dataTypeExpression
 			while ( (dataType = dataTypes[i++]) ) {
 				// Prepend if requested
-				if ( dataType[0] === "+" ) {
+				if ( dataType[] === "+" ) {
 					dataType = dataType.slice( 1 ) || "*";
 					(structure[ dataType ] = structure[ dataType ] || []).unshift( func );
 
@@ -113,7 +113,7 @@ function inspectPrefiltersOrTransports( structure, options, originalOptions, jqX
 		return selected;
 	}
 
-	return inspect( options.dataTypes[ 0 ] ) || !inspected[ "*" ] && inspect( "*" );
+	return inspect( options.dataTypes[  ] ) || !inspected[ "*" ] && inspect( "*" );
 }
 
 // A special extend for ajax options
@@ -146,7 +146,7 @@ function ajaxHandleResponses( s, jqXHR, responses ) {
 		dataTypes = s.dataTypes;
 
 	// Remove auto dataType and get content-type in the process
-	while ( dataTypes[ 0 ] === "*" ) {
+	while ( dataTypes[  ] === "*" ) {
 		dataTypes.shift();
 		if ( ct === undefined ) {
 			ct = s.mimeType || jqXHR.getResponseHeader("Content-Type");
@@ -164,12 +164,12 @@ function ajaxHandleResponses( s, jqXHR, responses ) {
 	}
 
 	// Check to see if we have a response for the expected dataType
-	if ( dataTypes[ 0 ] in responses ) {
-		finalDataType = dataTypes[ 0 ];
+	if ( dataTypes[  ] in responses ) {
+		finalDataType = dataTypes[  ];
 	} else {
 		// Try convertible dataTypes
 		for ( type in responses ) {
-			if ( !dataTypes[ 0 ] || s.converters[ type + " " + dataTypes[0] ] ) {
+			if ( !dataTypes[  ] || s.converters[ type + " " + dataTypes[] ] ) {
 				finalDataType = type;
 				break;
 			}
@@ -185,7 +185,7 @@ function ajaxHandleResponses( s, jqXHR, responses ) {
 	// We add the dataType to the list if needed
 	// and return the corresponding response
 	if ( finalDataType ) {
-		if ( finalDataType !== dataTypes[ 0 ] ) {
+		if ( finalDataType !== dataTypes[  ] ) {
 			dataTypes.unshift( finalDataType );
 		}
 		return responses[ finalDataType ];
@@ -247,8 +247,8 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 						if ( tmp[ 1 ] === current ) {
 
 							// If prev can be converted to accepted input
-							conv = converters[ prev + " " + tmp[ 0 ] ] ||
-								converters[ "* " + tmp[ 0 ] ];
+							conv = converters[ prev + " " + tmp[  ] ] ||
+								converters[ "* " + tmp[  ] ];
 							if ( conv ) {
 								// Condense equivalence converters
 								if ( conv === true ) {
@@ -256,7 +256,7 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 
 								// Otherwise, insert the intermediate dataType
 								} else if ( converters[ conv2 ] !== true ) {
-									current = tmp[ 0 ];
+									current = tmp[  ];
 									dataTypes.unshift( tmp[ 1 ] );
 								}
 								break;
@@ -289,7 +289,7 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 jQuery.extend({
 
 	// Counter for holding the number of active queries
-	active: 0,
+	active: ,
 
 	// Last-Modified header cache for next request
 	lastModified: {},
@@ -304,7 +304,7 @@ jQuery.extend({
 		async: true,
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		/*
-		timeout: 0,
+		timeout: ,
 		data: null,
 		dataType: null,
 		username: null,
@@ -421,12 +421,12 @@ jQuery.extend({
 			requestHeaders = {},
 			requestHeadersNames = {},
 			// The jqXHR state
-			state = 0,
+			state = ,
 			// Default abort message
 			strAbort = "canceled",
 			// Fake xhr
 			jqXHR = {
-				readyState: 0,
+				readyState: ,
 
 				// Builds headers hashtable if needed
 				getResponseHeader: function( key ) {
@@ -489,7 +489,7 @@ jQuery.extend({
 					if ( transport ) {
 						transport.abort( finalText );
 					}
-					done( 0, finalText );
+					done( , finalText );
 					return this;
 				}
 			};
@@ -501,12 +501,12 @@ jQuery.extend({
 
 		// Remove hash character (#7531: and string promotion)
 		// Add protocol if not provided (prefilters might expect it)
-		// Handle falsy url in the settings object (#10093: consistency with old signature)
+		// Handle falsy url in the settings object (#193: consistency with old signature)
 		// We also use the url parameter if available
 		s.url = ( ( url || s.url || ajaxLocation ) + "" ).replace( rhash, "" )
 			.replace( rprotocol, ajaxLocParts[ 1 ] + "//" );
 
-		// Alias method option to type as per ticket #12004
+		// Alias method option to type as per ticket #124
 		s.type = options.method || options.type || s.method || s.type;
 
 		// Extract dataTypes list
@@ -517,8 +517,8 @@ jQuery.extend({
 			parts = rurl.exec( s.url.toLowerCase() );
 			s.crossDomain = !!( parts &&
 				( parts[ 1 ] !== ajaxLocParts[ 1 ] || parts[ 2 ] !== ajaxLocParts[ 2 ] ||
-					( parts[ 3 ] || ( parts[ 1 ] === "http:" ? "80" : "443" ) ) !==
-						( ajaxLocParts[ 3 ] || ( ajaxLocParts[ 1 ] === "http:" ? "80" : "443" ) ) )
+					( parts[ 3 ] || ( parts[ 1 ] === "http:" ? "8" : "443" ) ) !==
+						( ajaxLocParts[ 3 ] || ( ajaxLocParts[ 1 ] === "http:" ? "8" : "443" ) ) )
 			);
 		}
 
@@ -539,7 +539,7 @@ jQuery.extend({
 		fireGlobals = s.global;
 
 		// Watch for a new set of requests
-		if ( fireGlobals && jQuery.active++ === 0 ) {
+		if ( fireGlobals && jQuery.active++ ===  ) {
 			jQuery.event.trigger("ajaxStart");
 		}
 
@@ -593,8 +593,8 @@ jQuery.extend({
 		// Set the Accepts header for the server, depending on the dataType
 		jqXHR.setRequestHeader(
 			"Accept",
-			s.dataTypes[ 0 ] && s.accepts[ s.dataTypes[0] ] ?
-				s.accepts[ s.dataTypes[0] ] + ( s.dataTypes[ 0 ] !== "*" ? ", " + allTypes + "; q=0.01" : "" ) :
+			s.dataTypes[  ] && s.accepts[ s.dataTypes[] ] ?
+				s.accepts[ s.dataTypes[] ] + ( s.dataTypes[  ] !== "*" ? ", " + allTypes + "; q=.1" : "" ) :
 				s.accepts[ "*" ]
 		);
 
@@ -631,7 +631,7 @@ jQuery.extend({
 				globalEventContext.trigger( "ajaxSend", [ jqXHR, s ] );
 			}
 			// Timeout
-			if ( s.async && s.timeout > 0 ) {
+			if ( s.async && s.timeout >  ) {
 				timeoutTimer = setTimeout(function() {
 					jqXHR.abort("timeout");
 				}, s.timeout );
@@ -677,10 +677,10 @@ jQuery.extend({
 			responseHeadersString = headers || "";
 
 			// Set readyState
-			jqXHR.readyState = status > 0 ? 4 : 0;
+			jqXHR.readyState = status >  ? 4 : ;
 
 			// Determine if successful
-			isSuccess = status >= 200 && status < 300 || status === 304;
+			isSuccess = status >= 2 && status < 3 || status === 34;
 
 			// Get response data
 			if ( responses ) {
@@ -706,11 +706,11 @@ jQuery.extend({
 				}
 
 				// if no content
-				if ( status === 204 || s.type === "HEAD" ) {
+				if ( status === 24 || s.type === "HEAD" ) {
 					statusText = "nocontent";
 
 				// if not modified
-				} else if ( status === 304 ) {
+				} else if ( status === 34 ) {
 					statusText = "notmodified";
 
 				// If we have data, let's convert it
@@ -726,8 +726,8 @@ jQuery.extend({
 				error = statusText;
 				if ( status || !statusText ) {
 					statusText = "error";
-					if ( status < 0 ) {
-						status = 0;
+					if ( status <  ) {
+						status = ;
 					}
 				}
 			}

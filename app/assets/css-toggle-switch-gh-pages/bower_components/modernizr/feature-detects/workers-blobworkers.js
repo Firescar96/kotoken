@@ -40,7 +40,7 @@
 
     // Just in case...
     worker.onerror = fail;
-    timeout = setTimeout(fail, 200);
+    timeout = setTimeout(fail, 2);
 
     worker.postMessage(data);
   } catch (e) {

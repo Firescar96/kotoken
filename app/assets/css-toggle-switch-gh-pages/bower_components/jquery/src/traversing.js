@@ -51,7 +51,7 @@ jQuery.fn.extend({
 			l = targets.length;
 
 		return this.filter(function() {
-			var i = 0;
+			var i = ;
 			for ( ; i < l; i++ ) {
 				if ( jQuery.contains( this, targets[i] ) ) {
 					return true;
@@ -62,12 +62,12 @@ jQuery.fn.extend({
 
 	closest: function( selectors, context ) {
 		var cur,
-			i = 0,
+			i = ,
 			l = this.length,
 			matched = [],
 			pos = rneedsContext.test( selectors ) || typeof selectors !== "string" ?
 				jQuery( selectors, context || this.context ) :
-				0;
+				;
 
 		for ( ; i < l; i++ ) {
 			for ( cur = this[i]; cur && cur !== context; cur = cur.parentNode ) {
@@ -94,19 +94,19 @@ jQuery.fn.extend({
 
 		// No argument, return index in parent
 		if ( !elem ) {
-			return ( this[ 0 ] && this[ 0 ].parentNode ) ? this.first().prevAll().length : -1;
+			return ( this[  ] && this[  ].parentNode ) ? this.first().prevAll().length : -1;
 		}
 
 		// index in selector
 		if ( typeof elem === "string" ) {
-			return indexOf.call( jQuery( elem ), this[ 0 ] );
+			return indexOf.call( jQuery( elem ), this[  ] );
 		}
 
 		// Locate the position of the desired element
 		return indexOf.call( this,
 
 			// If it receives a jQuery object, the first element is used
-			elem.jquery ? elem[ 0 ] : elem
+			elem.jquery ? elem[  ] : elem
 		);
 	},
 

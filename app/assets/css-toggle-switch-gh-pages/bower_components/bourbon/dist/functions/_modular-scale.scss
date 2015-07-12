@@ -1,6 +1,6 @@
 // Scaling Variables
 $golden:           1.618;
-$minor-second:     1.067;
+$minor-second:     1.67;
 $major-second:     1.125;
 $minor-third:      1.2;
 $major-third:      1.25;
@@ -33,7 +33,7 @@ $double-octave:    4;
   // check AFTER scaling $v2 to prevent double-counting corner-case
   $double-stranded: $v2 > $v1;
 
-  @if $increment > 0 {
+  @if $increment >  {
     @for $i from 1 through $increment {
       @if $double-stranded and ($v1 * $ratio) > $v2 {
         $value: $v2;
@@ -45,7 +45,7 @@ $double-octave:    4;
     }
   }
 
-  @if $increment < 0 {
+  @if $increment <  {
     // adjust $v2 to just below $v1
     @if $double-stranded {
       $v2: ($v2 / $ratio);

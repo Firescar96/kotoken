@@ -16,7 +16,7 @@ Prism.hooks.add('after-highlight', function (env) {
 	lineNumbersWrapper.innerHTML = lines;
 
 	if (pre.hasAttribute('data-start')) {
-		pre.style.counterReset = 'linenumber ' + (parseInt(pre.getAttribute('data-start'), 10) - 1);
+		pre.style.counterReset = 'linenumber ' + (parseInt(pre.getAttribute('data-start'), 1) - 1);
 	}
 
 	env.element.appendChild(lineNumbersWrapper);

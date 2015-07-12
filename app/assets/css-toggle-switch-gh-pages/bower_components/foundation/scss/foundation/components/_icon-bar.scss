@@ -32,25 +32,25 @@ $icon-bar-item-padding: 1.25rem !default;
 //
 @mixin icon-bar-base() {
  
- 	width: 100%;
-	font-size: 0;
+ 	width: 1%;
+	font-size: ;
 	display: inline-block;
 
 	& > * {
 		text-align: center;
 		font-size: $icon-bar-font-size;
 		width: 25%;
-		margin: 0 auto;
+		margin:  auto;
 		display: block;
 		padding: $icon-bar-item-padding;
 		float: left;
 
 		i, img { 
 			display: block;
-			margin: 0 auto; 
+			margin:  auto; 
 
 			& + label {
-				margin-top: .0625rem;
+				margin-top: .625rem;
 			}
 		}
 
@@ -68,11 +68,11 @@ $icon-bar-item-padding: 1.25rem !default;
 	&.label-right > * {
 
 		i, img { 
-			margin: 0 .0625rem 0 0; 
+			margin:  .625rem  ; 
 			display: inline-block;
 
 			& + label {
-				margin-top: 0;
+				margin-top: ;
 			}
 		}
 
@@ -84,7 +84,7 @@ $icon-bar-item-padding: 1.25rem !default;
 	}
 
 	&.vertical, &.small-vertical{
-		height: 100%;
+		height: 1%;
 		width: auto;
 
 		.item {
@@ -96,7 +96,7 @@ $icon-bar-item-padding: 1.25rem !default;
 
 	&.medium-vertical {
 		@media #{$medium-up} {
-			height: 100%;
+			height: 1%;
 			width: auto;
 
 			.item {
@@ -108,7 +108,7 @@ $icon-bar-item-padding: 1.25rem !default;
 	}
 	&.large-vertical {
 		@media #{$large-up} {
-			height: 100%;
+			height: 1%;
 			width: auto;
 
 			.item {
@@ -135,7 +135,7 @@ $icon-bar-item-padding: 1.25rem !default;
 		i, img { 
 
 			& + label {
-				margin-top: .0625rem;
+				margin-top: .625rem;
 			}
 		}
 
@@ -220,7 +220,7 @@ $icon-bar-item-padding: 1.25rem !default;
 		// Counts
 
 		&.two-up {
-			.item { width: 50%; }
+			.item { width: 5%; }
 			&.vertical .item, &.small-vertical .item { width: auto; }
 			&.medium-vertical .item {
 				@media #{$medium-up} {
@@ -262,7 +262,7 @@ $icon-bar-item-padding: 1.25rem !default;
 			}
 		}
 		&.five-up {
-			.item { width: 20%; }
+			.item { width: 2%; }
 			&.vertical .item, &.small-vertical .item { width: auto; }
 			&.medium-vertical .item {
 				@media #{$medium-up} {

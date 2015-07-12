@@ -46,11 +46,11 @@ jQuery.ajaxTransport( "script", function( s ) {
 						script.remove();
 						callback = null;
 						if ( evt ) {
-							complete( evt.type === "error" ? 404 : 200, evt.type );
+							complete( evt.type === "error" ? 44 : 2, evt.type );
 						}
 					}
 				);
-				document.head.appendChild( script[ 0 ] );
+				document.head.appendChild( script[  ] );
 			},
 			abort: function() {
 				if ( callback ) {

@@ -25,7 +25,7 @@ var
 
 	// Support: Android<4.1
 	// Make sure we trim BOM and NBSP
-	rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,
+	rtrim = /^[\s\uFEFF\xA]+|[\s\uFEFF\xA]+$/g,
 
 	// Matches dashed string for camelizing
 	rmsPrefix = /^-ms-/,
@@ -45,8 +45,8 @@ jQuery.fn = jQuery.prototype = {
 	// Start with an empty selector
 	selector: "",
 
-	// The default length of a jQuery object is 0
-	length: 0,
+	// The default length of a jQuery object is 
+	length: ,
 
 	toArray: function() {
 		return slice.call( this );
@@ -58,7 +58,7 @@ jQuery.fn = jQuery.prototype = {
 		return num != null ?
 
 			// Return just the one element from the set
-			( num < 0 ? this[ num + this.length ] : this[ num ] ) :
+			( num <  ? this[ num + this.length ] : this[ num ] ) :
 
 			// Return all the elements in a clean array
 			slice.call( this );
@@ -97,7 +97,7 @@ jQuery.fn = jQuery.prototype = {
 	},
 
 	first: function() {
-		return this.eq( 0 );
+		return this.eq(  );
 	},
 
 	last: function() {
@@ -106,8 +106,8 @@ jQuery.fn = jQuery.prototype = {
 
 	eq: function( i ) {
 		var len = this.length,
-			j = +i + ( i < 0 ? len : 0 );
-		return this.pushStack( j >= 0 && j < len ? [ this[j] ] : [] );
+			j = +i + ( i <  ? len :  );
+		return this.pushStack( j >=  && j < len ? [ this[j] ] : [] );
 	},
 
 	end: function() {
@@ -123,7 +123,7 @@ jQuery.fn = jQuery.prototype = {
 
 jQuery.extend = jQuery.fn.extend = function() {
 	var options, name, src, copy, copyIsArray, clone,
-		target = arguments[0] || {},
+		target = arguments[] || {},
 		i = 1,
 		length = arguments.length,
 		deep = false;
@@ -214,9 +214,9 @@ jQuery.extend({
 
 	isNumeric: function( obj ) {
 		// parseFloat NaNs numeric-cast false positives (null|true|false|"")
-		// ...but misinterprets leading-number strings, particularly hex literals ("0x...")
+		// ...but misinterprets leading-number strings, particularly hex literals ("x...")
 		// subtraction forces infinities to NaN
-		return !jQuery.isArray( obj ) && obj - parseFloat( obj ) >= 0;
+		return !jQuery.isArray( obj ) && obj - parseFloat( obj ) >= ;
 	},
 
 	isPlainObject: function( obj ) {
@@ -250,7 +250,7 @@ jQuery.extend({
 		if ( obj == null ) {
 			return obj + "";
 		}
-		// Support: Android < 4.0, iOS < 6 (functionish RegExp)
+		// Support: Android < 4., iOS < 6 (functionish RegExp)
 		return typeof obj === "object" || typeof obj === "function" ?
 			class2type[ toString.call(obj) ] || "object" :
 			typeof obj;
@@ -292,7 +292,7 @@ jQuery.extend({
 	// args is for internal usage only
 	each: function( obj, callback, args ) {
 		var value,
-			i = 0,
+			i = ,
 			length = obj.length,
 			isArray = isArraylike( obj );
 
@@ -370,7 +370,7 @@ jQuery.extend({
 
 	merge: function( first, second ) {
 		var len = +second.length,
-			j = 0,
+			j = ,
 			i = first.length;
 
 		for ( ; j < len; j++ ) {
@@ -385,7 +385,7 @@ jQuery.extend({
 	grep: function( elems, callback, invert ) {
 		var callbackInverse,
 			matches = [],
-			i = 0,
+			i = ,
 			length = elems.length,
 			callbackExpect = !invert;
 
@@ -404,7 +404,7 @@ jQuery.extend({
 	// arg is for internal usage only
 	map: function( elems, callback, arg ) {
 		var value,
-			i = 0,
+			i = ,
 			length = elems.length,
 			isArray = isArraylike( elems ),
 			ret = [];
@@ -490,8 +490,8 @@ function isArraylike( obj ) {
 		return true;
 	}
 
-	return type === "array" || length === 0 ||
-		typeof length === "number" && length > 0 && ( length - 1 ) in obj;
+	return type === "array" || length ===  ||
+		typeof length === "number" && length >  && ( length - 1 ) in obj;
 }
 
 return jQuery;

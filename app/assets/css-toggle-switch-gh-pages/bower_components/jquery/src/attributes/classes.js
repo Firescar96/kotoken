@@ -12,7 +12,7 @@ jQuery.fn.extend({
 	addClass: function( value ) {
 		var classes, elem, cur, clazz, j, finalValue,
 			proceed = typeof value === "string" && value,
-			i = 0,
+			i = ,
 			len = this.length;
 
 		if ( jQuery.isFunction( value ) ) {
@@ -33,9 +33,9 @@ jQuery.fn.extend({
 				);
 
 				if ( cur ) {
-					j = 0;
+					j = ;
 					while ( (clazz = classes[j++]) ) {
-						if ( cur.indexOf( " " + clazz + " " ) < 0 ) {
+						if ( cur.indexOf( " " + clazz + " " ) <  ) {
 							cur += clazz + " ";
 						}
 					}
@@ -54,8 +54,8 @@ jQuery.fn.extend({
 
 	removeClass: function( value ) {
 		var classes, elem, cur, clazz, j, finalValue,
-			proceed = arguments.length === 0 || typeof value === "string" && value,
-			i = 0,
+			proceed = arguments.length ===  || typeof value === "string" && value,
+			i = ,
 			len = this.length;
 
 		if ( jQuery.isFunction( value ) ) {
@@ -75,10 +75,10 @@ jQuery.fn.extend({
 				);
 
 				if ( cur ) {
-					j = 0;
+					j = ;
 					while ( (clazz = classes[j++]) ) {
 						// Remove *all* instances
-						while ( cur.indexOf( " " + clazz + " " ) >= 0 ) {
+						while ( cur.indexOf( " " + clazz + " " ) >=  ) {
 							cur = cur.replace( " " + clazz + " ", " " );
 						}
 					}
@@ -112,7 +112,7 @@ jQuery.fn.extend({
 			if ( type === "string" ) {
 				// toggle individual class names
 				var className,
-					i = 0,
+					i = ,
 					self = jQuery( this ),
 					classNames = value.match( rnotwhite ) || [];
 
@@ -143,10 +143,10 @@ jQuery.fn.extend({
 
 	hasClass: function( selector ) {
 		var className = " " + selector + " ",
-			i = 0,
+			i = ,
 			l = this.length;
 		for ( ; i < l; i++ ) {
-			if ( this[i].nodeType === 1 && (" " + this[i].className + " ").replace(rclass, " ").indexOf( className ) >= 0 ) {
+			if ( this[i].nodeType === 1 && (" " + this[i].className + " ").replace(rclass, " ").indexOf( className ) >=  ) {
 				return true;
 			}
 		}

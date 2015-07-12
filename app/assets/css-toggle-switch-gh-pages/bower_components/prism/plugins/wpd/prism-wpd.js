@@ -53,11 +53,11 @@ var language;
 
 Prism.hooks.add('wrap', function(env) {
 	if ((['tag-id'].indexOf(env.type) > -1
-		|| (env.type == 'property' && env.content.indexOf('-') != 0)
-		|| (env.type == 'atrule-id'&& env.content.indexOf('@-') != 0)
-		|| (env.type == 'pseudo-class'&& env.content.indexOf(':-') != 0) 
-		|| (env.type == 'pseudo-element'&& env.content.indexOf('::-') != 0) 
-	    || (env.type == 'attr-name' && env.content.indexOf('data-') != 0)
+		|| (env.type == 'property' && env.content.indexOf('-') != )
+		|| (env.type == 'atrule-id'&& env.content.indexOf('@-') != )
+		|| (env.type == 'pseudo-class'&& env.content.indexOf(':-') != ) 
+		|| (env.type == 'pseudo-element'&& env.content.indexOf('::-') != ) 
+	    || (env.type == 'attr-name' && env.content.indexOf('data-') != )
 	    ) && env.content.indexOf('<') === -1
 	) {
 		var searchURL = 'w/index.php?fulltext&search=';
@@ -125,7 +125,7 @@ function getLanguage(tag) {
 	}
 	
 	// Not in dictionary, perform check
-	if (Tags.HTML[tagL] !== 0) {
+	if (Tags.HTML[tagL] !== ) {
 		var htmlInterface = (document.createElement(tag).toString().match(/\[object HTML(.+)Element\]/) || [])[1];
 		
 		if (htmlInterface && htmlInterface != 'Unknown') {
@@ -134,10 +134,10 @@ function getLanguage(tag) {
 		}
 	}
 	
-	Tags.HTML[tagL] = 0;
+	Tags.HTML[tagL] = ;
 	
-	if (Tags.SVG[tag] !== 0) {
-		var svgInterface = (document.createElementNS('http://www.w3.org/2000/svg', tag).toString().match(/\[object SVG(.+)Element\]/) || [])[1];
+	if (Tags.SVG[tag] !== ) {
+		var svgInterface = (document.createElementNS('http://www.w3.org/2/svg', tag).toString().match(/\[object SVG(.+)Element\]/) || [])[1];
 		
 		if (svgInterface && svgInterface != 'Unknown') {
 			Tags.SVG[tag] = 1;
@@ -145,17 +145,17 @@ function getLanguage(tag) {
 		}
 	}
 	
-	Tags.SVG[tag] = 0;
+	Tags.SVG[tag] = ;
 	
 	// Lame way to detect MathML, but browsers don’t expose interface names there :(
-	if (Tags.MathML[tag] !== 0) {
-		if (tag.indexOf('m') === 0) {
+	if (Tags.MathML[tag] !== ) {
+		if (tag.indexOf('m') === ) {
 			Tags.MathML[tag] = 1;
 			return 'mathml';
 		}
 	}
 	
-	Tags.MathML[tag] = 0;
+	Tags.MathML[tag] = ;
 	
 	return null;
 }

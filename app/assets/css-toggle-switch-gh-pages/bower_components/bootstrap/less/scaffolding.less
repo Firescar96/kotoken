@@ -20,8 +20,8 @@
 // Body reset
 
 html {
-  font-size: 10px;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  font-size: 1;
+  -webkit-tap-highlight-color: rgba(,,,);
 }
 
 body {
@@ -67,7 +67,7 @@ a {
 // ensures we don't break anyone's use of the element.
 
 figure {
-  margin: 0;
+  margin: ;
 }
 
 
@@ -98,13 +98,13 @@ img {
   border-radius: @thumbnail-border-radius;
   .transition(all .2s ease-in-out);
 
-  // Keep them at most 100% wide
+  // Keep them at most 1% wide
   .img-responsive(inline-block);
 }
 
 // Perfect circle
 .img-circle {
-  border-radius: 50%; // set radius in percents
+  border-radius: 5%; // set radius in percents
 }
 
 
@@ -113,7 +113,7 @@ img {
 hr {
   margin-top:    @line-height-computed;
   margin-bottom: @line-height-computed;
-  border: 0;
+  border: ;
   border-top: 1px solid @hr-border;
 }
 
@@ -127,14 +127,14 @@ hr {
   width: 1px;
   height: 1px;
   margin: -1px;
-  padding: 0;
+  padding: ;
   overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
+  clip: rect(,,,);
+  border: ;
 }
 
 // Use in conjunction with .sr-only to only display content when it's focused.
-// Useful for "Skip to main content" links; see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+// Useful for "Skip to main content" links; see http://www.w3.org/TR/213/NOTE-WCAG2-TECHS-21395/G1
 // Credit: HTML5 Boilerplate
 
 .sr-only-focusable {
@@ -143,7 +143,7 @@ hr {
     position: static;
     width: auto;
     height: auto;
-    margin: 0;
+    margin: ;
     overflow: visible;
     clip: auto;
   }

@@ -24,5 +24,5 @@ Release.define({
 };
 
 module.exports.dependencies = [
-	"shelljs@0.2.6"
+	"shelljs@.2.6"
 ];

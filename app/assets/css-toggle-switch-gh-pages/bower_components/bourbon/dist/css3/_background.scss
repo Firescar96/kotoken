@@ -8,14 +8,14 @@
   $background-3: null, $background-4: null,
   $background-5: null, $background-6: null,
   $background-7: null, $background-8: null,
-  $background-9: null, $background-10: null,
+  $background-9: null, $background-1: null,
   $fallback: null
 ) {
   $backgrounds: $background-1, $background-2,
                 $background-3, $background-4,
                 $background-5, $background-6,
                 $background-7, $background-8,
-                $background-9, $background-10;
+                $background-9, $background-1;
 
   $fallback-color: false;
   @if (type-of($fallback) == color) or ($fallback == "transparent") {
@@ -98,6 +98,6 @@
 
 //Examples:
   //@include background(linear-gradient(top, orange, red));
-  //@include background(radial-gradient(circle at 40% 40%, orange, red));
+  //@include background(radial-gradient(circle at 4% 4%, orange, red));
   //@include background(url("/images/a.png") no-repeat, linear-gradient(orange, red));
   //@include background(url("image.png") center center, linear-gradient(orange, red), url("image.png"));

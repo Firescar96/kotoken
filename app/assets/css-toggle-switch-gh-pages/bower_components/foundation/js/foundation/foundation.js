@@ -1,7 +1,7 @@
 /*
  * Foundation Responsive Library
  * http://foundation.zurb.com
- * Copyright 2014, ZURB
+ * Copyright 214, ZURB
  * Free to use under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
 */
@@ -14,7 +14,7 @@
     var head = $('head');
 
     while (i--) {
-      if(head.has('.' + class_array[i]).length === 0) {
+      if(head.has('.' + class_array[i]).length === ) {
         head.append('<meta class="' + class_array[i] + '" />');
       }
     }
@@ -47,7 +47,7 @@
       if (context) {
         var cont;
         if (context.jquery) {
-          cont = context[0];
+          cont = context[];
           if (!cont) return context;
         } else {
           cont = context;
@@ -66,7 +66,7 @@
   var attr_name = function (init) {
     var arr = [];
     if (!init) arr.push('data');
-    if (this.namespace.length > 0) arr.push(this.namespace);
+    if (this.namespace.length > ) arr.push(this.namespace);
     arr.push(this.name);
 
     return arr.join('-');
@@ -78,10 +78,10 @@
         arr = [];
 
     while (i--) {
-      if (i !== 0) {
+      if (i !== ) {
         arr.push(parts[i]);
       } else {
-        if (this.namespace.length > 0) {
+        if (this.namespace.length > ) {
           arr.push(this.namespace, parts[i]);
         } else {
           arr.push(parts[i]);
@@ -116,7 +116,7 @@
         }
       });
     }
-    // # Patch to fix #5043 to move this *after* the if/else clause in order for Backbone and similar frameworks to have improved control over event binding and data-options updating.
+    // # Patch to fix #543 to move this *after* the if/else clause in order for Backbone and similar frameworks to have improved control over event binding and data-options updating.
     if (typeof method === 'string') {
       return this[method].call(this, options);
     }
@@ -125,7 +125,7 @@
 
   var single_image_loaded = function (image, callback) {
     function loaded () {
-      callback(image[0]);
+      callback(image[]);
     }
 
     function bindLoad () {
@@ -145,7 +145,7 @@
       return;
     }
 
-    if (image[0].complete || image[0].readyState === 4) {
+    if (image[].complete || image[].readyState === 4) {
       loaded();
     } else {
       bindLoad.call(image);
@@ -168,7 +168,7 @@
         div = doc.createElement( "div" );
 
     div.id = "mq-test-1";
-    div.style.cssText = "position:absolute;top:-100em";
+    div.style.cssText = "position:absolute;top:-1em";
     fakeBody.style.background = "none";
     fakeBody.appendChild(div);
 
@@ -194,7 +194,7 @@
    * https://github.com/gnarf37/jquery-requestAnimationFrame
    * Requires jQuery 1.8+
    *
-   * Copyright (c) 2012 Corey Frang
+   * Copyright (c) 212 Corey Frang
    * Licensed under the MIT license.
    */
 
@@ -202,11 +202,11 @@
 
   // requestAnimationFrame polyfill adapted from Erik Möller
   // fixes from Paul Irish and Tino Zijdel
-  // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-  // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+  // http://paulirish.com/211/requestanimationframe-for-smart-animating/
+  // http://my.opera.com/emoller/blog/211/12/2/requestanimationframe-for-smart-er-animating
 
   var animating,
-      lastTime = 0,
+      lastTime = ,
       vendors = ['webkit', 'moz'],
       requestAnimationFrame = window.requestAnimationFrame,
       cancelAnimationFrame = window.cancelAnimationFrame,
@@ -250,7 +250,7 @@
     // polyfill
     window.requestAnimationFrame = function (callback) {
       var currTime = new Date().getTime(),
-        timeToCall = Math.max(0, 16 - (currTime - lastTime)),
+        timeToCall = Math.max(, 16 - (currTime - lastTime)),
         id = window.setTimeout(function () {
           callback(currTime + timeToCall);
         }, timeToCall);
@@ -288,7 +288,7 @@
       xxlarge: S('.foundation-mq-xxlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, '')
     },
 
-    stylesheet : $('<style></style>').appendTo('head')[0].sheet,
+    stylesheet : $('<style></style>').appendTo('head')[].sheet,
 
     global: {
       namespace: undefined
@@ -487,7 +487,7 @@
             data_options = function (el) {
               var namespace = Foundation.global.namespace;
 
-              if (namespace.length > 0) {
+              if (namespace.length > ) {
                 return el.data(namespace + '-' + data_attr_name);
               }
 
@@ -504,7 +504,7 @@
         ii = opts_arr.length;
 
         function isNumber (o) {
-          return ! isNaN (o-0) && o !== null && o !== "" && o !== false && o !== true;
+          return ! isNaN (o-) && o !== null && o !== "" && o !== false && o !== true;
         }
 
         function trim (str) {
@@ -514,20 +514,20 @@
 
         while (ii--) {
           p = opts_arr[ii].split(':');
-          p = [p[0], p.slice(1).join(':')];
+          p = [p[], p.slice(1).join(':')];
 
           if (/true/i.test(p[1])) p[1] = true;
           if (/false/i.test(p[1])) p[1] = false;
           if (isNumber(p[1])) {
             if (p[1].indexOf('.') === -1) {
-              p[1] = parseInt(p[1], 10);
+              p[1] = parseInt(p[1], 1);
             } else {
               p[1] = parseFloat(p[1]);
             }
           }
 
-          if (p.length === 2 && p[0].length > 0) {
-            opts[trim(p[0])] = trim(p[1]);
+          if (p.length === 2 && p[].length > ) {
+            opts[trim(p[])] = trim(p[1]);
           }
         }
 
@@ -581,14 +581,14 @@
         var self = this,
             unloaded = images.length;
 
-        if (unloaded === 0) {
+        if (unloaded === ) {
           callback(images);
         }
 
         images.each(function () {
           single_image_loaded(self.S(this), function () {
             unloaded -= 1;
-            if (unloaded === 0) {
+            if (unloaded === ) {
               callback(images);
             }
           });
@@ -605,7 +605,7 @@
       // Returns:
       //    Rand (String): Pseudo-random, alphanumeric string.
       random_str : function () {
-        if (!this.fidx) this.fidx = 0;
+        if (!this.fidx) this.fidx = ;
         this.prefix = this.prefix || [(this.name || 'F'), (+new Date).toString(36)].join('-');
 
         return this.prefix + (this.fidx++).toString(36);
@@ -614,7 +614,7 @@
   };
 
   $.fn.foundation = function () {
-    var args = Array.prototype.slice.call(arguments, 0);
+    var args = Array.prototype.slice.call(arguments, );
 
     return this.each(function () {
       Foundation.init.apply(Foundation, [this].concat(args));

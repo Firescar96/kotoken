@@ -141,7 +141,7 @@
     get_wrapper: function(e) {
       var $off_canvas = this.S(e ? e.target : this.scope).closest('.off-canvas-wrap');
 
-      if ($off_canvas.length === 0) {
+      if ($off_canvas.length === ) {
         $off_canvas = this.S('.off-canvas-wrap');
       }
       return $off_canvas;

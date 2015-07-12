@@ -25,12 +25,12 @@ $h5-font-size: rem-calc(18) !default;
 $h6-font-size: 1rem !default;
 
 // We use these to control header size reduction on small screens
-$h1-font-reduction: rem-calc(10) !default;
-$h2-font-reduction: rem-calc(10) !default;
+$h1-font-reduction: rem-calc(1) !default;
+$h2-font-reduction: rem-calc(1) !default;
 $h3-font-reduction: rem-calc(5) !default;
 $h4-font-reduction: rem-calc(5) !default;
-$h5-font-reduction: 0 !default;
-$h6-font-reduction: 0 !default;
+$h5-font-reduction:  !default;
+$h6-font-reduction:  !default;
 
 // These control how subheaders are styled.
 $subheader-line-height: 1.4 !default;
@@ -40,7 +40,7 @@ $subheader-top-margin: .2rem !default;
 $subheader-bottom-margin: .5rem !default;
 
 // A general <small> styling
-$small-font-size: 60% !default;
+$small-font-size: 6% !default;
 $small-font-color: scale-color($header-font-color, $lightness: 35%) !default;
 
 // We use these to style paragraphs
@@ -48,7 +48,7 @@ $paragraph-font-family: inherit !default;
 $paragraph-font-weight: $font-weight-normal !default;
 $paragraph-font-size: 1rem !default;
 $paragraph-line-height: 1.6 !default;
-$paragraph-margin-bottom: rem-calc(20) !default;
+$paragraph-margin-bottom: rem-calc(2) !default;
 $paragraph-aside-font-size: rem-calc(14) !default;
 $paragraph-aside-line-height: 1.35 !default;
 $paragraph-aside-font-style: italic !default;
@@ -58,10 +58,10 @@ $paragraph-text-rendering: optimizeLegibility !default;
 $code-color: $oil !default;
 $code-font-family: $font-family-monospace !default;
 $code-font-weight: $font-weight-normal !default;
-$code-background-color: scale-color($secondary-color, $lightness: 70%) !default;
+$code-background-color: scale-color($secondary-color, $lightness: 7%) !default;
 $code-border-size: 1px !default;
 $code-border-style: solid !default;
-$code-border-color: scale-color($code-background-color, $lightness: -10%) !default;
+$code-border-color: scale-color($code-background-color, $lightness: -1%) !default;
 $code-padding: rem-calc(2) rem-calc(5) rem-calc(1) !default;
 
 // We use these to style anchors
@@ -74,7 +74,7 @@ $anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%) !def
 $hr-border-width: 1px !default;
 $hr-border-style: solid !default;
 $hr-border-color: $gainsboro !default;
-$hr-margin: rem-calc(20) !default;
+$hr-margin: rem-calc(2) !default;
 
 // We use these to style lists
 $list-font-family: $paragraph-font-family !default;
@@ -84,15 +84,15 @@ $list-margin-bottom: $paragraph-margin-bottom !default;
 $list-style-position: outside !default;
 $list-side-margin: 1.1rem !default;
 $list-ordered-side-margin: 1.4rem !default;
-$list-side-margin-no-bullet: 0 !default;
-$list-nested-margin: rem-calc(20) !default;
+$list-side-margin-no-bullet:  !default;
+$list-nested-margin: rem-calc(2) !default;
 $definition-list-header-weight: $font-weight-bold !default;
 $definition-list-header-margin-bottom: .3rem !default;
 $definition-list-margin-bottom: rem-calc(12) !default;
 
 // We use these to style blockquotes
 $blockquote-font-color: scale-color($header-font-color, $lightness: 35%) !default;
-$blockquote-padding: rem-calc(9 20 0 19) !default;
+$blockquote-padding: rem-calc(9 2  19) !default;
 $blockquote-border: 1px solid $gainsboro !default;
 $blockquote-cite-font-size: rem-calc(13) !default;
 $blockquote-cite-font-color: scale-color($header-font-color, $lightness: 23%) !default;
@@ -102,8 +102,8 @@ $blockquote-cite-link-color: $blockquote-cite-font-color !default;
 $acronym-underline: 1px dotted $gainsboro !default;
 
 // We use these to control padding and margin
-$microformat-padding: rem-calc(10 12) !default;
-$microformat-margin: rem-calc(0 0 20 0) !default;
+$microformat-padding: rem-calc(1 12) !default;
+$microformat-margin: rem-calc(  2 ) !default;
 
 // We use these to control the border styles
 $microformat-border-width: 1px !default;
@@ -118,7 +118,7 @@ $microformat-fullname-font-size: rem-calc(15) !default;
 $microformat-summary-font-weight: $font-weight-bold !default;
 
 // We use this to control abbr padding
-$microformat-abbr-padding: rem-calc(0 1) !default;
+$microformat-abbr-padding: rem-calc( 1) !default;
 
 // We use this to control abbr font styles
 $microformat-abbr-font-weight: $font-weight-bold !default;
@@ -209,8 +209,8 @@ $align-class-breakpoints:
     blockquote,
     th,
     td {
-      margin:0;
-      padding:0;
+      margin:;
+      padding:;
     }
 
     /* Default Link Styles */
@@ -262,7 +262,7 @@ $align-class-breakpoints:
       small {
         font-size: $small-font-size;
         color: $small-font-color;
-        line-height: 0;
+        line-height: ;
       }
     }
 
@@ -277,10 +277,10 @@ $align-class-breakpoints:
 
     hr {
       border: $hr-border-style $hr-border-color;
-      border-width: $hr-border-width 0 0;
+      border-width: $hr-border-width  ;
       clear: both;
-      margin: $hr-margin 0 ($hr-margin - rem-calc($hr-border-width));
-      height: 0;
+      margin: $hr-margin  ($hr-margin - rem-calc($hr-border-width));
+      height: ;
     }
 
     /* Helpful Typography Defaults */
@@ -331,7 +331,7 @@ $align-class-breakpoints:
           ul,
           ol {
             margin-#{$default-float}: $list-nested-margin;
-            margin-bottom: 0;
+            margin-bottom: ;
             list-style: none;
           }
         }
@@ -344,7 +344,7 @@ $align-class-breakpoints:
         ul,
         ol {
           margin-#{$default-float}: $list-nested-margin;
-          margin-bottom: 0;
+          margin-bottom: ;
         }
       }
       &.square,
@@ -366,7 +366,7 @@ $align-class-breakpoints:
         ul,
         ol {
           margin-#{$default-float}: $list-nested-margin;
-          margin-bottom: 0;
+          margin-bottom: ;
         }
       }
     }
@@ -384,7 +384,7 @@ $align-class-breakpoints:
     abbr,
     acronym {
       text-transform: uppercase;
-      font-size: 90%;
+      font-size: 9%;
       color: $body-font-color;
       cursor: $cursor-help-value;
     }
@@ -397,7 +397,7 @@ $align-class-breakpoints:
 
     /* Blockquotes */
     blockquote {
-      margin: 0 0 $paragraph-margin-bottom;
+      margin:   $paragraph-margin-bottom;
       padding: $blockquote-padding;
       border-#{$default-float}: $blockquote-border;
 
@@ -406,7 +406,7 @@ $align-class-breakpoints:
         font-size: $blockquote-cite-font-size;
         color: $blockquote-cite-font-color;
         &:before {
-          content: "\2014 \0020";
+          content: "\214 \2";
         }
 
         a,
@@ -429,7 +429,7 @@ $align-class-breakpoints:
       padding: $microformat-padding;
 
       li {
-        margin: 0;
+        margin: ;
         display: block;
       }
       .fn {
@@ -500,9 +500,9 @@ $align-class-breakpoints:
         tr,
         img { page-break-inside: avoid; }
 
-        img { max-width: 100% !important; }
+        img { max-width: 1% !important; }
 
-        @page { margin: 0.5cm; }
+        @page { margin: .5cm; }
 
         p,
         h2,

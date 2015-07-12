@@ -21,6 +21,6 @@
       Modernizr.addTest('datauri', function () { return (datauri.width == 1 && datauri.height == 1); });
   };
 
-  datauri.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+  datauri.src = "data:image/gif;base64,RlGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
 })();

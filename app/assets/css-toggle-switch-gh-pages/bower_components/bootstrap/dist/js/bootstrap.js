@@ -1,6 +1,6 @@
 /*!
- * Bootstrap v3.3.0 (http://getbootstrap.com)
- * Copyright 2011-2014 Twitter, Inc.
+ * Bootstrap v3.3. (http://getbootstrap.com)
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
@@ -9,17 +9,17 @@ if (typeof jQuery === 'undefined') {
 }
 
 +function ($) {
-  var version = $.fn.jquery.split(' ')[0].split('.')
-  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1)) {
+  var version = $.fn.jquery.split(' ')[].split('.')
+  if ((version[] < 2 && version[1] < 9) || (version[] == 1 && version[1] == 9 && version[2] < 1)) {
     throw new Error('Bootstrap\'s JavaScript requires jQuery version 1.9.1 or higher')
   }
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: transition.js v3.3.0
+ * Bootstrap: transition.js v3.3.
  * http://getbootstrap.com/javascript/#transitions
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -76,10 +76,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: alert.js v3.3.0
+ * Bootstrap: alert.js v3.3.
  * http://getbootstrap.com/javascript/#alerts
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -95,9 +95,9 @@ if (typeof jQuery === 'undefined') {
     $(el).on('click', dismiss, this.close)
   }
 
-  Alert.VERSION = '3.3.0'
+  Alert.VERSION = '3.3.'
 
-  Alert.TRANSITION_DURATION = 150
+  Alert.TRANSITION_DURATION = 15
 
   Alert.prototype.close = function (e) {
     var $this    = $(this)
@@ -171,10 +171,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: button.js v3.3.0
+ * Bootstrap: button.js v3.3.
  * http://getbootstrap.com/javascript/#buttons
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -191,7 +191,7 @@ if (typeof jQuery === 'undefined') {
     this.isLoading = false
   }
 
-  Button.VERSION  = '3.3.0'
+  Button.VERSION  = '3.3.'
 
   Button.DEFAULTS = {
     loadingText: 'loading...'
@@ -218,7 +218,7 @@ if (typeof jQuery === 'undefined') {
         this.isLoading = false
         $el.removeClass(d).removeAttr(d)
       }
-    }, this), 0)
+    }, this), )
   }
 
   Button.prototype.toggle = function () {
@@ -288,10 +288,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: carousel.js v3.3.0
+ * Bootstrap: carousel.js v3.3.
  * http://getbootstrap.com/javascript/#carousel
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -319,12 +319,12 @@ if (typeof jQuery === 'undefined') {
       .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
   }
 
-  Carousel.VERSION  = '3.3.0'
+  Carousel.VERSION  = '3.3.'
 
-  Carousel.TRANSITION_DURATION = 600
+  Carousel.TRANSITION_DURATION = 6
 
   Carousel.DEFAULTS = {
-    interval: 5000,
+    interval: 5,
     pause: 'hover',
     wrap: true,
     keyboard: true
@@ -368,7 +368,7 @@ if (typeof jQuery === 'undefined') {
     var that        = this
     var activeIndex = this.getItemIndex(this.$active = this.$element.find('.item.active'))
 
-    if (pos > (this.$items.length - 1) || pos < 0) return
+    if (pos > (this.$items.length - 1) || pos < ) return
 
     if (this.sliding)       return this.$element.one('slid.bs.carousel', function () { that.to(pos) }) // yes, "slid"
     if (activeIndex == pos) return this.pause().cycle()
@@ -414,7 +414,7 @@ if (typeof jQuery === 'undefined') {
 
     if ($next.hasClass('active')) return (this.sliding = false)
 
-    var relatedTarget = $next[0]
+    var relatedTarget = $next[]
     var slideEvent = $.Event('slide.bs.carousel', {
       relatedTarget: relatedTarget,
       direction: direction
@@ -435,7 +435,7 @@ if (typeof jQuery === 'undefined') {
     var slidEvent = $.Event('slid.bs.carousel', { relatedTarget: relatedTarget, direction: direction }) // yes, "slid"
     if ($.support.transition && this.$element.hasClass('slide')) {
       $next.addClass(type)
-      $next[0].offsetWidth // force reflow
+      $next[].offsetWidth // force reflow
       $active.addClass(direction)
       $next.addClass(direction)
       $active
@@ -445,7 +445,7 @@ if (typeof jQuery === 'undefined') {
           that.sliding = false
           setTimeout(function () {
             that.$element.trigger(slidEvent)
-          }, 0)
+          }, )
         })
         .emulateTransitionEnd(Carousel.TRANSITION_DURATION)
     } else {
@@ -528,10 +528,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: collapse.js v3.3.0
+ * Bootstrap: collapse.js v3.3.
  * http://getbootstrap.com/javascript/#collapse
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -557,9 +557,9 @@ if (typeof jQuery === 'undefined') {
     if (this.options.toggle) this.toggle()
   }
 
-  Collapse.VERSION  = '3.3.0'
+  Collapse.VERSION  = '3.3.'
 
-  Collapse.TRANSITION_DURATION = 350
+  Collapse.TRANSITION_DURATION = 35
 
   Collapse.DEFAULTS = {
     toggle: true,
@@ -595,7 +595,7 @@ if (typeof jQuery === 'undefined') {
 
     this.$element
       .removeClass('collapse')
-      .addClass('collapsing')[dimension](0)
+      .addClass('collapsing')[dimension]()
       .attr('aria-expanded', true)
 
     this.$trigger
@@ -608,7 +608,7 @@ if (typeof jQuery === 'undefined') {
       this.$element
         .removeClass('collapsing')
         .addClass('collapse in')[dimension]('')
-      this.transitioning = 0
+      this.transitioning = 
       this.$element
         .trigger('shown.bs.collapse')
     }
@@ -619,7 +619,7 @@ if (typeof jQuery === 'undefined') {
 
     this.$element
       .one('bsTransitionEnd', $.proxy(complete, this))
-      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize])
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[][scrollSize])
   }
 
   Collapse.prototype.hide = function () {
@@ -631,7 +631,7 @@ if (typeof jQuery === 'undefined') {
 
     var dimension = this.dimension()
 
-    this.$element[dimension](this.$element[dimension]())[0].offsetHeight
+    this.$element[dimension](this.$element[dimension]())[].offsetHeight
 
     this.$element
       .addClass('collapsing')
@@ -645,7 +645,7 @@ if (typeof jQuery === 'undefined') {
     this.transitioning = 1
 
     var complete = function () {
-      this.transitioning = 0
+      this.transitioning = 
       this.$element
         .removeClass('collapsing')
         .addClass('collapse')
@@ -655,7 +655,7 @@ if (typeof jQuery === 'undefined') {
     if (!$.support.transition) return complete.call(this)
 
     this.$element
-      [dimension](0)
+      [dimension]()
       .one('bsTransitionEnd', $.proxy(complete, this))
       .emulateTransitionEnd(Collapse.TRANSITION_DURATION)
   }
@@ -740,10 +740,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: dropdown.js v3.3.0
+ * Bootstrap: dropdown.js v3.3.
  * http://getbootstrap.com/javascript/#dropdowns
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -760,7 +760,7 @@ if (typeof jQuery === 'undefined') {
     $(element).on('click.bs.dropdown', this.toggle)
   }
 
-  Dropdown.VERSION = '3.3.0'
+  Dropdown.VERSION = '3.3.'
 
   Dropdown.prototype.toggle = function (e) {
     var $this = $(this)
@@ -796,7 +796,7 @@ if (typeof jQuery === 'undefined') {
   }
 
   Dropdown.prototype.keydown = function (e) {
-    if (!/(38|40|27|32)/.test(e.which)) return
+    if (!/(38|4|27|32)/.test(e.which)) return
 
     var $this = $(this)
 
@@ -820,9 +820,9 @@ if (typeof jQuery === 'undefined') {
 
     var index = $items.index(e.target)
 
-    if (e.which == 38 && index > 0)                 index--                        // up
-    if (e.which == 40 && index < $items.length - 1) index++                        // down
-    if (!~index)                                      index = 0
+    if (e.which == 38 && index > )                 index--                        // up
+    if (e.which == 4 && index < $items.length - 1) index++                        // down
+    if (!~index)                                      index = 
 
     $items.eq(index).trigger('focus')
   }
@@ -902,10 +902,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: modal.js v3.3.0
+ * Bootstrap: modal.js v3.3.
  * http://getbootstrap.com/javascript/#modals
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -922,7 +922,7 @@ if (typeof jQuery === 'undefined') {
     this.$element       = $(element)
     this.$backdrop      =
     this.isShown        = null
-    this.scrollbarWidth = 0
+    this.scrollbarWidth = 
 
     if (this.options.remote) {
       this.$element
@@ -933,10 +933,10 @@ if (typeof jQuery === 'undefined') {
     }
   }
 
-  Modal.VERSION  = '3.3.0'
+  Modal.VERSION  = '3.3.'
 
-  Modal.TRANSITION_DURATION = 300
-  Modal.BACKDROP_TRANSITION_DURATION = 150
+  Modal.TRANSITION_DURATION = 3
+  Modal.BACKDROP_TRANSITION_DURATION = 15
 
   Modal.DEFAULTS = {
     backdrop: true,
@@ -975,10 +975,10 @@ if (typeof jQuery === 'undefined') {
 
       that.$element
         .show()
-        .scrollTop(0)
+        .scrollTop()
 
       if (transition) {
-        that.$element[0].offsetWidth // force reflow
+        that.$element[].offsetWidth // force reflow
       }
 
       that.$element
@@ -1030,7 +1030,7 @@ if (typeof jQuery === 'undefined') {
     $(document)
       .off('focusin.bs.modal') // guard against infinite focus loop
       .on('focusin.bs.modal', $.proxy(function (e) {
-        if (this.$element[0] !== e.target && !this.$element.has(e.target).length) {
+        if (this.$element[] !== e.target && !this.$element.has(e.target).length) {
           this.$element.trigger('focus')
         }
       }, this))
@@ -1073,11 +1073,11 @@ if (typeof jQuery === 'undefined') {
         .on('click.dismiss.bs.modal', $.proxy(function (e) {
           if (e.target !== e.currentTarget) return
           this.options.backdrop == 'static'
-            ? this.$element[0].focus.call(this.$element[0])
+            ? this.$element[].focus.call(this.$element[])
             : this.hide.call(this)
         }, this))
 
-      if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
+      if (doAnimate) this.$backdrop[].offsetWidth // force reflow
 
       this.$backdrop.addClass('in')
 
@@ -1112,7 +1112,7 @@ if (typeof jQuery === 'undefined') {
   }
 
   Modal.prototype.setScrollbar = function () {
-    var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
+    var bodyPad = parseInt((this.$body.css('padding-right') || ), 1)
     if (this.scrollbarWidth) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
   }
 
@@ -1121,12 +1121,12 @@ if (typeof jQuery === 'undefined') {
   }
 
   Modal.prototype.measureScrollbar = function () { // thx walsh
-    if (document.body.clientWidth >= window.innerWidth) return 0
+    if (document.body.clientWidth >= window.innerWidth) return 
     var scrollDiv = document.createElement('div')
     scrollDiv.className = 'modal-scrollbar-measure'
     this.$body.append(scrollDiv)
     var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
-    this.$body[0].removeChild(scrollDiv)
+    this.$body[].removeChild(scrollDiv)
     return scrollbarWidth
   }
 
@@ -1184,11 +1184,11 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: tooltip.js v3.3.0
+ * Bootstrap: tooltip.js v3.3.
  * http://getbootstrap.com/javascript/#tooltip
  * Inspired by the original jQuery.tipsy by Jason Frame
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -1210,9 +1210,9 @@ if (typeof jQuery === 'undefined') {
     this.init('tooltip', element, options)
   }
 
-  Tooltip.VERSION  = '3.3.0'
+  Tooltip.VERSION  = '3.3.'
 
-  Tooltip.TRANSITION_DURATION = 150
+  Tooltip.TRANSITION_DURATION = 15
 
   Tooltip.DEFAULTS = {
     animation: true,
@@ -1221,12 +1221,12 @@ if (typeof jQuery === 'undefined') {
     template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
     trigger: 'hover focus',
     title: '',
-    delay: 0,
+    delay: ,
     html: false,
     container: false,
     viewport: {
       selector: 'body',
-      padding: 0
+      padding: 
     }
   }
 
@@ -1337,7 +1337,7 @@ if (typeof jQuery === 'undefined') {
     if (this.hasContent() && this.enabled) {
       this.$element.trigger(e)
 
-      var inDom = $.contains(this.$element[0].ownerDocument.documentElement, this.$element[0])
+      var inDom = $.contains(this.$element[].ownerDocument.documentElement, this.$element[])
       if (e.isDefaultPrevented() || !inDom) return
       var that = this
 
@@ -1352,7 +1352,7 @@ if (typeof jQuery === 'undefined') {
       if (this.options.animation) $tip.addClass('fade')
 
       var placement = typeof this.options.placement == 'function' ?
-        this.options.placement.call(this, $tip[0], this.$element[0]) :
+        this.options.placement.call(this, $tip[], this.$element[]) :
         this.options.placement
 
       var autoToken = /\s?auto?\s?/i
@@ -1361,15 +1361,15 @@ if (typeof jQuery === 'undefined') {
 
       $tip
         .detach()
-        .css({ top: 0, left: 0, display: 'block' })
+        .css({ top: , left: , display: 'block' })
         .addClass(placement)
         .data('bs.' + this.type, this)
 
       this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
 
       var pos          = this.getPosition()
-      var actualWidth  = $tip[0].offsetWidth
-      var actualHeight = $tip[0].offsetHeight
+      var actualWidth  = $tip[].offsetWidth
+      var actualHeight = $tip[].offsetHeight
 
       if (autoPlace) {
         var orgPlacement = placement
@@ -1409,36 +1409,36 @@ if (typeof jQuery === 'undefined') {
 
   Tooltip.prototype.applyPlacement = function (offset, placement) {
     var $tip   = this.tip()
-    var width  = $tip[0].offsetWidth
-    var height = $tip[0].offsetHeight
+    var width  = $tip[].offsetWidth
+    var height = $tip[].offsetHeight
 
     // manually read margins because getBoundingClientRect includes difference
-    var marginTop = parseInt($tip.css('margin-top'), 10)
-    var marginLeft = parseInt($tip.css('margin-left'), 10)
+    var marginTop = parseInt($tip.css('margin-top'), 1)
+    var marginLeft = parseInt($tip.css('margin-left'), 1)
 
     // we must check for NaN for ie 8/9
-    if (isNaN(marginTop))  marginTop  = 0
-    if (isNaN(marginLeft)) marginLeft = 0
+    if (isNaN(marginTop))  marginTop  = 
+    if (isNaN(marginLeft)) marginLeft = 
 
     offset.top  = offset.top  + marginTop
     offset.left = offset.left + marginLeft
 
     // $.fn.offset doesn't round pixel values
-    // so we use setOffset directly with our own function B-0
-    $.offset.setOffset($tip[0], $.extend({
+    // so we use setOffset directly with our own function B-
+    $.offset.setOffset($tip[], $.extend({
       using: function (props) {
         $tip.css({
           top: Math.round(props.top),
           left: Math.round(props.left)
         })
       }
-    }, offset), 0)
+    }, offset), )
 
     $tip.addClass('in')
 
     // check to see if placing tip in new offset caused the tip to resize itself
-    var actualWidth  = $tip[0].offsetWidth
-    var actualHeight = $tip[0].offsetHeight
+    var actualWidth  = $tip[].offsetWidth
+    var actualHeight = $tip[].offsetHeight
 
     if (placement == 'top' && actualHeight != height) {
       offset.top = offset.top + height - actualHeight
@@ -1454,12 +1454,12 @@ if (typeof jQuery === 'undefined') {
     var arrowOffsetPosition = isVertical ? 'offsetWidth' : 'offsetHeight'
 
     $tip.offset(offset)
-    this.replaceArrow(arrowDelta, $tip[0][arrowOffsetPosition], isVertical)
+    this.replaceArrow(arrowDelta, $tip[][arrowOffsetPosition], isVertical)
   }
 
   Tooltip.prototype.replaceArrow = function (delta, dimension, isHorizontal) {
     this.arrow()
-      .css(isHorizontal ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')
+      .css(isHorizontal ? 'left' : 'top', 5 * (1 - delta / dimension) + '%')
       .css(isHorizontal ? 'top' : 'left', '')
   }
 
@@ -1515,15 +1515,15 @@ if (typeof jQuery === 'undefined') {
   Tooltip.prototype.getPosition = function ($element) {
     $element   = $element || this.$element
 
-    var el     = $element[0]
+    var el     = $element[]
     var isBody = el.tagName == 'BODY'
 
     var elRect    = el.getBoundingClientRect()
     if (elRect.width == null) {
-      // width and height are missing in IE8, so compute them manually; see https://github.com/twbs/bootstrap/issues/14093
+      // width and height are missing in IE8, so compute them manually; see https://github.com/twbs/bootstrap/issues/1493
       elRect = $.extend({}, elRect, { width: elRect.right - elRect.left, height: elRect.bottom - elRect.top })
     }
-    var elOffset  = isBody ? { top: 0, left: 0 } : $element.offset()
+    var elOffset  = isBody ? { top: , left:  } : $element.offset()
     var scroll    = { scroll: isBody ? document.documentElement.scrollTop || document.body.scrollTop : $element.scrollTop() }
     var outerDims = isBody ? { width: $(window).width(), height: $(window).height() } : null
 
@@ -1539,10 +1539,10 @@ if (typeof jQuery === 'undefined') {
   }
 
   Tooltip.prototype.getViewportAdjustedDelta = function (placement, pos, actualWidth, actualHeight) {
-    var delta = { top: 0, left: 0 }
+    var delta = { top: , left:  }
     if (!this.$viewport) return delta
 
-    var viewportPadding = this.options.viewport && this.options.viewport.padding || 0
+    var viewportPadding = this.options.viewport && this.options.viewport.padding || 
     var viewportDimensions = this.getPosition(this.$viewport)
 
     if (/right|left/.test(placement)) {
@@ -1572,13 +1572,13 @@ if (typeof jQuery === 'undefined') {
     var o  = this.options
 
     title = $e.attr('data-original-title')
-      || (typeof o.title == 'function' ? o.title.call($e[0]) :  o.title)
+      || (typeof o.title == 'function' ? o.title.call($e[]) :  o.title)
 
     return title
   }
 
   Tooltip.prototype.getUID = function (prefix) {
-    do prefix += ~~(Math.random() * 1000000)
+    do prefix += ~~(Math.random() * 1)
     while (document.getElementById(prefix))
     return prefix
   }
@@ -1663,10 +1663,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: popover.js v3.3.0
+ * Bootstrap: popover.js v3.3.
  * http://getbootstrap.com/javascript/#popovers
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -1683,7 +1683,7 @@ if (typeof jQuery === 'undefined') {
 
   if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
 
-  Popover.VERSION  = '3.3.0'
+  Popover.VERSION  = '3.3.'
 
   Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
     placement: 'right',
@@ -1731,7 +1731,7 @@ if (typeof jQuery === 'undefined') {
 
     return $e.attr('data-content')
       || (typeof o.content == 'function' ?
-            o.content.call($e[0]) :
+            o.content.call($e[]) :
             o.content)
   }
 
@@ -1783,10 +1783,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: scrollspy.js v3.3.0
+ * Bootstrap: scrollspy.js v3.3.
  * http://getbootstrap.com/javascript/#scrollspy
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -1807,28 +1807,28 @@ if (typeof jQuery === 'undefined') {
     this.offsets        = []
     this.targets        = []
     this.activeTarget   = null
-    this.scrollHeight   = 0
+    this.scrollHeight   = 
 
     this.$scrollElement.on('scroll.bs.scrollspy', process)
     this.refresh()
     this.process()
   }
 
-  ScrollSpy.VERSION  = '3.3.0'
+  ScrollSpy.VERSION  = '3.3.'
 
   ScrollSpy.DEFAULTS = {
-    offset: 10
+    offset: 1
   }
 
   ScrollSpy.prototype.getScrollHeight = function () {
-    return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    return this.$scrollElement[].scrollHeight || Math.max(this.$body[].scrollHeight, document.documentElement.scrollHeight)
   }
 
   ScrollSpy.prototype.refresh = function () {
     var offsetMethod = 'offset'
-    var offsetBase   = 0
+    var offsetBase   = 
 
-    if (!$.isWindow(this.$scrollElement[0])) {
+    if (!$.isWindow(this.$scrollElement[])) {
       offsetMethod = 'position'
       offsetBase   = this.$scrollElement.scrollTop()
     }
@@ -1851,9 +1851,9 @@ if (typeof jQuery === 'undefined') {
           && $href.is(':visible')
           && [[$href[offsetMethod]().top + offsetBase, href]]) || null
       })
-      .sort(function (a, b) { return a[0] - b[0] })
+      .sort(function (a, b) { return a[] - b[] })
       .each(function () {
-        self.offsets.push(this[0])
+        self.offsets.push(this[])
         self.targets.push(this[1])
       })
   }
@@ -1875,7 +1875,7 @@ if (typeof jQuery === 'undefined') {
       return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
     }
 
-    if (activeTarget && scrollTop < offsets[0]) {
+    if (activeTarget && scrollTop < offsets[]) {
       this.activeTarget = null
       return this.clear()
     }
@@ -1959,10 +1959,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: tab.js v3.3.0
+ * Bootstrap: tab.js v3.3.
  * http://getbootstrap.com/javascript/#tabs
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -1977,9 +1977,9 @@ if (typeof jQuery === 'undefined') {
     this.element = $(element)
   }
 
-  Tab.VERSION = '3.3.0'
+  Tab.VERSION = '3.3.'
 
-  Tab.TRANSITION_DURATION = 150
+  Tab.TRANSITION_DURATION = 15
 
   Tab.prototype.show = function () {
     var $this    = this.element
@@ -1995,10 +1995,10 @@ if (typeof jQuery === 'undefined') {
 
     var $previous = $ul.find('.active:last a')
     var hideEvent = $.Event('hide.bs.tab', {
-      relatedTarget: $this[0]
+      relatedTarget: $this[]
     })
     var showEvent = $.Event('show.bs.tab', {
-      relatedTarget: $previous[0]
+      relatedTarget: $previous[]
     })
 
     $previous.trigger(hideEvent)
@@ -2012,11 +2012,11 @@ if (typeof jQuery === 'undefined') {
     this.activate($target, $target.parent(), function () {
       $previous.trigger({
         type: 'hidden.bs.tab',
-        relatedTarget: $this[0]
+        relatedTarget: $this[]
       })
       $this.trigger({
         type: 'shown.bs.tab',
-        relatedTarget: $previous[0]
+        relatedTarget: $previous[]
       })
     })
   }
@@ -2042,7 +2042,7 @@ if (typeof jQuery === 'undefined') {
           .attr('aria-expanded', true)
 
       if (transition) {
-        element[0].offsetWidth // reflow for transition
+        element[].offsetWidth // reflow for transition
         element.addClass('in')
       } else {
         element.removeClass('fade')
@@ -2113,10 +2113,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: affix.js v3.3.0
+ * Bootstrap: affix.js v3.3.
  * http://getbootstrap.com/javascript/#affix
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -2142,12 +2142,12 @@ if (typeof jQuery === 'undefined') {
     this.checkPosition()
   }
 
-  Affix.VERSION  = '3.3.0'
+  Affix.VERSION  = '3.3.'
 
   Affix.RESET    = 'affix affix-top affix-bottom'
 
   Affix.DEFAULTS = {
-    offset: 0,
+    offset: ,
     target: window
   }
 

@@ -28,27 +28,27 @@ pre[class*="language-"] {
 /* Code blocks */
 pre[class*="language-"] {
 	position: relative;
-	margin: .5em 0;
-	-webkit-box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf;
-	-moz-box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf;
-	box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf;
-	border-left: 10px solid #358ccb;
+	margin: .5em ;
+	-webkit-box-shadow: -1px    #358ccb,    1px #dfdfdf;
+	-moz-box-shadow: -1px    #358ccb,    1px #dfdfdf;
+	box-shadow: -1px    #358ccb,    1px #dfdfdf;
+	border-left: 1 solid #358ccb;
 	background-color: #fdfdfd;
-	background-image: -webkit-linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
-	background-image: -moz-linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
-	background-image: -ms-linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
-	background-image: -o-linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
-	background-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
+	background-image: -webkit-linear-gradient(transparent 5%, rgba(69, 142, 29, .4) 5%);
+	background-image: -moz-linear-gradient(transparent 5%, rgba(69, 142, 29, .4) 5%);
+	background-image: -ms-linear-gradient(transparent 5%, rgba(69, 142, 29, .4) 5%);
+	background-image: -o-linear-gradient(transparent 5%, rgba(69, 142, 29, .4) 5%);
+	background-image: linear-gradient(transparent 5%, rgba(69, 142, 29, .4) 5%);
 	background-size: 3em 3em;
 	background-origin: content-box;
 	overflow: visible;
-	max-height: 30em;
+	max-height: 3em;
 }
 
 code[class*="language"] {
 	max-height: inherit;
-	height: 100%;
-	padding: 0 1em;
+	height: 1%;
+	padding:  1em;
 	display: block;
 	overflow: auto;
 }
@@ -67,13 +67,13 @@ pre[class*="language-"] {
 :not(pre) > code[class*="language-"] {
 	position: relative;
 	padding: .2em;
-	-webkit-border-radius: 0.3em;
-	-moz-border-radius: 0.3em;
-	-ms-border-radius: 0.3em;
-	-o-border-radius: 0.3em;
-	border-radius: 0.3em;
+	-webkit-border-radius: .3em;
+	-moz-border-radius: .3em;
+	-ms-border-radius: .3em;
+	-o-border-radius: .3em;
+	border-radius: .3em;
 	color: #c92c2c;
-	border: 1px solid rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(, , , .1);
 }
 
 pre[class*="language-"]:before,
@@ -82,13 +82,13 @@ pre[class*="language-"]:after {
 	z-index: -2;
 	display: block;
 	position: absolute;
-	bottom: 0.75em;
-	left: 0.18em;
-	width: 40%;
-	height: 20%;
-	-webkit-box-shadow: 0px 13px 8px #979797;
-	-moz-box-shadow: 0px 13px 8px #979797;
-	box-shadow: 0px 13px 8px #979797;
+	bottom: .75em;
+	left: .18em;
+	width: 4%;
+	height: 2%;
+	-webkit-box-shadow:  13px 8px #979797;
+	-moz-box-shadow:  13px 8px #979797;
+	box-shadow:  13px 8px #979797;
 	-webkit-transform: rotate(-2deg);
 	-moz-transform: rotate(-2deg);
 	-ms-transform: rotate(-2deg);
@@ -98,7 +98,7 @@ pre[class*="language-"]:after {
 
 :not(pre) > code[class*="language-"]:after,
 pre[class*="language-"]:after {
-	right: 0.75em;
+	right: .75em;
 	left: auto;
 	-webkit-transform: rotate(2deg);
 	-moz-transform: rotate(2deg);
@@ -137,7 +137,7 @@ pre[class*="language-"]:after {
 .token.function,
 .token.builtin,
 .token.inserted {
-	color: #2f9c0a;
+	color: #2f9ca;
 }
 
 .token.operator,
@@ -145,25 +145,25 @@ pre[class*="language-"]:after {
 .token.url,
 .token.variable {
 	color: #a67f59;
-	background: rgba(255, 255, 255, 0.5);
+	background: rgba(255, 255, 255, .5);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword,
 .token.class-name {
-	color: #1990b8;
+	color: #199b8;
 }
 
 .token.regex,
 .token.important {
-	color: #e90;
+	color: #e9;
 }
 
 .language-css .token.string,
 .style .token.string {
 	color: #a67f59;
-	background: rgba(255, 255, 255, 0.5);
+	background: rgba(255, 255, 255, .5);
 }
 
 .token.important {
@@ -193,12 +193,12 @@ pre[class*="language-"]:after {
 .token.tab:not(:empty):before,
 .token.cr:before,
 .token.lf:before {
-	color: #e0d7d1;
+	color: #ed7d1;
 }
 
 /* Plugin styles: Line Numbers */
 pre[class*="language-"].line-numbers {
-	padding-left: 0;
+	padding-left: ;
 }
 
 pre[class*="language-"].line-numbers code {
@@ -206,5 +206,5 @@ pre[class*="language-"].line-numbers code {
 }
 
 pre[class*="language-"].line-numbers .line-numbers-rows {
-	left: 0;
+	left: ;
 }

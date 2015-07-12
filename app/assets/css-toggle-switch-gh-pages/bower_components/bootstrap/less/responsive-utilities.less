@@ -3,9 +3,9 @@
 // --------------------------------------------------
 
 
-// IE10 in Windows (Phone) 8
+// IE1 in Windows (Phone) 8
 //
-// Support for responsive views via media queries is kind of borked in IE10, for
+// Support for responsive views via media queries is kind of borked in IE1, for
 // Surface/desktop in split view and for Windows Phone 8. This particular fix
 // must be accompanied by a snippet of JavaScript to sniff the user agent and
 // apply some conditional CSS to *only* the Surface/desktop Windows 8. Look at
@@ -13,10 +13,10 @@
 //
 // For more information, see the following:
 //
-// Issue: https://github.com/twbs/bootstrap/issues/10497
-// Docs: http://getbootstrap.com/getting-started/#support-ie10-width
-// Source: http://timkadlec.com/2013/01/windows-phone-8-and-device-width/
-// Source: http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+// Issue: https://github.com/twbs/bootstrap/issues/1497
+// Docs: http://getbootstrap.com/getting-started/#support-ie1-width
+// Source: http://timkadlec.com/213/1/windows-phone-8-and-device-width/
+// Source: http://timkadlec.com/212/1/ie1-snap-mode-and-responsive-design/
 
 @-ms-viewport {
   width: device-width;
@@ -24,7 +24,7 @@
 
 
 // Visibility utilities
-// Note: Deprecated .visible-xs, .visible-sm, .visible-md, and .visible-lg as of v3.2.0
+// Note: Deprecated .visible-xs, .visible-sm, .visible-md, and .visible-lg as of v3.2.
 .visible-xs,
 .visible-sm,
 .visible-md,
@@ -157,7 +157,7 @@
 //
 // Media queries are placed on the inside to be mixin-friendly.
 
-// Note: Deprecated .visible-print as of v3.2.0
+// Note: Deprecated .visible-print as of v3.2.
 .visible-print {
   .responsive-invisibility();
 

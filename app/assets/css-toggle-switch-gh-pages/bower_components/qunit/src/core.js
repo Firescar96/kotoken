@@ -1,7 +1,7 @@
 var QUnit,
 	config,
 	onErrorFnPrev,
-	fileName = ( sourceFromStacktrace( 0 ) || "" ).replace( /(:\d+)+\)?/, "" ).replace( /.+\//, "" ),
+	fileName = ( sourceFromStacktrace(  ) || "" ).replace( /(:\d+)+\)?/, "" ).replace( /.+\//, "" ),
 	toString = Object.prototype.toString,
 	hasOwn = Object.prototype.hasOwnProperty,
 	// Keep a local reference to Date (GH-283)
@@ -38,7 +38,7 @@ var QUnit,
 	errorString = function( error ) {
 		var name, message,
 			errorString = error.toString();
-		if ( errorString.substring( 0, 7 ) === "[object" ) {
+		if ( errorString.substring( , 7 ) === "[object" ) {
 			name = error.name ? error.name.toString() : "Error";
 			message = error.message ? error.message.toString() : "";
 			if ( name && message ) {
@@ -135,17 +135,17 @@ QUnit = {
 
 		config.semaphore -= count || 1;
 		// don't start until equal number of stop-calls
-		if ( config.semaphore > 0 ) {
+		if ( config.semaphore >  ) {
 			return;
 		}
 
 		// Set the starting time when the first test is run
 		QUnit.config.started = QUnit.config.started || now();
 		// ignore if start is called more often then stop
-		if ( config.semaphore < 0 ) {
-			config.semaphore = 0;
+		if ( config.semaphore <  ) {
+			config.semaphore = ;
 
-			message = "Called start() while already started (QUnit.config.semaphore was 0 already)";
+			message = "Called start() while already started (QUnit.config.semaphore was  already)";
 
 			if ( config.current ) {
 				QUnit.pushFailure( message, sourceFromStacktrace( 2 ) );
@@ -158,7 +158,7 @@ QUnit = {
 		// A slight delay, to avoid any current callbacks
 		if ( defined.setTimeout ) {
 			setTimeout(function() {
-				if ( config.semaphore > 0 ) {
+				if ( config.semaphore >  ) {
 					return;
 				}
 				if ( config.timeout ) {
@@ -258,17 +258,17 @@ config = {
 		length = params.length,
 		urlParams = {};
 
-	if ( params[ 0 ] ) {
-		for ( i = 0; i < length; i++ ) {
+	if ( params[  ] ) {
+		for ( i = ; i < length; i++ ) {
 			current = params[ i ].split( "=" );
-			current[ 0 ] = decodeURIComponent( current[ 0 ] );
+			current[  ] = decodeURIComponent( current[  ] );
 
 			// allow just a key to turn on a flag, e.g., test.html?noglobals
 			current[ 1 ] = current[ 1 ] ? decodeURIComponent( current[ 1 ] ) : true;
-			if ( urlParams[ current[ 0 ] ] ) {
-				urlParams[ current[ 0 ] ] = [].concat( urlParams[ current[ 0 ] ], current[ 1 ] );
+			if ( urlParams[ current[  ] ] ) {
+				urlParams[ current[  ] ] = [].concat( urlParams[ current[  ] ], current[ 1 ] );
 			} else {
-				urlParams[ current[ 0 ] ] = current[ 1 ];
+				urlParams[ current[  ] ] = current[ 1 ];
 			}
 		}
 	}
@@ -286,9 +286,9 @@ config = {
 
 		// Ensure that urlParams.testNumber is an array
 		urlParams.testNumber = [].concat( urlParams.testNumber );
-		for ( i = 0; i < urlParams.testNumber.length; i++ ) {
+		for ( i = ; i < urlParams.testNumber.length; i++ ) {
 			current = urlParams.testNumber[ i ];
-			config.testNumber.push( parseInt( current, 10 ) );
+			config.testNumber.push( parseInt( current, 1 ) );
 		}
 	}
 
@@ -350,7 +350,7 @@ extend( QUnit, {
 			}
 		}
 		return window.location.protocol + "//" + window.location.host +
-			window.location.pathname + querystring.slice( 0, -1 );
+			window.location.pathname + querystring.slice( , -1 );
 	},
 
 	extend: extend
@@ -395,10 +395,10 @@ QUnit.load = function() {
 
 	// Initialize the configuration options
 	extend( config, {
-		stats: { all: 0, bad: 0 },
-		moduleStats: { all: 0, bad: 0 },
-		started: 0,
-		updateRate: 1000,
+		stats: { all: , bad:  },
+		moduleStats: { all: , bad:  },
+		started: ,
+		updateRate: 1,
 		autostart: true,
 		filter: "",
 		semaphore: 1
@@ -481,8 +481,8 @@ function validTest( test ) {
 		return true;
 	}
 
-	if ( config.testNumber.length > 0 ) {
-		if ( inArray( test.testNumber, config.testNumber ) < 0 ) {
+	if ( config.testNumber.length >  ) {
+		if ( inArray( test.testNumber, config.testNumber ) <  ) {
 			return false;
 		}
 	}
@@ -495,7 +495,7 @@ function validTest( test ) {
 		return true;
 	}
 
-	include = filter.charAt( 0 ) !== "!";
+	include = filter.charAt(  ) !== "!";
 	if ( !include ) {
 		filter = filter.slice( 1 );
 	}
@@ -522,9 +522,9 @@ function extractStacktrace( e, offset ) {
 		return e.stacktrace.split( "\n" )[ offset + 3 ];
 	} else if ( e.stack ) {
 
-		// Firefox, Chrome, Safari 6+, IE10+, PhantomJS and Node
+		// Firefox, Chrome, Safari 6+, IE1+, PhantomJS and Node
 		stack = e.stack.split( "\n" );
-		if ( /^error$/i.test( stack[ 0 ] ) ) {
+		if ( /^error$/i.test( stack[  ] ) ) {
 			stack.shift();
 		}
 		if ( fileName ) {
@@ -576,7 +576,7 @@ function process( last ) {
 	config.depth = config.depth ? config.depth + 1 : 1;
 
 	while ( config.queue.length && !config.blocking ) {
-		if ( !defined.setTimeout || config.updateRate <= 0 || ( ( now() - start ) < config.updateRate ) ) {
+		if ( !defined.setTimeout || config.updateRate <=  || ( ( now() - start ) < config.updateRate ) ) {
 			config.queue.shift()();
 		} else {
 			setTimeout( next, 13 );
@@ -584,7 +584,7 @@ function process( last ) {
 		}
 	}
 	config.depth--;
-	if ( last && !config.blocking && !config.queue.length && config.depth === 0 ) {
+	if ( last && !config.blocking && !config.queue.length && config.depth ===  ) {
 		done();
 	}
 }
@@ -613,12 +613,12 @@ function checkPollution() {
 	saveGlobal();
 
 	newGlobals = diff( config.pollution, old );
-	if ( newGlobals.length > 0 ) {
+	if ( newGlobals.length >  ) {
 		QUnit.pushFailure( "Introduced global variable(s): " + newGlobals.join( ", " ) );
 	}
 
 	deletedGlobals = diff( old, config.pollution );
-	if ( deletedGlobals.length > 0 ) {
+	if ( deletedGlobals.length >  ) {
 		QUnit.pushFailure( "Deleted global variable(s): " + deletedGlobals.join( ", " ) );
 	}
 }
@@ -628,8 +628,8 @@ function diff( a, b ) {
 	var i, j,
 		result = a.slice();
 
-	for ( i = 0; i < result.length; i++ ) {
-		for ( j = 0; j < b.length; j++ ) {
+	for ( i = ; i < result.length; i++ ) {
+		for ( j = ; j < b.length; j++ ) {
 			if ( result[ i ] === b[ j ] ) {
 				result.splice( i, 1 );
 				i--;
@@ -674,7 +674,7 @@ function runLoggingCallbacks( key, args ) {
 	var i, l, callbacks;
 
 	callbacks = config.callbacks[ key ];
-	for ( i = 0, l = callbacks.length; i < l; i++ ) {
+	for ( i = , l = callbacks.length; i < l; i++ ) {
 		callbacks[ i ]( args );
 	}
 }
@@ -685,7 +685,7 @@ function inArray( elem, array ) {
 		return array.indexOf( elem );
 	}
 
-	for ( var i = 0, length = array.length; i < length; i++ ) {
+	for ( var i = , length = array.length; i < length; i++ ) {
 		if ( array[ i ] === elem ) {
 			return i;
 		}

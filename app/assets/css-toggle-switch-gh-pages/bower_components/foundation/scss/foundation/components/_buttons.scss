@@ -10,14 +10,14 @@
 $include-html-button-classes: $include-html-classes !default;
 
 // We use these to build padding for buttons.
-$button-tny: rem-calc(10) !default;
+$button-tny: rem-calc(1) !default;
 $button-sml: rem-calc(14) !default;
 $button-med: rem-calc(16) !default;
 $button-lrg: rem-calc(18) !default;
 
 // We use this to control the display property.
 $button-display: inline-block !default;
-$button-margin-bottom: rem-calc(20) !default;
+$button-margin-bottom: rem-calc(2) !default;
 
 // We use these to control button text styles.
 $button-font-family: $body-font-family !default;
@@ -26,15 +26,15 @@ $button-font-color-alt: $oil !default;
 $button-font-tny: rem-calc(11) !default;
 $button-font-sml: rem-calc(13) !default;
 $button-font-med: rem-calc(16) !default;
-$button-font-lrg: rem-calc(20) !default;
+$button-font-lrg: rem-calc(2) !default;
 $button-font-weight: $font-weight-normal !default;
 $button-font-align: center !default;
 
 // We use these to control various hover effects.
-$button-function-factor: -20% !default;
+$button-function-factor: -2% !default;
 
 // We use these to control button border styles.
-$button-border-width: 0px !default;
+$button-border-width:  !default;
 $button-border-style: solid !default;
 $button-bg-color: $primary-color !default;
 $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor) !default;
@@ -55,7 +55,7 @@ $button-radius: $global-radius !default;
 $button-round: $global-rounded !default;
 
 // We use this to set default opacity and cursor for disabled buttons.
-$button-disabled-opacity: 0.7 !default;
+$button-disabled-opacity: .7 !default;
 $button-disabled-cursor: $cursor-default-value !default;
 
 
@@ -75,12 +75,12 @@ $button-disabled-cursor: $cursor-default-value !default;
     font-family: $button-font-family;
     font-weight: $button-font-weight;
     line-height: normal;
-    margin: 0 0 $button-margin-bottom;
+    margin:   $button-margin-bottom;
     position: relative;
     text-decoration: none;
     text-align: $button-font-align;
     -webkit-appearance: none;
-    -webkit-border-radius:0;
+    -webkit-border-radius:;
   }
   @if $display { display: $display; }
 }
@@ -116,12 +116,12 @@ $button-disabled-cursor: $cursor-default-value !default;
     padding-top: $padding;
     padding-bottom: $padding + rem-calc(1);
     } @else if $padding == false {
-      padding-top:0;
-      padding-bottom:0;
+      padding-top:;
+      padding-bottom:;
     }
-    padding-right: 0;
-    padding-left: 0;
-    width: 100%;
+    padding-right: ;
+    padding-left: ;
+    width: 1%;
   }
 }
 
@@ -134,7 +134,7 @@ $button-disabled-cursor: $cursor-default-value !default;
 // We use this mixin to add button color styles
 //
 // $bg - Primary color set in settings file. Default: $button-bg.
-// $radius - If true, set to button radius which is $global-radius || explicitly set radius amount in px (ex. $radius:10px). Default: true
+// $radius - If true, set to button radius which is $global-radius || explicitly set radius amount in px (ex. $radius:1). Default: true
 // $disabled - We can set $disabled:true to create a disabled transparent button. Default: false
 // $bg-hover - Button Hover Background Color. Default: $button-bg-hover
 // $border-color - Button Border Color. Default: $button-border-color
@@ -162,11 +162,11 @@ $button-disabled-cursor: $cursor-default-value !default;
     &:focus { background-color: $bg-hover; }
 
     // We control the text color for you based on the background color.
-    color: if($bg-lightness > 70%, $button-font-color-alt, $button-font-color);
+    color: if($bg-lightness > 7%, $button-font-color-alt, $button-font-color);
 
     &:hover,
     &:focus {
-      color: if($bg-hover-lightness > 70%, $button-font-color-alt, $button-font-color);
+      color: if($bg-hover-lightness > 7%, $button-font-color-alt, $button-font-color);
     }
   }
 
@@ -191,7 +191,7 @@ $button-disabled-cursor: $cursor-default-value !default;
 //
 // $padding - Used to build padding for buttons Default: $button-med ||= rem-calc(12)
 // $bg - Primary color set in settings file. Default: $button-bg.
-// $radius - If true, set to button radius which is $global-radius || explicitly set radius amount in px (ex. $radius:10px). Default:false.
+// $radius - If true, set to button radius which is $global-radius || explicitly set radius amount in px (ex. $radius:1). Default:false.
 // $full-width - We can set $full-width:true to remove side padding extend width. Default:false.
 // $disabled - We can set $disabled:true to create a disabled transparent button. Default:false.
 // $is-prefix - Not used? Default:false.
@@ -247,7 +247,7 @@ $button-disabled-cursor: $cursor-default-value !default;
     }
 
     //firefox 2px fix
-    button::-moz-focus-inner {border:0; padding:0;}
+    button::-moz-focus-inner {border:; padding:;}
 
     @media #{$medium-up} {
       button, .button {

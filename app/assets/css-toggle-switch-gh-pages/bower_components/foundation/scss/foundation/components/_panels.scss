@@ -19,8 +19,8 @@ $panel-function-factor: -11% !default;
 $panel-border-color: scale-color($panel-bg, $lightness: $panel-function-factor) !default;
 
 // We use these to set default inner padding and bottom margin
-$panel-margin-bottom: rem-calc(20) !default;
-$panel-padding: rem-calc(20) !default;
+$panel-margin-bottom: rem-calc(2) !default;
+$panel-padding: rem-calc(2) !default;
 
 // We use these to set default font colors
 $panel-font-color: $oil !default;
@@ -33,7 +33,7 @@ $callout-panel-link-color: $primary-color !default;
 //
 // We use this mixin to create panels.
 // $bg - Sets the panel background color. Default: $panel-pg || scale-color($white, $lightness: -5%) !default
-// $padding - Sets the panel padding amount. Default: $panel-padding || rem-calc(20)
+// $padding - Sets the panel padding amount. Default: $panel-padding || rem-calc(2)
 // $adjust - Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust || true
 @mixin panel($bg:$panel-bg, $padding:$panel-padding, $adjust:$panel-header-adjust) {
 
@@ -47,16 +47,16 @@ $callout-panel-link-color: $primary-color !default;
     padding: $padding;
 
     background: $bg;
-    @if $bg-lightness >= 50% { color: $panel-font-color; }
+    @if $bg-lightness >= 5% { color: $panel-font-color; }
     @else { color: $panel-font-color-alt; }
 
     // Respect the padding, fool.
-    &>:first-child { margin-top: 0; }
-    &>:last-child { margin-bottom: 0; }
+    &>:first-child { margin-top: ; }
+    &>:last-child { margin-bottom: ; }
 
     @if $adjust {
       // We set the font color based on the darkness of the bg.
-      @if $bg-lightness >= 50% { 
+      @if $bg-lightness >= 5% { 
         h1,h2,h3,h4,h5,h6,p,li,dl { color: $panel-font-color; }
       }
       @else { 
@@ -65,7 +65,7 @@ $callout-panel-link-color: $primary-color !default;
 
       // reset header line-heights for panels
       h1,h2,h3,h4,h5,h6 {
-        line-height: 1; margin-bottom: rem-calc(20) / 2;
+        line-height: 1; margin-bottom: rem-calc(2) / 2;
         &.subheader { line-height: 1.4; }
       }
     }

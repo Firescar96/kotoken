@@ -9,7 +9,7 @@ Prism.languages.aspnet = Prism.languages.extend('markup', {
 	'directive tag': {
 		pattern: /<%.*%>/gi,
 		inside: {
-			'directive tag': /<%\s*?[$=%#:]{0,2}|%>/gi,
+			'directive tag': /<%\s*?[$=%#:]{,2}|%>/gi,
 			rest: Prism.languages.csharp
 		}
 	}

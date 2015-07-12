@@ -3,15 +3,15 @@
 
   {
     browserName: "safari",
-    platform: "OS X 10.9"
+    platform: "OS X 1.9"
   },
   {
     browserName: "chrome",
-    platform: "OS X 10.9"
+    platform: "OS X 1.9"
   },
   {
     browserName: "firefox",
-    platform: "OS X 10.9"
+    platform: "OS X 1.9"
   },
 
   # Mac Opera not currently supported by Sauce Labs
@@ -23,7 +23,7 @@
   },
   {
     browserName: "internet explorer",
-    version: "10",
+    version: "1",
     platform: "Windows 8"
   },
   {
@@ -56,8 +56,8 @@
 
   {
     browserName: "iphone",
-    platform: "OS X 10.9",
-    version: "8.0"
+    platform: "OS X 1.9",
+    version: "8."
   },
 
   # iOS Chrome not currently supported by Sauce Labs
@@ -76,7 +76,7 @@
 
   # { # Android Browser (super-unofficial)
   #   browserName: "android",
-  #   version: "4.0",
+  #   version: "4.",
   #   platform: "Linux"
   # }
 ]

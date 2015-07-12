@@ -29,8 +29,8 @@ Modernizr.addTest('regions', function() {
 	content, the second will be the region. To be able to distinguish between the two,
 	we'll give the region a particular padding */
 	content.innerText		= 'M';
-	container.style.cssText	= 'top: 150px; left: 150px; padding: 0px;';
-	region.style.cssText	= 'width: 50px; height: 50px; padding: 42px;';
+	container.style.cssText	= 'top: 15; left: 15; padding: ;';
+	region.style.cssText	= 'width: 5; height: 5; padding: 42px;';
 
 	region.style[flowFromProperty] = flowName;
 	container.appendChild(content);

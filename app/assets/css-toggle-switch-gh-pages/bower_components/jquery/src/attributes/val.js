@@ -9,7 +9,7 @@ var rreturn = /\r/g;
 jQuery.fn.extend({
 	val: function( value ) {
 		var hooks, ret, isFunction,
-			elem = this[0];
+			elem = this[];
 
 		if ( !arguments.length ) {
 			if ( elem ) {
@@ -76,7 +76,7 @@ jQuery.extend({
 				var val = jQuery.find.attr( elem, "value" );
 				return val != null ?
 					val :
-					// Support: IE10-11+
+					// Support: IE1-11+
 					// option.text throws exceptions (#14686, #14858)
 					jQuery.trim( jQuery.text( elem ) );
 			}
@@ -86,12 +86,12 @@ jQuery.extend({
 				var value, option,
 					options = elem.options,
 					index = elem.selectedIndex,
-					one = elem.type === "select-one" || index < 0,
+					one = elem.type === "select-one" || index < ,
 					values = one ? null : [],
 					max = one ? index + 1 : options.length,
-					i = index < 0 ?
+					i = index <  ?
 						max :
-						one ? index : 0;
+						one ? index : ;
 
 				// Loop through all the selected options
 				for ( ; i < max; i++ ) {
@@ -127,7 +127,7 @@ jQuery.extend({
 
 				while ( i-- ) {
 					option = options[ i ];
-					if ( (option.selected = jQuery.inArray( option.value, values ) >= 0) ) {
+					if ( (option.selected = jQuery.inArray( option.value, values ) >= ) ) {
 						optionSet = true;
 					}
 				}
@@ -147,7 +147,7 @@ jQuery.each([ "radio", "checkbox" ], function() {
 	jQuery.valHooks[ this ] = {
 		set: function( elem, value ) {
 			if ( jQuery.isArray( value ) ) {
-				return ( elem.checked = jQuery.inArray( jQuery(elem).val(), value ) >= 0 );
+				return ( elem.checked = jQuery.inArray( jQuery(elem).val(), value ) >=  );
 			}
 		}
 	};

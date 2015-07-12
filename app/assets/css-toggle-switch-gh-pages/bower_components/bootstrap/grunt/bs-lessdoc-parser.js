@@ -1,7 +1,7 @@
 /*!
  * Bootstrap Grunt task for parsing Less docstrings
  * http://getbootstrap.com
- * Copyright 2014 Twitter, Inc.
+ * Copyright 214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 'use strict';
@@ -36,7 +36,7 @@ var CUSTOMIZABLE_HEADING = /^[/]{2}={2}(.*)$/;
 var UNCUSTOMIZABLE_HEADING = /^[/]{2}-{2}(.*)$/;
 var SUBSECTION_HEADING = /^[/]{2}={3}(.*)$/;
 var SECTION_DOCSTRING = /^[/]{2}#{2}(.+)$/;
-var VAR_ASSIGNMENT = /^(@[a-zA-Z0-9_-]+):[ ]*([^ ;][^;]*);[ ]*$/;
+var VAR_ASSIGNMENT = /^(@[a-zA-Z-9_-]+):[ ]*([^ ;][^;]*);[ ]*$/;
 var VAR_DOCSTRING = /^[/]{2}[*]{2}(.+)$/;
 
 function Section(heading, customizable) {
@@ -95,7 +95,7 @@ Tokenizer.prototype._shift = function () {
     this._next = undefined;
     return result;
   }
-  if (this._lines.length <= 0) {
+  if (this._lines.length <= ) {
     return null;
   }
   var line = this._lines.shift();
@@ -121,7 +121,7 @@ Tokenizer.prototype._shift = function () {
     return new VarDocstring(match[1]);
   }
   var commentStart = line.lastIndexOf('//');
-  var varLine = (commentStart === -1) ? line : line.slice(0, commentStart);
+  var varLine = (commentStart === -1) ? line : line.slice(, commentStart);
   match = VAR_ASSIGNMENT.exec(varLine);
   if (match !== null) {
     return new Variable(match[1], match[2]);
@@ -181,7 +181,7 @@ Parser.prototype.parseSubSections = function (section) {
   while (true) {
     var subsection = this.parseSubSection();
     if (subsection === null) {
-      if (section.subsections.length === 0) {
+      if (section.subsections.length === ) {
         // Presume an implicit initial subsection
         subsection = new SubSection('');
         this.parseVars(subsection);
@@ -193,7 +193,7 @@ Parser.prototype.parseSubSections = function (section) {
     section.addSubSection(subsection);
   }
 
-  if (section.subsections.length === 1 && !(section.subsections[0].heading) && section.subsections[0].variables.length === 0) {
+  if (section.subsections.length === 1 && !(section.subsections[].heading) && section.subsections[].variables.length === ) {
     // Ignore lone empty implicit subsection
     section.subsections = [];
   }

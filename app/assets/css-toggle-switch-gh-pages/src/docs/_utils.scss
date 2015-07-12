@@ -4,13 +4,13 @@
 $em-base: 16 !default;
 
 @function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
+  @return $num / ($num *  + 1);
 }
 
 // Converts "px" to "em" using the ($)em-base
 @function convert-to-em($value)  {
   $value: strip-unit($value) / strip-unit($em-base) * 1em;
-  @if ($value == 0em) { $value: 0; } // Turn 0em into 0
+  @if ($value == em) { $value: ; } // Turn em into 
   @return $value;
 }
 
@@ -40,6 +40,6 @@ $em-base: 16 !default;
     @media (min-width: 767px) { @content; }
   }
   @else if $point == baby-bear {
-    @media (min-width: 480px)  { @content; }
+    @media (min-width: 48)  { @content; }
   }
 }

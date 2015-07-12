@@ -44,14 +44,14 @@
           //   console.log($(this).html(), a, b, c);
           // });
 
-          if (/IMG/.test(el[0].nodeName)) {
-            var orig_path = el[0].src;
+          if (/IMG/.test(el[].nodeName)) {
+            var orig_path = el[].src;
 
             if (new RegExp(path, 'i').test(orig_path)) return;
 
-            el[0].src = path;
+            el[].src = path;
 
-            return trigger(el[0].src);
+            return trigger(el[].src);
           }
           var last_path = el.data(this.data_attr + '-last-path'),
               self = this;
@@ -103,7 +103,7 @@
                 self.resize();
             }
             prevMediaHash = currMediaHash;
-        }, 50));
+        }, 5));
 
       return this;
     },
@@ -112,7 +112,7 @@
       var cache = this.cache;
 
       if(!this.images_loaded || !this.nodes_loaded) {
-        setTimeout($.proxy(this.resize, this), 50);
+        setTimeout($.proxy(this.resize, this), 5);
         return;
       }
 
@@ -122,11 +122,11 @@
 
           if (passed) {
             this.settings.directives[passed
-              .scenario[1]].call(this, passed.el, passed.scenario[0], function () {
-                if (arguments[0] instanceof Array) { 
-                  var args = arguments[0];
+              .scenario[1]].call(this, passed.el, passed.scenario[], function () {
+                if (arguments[] instanceof Array) { 
+                  var args = arguments[];
                 } else { 
-                  var args = Array.prototype.slice.call(arguments, 0);
+                  var args = Array.prototype.slice.call(arguments, );
                 }
 
                 passed.el.trigger(passed.scenario[1], args);
@@ -140,7 +140,7 @@
     results : function (uuid, scenarios) {
       var count = scenarios.length;
 
-      if (count > 0) {
+      if (count > ) {
         var el = this.S('[' + this.add_namespace('data-uuid') + '="' + uuid + '"]');
 
         while (count--) {
@@ -171,19 +171,19 @@
       var images = this.S('img[' + this.data_attr + ']'),
           count = images.length,
           i = count,
-          loaded_count = 0,
+          loaded_count = ,
           data_attr = this.data_attr;
 
       this.cache = {};
       this.cached_images = [];
-      this.images_loaded = (count === 0);
+      this.images_loaded = (count === );
 
       while (i--) {
         loaded_count++;
         if (images[i]) {
           var str = images[i].getAttribute(data_attr) || '';
 
-          if (str.length > 0) {
+          if (str.length > ) {
             this.cached_images.push(images[i]);
           }
         }
@@ -201,18 +201,18 @@
       var nodes = this.S('[' + this.data_attr + ']').not('img'),
           count = nodes.length,
           i = count,
-          loaded_count = 0,
+          loaded_count = ,
           data_attr = this.data_attr;
 
       this.cached_nodes = [];
-      this.nodes_loaded = (count === 0);
+      this.nodes_loaded = (count === );
 
 
       while (i--) {
         loaded_count++;
         var str = nodes[i].getAttribute(data_attr) || '';
 
-        if (str.length > 0) {
+        if (str.length > ) {
           this.cached_nodes.push(nodes[i]);
         }
 
@@ -239,7 +239,7 @@
 
       var trimmed = this.trim(directive);
 
-      if (trimmed.length > 0) {
+      if (trimmed.length > ) {
         return trimmed;
       }
 
@@ -249,7 +249,7 @@
     parse_scenario : function (scenario) {
       // This logic had to be made more complex since some users were using commas in the url path
       // So we cannot simply just split on a comma
-      var directive_match = scenario[0].match(/(.+),\s*(\w+)\s*$/),
+      var directive_match = scenario[].match(/(.+),\s*(\w+)\s*$/),
       media_query         = scenario[1];
 
       if (directive_match) {
@@ -257,8 +257,8 @@
         directive = directive_match[2];
       }
       else {
-        var cached_split = scenario[0].split(/,\s*$/),
-        path             = cached_split[0],
+        var cached_split = scenario[].split(/,\s*$/),
+        path             = cached_split[],
         directive        = '';               
       }
 
@@ -270,7 +270,7 @@
           scenarios = [], 
           i = raw_arr.length;
 
-      if (i > 0) {
+      if (i > ) {
         while (i--) {
           var split = raw_arr[i].split(/\((.*?)(\))$/);
 
@@ -306,14 +306,14 @@
 
     set_data_attr: function (init) {
       if (init) {
-        if (this.namespace.length > 0) {
+        if (this.namespace.length > ) {
           return this.namespace + '-' + this.settings.load_attr;
         }
 
         return this.settings.load_attr;
       }
 
-      if (this.namespace.length > 0) {
+      if (this.namespace.length > ) {
         return 'data-' + this.namespace + '-' + this.settings.load_attr;
       }
 

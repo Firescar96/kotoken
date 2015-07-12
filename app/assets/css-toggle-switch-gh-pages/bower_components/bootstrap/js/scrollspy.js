@@ -1,8 +1,8 @@
 /* ========================================================================
- * Bootstrap: scrollspy.js v3.3.0
+ * Bootstrap: scrollspy.js v3.3.
  * http://getbootstrap.com/javascript/#scrollspy
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -23,28 +23,28 @@
     this.offsets        = []
     this.targets        = []
     this.activeTarget   = null
-    this.scrollHeight   = 0
+    this.scrollHeight   = 
 
     this.$scrollElement.on('scroll.bs.scrollspy', process)
     this.refresh()
     this.process()
   }
 
-  ScrollSpy.VERSION  = '3.3.0'
+  ScrollSpy.VERSION  = '3.3.'
 
   ScrollSpy.DEFAULTS = {
-    offset: 10
+    offset: 1
   }
 
   ScrollSpy.prototype.getScrollHeight = function () {
-    return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    return this.$scrollElement[].scrollHeight || Math.max(this.$body[].scrollHeight, document.documentElement.scrollHeight)
   }
 
   ScrollSpy.prototype.refresh = function () {
     var offsetMethod = 'offset'
-    var offsetBase   = 0
+    var offsetBase   = 
 
-    if (!$.isWindow(this.$scrollElement[0])) {
+    if (!$.isWindow(this.$scrollElement[])) {
       offsetMethod = 'position'
       offsetBase   = this.$scrollElement.scrollTop()
     }
@@ -67,9 +67,9 @@
           && $href.is(':visible')
           && [[$href[offsetMethod]().top + offsetBase, href]]) || null
       })
-      .sort(function (a, b) { return a[0] - b[0] })
+      .sort(function (a, b) { return a[] - b[] })
       .each(function () {
-        self.offsets.push(this[0])
+        self.offsets.push(this[])
         self.targets.push(this[1])
       })
   }
@@ -91,7 +91,7 @@
       return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
     }
 
-    if (activeTarget && scrollTop < offsets[0]) {
+    if (activeTarget && scrollTop < offsets[]) {
       this.activeTarget = null
       return this.clear()
     }

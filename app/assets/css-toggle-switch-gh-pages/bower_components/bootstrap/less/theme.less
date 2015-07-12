@@ -18,14 +18,14 @@
 .btn-info,
 .btn-warning,
 .btn-danger {
-  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
-  @shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
+  text-shadow:  -1px  rgba(,,,.2);
+  @shadow: inset  1px  rgba(255,255,255,.15),  1px 1px rgba(,,,.75);
   .box-shadow(@shadow);
 
   // Reset the shadow
   &:active,
   &.active {
-    .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+    .box-shadow(inset  3px 5px rgba(,,,.125));
   }
 
   .badge {
@@ -43,7 +43,7 @@
   &:hover,
   &:focus  {
     background-color: darken(@btn-color, 12%);
-    background-position: 0 -15px;
+    background-position:  -15px;
   }
 
   &:active,
@@ -69,7 +69,7 @@
 }
 
 // Apply the mixin to the buttons
-.btn-default { .btn-styles(@btn-default-bg); text-shadow: 0 1px 0 #fff; border-color: #ccc; }
+.btn-default { .btn-styles(@btn-default-bg); text-shadow:  1px  #fff; border-color: #ccc; }
 .btn-primary { .btn-styles(@btn-primary-bg); }
 .btn-success { .btn-styles(@btn-success-bg); }
 .btn-info    { .btn-styles(@btn-info-bg); }
@@ -83,7 +83,7 @@
 
 .thumbnail,
 .img-thumbnail {
-  .box-shadow(0 1px 2px rgba(0,0,0,.075));
+  .box-shadow( 1px 2px rgba(,,,.75));
 }
 
 
@@ -110,37 +110,37 @@
 
 // Default navbar
 .navbar-default {
-  #gradient > .vertical(@start-color: lighten(@navbar-default-bg, 10%); @end-color: @navbar-default-bg);
-  .reset-filter(); // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered
+  #gradient > .vertical(@start-color: lighten(@navbar-default-bg, 1%); @end-color: @navbar-default-bg);
+  .reset-filter(); // Remove gradient in IE<1 to fix bug where dropdowns don't get triggered
   border-radius: @navbar-border-radius;
-  @shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 5px rgba(0,0,0,.075);
+  @shadow: inset  1px  rgba(255,255,255,.15),  1px 5px rgba(,,,.75);
   .box-shadow(@shadow);
 
   .navbar-nav > .open > a,
   .navbar-nav > .active > a {
     #gradient > .vertical(@start-color: darken(@navbar-default-link-active-bg, 5%); @end-color: darken(@navbar-default-link-active-bg, 2%));
-    .box-shadow(inset 0 3px 9px rgba(0,0,0,.075));
+    .box-shadow(inset  3px 9px rgba(,,,.75));
   }
 }
 .navbar-brand,
 .navbar-nav > li > a {
-  text-shadow: 0 1px 0 rgba(255,255,255,.25);
+  text-shadow:  1px  rgba(255,255,255,.25);
 }
 
 // Inverted navbar
 .navbar-inverse {
-  #gradient > .vertical(@start-color: lighten(@navbar-inverse-bg, 10%); @end-color: @navbar-inverse-bg);
-  .reset-filter(); // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered
+  #gradient > .vertical(@start-color: lighten(@navbar-inverse-bg, 1%); @end-color: @navbar-inverse-bg);
+  .reset-filter(); // Remove gradient in IE<1 to fix bug where dropdowns don't get triggered
 
   .navbar-nav > .open > a,
   .navbar-nav > .active > a {
     #gradient > .vertical(@start-color: @navbar-inverse-link-active-bg; @end-color: lighten(@navbar-inverse-link-active-bg, 2.5%));
-    .box-shadow(inset 0 3px 9px rgba(0,0,0,.25));
+    .box-shadow(inset  3px 9px rgba(,,,.25));
   }
 
   .navbar-brand,
   .navbar-nav > li > a {
-    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    text-shadow:  -1px  rgba(,,,.25);
   }
 }
 
@@ -148,7 +148,7 @@
 .navbar-static-top,
 .navbar-fixed-top,
 .navbar-fixed-bottom {
-  border-radius: 0;
+  border-radius: ;
 }
 
 
@@ -158,8 +158,8 @@
 
 // Common styles
 .alert {
-  text-shadow: 0 1px 0 rgba(255,255,255,.2);
-  @shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 1px 2px rgba(0,0,0,.05);
+  text-shadow:  1px  rgba(255,255,255,.2);
+  @shadow: inset  1px  rgba(255,255,255,.25),  1px 2px rgba(,,,.5);
   .box-shadow(@shadow);
 }
 
@@ -187,7 +187,7 @@
 
 // Mixin for generating new styles
 .progress-bar-styles(@color) {
-  #gradient > .vertical(@start-color: @color; @end-color: darken(@color, 10%));
+  #gradient > .vertical(@start-color: @color; @end-color: darken(@color, 1%));
 }
 
 // Apply the mixin to the progress bars
@@ -198,7 +198,7 @@
 .progress-bar-danger     { .progress-bar-styles(@progress-bar-danger-bg); }
 
 // Reset the striped class because our mixins don't do multiple gradients and
-// the above custom styles override the new `.progress-bar-striped` in v3.2.0.
+// the above custom styles override the new `.progress-bar-striped` in v3.2..
 .progress-bar-striped {
   #gradient > .striped();
 }
@@ -210,12 +210,12 @@
 
 .list-group {
   border-radius: @border-radius-base;
-  .box-shadow(0 1px 2px rgba(0,0,0,.075));
+  .box-shadow( 1px 2px rgba(,,,.75));
 }
 .list-group-item.active,
 .list-group-item.active:hover,
 .list-group-item.active:focus {
-  text-shadow: 0 -1px 0 darken(@list-group-active-bg, 10%);
+  text-shadow:  -1px  darken(@list-group-active-bg, 1%);
   #gradient > .vertical(@start-color: @list-group-active-bg; @end-color: darken(@list-group-active-bg, 7.5%));
   border-color: darken(@list-group-active-border, 7.5%);
 
@@ -231,7 +231,7 @@
 
 // Common styles
 .panel {
-  .box-shadow(0 1px 2px rgba(0,0,0,.05));
+  .box-shadow( 1px 2px rgba(,,,.5));
 }
 
 // Mixin for generating new styles
@@ -254,7 +254,7 @@
 
 .well {
   #gradient > .vertical(@start-color: darken(@well-bg, 5%); @end-color: @well-bg);
-  border-color: darken(@well-bg, 10%);
-  @shadow: inset 0 1px 3px rgba(0,0,0,.05), 0 1px 0 rgba(255,255,255,.1);
+  border-color: darken(@well-bg, 1%);
+  @shadow: inset  1px 3px rgba(,,,.5),  1px  rgba(255,255,255,.1);
   .box-shadow(@shadow);
 }

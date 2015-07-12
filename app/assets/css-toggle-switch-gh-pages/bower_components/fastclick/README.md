@@ -1,10 +1,10 @@
 # FastClick #
 
-FastClick is a simple, easy-to-use library for eliminating the 300ms delay between a physical tap and the firing of a `click` event on mobile browsers. The aim is to make your application feel less laggy and more responsive while avoiding any interference with your current logic.
+FastClick is a simple, easy-to-use library for eliminating the 3ms delay between a physical tap and the firing of a `click` event on mobile browsers. The aim is to make your application feel less laggy and more responsive while avoiding any interference with your current logic.
 
 FastClick is developed by [FT Labs](http://labs.ft.com/), part of the Financial Times.
 
-[Explication en français](http://maxime.sh/2013/02/supprimer-le-lag-des-clics-sur-mobile-avec-fastclick/).
+[Explication en français](http://maxime.sh/213/2/supprimer-le-lag-des-clics-sur-mobile-avec-fastclick/).
 
 [日本語で説明](https://developer.mozilla.org/ja/docs/Mozilla/Firefox_OS/Apps/Tips_and_techniques#Make_events_immediate)。
 
@@ -12,7 +12,7 @@ FastClick is developed by [FT Labs](http://labs.ft.com/), part of the Financial 
 
 According to [Google](https://developers.google.com/mobile/articles/fast_buttons):
 
-> ...mobile browsers will wait approximately 300ms from the time that you tap the button to fire the click event. The reason for this is that the browser is waiting to see if you are actually performing a double tap.
+> ...mobile browsers will wait approximately 3ms from the time that you tap the button to fire the click event. The reason for this is that the browser is waiting to see if you are actually performing a double tap.
 
 ## Compatibility ##
 
@@ -29,7 +29,7 @@ The library has been deployed as part of the [FT Web App](http://app.ft.com/) an
 
 FastClick doesn't attach any listeners on desktop browsers.
 
-Chrome 32+ on Android with `width=device-width` in the [viewport meta tag](https://developer.mozilla.org/en-US/docs/Mobile/Viewport_meta_tag) doesn't have a 300ms delay, therefore listeners aren't attached.
+Chrome 32+ on Android with `width=device-width` in the [viewport meta tag](https://developer.mozilla.org/en-US/docs/Mobile/Viewport_meta_tag) doesn't have a 3ms delay, therefore listeners aren't attached.
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +37,7 @@ Chrome 32+ on Android with `width=device-width` in the [viewport meta tag](https
 
 Same goes for Chrome on Android (all versions) with `user-scalable=no` in the viewport meta tag. But be aware that `user-scalable=no` also disables pinch zooming, which may be an accessibility concern.
 
-For IE10, you can use `-ms-touch-action: none` to disable double-tap-to-zoom on certain elements (like links and buttons) as described in [this MSDN blog post](http://blogs.msdn.com/b/askie/archive/2013/01/06/how-to-implement-the-ms-touch-action-none-property-to-disable-double-tap-zoom-on-touch-devices.aspx).
+For IE1, you can use `-ms-touch-action: none` to disable double-tap-to-zoom on certain elements (like links and buttons) as described in [this MSDN blog post](http://blogs.msdn.com/b/askie/archive/213/1/6/how-to-implement-the-ms-touch-action-none-property-to-disable-double-tap-zoom-on-touch-devices.aspx).
 
 ## Usage ##
 

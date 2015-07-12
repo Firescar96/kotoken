@@ -52,7 +52,7 @@
   padding-right: @navbar-padding-horizontal;
   padding-left:  @navbar-padding-horizontal;
   border-top: 1px solid transparent;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+  box-shadow: inset  1px  rgba(255,255,255,.1);
   &:extend(.clearfix all);
   -webkit-overflow-scrolling: touch;
 
@@ -62,14 +62,14 @@
 
   @media (min-width: @grid-float-breakpoint) {
     width: auto;
-    border-top: 0;
+    border-top: ;
     box-shadow: none;
 
     &.collapse {
       display: block !important;
       visibility: visible !important;
       height: auto !important;
-      padding-bottom: 0; // Override default setting
+      padding-bottom: ; // Override default setting
       overflow: visible !important;
     }
 
@@ -82,8 +82,8 @@
     .navbar-fixed-top &,
     .navbar-static-top &,
     .navbar-fixed-bottom & {
-      padding-left: 0;
-      padding-right: 0;
+      padding-left: ;
+      padding-right: ;
     }
   }
 }
@@ -94,7 +94,7 @@
     max-height: @navbar-collapse-max-height;
 
     @media (max-device-width: @screen-xs-min) and (orientation: landscape) {
-      max-height: 200px;
+      max-height: 2;
     }
   }
 }
@@ -112,8 +112,8 @@
     margin-left:  -@navbar-padding-horizontal;
 
     @media (min-width: @grid-float-breakpoint) {
-      margin-right: 0;
-      margin-left:  0;
+      margin-right: ;
+      margin-left:  ;
     }
   }
 }
@@ -125,13 +125,13 @@
 // Display the navbar across the entirety of the page or fixed it to the top or
 // bottom of the page.
 
-// Static top (unfixed, but 100% wide) navbar
+// Static top (unfixed, but 1% wide) navbar
 .navbar-static-top {
   z-index: @zindex-navbar;
-  border-width: 0 0 1px;
+  border-width:   1px;
 
   @media (min-width: @grid-float-breakpoint) {
-    border-radius: 0;
+    border-radius: ;
   }
 }
 
@@ -139,23 +139,23 @@
 .navbar-fixed-top,
 .navbar-fixed-bottom {
   position: fixed;
-  right: 0;
-  left: 0;
+  right: ;
+  left: ;
   z-index: @zindex-navbar-fixed;
 
   // Undo the rounded corners
   @media (min-width: @grid-float-breakpoint) {
-    border-radius: 0;
+    border-radius: ;
   }
 }
 .navbar-fixed-top {
-  top: 0;
-  border-width: 0 0 1px;
+  top: ;
+  border-width:   1px;
 }
 .navbar-fixed-bottom {
-  bottom: 0;
-  margin-bottom: 0; // override .navbar defaults
-  border-width: 1px 0 0;
+  bottom: ;
+  margin-bottom: ; // override .navbar defaults
+  border-width: 1px  ;
 }
 
 
@@ -195,7 +195,7 @@
   position: relative;
   float: right;
   margin-right: @navbar-padding-horizontal;
-  padding: 9px 10px;
+  padding: 9px 1;
   .navbar-vertical-align(34px);
   background-color: transparent;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
@@ -205,7 +205,7 @@
   // We remove the `outline` here, but later compensate by attaching `:hover`
   // styles to `:focus`.
   &:focus {
-    outline: 0;
+    outline: ;
   }
 
   // Bars
@@ -234,8 +234,8 @@
   margin: (@navbar-padding-vertical / 2) -@navbar-padding-horizontal;
 
   > li > a {
-    padding-top:    10px;
-    padding-bottom: 10px;
+    padding-top:    1;
+    padding-bottom: 1;
     line-height: @line-height-computed;
   }
 
@@ -245,9 +245,9 @@
       position: static;
       float: none;
       width: auto;
-      margin-top: 0;
+      margin-top: ;
       background-color: transparent;
-      border: 0;
+      border: ;
       box-shadow: none;
       > li > a,
       .dropdown-header {
@@ -266,7 +266,7 @@
   // Uncollapse the nav
   @media (min-width: @grid-float-breakpoint) {
     float: left;
-    margin: 0;
+    margin: ;
 
     > li {
       float: left;
@@ -287,10 +287,10 @@
 .navbar-form {
   margin-left: -@navbar-padding-horizontal;
   margin-right: -@navbar-padding-horizontal;
-  padding: 10px @navbar-padding-horizontal;
+  padding: 1 @navbar-padding-horizontal;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
-  @shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
+  @shadow: inset  1px  rgba(255,255,255,.1),  1px  rgba(255,255,255,.1);
   .box-shadow(@shadow);
 
   // Mixin behavior for optimum display
@@ -301,7 +301,7 @@
       margin-bottom: 5px;
 
       &:last-child {
-        margin-bottom: 0;
+        margin-bottom: ;
       }
     }
   }
@@ -309,14 +309,14 @@
   // Vertically center in expanded, horizontal navbar
   .navbar-vertical-align(@input-height-base);
 
-  // Undo 100% width for pull classes
+  // Undo 1% width for pull classes
   @media (min-width: @grid-float-breakpoint) {
     width: auto;
-    border: 0;
-    margin-left: 0;
-    margin-right: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    border: ;
+    margin-left: ;
+    margin-right: ;
+    padding-top: ;
+    padding-bottom: ;
     .box-shadow(none);
   }
 }
@@ -326,12 +326,12 @@
 
 // Menu position and menu carets
 .navbar-nav > li > .dropdown-menu {
-  margin-top: 0;
-  .border-top-radius(0);
+  margin-top: ;
+  .border-top-radius();
 }
 // Menu position and menu caret support for dropups via extra dropup class
 .navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
-  .border-bottom-radius(0);
+  .border-bottom-radius();
 }
 
 
@@ -381,7 +381,7 @@
     margin-right: -@navbar-padding-horizontal;
 
     ~ .navbar-right {
-      margin-right: 0;
+      margin-right: ;
     }
   }
 }

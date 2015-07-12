@@ -9,7 +9,7 @@ Modernizr.addTest('cookies', function () {
   document.cookie = "cookietest=1";
   var ret = document.cookie.indexOf("cookietest=") != -1;
   // Delete cookie
-  document.cookie = "cookietest=1; expires=Thu, 01-Jan-1970 00:00:01 GMT";
+  document.cookie = "cookietest=1; expires=Thu, 1-Jan-197 ::1 GMT";
   return ret;
 });
 

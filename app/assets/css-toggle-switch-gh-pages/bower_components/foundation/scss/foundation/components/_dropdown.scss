@@ -10,7 +10,7 @@
 $include-html-dropdown-classes: $include-html-classes !default;
 
 // We use these to controls height and width styles.
-$f-dropdown-max-width: 200px !default;
+$f-dropdown-max-width: 2 !default;
 $f-dropdown-height: auto !default;
 $f-dropdown-max-height: none !default;
 
@@ -32,24 +32,24 @@ $f-dropdown-bg: $white !default;
 // We use this to set the border styles for dropdowns.
 $f-dropdown-border-style: solid !default;
 $f-dropdown-border-width: 1px !default;
-$f-dropdown-border-color: scale-color($white, $lightness: -20%) !default;
+$f-dropdown-border-color: scale-color($white, $lightness: -2%) !default;
 
 // We use these to style the triangle pip.
 $f-dropdown-triangle-size: 6px !default;
 $f-dropdown-triangle-color: $white !default;
-$f-dropdown-triangle-side-offset: 10px !default;
+$f-dropdown-triangle-side-offset: 1 !default;
 
 // We use these to control styles for the list elements.
 $f-dropdown-list-style: none !default;
 $f-dropdown-font-color: $charcoal !default;
 $f-dropdown-font-size: rem-calc(14) !default;
-$f-dropdown-list-padding: rem-calc(5, 10) !default;
+$f-dropdown-list-padding: rem-calc(5, 1) !default;
 $f-dropdown-line-height: rem-calc(18) !default;
 $f-dropdown-list-hover-bg: $smoke !default;
-$dropdown-mobile-default-float: 0 !default;
+$dropdown-mobile-default-float:  !default;
 
 // We use this to control the styles for when the dropdown has custom content.
-$f-dropdown-content-padding: rem-calc(20) !default;
+$f-dropdown-content-padding: rem-calc(2) !default;
 
 // Default radius for dropdown.
 $f-dropdown-radius: $global-radius !default;
@@ -62,19 +62,19 @@ $f-dropdown-radius: $global-radius !default;
 // We use this to style the dropdown container element.
 // $content-list - Sets list-style. Default: list. Options: [list, content]
 // $triangle - Sets if dropdown has triangle. Default:true.
-// $max-width - Default: $f-dropdown-max-width || 200px.
+// $max-width - Default: $f-dropdown-max-width || 2.
 @mixin dropdown-container($content:list, $triangle:true, $max-width:$f-dropdown-max-width) {
   position: absolute;
   left: -9999px;
   list-style: $f-dropdown-list-style;
-  margin-#{$default-float}: 0;
+  margin-#{$default-float}: ;
   outline: none;
 
-  > *:first-child { margin-top: 0; }
-  > *:last-child { margin-bottom: 0; }
+  > *:first-child { margin-top: ; }
+  > *:last-child { margin-bottom: ; }
 
   @if $content == list {
-    width: 100%;
+    width: 1%;
     max-height: $f-dropdown-max-height;
     height: $f-dropdown-height;
     background: $f-dropdown-bg;
@@ -84,7 +84,7 @@ $f-dropdown-radius: $global-radius !default;
   }
   @else if $content == content {
     padding: $f-dropdown-content-padding;
-    width: 100%;
+    width: 1%;
     height: $f-dropdown-height;
     max-height: $f-dropdown-max-height;
     background: $f-dropdown-bg;
@@ -122,7 +122,7 @@ $f-dropdown-radius: $global-radius !default;
   }
 
   @if $triangle == $default-float {
-    margin-top: 0;
+    margin-top: ;
     margin-#{$default-float}: $f-dropdown-margin-right;
 
     &:before {
@@ -143,7 +143,7 @@ $f-dropdown-radius: $global-radius !default;
   }
 
   @if $triangle == $opposite-direction {
-    margin-top: 0;
+    margin-top: ;
     margin-#{$default-float}: -$f-dropdown-margin-right;
 
     &:before {
@@ -167,7 +167,7 @@ $f-dropdown-radius: $global-radius !default;
 
   @if $triangle == top {
     margin-top: -$f-dropdown-margin-bottom;
-    margin-left: 0;
+    margin-left: ;
 
     &:before {
       @include css-triangle($f-dropdown-triangle-size, $f-dropdown-triangle-color, top);
@@ -204,7 +204,7 @@ $f-dropdown-radius: $global-radius !default;
   cursor: $cursor-pointer-value;
 
   line-height: $f-dropdown-line-height;
-  margin: 0;
+  margin: ;
 
   &:hover,
   &:focus { background: $f-dropdown-list-hover-bg; }
@@ -244,16 +244,16 @@ $f-dropdown-radius: $global-radius !default;
       &.content { @include dropdown-container(content, $triangle:false); }
 
       // Sizes
-      &.tiny    { max-width: 200px; }
-      &.small   { max-width: 300px; }
-      &.medium  { max-width: 500px; }
-      &.large   { max-width: 800px; }
+      &.tiny    { max-width: 2; }
+      &.small   { max-width: 3; }
+      &.medium  { max-width: 5; }
+      &.large   { max-width: 8; }
       &.mega    {
-        width:100%!important;
-        max-width:100%!important;
+        width:1%!important;
+        max-width:1%!important;
 
         &.open{
-          left:0!important;
+          left:!important;
         }
       }
     }

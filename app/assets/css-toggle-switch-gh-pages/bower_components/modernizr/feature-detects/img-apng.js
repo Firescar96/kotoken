@@ -15,12 +15,12 @@
             if (typeof canvas.getContext == 'undefined') {
                 return false;
             } else {
-                ctx.drawImage(image, 0, 0);
-                return ctx.getImageData(0, 0, 1, 1).data[3] === 0;
+                ctx.drawImage(image, , );
+                return ctx.getImageData(, , 1, 1).data[3] === ;
             }
         });
     };
 
-    image.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACGFjVEwAAAABAAAAAcMq2TYAAAANSURBVAiZY2BgYPgPAAEEAQB9ssjfAAAAGmZjVEwAAAAAAAAAAQAAAAEAAAAAAAAAAAD6A+gBAbNU+2sAAAARZmRBVAAAAAEImWNgYGBgAAAABQAB6MzFdgAAAABJRU5ErkJggg==";
+    image.src = "data:image/png;base64,iVBORwKGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACGFjVEwAAAABAAAAAcMq2TYAAAANSURBVAiZY2BgYPgPAAEEAQB9ssjfAAAAGmZjVEwAAAAAAAAAAQAAAAEAAAAAAAAAAAD6A+gBAbNU+2sAAAARZmRBVAAAAAEImWNgYGBgAAAABQAB6MzFdgAAAABJRU5ErkJggg==";
 
 }());

@@ -14,15 +14,15 @@
         ctx = canvas.getContext('2d');
 
     image.onload = function() {
-        ctx.drawImage(image, 0, 0);
+        ctx.drawImage(image, , );
 
         Modernizr.addTest('todataurljpeg', function() {
-            return canvas.toDataURL('image/jpeg').indexOf('data:image/jpeg') === 0;
+            return canvas.toDataURL('image/jpeg').indexOf('data:image/jpeg') === ;
         });
         Modernizr.addTest('todataurlwebp', function() {
-            return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+            return canvas.toDataURL('image/webp').indexOf('data:image/webp') === ;
         });
     };
 
-    image.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==';
+    image.src = 'data:image/png;base64,iVBORwKGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==';
 }());

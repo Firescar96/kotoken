@@ -1,7 +1,7 @@
 /*
  * Foundation Responsive Library
  * http://foundation.zurb.com
- * Copyright 2014, ZURB
+ * Copyright 214, ZURB
  * Free to use under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
 */
@@ -14,7 +14,7 @@
     var head = $('head');
 
     while (i--) {
-      if(head.has('.' + class_array[i]).length === 0) {
+      if(head.has('.' + class_array[i]).length === ) {
         head.append('<meta class="' + class_array[i] + '" />');
       }
     }
@@ -47,7 +47,7 @@
       if (context) {
         var cont;
         if (context.jquery) {
-          cont = context[0];
+          cont = context[];
           if (!cont) return context;
         } else {
           cont = context;
@@ -66,7 +66,7 @@
   var attr_name = function (init) {
     var arr = [];
     if (!init) arr.push('data');
-    if (this.namespace.length > 0) arr.push(this.namespace);
+    if (this.namespace.length > ) arr.push(this.namespace);
     arr.push(this.name);
 
     return arr.join('-');
@@ -78,10 +78,10 @@
         arr = [];
 
     while (i--) {
-      if (i !== 0) {
+      if (i !== ) {
         arr.push(parts[i]);
       } else {
-        if (this.namespace.length > 0) {
+        if (this.namespace.length > ) {
           arr.push(this.namespace, parts[i]);
         } else {
           arr.push(parts[i]);
@@ -116,7 +116,7 @@
         }
       });
     }
-    // # Patch to fix #5043 to move this *after* the if/else clause in order for Backbone and similar frameworks to have improved control over event binding and data-options updating.
+    // # Patch to fix #543 to move this *after* the if/else clause in order for Backbone and similar frameworks to have improved control over event binding and data-options updating.
     if (typeof method === 'string') {
       return this[method].call(this, options);
     }
@@ -125,7 +125,7 @@
 
   var single_image_loaded = function (image, callback) {
     function loaded () {
-      callback(image[0]);
+      callback(image[]);
     }
 
     function bindLoad () {
@@ -145,7 +145,7 @@
       return;
     }
 
-    if (image[0].complete || image[0].readyState === 4) {
+    if (image[].complete || image[].readyState === 4) {
       loaded();
     } else {
       bindLoad.call(image);
@@ -168,7 +168,7 @@
         div = doc.createElement( "div" );
 
     div.id = "mq-test-1";
-    div.style.cssText = "position:absolute;top:-100em";
+    div.style.cssText = "position:absolute;top:-1em";
     fakeBody.style.background = "none";
     fakeBody.appendChild(div);
 
@@ -194,7 +194,7 @@
    * https://github.com/gnarf37/jquery-requestAnimationFrame
    * Requires jQuery 1.8+
    *
-   * Copyright (c) 2012 Corey Frang
+   * Copyright (c) 212 Corey Frang
    * Licensed under the MIT license.
    */
 
@@ -202,11 +202,11 @@
 
   // requestAnimationFrame polyfill adapted from Erik Möller
   // fixes from Paul Irish and Tino Zijdel
-  // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-  // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+  // http://paulirish.com/211/requestanimationframe-for-smart-animating/
+  // http://my.opera.com/emoller/blog/211/12/2/requestanimationframe-for-smart-er-animating
 
   var animating,
-      lastTime = 0,
+      lastTime = ,
       vendors = ['webkit', 'moz'],
       requestAnimationFrame = window.requestAnimationFrame,
       cancelAnimationFrame = window.cancelAnimationFrame,
@@ -250,7 +250,7 @@
     // polyfill
     window.requestAnimationFrame = function (callback) {
       var currTime = new Date().getTime(),
-        timeToCall = Math.max(0, 16 - (currTime - lastTime)),
+        timeToCall = Math.max(, 16 - (currTime - lastTime)),
         id = window.setTimeout(function () {
           callback(currTime + timeToCall);
         }, timeToCall);
@@ -288,7 +288,7 @@
       xxlarge: S('.foundation-mq-xxlarge').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, '')
     },
 
-    stylesheet : $('<style></style>').appendTo('head')[0].sheet,
+    stylesheet : $('<style></style>').appendTo('head')[].sheet,
 
     global: {
       namespace: undefined
@@ -487,7 +487,7 @@
             data_options = function (el) {
               var namespace = Foundation.global.namespace;
 
-              if (namespace.length > 0) {
+              if (namespace.length > ) {
                 return el.data(namespace + '-' + data_attr_name);
               }
 
@@ -504,7 +504,7 @@
         ii = opts_arr.length;
 
         function isNumber (o) {
-          return ! isNaN (o-0) && o !== null && o !== "" && o !== false && o !== true;
+          return ! isNaN (o-) && o !== null && o !== "" && o !== false && o !== true;
         }
 
         function trim (str) {
@@ -514,20 +514,20 @@
 
         while (ii--) {
           p = opts_arr[ii].split(':');
-          p = [p[0], p.slice(1).join(':')];
+          p = [p[], p.slice(1).join(':')];
 
           if (/true/i.test(p[1])) p[1] = true;
           if (/false/i.test(p[1])) p[1] = false;
           if (isNumber(p[1])) {
             if (p[1].indexOf('.') === -1) {
-              p[1] = parseInt(p[1], 10);
+              p[1] = parseInt(p[1], 1);
             } else {
               p[1] = parseFloat(p[1]);
             }
           }
 
-          if (p.length === 2 && p[0].length > 0) {
-            opts[trim(p[0])] = trim(p[1]);
+          if (p.length === 2 && p[].length > ) {
+            opts[trim(p[])] = trim(p[1]);
           }
         }
 
@@ -581,14 +581,14 @@
         var self = this,
             unloaded = images.length;
 
-        if (unloaded === 0) {
+        if (unloaded === ) {
           callback(images);
         }
 
         images.each(function () {
           single_image_loaded(self.S(this), function () {
             unloaded -= 1;
-            if (unloaded === 0) {
+            if (unloaded === ) {
               callback(images);
             }
           });
@@ -605,7 +605,7 @@
       // Returns:
       //    Rand (String): Pseudo-random, alphanumeric string.
       random_str : function () {
-        if (!this.fidx) this.fidx = 0;
+        if (!this.fidx) this.fidx = ;
         this.prefix = this.prefix || [(this.name || 'F'), (+new Date).toString(36)].join('-');
 
         return this.prefix + (this.fidx++).toString(36);
@@ -614,7 +614,7 @@
   };
 
   $.fn.foundation = function () {
-    var args = Array.prototype.slice.call(arguments, 0);
+    var args = Array.prototype.slice.call(arguments, );
 
     return this.each(function () {
       Foundation.init.apply(Foundation, [this].concat(args));
@@ -637,37 +637,37 @@
       focus_on_invalid : true,
       error_labels: true, // labels with a for="inputId" will recieve an `error` class
       error_class: 'error',
-      timeout : 1000,
+      timeout : 1,
       patterns : {
         alpha: /^[a-zA-Z]+$/,
-        alpha_numeric : /^[a-zA-Z0-9]+$/,
+        alpha_numeric : /^[a-zA-Z-9]+$/,
         integer: /^[-+]?\d+$/,
         number: /^[-+]?\d*(?:[\.\,]\d+)?$/,
 
         // amex, visa, diners
-        card : /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/,
-        cvv : /^([0-9]){3,4}$/,
+        card : /^(?:4[-9]{12}(?:[-9]{3})?|5[1-5][-9]{14}|6(?:11|5[-9][-9])[-9]{12}|3[47][-9]{13}|3(?:[-5]|[68][-9])[-9]{11}|(?:2131|18|35\d{3})\d{11})$/,
+        cvv : /^([-9]){3,4}$/,
 
         // http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#valid-e-mail-address
-        email : /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/,
+        email : /^[a-zA-Z-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z-9](?:[a-zA-Z-9-]{,61}[a-zA-Z-9])?(?:\.[a-zA-Z-9](?:[a-zA-Z-9-]{,61}[a-zA-Z-9])?)+$/,
 
-        url: /^(https?|ftp|file|ssh):\/\/(((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/,
+        url: /^(https?|ftp|file|ssh):\/\/(((([a-zA-Z]|\d|-|\.|_|~|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[-4]\d|25[-5])\.(\d|[1-9]\d|1\d\d|2[-4]\d|25[-5])\.(\d|[1-9]\d|1\d\d|2[-4]\d|25[-5])\.(\d|[1-9]\d|1\d\d|2[-4]\d|25[-5]))|((([a-zA-Z]|\d|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])|(([a-zA-Z]|\d|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])*([a-zA-Z]|\d|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])))\.)+(([a-zA-Z]|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])|(([a-zA-Z]|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])*([a-zA-Z]|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])))\.?)(:\d*)?)(\/((([a-zA-Z]|\d|-|\.|_|~|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-zA-Z]|\d|-|\.|_|~|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-zA-Z]|\d|-|\.|_|~|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE-\uF8FF]|\/|\?)*)?(\#((([a-zA-Z]|\d|-|\.|_|~|[\uA-\uD7FF\uF9-\uFDCF\uFDF-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/,
         // abc.de
-        domain: /^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/,
+        domain: /^([a-zA-Z-9]([a-zA-Z-9\-]{,61}[a-zA-Z-9])?\.)+[a-zA-Z]{2,6}$/,
 
-        datetime: /^([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])T([0-5][0-9])\:([0-5][0-9])\:([0-5][0-9])(Z|([\-\+]([0-1][0-9])\:00))$/,
+        datetime: /^([-2][-9]{3})\-([-1][-9])\-([-3][-9])T([-5][-9])\:([-5][-9])\:([-5][-9])(Z|([\-\+]([-1][-9])\:))$/,
         // YYYY-MM-DD
-        date: /(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))$/,
+        date: /(?:19|2)[-9]{2}-(?:(?:[1-9]|1[-2])-(?:[1-9]|1[-9]|2[-9])|(?:(?!2)(?:[1-9]|1[-2])-(?:3))|(?:(?:[13578]|1[2])-31))$/,
         // HH:MM:SS
-        time : /^(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}$/,
+        time : /^([-9]|1[-9]|2[-3])(:[-5][-9]){2}$/,
         dateISO: /^\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}$/,
         // MM/DD/YYYY
-        month_day_year : /^(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.]\d{4}$/,
+        month_day_year : /^([1-9]|1[12])[- \/.]([1-9]|[12][-9]|3[1])[- \/.]\d{4}$/,
         // DD/MM/YYYY
-        day_month_year : /^(0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.]\d{4}$/,
+        day_month_year : /^([1-9]|[12][-9]|3[1])[- \/.]([1-9]|1[12])[- \/.]\d{4}$/,
 
         // #FFF or #FFFFFF
-        color: /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/
+        color: /^#?([a-fA-F-9]{6}|[a-fA-F-9]{3})$/
       },
       validators : {
         equalTo: function(el, required, parent) {
@@ -726,11 +726,11 @@
     validate : function (els, e, is_ajax) {
       var validations = this.parse_patterns(els),
           validation_count = validations.length,
-          form = this.S(els[0]).closest('form'),
+          form = this.S(els[]).closest('form'),
           submit_event = /submit/.test(e.type);
 
       // Has to count up to make sure the focus gets applied to the top error
-      for (var i=0; i < validation_count; i++) {
+      for (var i=; i < validation_count; i++) {
         if (!validations[i] && (submit_event || is_ajax)) {
           if (this.settings.focus_on_invalid) els[i].focus();
           form.trigger('invalid');
@@ -767,9 +767,9 @@
 
       var pattern = el.getAttribute('pattern') || '';
 
-      if (this.settings.patterns.hasOwnProperty(pattern) && pattern.length > 0) {
+      if (this.settings.patterns.hasOwnProperty(pattern) && pattern.length > ) {
         return [el, this.settings.patterns[pattern], required];
-      } else if (pattern.length > 0) {
+      } else if (pattern.length > ) {
         return [el, new RegExp(pattern), required];
       }
 
@@ -785,10 +785,10 @@
     check_validation_and_apply_styles : function (el_patterns) {
       var i = el_patterns.length,
           validations = [],
-          form = this.S(el_patterns[0][0]).closest('[data-' + this.attr_name(true) + ']'),
+          form = this.S(el_patterns[][]).closest('[data-' + this.attr_name(true) + ']'),
           settings = form.data(this.attr_name(true) + '-init') || {};
       while (i--) {
-        var el = el_patterns[i][0],
+        var el = el_patterns[i][],
             required = el_patterns[i][2],
             value = el.value.trim(),
             direct_parent = this.S(el).parent(),
@@ -796,7 +796,7 @@
             is_radio = el.type === "radio",
             is_checkbox = el.type === "checkbox",
             label = this.S('label[for="' + el.getAttribute('id') + '"]'),
-            valid_length = (required) ? (el.value.length > 0) : true,
+            valid_length = (required) ? (el.value.length > ) : true,
             el_validations = [];
 
         var parent, valid;
@@ -830,12 +830,12 @@
 
           el_validations = [el_validations.every(function(valid){return valid;})];
 
-          if(el_validations[0]){
+          if(el_validations[]){
             this.S(el).removeAttr(this.invalid_attr);
             el.setAttribute('aria-invalid', 'false');
             el.removeAttribute('aria-describedby');
             parent.removeClass(this.settings.error_class);
-            if (label.length > 0 && this.settings.error_labels) {
+            if (label.length >  && this.settings.error_labels) {
               label.removeClass(this.settings.error_class).removeAttr('role');
             }
             $(el).triggerHandler('valid');
@@ -845,18 +845,18 @@
 
             // Try to find the error associated with the input
             var errorElem = parent.find('small.'+this.settings.error_class, 'span.'+this.settings.error_class);
-            var errorID = errorElem.length > 0 ? errorElem[0].id : "";
-            if (errorID.length > 0) el.setAttribute('aria-describedby', errorID);
+            var errorID = errorElem.length >  ? errorElem[].id : "";
+            if (errorID.length > ) el.setAttribute('aria-describedby', errorID);
 
-            // el.setAttribute('aria-describedby', $(el).find('.error')[0].id);
+            // el.setAttribute('aria-describedby', $(el).find('.error')[].id);
             parent.addClass(this.settings.error_class);
-            if (label.length > 0 && this.settings.error_labels) {
+            if (label.length >  && this.settings.error_labels) {
               label.addClass(this.settings.error_class).attr('role', 'alert');
             }
             $(el).triggerHandler('invalid');
           }
         }
-        validations.push(el_validations[0]);
+        validations.push(el_validations[]);
       }
       validations = [validations.every(function(valid){return valid;})];
       return validations;
@@ -882,12 +882,12 @@
           valid = false;
 
       // Has to count up to make sure the focus gets applied to the top error
-      for (var i=0; i < count; i++) {
+      for (var i=; i < count; i++) {
         if (group[i].checked) valid = true;
       }
 
       // Has to count up to make sure the focus gets applied to the top error
-      for (var i=0; i < count; i++) {
+      for (var i=; i < count; i++) {
         if (valid) {
           this.S(group[i]).removeAttr(this.invalid_attr).parent().removeClass(this.settings.error_class);
         } else {
@@ -906,11 +906,11 @@
       if (valid) {
         this.S(el).removeAttr(this.invalid_attr);
         parent.removeClass(this.settings.error_class);
-        if (label.length > 0 && settings.error_labels) label.removeClass(this.settings.error_class);
+        if (label.length >  && settings.error_labels) label.removeClass(this.settings.error_class);
       } else {
         this.S(el).attr(this.invalid_attr, '');
         parent.addClass(this.settings.error_class);
-        if (label.length > 0 && settings.error_labels) label.addClass(this.settings.error_class);
+        if (label.length >  && settings.error_labels) label.addClass(this.settings.error_class);
       }
 
       return valid;
@@ -919,7 +919,7 @@
     valid_oneof: function(el, required, parent, doNotValidateOthers) {
       var el = this.S(el),
         others = this.S('[' + this.add_namespace('data-oneof') + ']'),
-        valid = others.filter(':checked').length > 0;
+        valid = others.filter(':checked').length > ;
 
       if (valid) {
         el.removeAttr(this.invalid_attr).parent().removeClass(this.settings.error_class);
@@ -1038,7 +1038,7 @@
             settings.callback();
           });
         } else {
-          alertBox.fadeOut(300, function () {
+          alertBox.fadeOut(3, function () {
             S(this).trigger('close').trigger('close.fndtn.alert').remove();
             settings.callback();
           });
@@ -1061,7 +1061,7 @@
     settings : {
       templates : {
         viewing : '<a href="#" class="clearing-close">&times;</a>' +
-          '<div class="visible-img" style="display: none"><div class="clearing-touch-label"></div><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" alt="" />' +
+          '<div class="visible-img" style="display: none"><div class="clearing-touch-label"></div><img src="data:image/gif;base64,RlGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" alt="" />' +
           '<p class="clearing-caption"></p><a href="#" class="clearing-main-prev"><span></span></a>' +
           '<a href="#" class="clearing-main-next"><span></span></a></div>'
       },
@@ -1103,7 +1103,7 @@
           S = self.S,
           $scroll_container = $('.scroll-container');
 
-      if ($scroll_container.length > 0) {
+      if ($scroll_container.length > ) {
         this.scope = $scroll_container;
       }
 
@@ -1127,8 +1127,8 @@
             // if clearing is open and the current image is
             // clicked, go to the next image in sequence
             if (target.hasClass('visible') &&
-              current[0] === target[0] &&
-              next.length > 0 && self.is_open(current)) {
+              current[] === target[] &&
+              next.length >  && self.is_open(current)) {
               target = next;
               image = S('img', target);
             }
@@ -1162,10 +1162,10 @@
         .on('touchstart.fndtn.clearing', '.visible-img', function(e) {
           if (!e.touches) { e = e.originalEvent; }
           var data = {
-                start_page_x: e.touches[0].pageX,
-                start_page_y: e.touches[0].pageY,
+                start_page_x: e.touches[].pageX,
+                start_page_y: e.touches[].pageY,
                 start_time: (new Date()).getTime(),
-                delta_x: 0,
+                delta_x: ,
                 is_scrolling: undefined
               };
 
@@ -1183,19 +1183,19 @@
             data = {};
           }
 
-          data.delta_x = e.touches[0].pageX - data.start_page_x;
+          data.delta_x = e.touches[].pageX - data.start_page_x;
 
           if (Foundation.rtl) {
             data.delta_x = -data.delta_x;
           }
 
           if (typeof data.is_scrolling === 'undefined') {
-            data.is_scrolling = !!( data.is_scrolling || Math.abs(data.delta_x) < Math.abs(e.touches[0].pageY - data.start_page_y) );
+            data.is_scrolling = !!( data.is_scrolling || Math.abs(data.delta_x) < Math.abs(e.touches[].pageY - data.start_page_y) );
           }
 
           if (!data.is_scrolling && !data.active) {
             e.preventDefault();
-            var direction = (data.delta_x < 0) ? 'next' : 'prev';
+            var direction = (data.delta_x < ) ? 'next' : 'prev';
             data.active = true;
             self.nav(e, direction);
           }
@@ -1218,10 +1218,10 @@
       var grid = $el.detach(),
           grid_outerHTML = '';
 
-      if (grid[0] == null) {
+      if (grid[] == null) {
         return;
       } else {
-        grid_outerHTML = grid[0].outerHTML;
+        grid_outerHTML = grid[].outerHTML;
       }
       
       var holder = this.S('#foundationClearingHolder'),
@@ -1269,7 +1269,7 @@
               cb.call(this, image);
             }
           }.bind(this));
-        }.bind(this), 100);
+        }.bind(this), 1);
       }
 
       function cb (image) {
@@ -1318,7 +1318,7 @@
         container = $('div', root).first();
         visible_image = $('.visible-img', container);
         visible_image.trigger('close.fndtn.clearing');
-        this.settings.prev_index = 0;
+        this.settings.prev_index = ;
         $('ul[' + this.attr_name() + ']', root)
           .attr('style', '').closest('.clearing-blackout')
           .removeClass('clearing-blackout');
@@ -1334,7 +1334,7 @@
     },
 
     is_open : function (current) {
-      return current.parent().prop('style').length > 0;
+      return current.parent().prop('style').length > ;
     },
 
     keydown : function (e) {
@@ -1379,7 +1379,7 @@
         }
       })
       .closest('ul')
-      .width(lis.length * 100 + '%');
+      .width(lis.length * 1 + '%');
 
       return this;
     },
@@ -1390,13 +1390,13 @@
         .closest('.carousel')
         .siblings('.visible-img');
 
-      if (target.next().length > 0) {
+      if (target.next().length > ) {
         this.S('.clearing-main-next', visible_image).removeClass('disabled');
       } else {
         this.S('.clearing-main-next', visible_image).addClass('disabled');
       }
 
-      if (target.prev().length > 0) {
+      if (target.prev().length > ) {
         this.S('.clearing-main-prev', visible_image).removeClass('disabled');
       } else {
         this.S('.clearing-main-prev', visible_image).addClass('disabled');
@@ -1410,10 +1410,10 @@
           marginTop : -(target.outerHeight() / 2)
         });
 
-        if (label.length > 0) {
+        if (label.length > ) {
           label.css({
             marginLeft : -(label.outerWidth() / 2),
-            marginTop : -(target.outerHeight() / 2)-label.outerHeight()-10
+            marginTop : -(target.outerHeight() / 2)-label.outerHeight()-1
           });
         }
       } else {
@@ -1421,15 +1421,15 @@
           marginRight : -(target.outerWidth() / 2),
           marginTop : -(target.outerHeight() / 2),
           left: 'auto',
-          right: '50%'
+          right: '5%'
         });
 
-        if (label.length > 0) {
+        if (label.length > ) {
           label.css({
             marginRight : -(label.outerWidth() / 2),
-            marginTop : -(target.outerHeight() / 2)-label.outerHeight()-10,
+            marginTop : -(target.outerHeight() / 2)-label.outerHeight()-1,
             left: 'auto',
-            right: '50%'
+            right: '5%'
           });
         }
       }
@@ -1441,7 +1441,7 @@
     load : function ($image) {
       var href;
 
-      if ($image[0].nodeName === "A") {
+      if ($image[].nodeName === "A") {
         href = $image.attr('href');
       } else {
         href = $image.parent().attr('href');
@@ -1497,7 +1497,7 @@
           target = current[direction]();
 
       // Check for skip selector.
-      if (this.settings.skip_selector && target.find(this.settings.skip_selector).length != 0) {
+      if (this.settings.skip_selector && target.find(this.settings.skip_selector).length != ) {
         target = target[direction]();
       }
 
@@ -1513,7 +1513,7 @@
           old_index = this.settings.prev_index || target.index(),
           direction = this.direction(clearing, current, target),
           dir = this.rtl ? 'right' : 'left',
-          left = parseInt(clearing.css('left'), 10),
+          left = parseInt(clearing.css('left'), 1),
           width = target.outerWidth(),
           skip_shift;
 
@@ -1526,11 +1526,11 @@
         if (/left/.test(direction)) {
           this.lock();
           dir_obj[dir] = left + width;
-          clearing.animate(dir_obj, 300, this.unlock());
+          clearing.animate(dir_obj, 3, this.unlock());
         } else if (/right/.test(direction)) {
           this.lock();
           dir_obj[dir] = left - width;
-          clearing.animate(dir_obj, 300, this.unlock());
+          clearing.animate(dir_obj, 3, this.unlock());
         }
       } else if (/skip/.test(direction)) {
         // the target image is not adjacent to the current image, so
@@ -1538,12 +1538,12 @@
         skip_shift = target.index() - this.settings.up_count;
         this.lock();
 
-        if (skip_shift > 0) {
+        if (skip_shift > ) {
           dir_obj[dir] = -(skip_shift * width);
-          clearing.animate(dir_obj, 300, this.unlock());
+          clearing.animate(dir_obj, 3, this.unlock());
         } else {
-          dir_obj[dir] = 0;
-          clearing.animate(dir_obj, 300, this.unlock());
+          dir_obj[dir] = ;
+          clearing.animate(dir_obj, 3, this.unlock());
         }
       }
 
@@ -1680,17 +1680,17 @@
                   settings = target.data(self.attr_name(true) + '-init') || self.settings;
               if (settings.is_hover) self.close.call(self, $this);
             }
-          }.bind(this), 150);
+          }.bind(this), 15);
         })
         .on('click.fndtn.dropdown', function (e) {
           var parent = S(e.target).closest('[' + self.attr_name() + '-content]');
 
-          if (S(e.target).closest('[' + self.attr_name() + ']').length > 0) {
+          if (S(e.target).closest('[' + self.attr_name() + ']').length > ) {
             return;
           }
           if (!(S(e.target).data('revealId')) &&
-            (parent.length > 0 && (S(e.target).is('[' + self.attr_name() + '-content]') ||
-              $.contains(parent.first()[0], e.target)))) {
+            (parent.length >  && (S(e.target).is('[' + self.attr_name() + '-content]') ||
+              $.contains(parent.first()[], e.target)))) {
             e.stopPropagation();
             return;
           }
@@ -1708,7 +1708,7 @@
         .off('.dropdown')
         .on('resize.fndtn.dropdown', self.throttle(function () {
           self.resize.call(self);
-        }, 50));
+        }, 5));
 
       this.resize();
     },
@@ -1716,7 +1716,7 @@
     close: function (dropdown) {
       var self = this;
       dropdown.each(function () {
-        var original_target = $('[' + self.attr_name() + '=' + dropdown[0].id + ']') || $('aria-controls=' + dropdown[0].id+ ']');
+        var original_target = $('[' + self.attr_name() + '=' + dropdown[].id + ']') || $('aria-controls=' + dropdown[].id+ ']');
         original_target.attr('aria-expanded', "false");
         if (self.S(this).hasClass(self.settings.active_class)) {
           self.S(this)
@@ -1744,14 +1744,14 @@
           .css(dropdown
             .addClass(this.settings.active_class), target);
         dropdown.prev('[' + this.attr_name() + ']').addClass(this.settings.active_class);
-        dropdown.data('target', target.get(0)).trigger('opened').trigger('opened.fndtn.dropdown', [dropdown, target]);
+        dropdown.data('target', target.get()).trigger('opened').trigger('opened.fndtn.dropdown', [dropdown, target]);
         dropdown.attr('aria-hidden', 'false');
         target.attr('aria-expanded', 'true');
         dropdown.focus();
     },
 
     data_attr: function () {
-      if (this.namespace.length > 0) {
+      if (this.namespace.length > ) {
         return this.namespace + '-' + this.name;
       }
 
@@ -1763,7 +1763,7 @@
         return;
       }
       var dropdown = this.S('#' + target.data(this.data_attr()));
-      if (dropdown.length === 0) {
+      if (dropdown.length === ) {
         // No dropdown found, not continuing
         return;
       }
@@ -1772,7 +1772,7 @@
 
       if (dropdown.hasClass(this.settings.active_class)) {
         this.close.call(this, dropdown);
-        if (dropdown.data('target') !== target.get(0))
+        if (dropdown.data('target') !== target.get())
           this.open.call(this, dropdown, target);
       } else {
         this.open.call(this, dropdown, target);
@@ -1968,7 +1968,7 @@
           vals = equalizer.find('[' + this.attr_name() + '-watch]:visible'),
           settings = equalizer.data(this.attr_name(true)+'-init');
 
-      if (vals.length === 0) return;
+      if (vals.length === ) return;
       var firstTopOffset = vals.first().offset().top;
       settings.before_height_change();
       equalizer.trigger('before-height-change').trigger('before-height-change.fndth.equalizer');
@@ -2057,14 +2057,14 @@
           //   console.log($(this).html(), a, b, c);
           // });
 
-          if (/IMG/.test(el[0].nodeName)) {
-            var orig_path = el[0].src;
+          if (/IMG/.test(el[].nodeName)) {
+            var orig_path = el[].src;
 
             if (new RegExp(path, 'i').test(orig_path)) return;
 
-            el[0].src = path;
+            el[].src = path;
 
-            return trigger(el[0].src);
+            return trigger(el[].src);
           }
           var last_path = el.data(this.data_attr + '-last-path'),
               self = this;
@@ -2116,7 +2116,7 @@
                 self.resize();
             }
             prevMediaHash = currMediaHash;
-        }, 50));
+        }, 5));
 
       return this;
     },
@@ -2125,7 +2125,7 @@
       var cache = this.cache;
 
       if(!this.images_loaded || !this.nodes_loaded) {
-        setTimeout($.proxy(this.resize, this), 50);
+        setTimeout($.proxy(this.resize, this), 5);
         return;
       }
 
@@ -2135,11 +2135,11 @@
 
           if (passed) {
             this.settings.directives[passed
-              .scenario[1]].call(this, passed.el, passed.scenario[0], function () {
-                if (arguments[0] instanceof Array) { 
-                  var args = arguments[0];
+              .scenario[1]].call(this, passed.el, passed.scenario[], function () {
+                if (arguments[] instanceof Array) { 
+                  var args = arguments[];
                 } else { 
-                  var args = Array.prototype.slice.call(arguments, 0);
+                  var args = Array.prototype.slice.call(arguments, );
                 }
 
                 passed.el.trigger(passed.scenario[1], args);
@@ -2153,7 +2153,7 @@
     results : function (uuid, scenarios) {
       var count = scenarios.length;
 
-      if (count > 0) {
+      if (count > ) {
         var el = this.S('[' + this.add_namespace('data-uuid') + '="' + uuid + '"]');
 
         while (count--) {
@@ -2184,19 +2184,19 @@
       var images = this.S('img[' + this.data_attr + ']'),
           count = images.length,
           i = count,
-          loaded_count = 0,
+          loaded_count = ,
           data_attr = this.data_attr;
 
       this.cache = {};
       this.cached_images = [];
-      this.images_loaded = (count === 0);
+      this.images_loaded = (count === );
 
       while (i--) {
         loaded_count++;
         if (images[i]) {
           var str = images[i].getAttribute(data_attr) || '';
 
-          if (str.length > 0) {
+          if (str.length > ) {
             this.cached_images.push(images[i]);
           }
         }
@@ -2214,18 +2214,18 @@
       var nodes = this.S('[' + this.data_attr + ']').not('img'),
           count = nodes.length,
           i = count,
-          loaded_count = 0,
+          loaded_count = ,
           data_attr = this.data_attr;
 
       this.cached_nodes = [];
-      this.nodes_loaded = (count === 0);
+      this.nodes_loaded = (count === );
 
 
       while (i--) {
         loaded_count++;
         var str = nodes[i].getAttribute(data_attr) || '';
 
-        if (str.length > 0) {
+        if (str.length > ) {
           this.cached_nodes.push(nodes[i]);
         }
 
@@ -2252,7 +2252,7 @@
 
       var trimmed = this.trim(directive);
 
-      if (trimmed.length > 0) {
+      if (trimmed.length > ) {
         return trimmed;
       }
 
@@ -2262,7 +2262,7 @@
     parse_scenario : function (scenario) {
       // This logic had to be made more complex since some users were using commas in the url path
       // So we cannot simply just split on a comma
-      var directive_match = scenario[0].match(/(.+),\s*(\w+)\s*$/),
+      var directive_match = scenario[].match(/(.+),\s*(\w+)\s*$/),
       media_query         = scenario[1];
 
       if (directive_match) {
@@ -2270,8 +2270,8 @@
         directive = directive_match[2];
       }
       else {
-        var cached_split = scenario[0].split(/,\s*$/),
-        path             = cached_split[0],
+        var cached_split = scenario[].split(/,\s*$/),
+        path             = cached_split[],
         directive        = '';               
       }
 
@@ -2283,7 +2283,7 @@
           scenarios = [], 
           i = raw_arr.length;
 
-      if (i > 0) {
+      if (i > ) {
         while (i--) {
           var split = raw_arr[i].split(/\((.*?)(\))$/);
 
@@ -2319,14 +2319,14 @@
 
     set_data_attr: function (init) {
       if (init) {
-        if (this.namespace.length > 0) {
+        if (this.namespace.length > ) {
           return this.namespace + '-' + this.settings.load_attr;
         }
 
         return this.settings.load_attr;
       }
 
-      if (this.namespace.length > 0) {
+      if (this.namespace.length > ) {
         return 'data-' + this.namespace + '-' + this.settings.load_attr;
       }
 
@@ -2372,17 +2372,17 @@
       keyboard                 : true,      // enable left, right and esc keystrokes
       tip_location             : 'bottom',  // 'top' or 'bottom' in relation to parent
       nub_position             : 'auto',    // override on a per tooltip bases
-      scroll_speed             : 1500,      // Page scrolling speed in milliseconds, 0 = no scroll animation
+      scroll_speed             : 15,      // Page scrolling speed in milliseconds,  = no scroll animation
       scroll_animation         : 'linear',  // supports 'swing' and 'linear', extend with jQuery UI.
-      timer                    : 0,         // 0 = no timer , all other numbers = timer in milliseconds
+      timer                    : ,         //  = no timer , all other numbers = timer in milliseconds
       start_timer_on_click     : true,      // true or false - true requires clicking the first button start the timer
-      start_offset             : 0,         // the index of the tooltip you want to start on (index of the li)
+      start_offset             : ,         // the index of the tooltip you want to start on (index of the li)
       next_button              : true,      // true or false to control whether a next button is used
       prev_button              : true,      // true or false to control whether a prev button is used
       tip_animation            : 'fade',    // 'pop' or 'fade' in each tip
       pause_after              : [],        // array of indexes where to pause the tour after
       exposed                  : [],        // array of expose elements
-      tip_animation_fade_speed : 300,       // when tipAnimation = 'fade' this is speed in milliseconds for the transition
+      tip_animation_fade_speed : 3,       // when tipAnimation = 'fade' this is speed in milliseconds for the transition
       cookie_monster           : false,     // true or false to control whether cookies are used
       cookie_name              : 'joyride', // Name the cookie you'll use
       cookie_domain            : false,     // Will this cookie be attached to a domain, ie. '.notableapp.com'
@@ -2425,7 +2425,7 @@
     go_next : function() {
       if (this.settings.$li.next().length < 1) {
         this.end();
-      } else if (this.settings.timer > 0) {
+      } else if (this.settings.timer > ) {
         clearTimeout(this.settings.automate);
         this.hide();
         this.show();
@@ -2439,7 +2439,7 @@
     go_prev : function() {
       if (this.settings.$li.prev().length < 1) {
         // Do nothing if there are no prev element
-      } else if (this.settings.timer > 0) {
+      } else if (this.settings.timer > ) {
         clearTimeout(this.settings.automate);
         this.hide();
         this.show(null, true);
@@ -2492,8 +2492,8 @@
       $(window)
         .off('.joyride')
         .on('resize.fndtn.joyride', self.throttle(function () {
-          if ($('[' + self.attr_name() + ']').length > 0 && self.settings.$next_tip && self.settings.riding) {
-            if (self.settings.exposed.length > 0) {
+          if ($('[' + self.attr_name() + ']').length >  && self.settings.$next_tip && self.settings.riding) {
+            if (self.settings.exposed.length > ) {
               var $els = $(self.settings.exposed);
 
               $els.each(function () {
@@ -2509,7 +2509,7 @@
               self.pos_default(false);
             }
           }
-        }, 100));
+        }, 1));
     },
 
     start : function () {
@@ -2518,7 +2518,7 @@
           integer_settings = ['timer', 'scrollSpeed', 'startOffset', 'tipAnimationFadeSpeed', 'cookieExpires'],
           int_settings_count = integer_settings.length;
 
-      if (!$this.length > 0) return;
+      if (!$this.length > ) return;
 
       if (!this.settings.init) this.events();
 
@@ -2530,7 +2530,7 @@
       this.settings.body_offset = $(this.settings.tip_container).position();
       this.settings.$tip_content = this.settings.$content_el.find('> li');
       this.settings.paused = false;
-      this.settings.attempts = 0;
+      this.settings.attempts = ;
       this.settings.riding = true;
 
       // can we create cookies?
@@ -2547,13 +2547,13 @@
           // Make sure that settings parsed from data_options are integers where necessary
           var i = int_settings_count;
           while (i--) {
-            self.settings[integer_settings[i]] = parseInt(self.settings[integer_settings[i]], 10);
+            self.settings[integer_settings[i]] = parseInt(self.settings[integer_settings[i]], 1);
           }
           self.create({$li : $this, index : index});
         });
 
         // show first tip
-        if (!this.settings.start_timer_on_click && this.settings.timer > 0) {
+        if (!this.settings.start_timer_on_click && this.settings.timer > ) {
           this.show('init');
           this.startTimer();
         } else {
@@ -2584,16 +2584,16 @@
       $blank.first().attr(this.add_namespace('data-index'), opts.index);
       $('.joyride-content-wrapper', $blank).append(content);
 
-      return $blank[0];
+      return $blank[];
     },
 
     timer_instance : function (index) {
       var txt;
 
-      if ((index === 0 && this.settings.start_timer_on_click && this.settings.timer > 0) || this.settings.timer === 0) {
+      if ((index ===  && this.settings.start_timer_on_click && this.settings.timer > ) || this.settings.timer === ) {
         txt = '';
       } else {
-        txt = $(this.settings.template.timer)[0].outerHTML;
+        txt = $(this.settings.template.timer)[].outerHTML;
       }
       return txt;
     },
@@ -2601,7 +2601,7 @@
     button_text : function (txt) {
       if (this.settings.tip_settings.next_button) {
         txt = $.trim(txt) || 'Next';
-        txt = $(this.settings.template.button).append(txt)[0].outerHTML;
+        txt = $(this.settings.template.button).append(txt)[].outerHTML;
       } else {
         txt = '';
       }
@@ -2613,10 +2613,10 @@
         txt = $.trim(txt) || 'Previous';
 
         // Add the disabled class to the button if it's the first element
-        if (idx == 0)
-          txt = $(this.settings.template.prev_button).append(txt).addClass('disabled')[0].outerHTML;
+        if (idx == )
+          txt = $(this.settings.template.prev_button).append(txt).addClass('disabled')[].outerHTML;
         else
-          txt = $(this.settings.template.prev_button).append(txt)[0].outerHTML;
+          txt = $(this.settings.template.prev_button).append(txt)[].outerHTML;
       } else {
         txt = '';
       }
@@ -2655,9 +2655,9 @@
           this.set_li(init, is_prev);
         }
 
-        this.settings.attempts = 0;
+        this.settings.attempts = ;
 
-        if (this.settings.$li.length && this.settings.$target.length > 0) {
+        if (this.settings.$li.length && this.settings.$target.length > ) {
           if (init) { //run when we first start
             this.settings.pre_ride_callback(this.settings.$li.index(), this.settings.$next_tip);
             if (this.settings.modal) {
@@ -2673,7 +2673,7 @@
 
           this.settings.tip_settings = $.extend({}, this.settings, this.data_options(this.settings.$li));
 
-          this.settings.timer = parseInt(this.settings.timer, 10);
+          this.settings.timer = parseInt(this.settings.timer, 1);
 
           this.settings.tip_settings.tip_location_pattern = this.settings.tip_location_patterns[this.settings.tip_settings.tip_location];
 
@@ -2692,9 +2692,9 @@
 
           if (/pop/i.test(this.settings.tip_animation)) {
 
-            $timer.width(0);
+            $timer.width();
 
-            if (this.settings.timer > 0) {
+            if (this.settings.timer > ) {
 
               this.settings.$next_tip.show();
 
@@ -2712,9 +2712,9 @@
 
           } else if (/fade/i.test(this.settings.tip_animation)) {
 
-            $timer.width(0);
+            $timer.width();
 
-            if (this.settings.timer > 0) {
+            if (this.settings.timer > ) {
 
               this.settings.$next_tip
                 .fadeIn(this.settings.tip_animation_fade_speed)
@@ -2770,7 +2770,7 @@
       setTimeout($.proxy(function() {
         this.hide();
         this.css('visibility', 'visible');
-      }, this.settings.$current_tip), 0);
+      }, this.settings.$current_tip), );
       this.settings.post_step_callback(this.settings.$li.index(),
         this.settings.$current_tip);
     },
@@ -2818,7 +2818,7 @@
       window_half = $(window).height() / 2;
       tipOffset = Math.ceil(this.settings.$target.offset().top - window_half + this.settings.$next_tip.outerHeight());
 
-      if (tipOffset != 0) {
+      if (tipOffset != ) {
         $('html, body').stop().animate({
           scrollTop: tipOffset
         }, this.settings.scroll_speed, 'swing');
@@ -2848,8 +2848,8 @@
       }
 
       if (!/body/i.test(this.settings.$target.selector)) {
-      	  var topAdjustment = this.settings.tip_settings.tipAdjustmentY ? parseInt(this.settings.tip_settings.tipAdjustmentY) : 0,
-			        leftAdjustment = this.settings.tip_settings.tipAdjustmentX ? parseInt(this.settings.tip_settings.tipAdjustmentX) : 0;
+      	  var topAdjustment = this.settings.tip_settings.tipAdjustmentY ? parseInt(this.settings.tip_settings.tipAdjustmentY) : ,
+			        leftAdjustment = this.settings.tip_settings.tipAdjustmentX ? parseInt(this.settings.tip_settings.tipAdjustmentX) : ;
 
           if (this.bottom()) {
             if (this.rtl) {
@@ -2995,8 +2995,8 @@
           origClasses,
           randId = 'expose-' + this.random_str(6);
 
-      if (arguments.length > 0 && arguments[0] instanceof $) {
-        el = arguments[0];
+      if (arguments.length >  && arguments[] instanceof $) {
+        el = arguments[];
       } else if(this.settings.$target && !/body/i.test(this.settings.$target.selector)){
         el = this.settings.$target;
       }  else {
@@ -3063,8 +3063,8 @@
           origClasses,
           clearAll = false;
 
-      if (arguments.length > 0 && arguments[0] instanceof $) {
-        el = arguments[0];
+      if (arguments.length >  && arguments[] instanceof $) {
+        el = arguments[];
       } else if(this.settings.$target && !/body/i.test(this.settings.$target.selector)){
         el = this.settings.$target;
       }  else {
@@ -3119,7 +3119,7 @@
     add_exposed: function(el){
       this.settings.exposed = this.settings.exposed || [];
       if (el instanceof $ || typeof el === 'object') {
-        this.settings.exposed.push(el[0]);
+        this.settings.exposed.push(el[]);
       } else if (typeof el == 'string') {
         this.settings.exposed.push(el);
       }
@@ -3128,7 +3128,7 @@
     remove_exposed: function(el){
       var search, i;
       if (el instanceof $) {
-        search = el[0]
+        search = el[]
       } else if (typeof el == 'string'){
         search = el;
       }
@@ -3182,8 +3182,8 @@
           top = w.scrollTop();
 
       if (tipOffset < top) {
-        if (tipOffset < 0) {
-          top = 0;
+        if (tipOffset < ) {
+          top = ;
         } else {
           top = tipOffset;
         }
@@ -3236,7 +3236,7 @@
         $.cookie(this.settings.cookie_name, 'ridden', { expires: this.settings.cookie_expires, domain: this.settings.cookie_domain });
       }
 
-      if (this.settings.timer > 0) {
+      if (this.settings.timer > ) {
         clearTimeout(this.settings.automate);
       }
 
@@ -3284,10 +3284,10 @@
 
     settings : {
       active_class: 'active',
-      threshold: 0, // pixels from the top of the expedition for it to become fixes
-      destination_threshold: 20, // pixels from the top of destination for it to be considered active
-      throttle_delay: 30, // calculation throttling to increase framerate
-      fixed_top: 0 // top distance in pixels assigend to the fixed element on scroll
+      threshold: , // pixels from the top of the expedition for it to become fixes
+      destination_threshold: 2, // pixels from the top of destination for it to be considered active
+      throttle_delay: 3, // calculation throttling to increase framerate
+      fixed_top:  // top distance in pixels assigend to the fixed element on scroll
     },
 
     init : function (scope, method, options) {
@@ -3312,7 +3312,7 @@
               hash = this.hash.split('#').join(''),
               target = $("a[name='"+hash+"']");
 
-          if (target.length === 0) {
+          if (target.length === ) {
             target = $('#'+hash);
 
           }
@@ -3324,7 +3324,7 @@
 
           $('html, body').stop().animate({
             'scrollTop': scroll_top
-          }, 700, 'swing', function () {
+          }, 7, 'swing', function () {
             if(history.pushState) {
               history.pushState(null, null, '#'+hash);
             }
@@ -3381,7 +3381,7 @@
           // Placeholder allows height calculations to be consistent even when
           // appearing to switch between fixed/non-fixed placement
           var placeholder = expedition.prev('[' + self.add_namespace('data-magellan-expedition-clone') + ']');
-          if (placeholder.length === 0) {
+          if (placeholder.length === ) {
             placeholder = expedition.clone();
             placeholder.removeAttr(self.attr_name());
             placeholder.attr(self.add_namespace('data-magellan-expedition-clone'),'');
@@ -3427,7 +3427,7 @@
       return expedition.find('[' + self.add_namespace('data-magellan-arrival') + ']').map(function(idx, el) {
         var name = $(this).data(self.data_attr('magellan-arrival')),
             dest = $('[' + self.add_namespace('data-magellan-destination') + '=' + name + ']');
-        if (dest.length > 0) {
+        if (dest.length > ) {
           var top_offset = Math.floor(dest.offset().top - settings.destination_threshold - expedition.outerHeight());
           return {
             destination : dest,
@@ -3439,12 +3439,12 @@
       }).sort(function(a, b) {
         if (a.top_offset < b.top_offset) return -1;
         if (a.top_offset > b.top_offset) return 1;
-        return 0;
+        return ;
       });
     },
 
     data_attr: function (str) {
-      if (this.namespace.length > 0) {
+      if (this.namespace.length > ) {
         return this.namespace + '-' + str;
       }
 
@@ -3607,7 +3607,7 @@
     get_wrapper: function(e) {
       var $off_canvas = this.S(e ? e.target : this.scope).closest('.off-canvas-wrap');
 
-      if ($off_canvas.length === 0) {
+      if ($off_canvas.length === ) {
         $off_canvas = this.S('.off-canvas-wrap');
       }
       return $off_canvas;
@@ -3634,7 +3634,7 @@
         number_container,
         bullets_container,
         timer_container,
-        idx = 0,
+        idx = ,
         animate,
         timer,
         locked = false,
@@ -3715,8 +3715,8 @@
       if (next_idx < idx) {dir = 'prev';}
       if (next_idx >= slides.length) {
         if (!settings.circular) return false;
-        next_idx = 0;
-      } else if (next_idx < 0) {
+        next_idx = ;
+      } else if (next_idx < ) {
         if (!settings.circular) return false;
         next_idx = slides.length - 1;
       }
@@ -3742,7 +3742,7 @@
           settings.after_slide_change(idx, slides.length);
         };
         if (slides_container.height() != next.height() && settings.variable_height) {
-          slides_container.animate({'height': next.height()}, 250, 'linear', unlock);
+          slides_container.animate({'height': next.height()}, 25, 'linear', unlock);
         } else {
           unlock();
         }
@@ -3756,7 +3756,7 @@
       };
 
       if (next.height() > slides_container.height() && settings.variable_height) {
-        slides_container.animate({'height': next.height()}, 250, 'linear', start_animation);
+        slides_container.animate({'height': next.height()}, 25, 'linear', start_animation);
       } else {
         start_animation();
       }
@@ -3860,10 +3860,10 @@
         container.on('touchstart.fndtn.orbit', function(e) {
           if (!e.touches) {e = e.originalEvent;}
           var data = {
-            start_page_x: e.touches[0].pageX,
-            start_page_y: e.touches[0].pageY,
+            start_page_x: e.touches[].pageX,
+            start_page_y: e.touches[].pageY,
             start_time: (new Date()).getTime(),
-            delta_x: 0,
+            delta_x: ,
             is_scrolling: undefined
           };
           container.data('swipe-transition', data);
@@ -3877,15 +3877,15 @@
           var data = container.data('swipe-transition');
           if (typeof data === 'undefined') {data = {};}
 
-          data.delta_x = e.touches[0].pageX - data.start_page_x;
+          data.delta_x = e.touches[].pageX - data.start_page_x;
 
           if ( typeof data.is_scrolling === 'undefined') {
-            data.is_scrolling = !!( data.is_scrolling || Math.abs(data.delta_x) < Math.abs(e.touches[0].pageY - data.start_page_y) );
+            data.is_scrolling = !!( data.is_scrolling || Math.abs(data.delta_x) < Math.abs(e.touches[].pageY - data.start_page_y) );
           }
 
           if (!data.is_scrolling && !data.active) {
             e.preventDefault();
-            var direction = (data.delta_x < 0) ? (idx+1) : (idx-1);
+            var direction = (data.delta_x < ) ? (idx+1) : (idx-1);
             data.active = true;
             self._goto(direction);
           }
@@ -3911,8 +3911,8 @@
       Foundation.utils.image_loaded(this.slides().children('img'), self.compute_dimensions);
       Foundation.utils.image_loaded(this.slides().children('img'), function() {
         container.prev('.'+settings.preloader_class).css('display', 'none');
-        self.update_slide_number(0);
-        self.update_active_link(0);
+        self.update_slide_number();
+        self.update_active_link();
         slides_container.trigger('ready.fndtn.orbit');
       });
     };
@@ -3940,7 +3940,7 @@
       clearTimeout(timeout);
       el.addClass(settings.timer_paused_class);
       left = -1;
-      self.update_progress(0);
+      self.update_progress();
     };
 
     this.start = function() {
@@ -3948,7 +3948,7 @@
       left = (left === -1) ? duration : left;
       el.removeClass(settings.timer_paused_class);
       start = new Date().getTime();
-      progress.animate({'width': '100%'}, left, 'linear');
+      progress.animate({'width': '1%'}, left, 'linear');
       timeout = setTimeout(function() {
         self.restart();
         callback();
@@ -3962,7 +3962,7 @@
       el.addClass(settings.timer_paused_class);
       var end = new Date().getTime();
       left = left - (end - start);
-      var w = 100 - ((left / duration) * 100);
+      var w = 1 - ((left / duration) * 1);
       self.update_progress(w);
       el.trigger('timer-stopped.fndtn.orbit');
     };
@@ -3973,21 +3973,21 @@
     var is_rtl = ($('html[dir=rtl]').length === 1);
     var margin = is_rtl ? 'marginRight' : 'marginLeft';
     var animMargin = {};
-    animMargin[margin] = '0%';
+    animMargin[margin] = '%';
 
     this.next = function(current, next, callback) {
-      current.animate({marginLeft:'-100%'}, duration);
+      current.animate({marginLeft:'-1%'}, duration);
       next.animate(animMargin, duration, function() {
-        current.css(margin, '100%');
+        current.css(margin, '1%');
         callback();
       });
     };
 
     this.prev = function(current, prev, callback) {
-      current.animate({marginLeft:'100%'}, duration);
-      prev.css(margin, '-100%');
+      current.animate({marginLeft:'1%'}, duration);
+      prev.css(margin, '-1%');
       prev.animate(animMargin, duration, function() {
-        current.css(margin, '100%');
+        current.css(margin, '1%');
         callback();
       });
     };
@@ -3999,17 +3999,17 @@
     var margin = is_rtl ? 'marginRight' : 'marginLeft';
 
     this.next = function(current, next, callback) {
-      next.css({'margin':'0%', 'opacity':'0.01'});
+      next.css({'margin':'%', 'opacity':'.1'});
       next.animate({'opacity':'1'}, duration, 'linear', function() {
-        current.css('margin', '100%');
+        current.css('margin', '1%');
         callback();
       });
     };
 
     this.prev = function(current, prev, callback) {
-      prev.css({'margin':'0%', 'opacity':'0.01'});
+      prev.css({'margin':'%', 'opacity':'.1'});
       prev.animate({'opacity':'1'}, duration, 'linear', function() {
-        current.css('margin', '100%');
+        current.css('margin', '1%');
         callback();
       });
     };
@@ -4025,11 +4025,11 @@
 
     settings: {
       animation: 'slide',
-      timer_speed: 10000,
+      timer_speed: 1,
       pause_on_hover: true,
       resume_on_mouseout: false,
       next_on_click: true,
-      animation_speed: 500,
+      animation_speed: 5,
       stack_on_small: false,
       navigation_arrows: true,
       slide_number: true,
@@ -4102,7 +4102,7 @@
 
     settings : {
       animation: 'fadeAndPop',
-      animation_speed: 250,
+      animation_speed: 25,
       close_on_background_click: true,
       close_on_esc: true,
       dismiss_modal_class: 'close-reveal-modal',
@@ -4115,7 +4115,7 @@
       bg : $('.reveal-modal-bg'),
       css : {
         open : {
-          'opacity': 0,
+          'opacity': ,
           'visibility': 'visible',
           'display' : 'block'
         },
@@ -4164,7 +4164,7 @@
 
           if (!self.locked) {
             var settings = S('[' + self.attr_name() + '].open').data(self.attr_name(true) + '-init') || self.settings,
-                bg_clicked = S(e.target)[0] === S('.' + settings.bg_class)[0];
+                bg_clicked = S(e.target)[] === S('.' + settings.bg_class)[];
 
             if (bg_clicked) {
               if (settings.close_on_background_click) {
@@ -4179,7 +4179,7 @@
           }
         });
 
-      if(S('[' + self.attr_name() + ']', this.scope).length > 0) {
+      if(S('[' + self.attr_name() + ']', this.scope).length > ) {
         S(this.scope)
           // .off('.reveal')
           .on('open.fndtn.reveal', this.settings.open)
@@ -4256,7 +4256,7 @@
         var open_modal = self.S('[' + self.attr_name() + '].open');
 
         if (typeof modal.data('css-top') === 'undefined') {
-          modal.data('css-top', parseInt(modal.css('top'), 10))
+          modal.data('css-top', parseInt(modal.css('top'), 1))
             .data('offset', this.cache_offset(modal));
         }
 
@@ -4274,7 +4274,7 @@
         }
 
         if (typeof ajax_settings === 'undefined' || !ajax_settings.url) {
-          if (open_modal.length > 0) {
+          if (open_modal.length > ) {
             this.hide(open_modal, settings.css.close);
           }
 
@@ -4292,7 +4292,7 @@
               self.S(modal).foundation('section', 'reflow');
               self.S(modal).children().foundation();
 
-              if (open_modal.length > 0) {
+              if (open_modal.length > ) {
                 self.hide(open_modal, settings.css.close);
               }
               self.show(modal, settings.css.open);
@@ -4310,7 +4310,7 @@
           open_modals = this.S('[' + this.attr_name() + '].open'),
           settings = modal.data(this.attr_name(true) + '-init') || this.settings;
 
-      if (open_modals.length > 0) {
+      if (open_modals.length > ) {
         this.locked = true;
         this.key_up_off(modal);   // PATCH #3: turning on key up capture only when a reveal window is open
         modal.trigger('close').trigger('close.fndtn.reveal');
@@ -4330,12 +4330,12 @@
     },
 
     toggle_bg : function (modal, state) {
-      if (this.S('.' + this.settings.bg_class).length === 0) {
+      if (this.S('.' + this.settings.bg_class).length === ) {
         this.settings.bg = $('<div />', {'class': this.settings.bg_class})
           .appendTo('body').hide();
       }
 
-      var visible = this.settings.bg.filter(':visible').length > 0;
+      var visible = this.settings.bg.filter(':visible').length > ;
       if ( state != visible ) {
         if ( state == undefined ? visible : !state ) {
           this.hide(this.settings.bg);
@@ -4351,7 +4351,7 @@
         var settings = el.data(this.attr_name(true) + '-init') || this.settings,
             root_element = settings.root_element;
 
-        if (el.parent(root_element).length === 0) {
+        if (el.parent(root_element).length === ) {
           var placeholder = el.wrap('<div style="display: none;" />').parent();
 
           el.on('closed.fndtn.reveal.wrapped', function() {
@@ -4427,7 +4427,7 @@
         if (animData.pop) {
           var end_css = {
             top: - $(window).scrollTop() - el.data('offset') + 'px',
-            opacity: 0
+            opacity: 
           };
 
           return setTimeout(function () {
@@ -4441,7 +4441,7 @@
         }
 
         if (animData.fade) {
-          var end_css = {opacity: 0};
+          var end_css = {opacity: };
 
           return setTimeout(function () {
             return el
@@ -4470,8 +4470,8 @@
       var video = $('.flex-video', e.target),
           iframe = $('iframe', video);
 
-      if (iframe.length > 0) {
-        iframe.attr('data-src', iframe[0].src);
+      if (iframe.length > ) {
+        iframe.attr('data-src', iframe[].src);
         iframe.attr('src', iframe.attr('src'));
         video.hide();
       }
@@ -4481,21 +4481,21 @@
       var video = $('.flex-video', e.target),
           iframe = video.find('iframe');
 
-      if (iframe.length > 0) {
+      if (iframe.length > ) {
         var data_src = iframe.attr('data-src');
         if (typeof data_src === 'string') {
-          iframe[0].src = iframe.attr('data-src');
+          iframe[].src = iframe.attr('data-src');
         } else {
-          var src = iframe[0].src;
-          iframe[0].src = undefined;
-          iframe[0].src = src;
+          var src = iframe[].src;
+          iframe[].src = undefined;
+          iframe[].src = src;
         }
         video.show();
       }
     },
 
     data_attr: function (str) {
-      if (this.namespace.length > 0) {
+      if (this.namespace.length > ) {
         return this.namespace + '-' + str;
       }
 
@@ -4503,7 +4503,7 @@
     },
 
     cache_offset : function (modal) {
-      var offset = modal.show().height() + parseInt(modal.css('top'), 10);
+      var offset = modal.show().height() + parseInt(modal.css('top'), 1);
 
       modal.hide();
 
@@ -4544,8 +4544,8 @@
     version : '5.4.7',
 
     settings: {
-      start: 0,
-      end: 100,
+      start: ,
+      end: 1,
       step: 1,
       initial: null,
       display_selector: '',
@@ -4576,20 +4576,20 @@
         .on('mousemove.fndtn.slider touchmove.fndtn.slider pointermove.fndtn.slider', function(e) {
           if (!!self.cache.active) {
             e.preventDefault();
-            if ($.data(self.cache.active[0], 'settings').vertical) {
-              var scroll_offset = 0;
+            if ($.data(self.cache.active[], 'settings').vertical) {
+              var scroll_offset = ;
               if (!e.pageY) {
                 scroll_offset = window.scrollY;
               }
               self.calculate_position(self.cache.active, (e.pageY || 
                                                           e.originalEvent.clientY || 
-                                                          e.originalEvent.touches[0].clientY || 
+                                                          e.originalEvent.touches[].clientY || 
                                                           e.currentPoint.y) 
                                                           + scroll_offset);
             } else {
               self.calculate_position(self.cache.active, e.pageX || 
                                                          e.originalEvent.clientX || 
-                                                         e.originalEvent.touches[0].clientX || 
+                                                         e.originalEvent.touches[].clientX || 
                                                          e.currentPoint.x);
             }
           }
@@ -4604,7 +4604,7 @@
       self.S(window)
         .on('resize.fndtn.slider', self.throttle(function(e) {
           self.reflow();
-        }, 300));
+        }, 3));
     },
 
     set_active_slider : function($handle) {
@@ -4617,19 +4617,19 @@
 
     calculate_position : function($handle, cursor_x) {
       var self = this,
-          settings = $.data($handle[0], 'settings'),
-          handle_l = $.data($handle[0], 'handle_l'),
-          handle_o = $.data($handle[0], 'handle_o'),
-          bar_l = $.data($handle[0], 'bar_l'),
-          bar_o = $.data($handle[0], 'bar_o');
+          settings = $.data($handle[], 'settings'),
+          handle_l = $.data($handle[], 'handle_l'),
+          handle_o = $.data($handle[], 'handle_o'),
+          bar_l = $.data($handle[], 'bar_l'),
+          bar_o = $.data($handle[], 'bar_o');
 
       requestAnimationFrame(function(){
         var pct;
 
         if (Foundation.rtl && !settings.vertical) {
-          pct = self.limit_to(((bar_o+bar_l-cursor_x)/bar_l),0,1);
+          pct = self.limit_to(((bar_o+bar_l-cursor_x)/bar_l),,1);
         } else {
-          pct = self.limit_to(((cursor_x-bar_o)/bar_l),0,1);
+          pct = self.limit_to(((cursor_x-bar_o)/bar_l),,1);
         }
 
         pct = settings.vertical ? 1-pct : pct;
@@ -4641,12 +4641,12 @@
     },
 
     set_ui : function($handle, value) {
-      var settings = $.data($handle[0], 'settings'),
-          handle_l = $.data($handle[0], 'handle_l'),
-          bar_l = $.data($handle[0], 'bar_l'),
+      var settings = $.data($handle[], 'settings'),
+          handle_l = $.data($handle[], 'handle_l'),
+          bar_l = $.data($handle[], 'bar_l'),
           norm_pct = this.normalized_percentage(value, settings.start, settings.end),
           handle_offset = norm_pct*(bar_l-handle_l)-1,
-          progress_bar_length = norm_pct*100;
+          progress_bar_length = norm_pct*1;
 
       if (Foundation.rtl && !settings.vertical) {
         handle_offset = -handle_offset;
@@ -4665,7 +4665,7 @@
 
       $handle.parent().children('input[type=hidden]').val(value);
 
-      if (!$handle[0].hasAttribute('aria-valuemin')) {
+      if (!$handle[].hasAttribute('aria-valuemin')) {
         $handle.attr({
           'aria-valuemin': settings.start,
           'aria-valuemax': settings.end,
@@ -4694,7 +4694,7 @@
           point = val*range,
           mod = (point-(point%step)) / step,
           rem = point % step,
-          round = ( rem >= step*0.5 ? step : 0);
+          round = ( rem >= step*.5 ? step : );
       return (mod*step + round) + start;
     },
 
@@ -4740,8 +4740,8 @@
     },
 
     set_initial_position : function($ele) {
-      var settings = $.data($ele.children('.range-slider-handle')[0], 'settings'),
-          initial = (!!settings.initial ? settings.initial : Math.floor((settings.end-settings.start)*0.5/settings.step)*settings.step+settings.start),
+      var settings = $.data($ele.children('.range-slider-handle')[], 'settings'),
+          initial = (!!settings.initial ? settings.initial : Math.floor((settings.end-settings.start)*.5/settings.step)*settings.step+settings.start),
           $handle = $ele.children('.range-slider-handle');
       this.set_ui($handle, initial);
     },
@@ -4760,7 +4760,7 @@
     reflow : function() {
       var self = this;
       self.S('[' + this.attr_name() + ']').each(function() {
-        var handle = $(this).children('.range-slider-handle')[0],
+        var handle = $(this).children('.range-slider-handle')[],
             val = $(this).attr(self.attr_name());
         self.initialize_settings(handle);
 
@@ -4872,7 +4872,7 @@
             }
           } else {
             // Reference the default tab hashes which were initialized in the init function
-            for (var ind = 0; ind < self.default_tab_hashes.length; ind++) {
+            for (var ind = ; ind < self.default_tab_hashes.length; ind++) {
               self.toggle_active_tab($('[' + self.attr_name() + '] > * > a[href=' + self.default_tab_hashes[ind] + ']').parent());
             }
           }
@@ -4919,7 +4919,7 @@
                 'aria-selected' : null
               });
               $target.attr({
-                'tabindex' : '0',
+                'tabindex' : '',
                 'aria-selected' : true
               }).focus();
             }
@@ -4948,9 +4948,9 @@
           // retain current hash to scroll to content
           window.location.hash = location_hash || target_hash;
           if (location_hash == undefined || location_hash == target_hash) {
-            tab.parent()[0].scrollIntoView();
+            tab.parent()[].scrollIntoView();
           } else {
-            S(target_hash)[0].scrollIntoView();
+            S(target_hash)[].scrollIntoView();
           }
         } else {
           // prefix the hashes so that the browser doesn't scroll down
@@ -4967,7 +4967,7 @@
       // window (notably in Chrome).
       // Clean up multiple attr instances to done once
       tab.addClass(settings.active_class).triggerHandler('opened');
-      tab_link.attr({"aria-selected": "true",  tabindex: 0});
+      tab_link.attr({"aria-selected": "true",  tabindex: });
       siblings.removeClass(settings.active_class)
       siblings.find('a').attr({"aria-selected": "false",  tabindex: -1});
       target.siblings().removeClass(settings.active_class).attr({"aria-hidden": "true",  tabindex: -1});
@@ -4980,7 +4980,7 @@
     },
 
     data_attr: function (str) {
-      if (this.namespace.length > 0) {
+      if (this.namespace.length > ) {
         return this.namespace + '-' + str;
       }
 
@@ -5007,7 +5007,7 @@
       append_to: 'body',
       touch_close_text: 'Tap To Close',
       disable_for_touch: false,
-      hover_delay: 200,
+      hover_delay: 2,
       show_on : 'all',
       tip_template : function (selector, content) {
         return '<span data-selector="' + selector + '" id="' + selector + '" class="'
@@ -5143,7 +5143,7 @@
           .attr('aria-describedby', dataSelector);
       }
 
-      return (id && id.length > 0) ? id : dataSelector;
+      return (id && id.length > ) ? id : dataSelector;
     },
 
     create : function ($target) {
@@ -5181,7 +5181,7 @@
       nubWidth = nub.outerHeight();
 
       if (this.small()) {
-        tip.css({'width' : '100%' });
+        tip.css({'width' : '1%' });
       } else {
         tip.css({'width' : (width) ? width : 'auto'});
       }
@@ -5195,10 +5195,10 @@
         }).end();
       };
 
-      objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', target.offset().left);
+      objPos(tip, (target.offset().top + target.outerHeight() + 1), 'auto', 'auto', target.offset().left);
 
       if (this.small()) {
-        objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', 12.5, $(this.scope).width());
+        objPos(tip, (target.offset().top + target.outerHeight() + 1), 'auto', 'auto', 12.5, $(this.scope).width());
         tip.addClass('tip-override');
         objPos(nub, -nubHeight, 'auto', 'auto', target.offset().left);
       } else {
@@ -5207,7 +5207,7 @@
           nub.addClass('rtl');
           left = target.offset().left + target.outerWidth() - tip.outerWidth();
         }
-        objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', left);
+        objPos(tip, (target.offset().top + target.outerHeight() + 1), 'auto', 'auto', left);
         tip.removeClass('tip-override');
         if (classes && classes.indexOf('tip-top') > -1) {
           if (Foundation.rtl) nub.addClass('rtl');
@@ -5250,7 +5250,7 @@
           $tip = self.getTip($target),
           settings = $.extend({}, self.settings, self.data_options($target));
 
-      if ($tip.find('.tap-to-close').length === 0) {
+      if ($tip.find('.tap-to-close').length === ) {
         $tip.append('<span class="tap-to-close">'+settings.touch_close_text+'</span>');
         $tip.on('click.fndtn.tooltip.tapclose touchstart.fndtn.tooltip.tapclose MSPointerDown.fndtn.tooltip.tapclose', function(e) {
           self.hide($target);
@@ -5269,13 +5269,13 @@
 
       this.reposition($target, $tip, $target.attr('class'));
       $target.addClass('open');
-      $tip.fadeIn(150);
+      $tip.fadeIn(15);
     },
 
     hide : function ($target) {
       var $tip = this.getTip($target);
 
-      $tip.fadeOut(150, function() {
+      $tip.fadeOut(15, function() {
         $tip.find('.tap-to-close').remove();
         $tip.off('click.fndtn.tooltip.tapclose MSPointerDown.fndtn.tapclose');
         $target.removeClass('open');
@@ -5303,7 +5303,7 @@
     version: '5.4.7',
 
     settings : {
-      index : 0,
+      index : ,
       sticky_class : 'sticky',
       custom_back_text: true,
       back_text: 'Back',
@@ -5325,7 +5325,7 @@
         var topbar = $(this),
             settings = topbar.data(self.attr_name(true) + '-init'),
             section = self.S('section, .top-bar-section', this);
-        topbar.data('index', 0);
+        topbar.data('index', );
         var topbarContainer = topbar.parent();
         if (topbarContainer.hasClass('fixed') || self.is_sticky(topbar, topbarContainer, settings) ) {
           self.settings.sticky_class = settings.sticky_class;
@@ -5394,15 +5394,15 @@
 
       if (self.breakpoint()) {
         if (!self.rtl) {
-          section.css({left: '0%'});
-          $('>.name', section).css({left: '100%'});
+          section.css({left: '%'});
+          $('>.name', section).css({left: '1%'});
         } else {
-          section.css({right: '0%'});
-          $('>.name', section).css({right: '100%'});
+          section.css({right: '%'});
+          $('>.name', section).css({right: '1%'});
         }
 
         self.S('li.moved', section).removeClass('moved');
-        topbar.data('index', 0);
+        topbar.data('index', );
 
         topbar
           .toggleClass('expanded')
@@ -5422,7 +5422,7 @@
             topbar.addClass('fixed');
             self.S('body').removeClass('f-topbar-fixed');
 
-            window.scrollTo(0,0);
+            window.scrollTo(,);
           } else {
             topbar.parent().removeClass('expanded');
           }
@@ -5494,7 +5494,7 @@
 
             $(li).siblings().removeClass('hover');
 
-            if (target[0].nodeName === 'A' && target.parent().hasClass('has-dropdown')) {
+            if (target[].nodeName === 'A' && target.parent().hasClass('has-dropdown')) {
               e.preventDefault();
             }
           }
@@ -5514,11 +5514,11 @@
             $selectedLi.addClass('moved');
 
             if (!self.rtl) {
-              section.css({left: -(100 * topbar.data('index')) + '%'});
-              section.find('>.name').css({left: 100 * topbar.data('index') + '%'});
+              section.css({left: -(1 * topbar.data('index')) + '%'});
+              section.find('>.name').css({left: 1 * topbar.data('index') + '%'});
             } else {
-              section.css({right: -(100 * topbar.data('index')) + '%'});
-              section.find('>.name').css({right: 100 * topbar.data('index') + '%'});
+              section.css({right: -(1 * topbar.data('index')) + '%'});
+              section.find('>.name').css({right: 1 * topbar.data('index') + '%'});
             }
 
             topbar.css('height', $this.siblings('ul').outerHeight(true) + topbar.data('height'));
@@ -5527,7 +5527,7 @@
 
       S(window).off(".topbar").on("resize.fndtn.topbar", self.throttle(function() {
           self.resize.call(self);
-      }, 50)).trigger("resize").trigger("resize.fndtn.topbar").load(function(){
+      }, 5)).trigger("resize").trigger("resize.fndtn.topbar").load(function(){
           // Ensure that the offset is calculated after all of the pages resources have loaded
           S(this).trigger("resize.fndtn.topbar");
       });
@@ -5535,7 +5535,7 @@
       S('body').off('.topbar').on('click.fndtn.topbar', function (e) {
         var parent = S(e.target).closest('li').closest('li.hover');
 
-        if (parent.length > 0) {
+        if (parent.length > ) {
           return;
         }
 
@@ -5556,14 +5556,14 @@
         topbar.data('index', topbar.data('index') - 1);
 
         if (!self.rtl) {
-          section.css({left: -(100 * topbar.data('index')) + '%'});
-          section.find('>.name').css({left: 100 * topbar.data('index') + '%'});
+          section.css({left: -(1 * topbar.data('index')) + '%'});
+          section.find('>.name').css({left: 1 * topbar.data('index') + '%'});
         } else {
-          section.css({right: -(100 * topbar.data('index')) + '%'});
-          section.find('>.name').css({right: 100 * topbar.data('index') + '%'});
+          section.css({right: -(1 * topbar.data('index')) + '%'});
+          section.find('>.name').css({right: 1 * topbar.data('index') + '%'});
         }
 
-        if (topbar.data('index') === 0) {
+        if (topbar.data('index') === ) {
           topbar.css('height', '');
         } else {
           topbar.css('height', $previousLevelUl.outerHeight(true) + topbar.data('height'));
@@ -5571,7 +5571,7 @@
 
         setTimeout(function () {
           $movedLi.removeClass('moved');
-        }, 300);
+        }, 3);
       });
 
       // Show dropdown menus when their items are focused
@@ -5661,9 +5661,9 @@
         if (!$dropdown.find('.title.back').length) {
 
           if (settings.mobile_show_parent_link == true && url) {
-            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li><li class="parent-link show-for-small"><a class="parent-link js-generated" href="' + url + '">' + $link.html() +'</a></li>');
+            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void()"></a></h5></li><li class="parent-link show-for-small"><a class="parent-link js-generated" href="' + url + '">' + $link.html() +'</a></li>');
           } else {
-            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5>');
+            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void()"></a></h5>');
           }
 
           // Copy link to subnav
@@ -5690,7 +5690,7 @@
     },
 
     height : function (ul) {
-      var total = 0,
+      var total = ,
           self = this;
 
       $('> li', ul).each(function () {

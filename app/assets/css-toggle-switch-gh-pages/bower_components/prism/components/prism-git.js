@@ -38,7 +38,7 @@ Prism.languages.git = {
 	 * For instance:
 	 * $ git diff
 	 * diff --git file.txt file.txt
-	 * index 6214953..1d54a52 100644
+	 * index 6214953..1d54a52 1644
 	 * --- file.txt
 	 * +++ file.txt
 	 * @@ -1 +1,2 @@
@@ -58,11 +58,11 @@ Prism.languages.git = {
 	 * Match a "commit [SHA1]" line in a git log output.
 	 * For instance:
 	 * $ git log
-	 * commit a11a14ef7e26f2ca62d4b35eac455ce636d0dc09
+	 * commit a11a14ef7e26f2ca62d4b35eac455ce636ddc9
 	 * Author: lgiraudel
-	 * Date:   Mon Feb 17 11:18:34 2014 +0100
+	 * Date:   Mon Feb 17 11:18:34 214 +1
 	 *
 	 *     Add of a new line
 	 */
-	'commit_sha1': /^commit \w{40}$/m
+	'commit_sha1': /^commit \w{4}$/m
 };

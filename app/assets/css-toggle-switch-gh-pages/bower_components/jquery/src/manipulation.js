@@ -26,7 +26,7 @@ var
 	rscriptTypeMasked = /^true\/(.*)/,
 	rcleanScript = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g,
 
-	// We have to close these tags to support XHTML (#13200)
+	// We have to close these tags to support XHTML (#132)
 	wrapMap = {
 
 		// Support: IE 9
@@ -37,7 +37,7 @@ var
 		tr: [ 2, "<table><tbody>", "</tbody></table>" ],
 		td: [ 3, "<table><tbody><tr>", "</tr></tbody></table>" ],
 
-		_default: [ 0, "", "" ]
+		_default: [ , "", "" ]
 	};
 
 // Support: IE 9
@@ -52,7 +52,7 @@ function manipulationTarget( elem, content ) {
 	return jQuery.nodeName( elem, "table" ) &&
 		jQuery.nodeName( content.nodeType !== 11 ? content : content.firstChild, "tr" ) ?
 
-		elem.getElementsByTagName("tbody")[0] ||
+		elem.getElementsByTagName("tbody")[] ||
 			elem.appendChild( elem.ownerDocument.createElement("tbody") ) :
 		elem;
 }
@@ -76,7 +76,7 @@ function restoreScript( elem ) {
 
 // Mark scripts as having already been evaluated
 function setGlobalEval( elems, refElements ) {
-	var i = 0,
+	var i = ,
 		l = elems.length;
 
 	for ( ; i < l; i++ ) {
@@ -104,7 +104,7 @@ function cloneCopyEvent( src, dest ) {
 			pdataCur.events = {};
 
 			for ( type in events ) {
-				for ( i = 0, l = events[ type ].length; i < l; i++ ) {
+				for ( i = , l = events[ type ].length; i < l; i++ ) {
 					jQuery.event.add( dest, type, events[ type ][ i ] );
 				}
 			}
@@ -159,7 +159,7 @@ jQuery.extend({
 			destElements = getAll( clone );
 			srcElements = getAll( elem );
 
-			for ( i = 0, l = srcElements.length; i < l; i++ ) {
+			for ( i = , l = srcElements.length; i < l; i++ ) {
 				fixInput( srcElements[ i ], destElements[ i ] );
 			}
 		}
@@ -170,7 +170,7 @@ jQuery.extend({
 				srcElements = srcElements || getAll( elem );
 				destElements = destElements || getAll( clone );
 
-				for ( i = 0, l = srcElements.length; i < l; i++ ) {
+				for ( i = , l = srcElements.length; i < l; i++ ) {
 					cloneCopyEvent( srcElements[ i ], destElements[ i ] );
 				}
 			} else {
@@ -180,7 +180,7 @@ jQuery.extend({
 
 		// Preserve script evaluation history
 		destElements = getAll( clone, "script" );
-		if ( destElements.length > 0 ) {
+		if ( destElements.length >  ) {
 			setGlobalEval( destElements, !inPage && getAll( elem, "script" ) );
 		}
 
@@ -192,13 +192,13 @@ jQuery.extend({
 		var elem, tmp, tag, wrap, contains, j,
 			fragment = context.createDocumentFragment(),
 			nodes = [],
-			i = 0,
+			i = ,
 			l = elems.length;
 
 		for ( ; i < l; i++ ) {
 			elem = elems[ i ];
 
-			if ( elem || elem === 0 ) {
+			if ( elem || elem ===  ) {
 
 				// Add nodes directly
 				if ( jQuery.type( elem ) === "object" ) {
@@ -220,7 +220,7 @@ jQuery.extend({
 					tmp.innerHTML = wrap[ 1 ] + elem.replace( rxhtmlTag, "<$1></$2>" ) + wrap[ 2 ];
 
 					// Descend through wrappers to the right content
-					j = wrap[ 0 ];
+					j = wrap[  ];
 					while ( j-- ) {
 						tmp = tmp.lastChild;
 					}
@@ -242,10 +242,10 @@ jQuery.extend({
 		// Remove wrapper from fragment
 		fragment.textContent = "";
 
-		i = 0;
+		i = ;
 		while ( (elem = nodes[ i++ ]) ) {
 
-			// #4087 - If origin and destination elements are the same, and this is
+			// #487 - If origin and destination elements are the same, and this is
 			// that element, do not do anything
 			if ( selection && jQuery.inArray( elem, selection ) !== -1 ) {
 				continue;
@@ -263,7 +263,7 @@ jQuery.extend({
 
 			// Capture executables
 			if ( scripts ) {
-				j = 0;
+				j = ;
 				while ( (elem = tmp[ j++ ]) ) {
 					if ( rscriptType.test( elem.type || "" ) ) {
 						scripts.push( elem );
@@ -278,7 +278,7 @@ jQuery.extend({
 	cleanData: function( elems ) {
 		var data, elem, type, key,
 			special = jQuery.event.special,
-			i = 0;
+			i = ;
 
 		for ( ; (elem = elems[ i ]) !== undefined; i++ ) {
 			if ( jQuery.acceptData( elem ) ) {
@@ -358,7 +358,7 @@ jQuery.fn.extend({
 	remove: function( selector, keepData /* Internal Use Only */ ) {
 		var elem,
 			elems = selector ? jQuery.filter( selector, this ) : this,
-			i = 0;
+			i = ;
 
 		for ( ; (elem = elems[i]) != null; i++ ) {
 			if ( !keepData && elem.nodeType === 1 ) {
@@ -378,7 +378,7 @@ jQuery.fn.extend({
 
 	empty: function() {
 		var elem,
-			i = 0;
+			i = ;
 
 		for ( ; (elem = this[i]) != null; i++ ) {
 			if ( elem.nodeType === 1 ) {
@@ -405,8 +405,8 @@ jQuery.fn.extend({
 
 	html: function( value ) {
 		return access( this, function( value ) {
-			var elem = this[ 0 ] || {},
-				i = 0,
+			var elem = this[  ] || {},
+				i = ,
 				l = this.length;
 
 			if ( value === undefined && elem.nodeType === 1 ) {
@@ -430,7 +430,7 @@ jQuery.fn.extend({
 						}
 					}
 
-					elem = 0;
+					elem = ;
 
 				// If using innerHTML throws an exception, use the fallback method
 				} catch( e ) {}
@@ -443,7 +443,7 @@ jQuery.fn.extend({
 	},
 
 	replaceWith: function() {
-		var arg = arguments[ 0 ];
+		var arg = arguments[  ];
 
 		// Make the changes, replacing each context element with the new content
 		this.domManip( arguments, function( elem ) {
@@ -470,11 +470,11 @@ jQuery.fn.extend({
 		args = concat.apply( [], args );
 
 		var fragment, first, scripts, hasScripts, node, doc,
-			i = 0,
+			i = ,
 			l = this.length,
 			set = this,
 			iNoClone = l - 1,
-			value = args[ 0 ],
+			value = args[  ],
 			isFunction = jQuery.isFunction( value );
 
 		// We can't cloneNode fragments that contain checked, in WebKit
@@ -484,14 +484,14 @@ jQuery.fn.extend({
 			return this.each(function( index ) {
 				var self = set.eq( index );
 				if ( isFunction ) {
-					args[ 0 ] = value.call( this, index, self.html() );
+					args[  ] = value.call( this, index, self.html() );
 				}
 				self.domManip( args, callback );
 			});
 		}
 
 		if ( l ) {
-			fragment = jQuery.buildFragment( args, this[ 0 ].ownerDocument, false, this );
+			fragment = jQuery.buildFragment( args, this[  ].ownerDocument, false, this );
 			first = fragment.firstChild;
 
 			if ( fragment.childNodes.length === 1 ) {
@@ -503,7 +503,7 @@ jQuery.fn.extend({
 				hasScripts = scripts.length;
 
 				// Use the original fragment for the last item instead of the first because it can end up
-				// being emptied incorrectly in certain situations (#8070).
+				// being emptied incorrectly in certain situations (#87).
 				for ( ; i < l; i++ ) {
 					node = fragment;
 
@@ -528,7 +528,7 @@ jQuery.fn.extend({
 					jQuery.map( scripts, restoreScript );
 
 					// Evaluate executable scripts on first document insertion
-					for ( i = 0; i < hasScripts; i++ ) {
+					for ( i = ; i < hasScripts; i++ ) {
 						node = scripts[ i ];
 						if ( rscriptType.test( node.type || "" ) &&
 							!data_priv.access( node, "globalEval" ) && jQuery.contains( doc, node ) ) {
@@ -563,7 +563,7 @@ jQuery.each({
 			ret = [],
 			insert = jQuery( selector ),
 			last = insert.length - 1,
-			i = 0;
+			i = ;
 
 		for ( ; i <= last; i++ ) {
 			elems = i === last ? this : this.clone( true );

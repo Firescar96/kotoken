@@ -30,7 +30,7 @@
           vals = equalizer.find('[' + this.attr_name() + '-watch]:visible'),
           settings = equalizer.data(this.attr_name(true)+'-init');
 
-      if (vals.length === 0) return;
+      if (vals.length === ) return;
       var firstTopOffset = vals.first().offset().top;
       settings.before_height_change();
       equalizer.trigger('before-height-change').trigger('before-height-change.fndth.equalizer');

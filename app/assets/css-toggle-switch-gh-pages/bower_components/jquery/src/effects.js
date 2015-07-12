@@ -31,7 +31,7 @@ var
 				start = ( jQuery.cssNumber[ prop ] || unit !== "px" && +target ) &&
 					rfxnum.exec( jQuery.css( tween.elem, prop ) ),
 				scale = 1,
-				maxIterations = 20;
+				maxIterations = 2;
 
 			if ( start && start[ 3 ] !== unit ) {
 				// Trust units reported by jQuery.css
@@ -59,7 +59,7 @@ var
 
 			// Update tween properties
 			if ( parts ) {
-				start = tween.start = +start || +target || 0;
+				start = tween.start = +start || +target || ;
 				tween.unit = unit;
 				// If a +=/-= token was provided, we're doing a relative animation
 				tween.end = parts[ 1 ] ?
@@ -82,12 +82,12 @@ function createFxNow() {
 // Generate parameters to create a standard animation
 function genFx( type, includeWidth ) {
 	var which,
-		i = 0,
+		i = ,
 		attrs = { height: type };
 
 	// if we include width, step value is 1 to do all cssExpand values,
 	// if we don't include width, step value is 2 to skip over Left and Right
-	includeWidth = includeWidth ? 1 : 0;
+	includeWidth = includeWidth ? 1 : ;
 	for ( ; i < 4 ; i += 2 - includeWidth ) {
 		which = cssExpand[ i ];
 		attrs[ "margin" + which ] = attrs[ "padding" + which ] = type;
@@ -103,7 +103,7 @@ function genFx( type, includeWidth ) {
 function createTween( value, prop, animation ) {
 	var tween,
 		collection = ( tweeners[ prop ] || [] ).concat( tweeners[ "*" ] ),
-		index = 0,
+		index = ,
 		length = collection.length;
 	for ( ; index < length; index++ ) {
 		if ( (tween = collection[ index ].call( animation, prop, value )) ) {
@@ -127,7 +127,7 @@ function defaultPrefilter( elem, props, opts ) {
 	if ( !opts.queue ) {
 		hooks = jQuery._queueHooks( elem, "fx" );
 		if ( hooks.unqueued == null ) {
-			hooks.unqueued = 0;
+			hooks.unqueued = ;
 			oldfire = hooks.empty.fire;
 			hooks.empty.fire = function() {
 				if ( !hooks.unqueued ) {
@@ -152,7 +152,7 @@ function defaultPrefilter( elem, props, opts ) {
 	// height/width overflow pass
 	if ( elem.nodeType === 1 && ( "height" in props || "width" in props ) ) {
 		// Make sure that nothing sneaks out
-		// Record all 3 overflow attributes because IE9-10 do not
+		// Record all 3 overflow attributes because IE9-1 do not
 		// change the overflow attribute when overflowX and
 		// overflowY are set to the same value
 		opts.overflow = [ style.overflow, style.overflowX, style.overflowY ];
@@ -173,7 +173,7 @@ function defaultPrefilter( elem, props, opts ) {
 	if ( opts.overflow ) {
 		style.overflow = "hidden";
 		anim.always(function() {
-			style.overflow = opts.overflow[ 0 ];
+			style.overflow = opts.overflow[  ];
 			style.overflowX = opts.overflow[ 1 ];
 			style.overflowY = opts.overflow[ 2 ];
 		});
@@ -231,13 +231,13 @@ function defaultPrefilter( elem, props, opts ) {
 			}
 		});
 		for ( prop in orig ) {
-			tween = createTween( hidden ? dataShow[ prop ] : 0, prop, anim );
+			tween = createTween( hidden ? dataShow[ prop ] : , prop, anim );
 
 			if ( !( prop in dataShow ) ) {
 				dataShow[ prop ] = tween.start;
 				if ( hidden ) {
 					tween.end = tween.start;
-					tween.start = prop === "width" || prop === "height" ? 1 : 0;
+					tween.start = prop === "width" || prop === "height" ? 1 : ;
 				}
 			}
 		}
@@ -258,7 +258,7 @@ function propFilter( props, specialEasing ) {
 		value = props[ index ];
 		if ( jQuery.isArray( value ) ) {
 			easing = value[ 1 ];
-			value = props[ index ] = value[ 0 ];
+			value = props[ index ] = value[  ];
 		}
 
 		if ( index !== name ) {
@@ -288,7 +288,7 @@ function propFilter( props, specialEasing ) {
 function Animation( elem, properties, options ) {
 	var result,
 		stopped,
-		index = 0,
+		index = ,
 		length = animationPrefilters.length,
 		deferred = jQuery.Deferred().always( function() {
 			// don't match elem in the :animated selector
@@ -299,11 +299,11 @@ function Animation( elem, properties, options ) {
 				return false;
 			}
 			var currentTime = fxNow || createFxNow(),
-				remaining = Math.max( 0, animation.startTime + animation.duration - currentTime ),
-				// archaic crash bug won't allow us to use 1 - ( 0.5 || 0 ) (#12497)
-				temp = remaining / animation.duration || 0,
+				remaining = Math.max( , animation.startTime + animation.duration - currentTime ),
+				// archaic crash bug won't allow us to use 1 - ( .5 ||  ) (#12497)
+				temp = remaining / animation.duration || ,
 				percent = 1 - temp,
-				index = 0,
+				index = ,
 				length = animation.tweens.length;
 
 			for ( ; index < length ; index++ ) {
@@ -335,10 +335,10 @@ function Animation( elem, properties, options ) {
 				return tween;
 			},
 			stop: function( gotoEnd ) {
-				var index = 0,
+				var index = ,
 					// if we are going to the end, we want to run all the tweens
 					// otherwise we skip this part
-					length = gotoEnd ? animation.tweens.length : 0;
+					length = gotoEnd ? animation.tweens.length : ;
 				if ( stopped ) {
 					return this;
 				}
@@ -400,7 +400,7 @@ jQuery.Animation = jQuery.extend( Animation, {
 		}
 
 		var prop,
-			index = 0,
+			index = ,
 			length = props.length;
 
 		for ( ; index < length ; index++ ) {
@@ -427,7 +427,7 @@ jQuery.speed = function( speed, easing, fn ) {
 		easing: fn && easing || easing && !jQuery.isFunction( easing ) && easing
 	};
 
-	opt.duration = jQuery.fx.off ? 0 : typeof opt.duration === "number" ? opt.duration :
+	opt.duration = jQuery.fx.off ?  : typeof opt.duration === "number" ? opt.duration :
 		opt.duration in jQuery.fx.speeds ? jQuery.fx.speeds[ opt.duration ] : jQuery.fx.speeds._default;
 
 	// normalize opt.queue - true/undefined/null -> "fx"
@@ -454,8 +454,8 @@ jQuery.speed = function( speed, easing, fn ) {
 jQuery.fn.extend({
 	fadeTo: function( speed, to, easing, callback ) {
 
-		// show any hidden elements after setting opacity to 0
-		return this.filter( isHidden ).css( "opacity", 0 ).show()
+		// show any hidden elements after setting opacity to 
+		return this.filter( isHidden ).css( "opacity",  ).show()
 
 			// animate to the value specified
 			.end().animate({ opacity: to }, speed, easing, callback );
@@ -538,7 +538,7 @@ jQuery.fn.extend({
 				queue = data[ type + "queue" ],
 				hooks = data[ type + "queueHooks" ],
 				timers = jQuery.timers,
-				length = queue ? queue.length : 0;
+				length = queue ? queue.length : ;
 
 			// enable finishing flag on private data
 			data.finish = true;
@@ -559,7 +559,7 @@ jQuery.fn.extend({
 			}
 
 			// look for any animations in the old queue and finish them
-			for ( index = 0; index < length; index++ ) {
+			for ( index = ; index < length; index++ ) {
 				if ( queue[ index ] && queue[ index ].finish ) {
 					queue[ index ].finish.call( this );
 				}
@@ -597,7 +597,7 @@ jQuery.each({
 jQuery.timers = [];
 jQuery.fx.tick = function() {
 	var timer,
-		i = 0,
+		i = ,
 		timers = jQuery.timers;
 
 	fxNow = jQuery.now();
@@ -639,10 +639,10 @@ jQuery.fx.stop = function() {
 };
 
 jQuery.fx.speeds = {
-	slow: 600,
-	fast: 200,
+	slow: 6,
+	fast: 2,
 	// Default speed
-	_default: 400
+	_default: 4
 };
 
 return jQuery;

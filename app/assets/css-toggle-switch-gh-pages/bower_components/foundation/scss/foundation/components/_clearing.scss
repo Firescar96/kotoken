@@ -12,12 +12,12 @@ $include-html-clearing-classes: $include-html-classes !default;
 // We use these to set the background colors for parts of Clearing.
 $clearing-bg: $oil !default;
 $clearing-caption-bg: $clearing-bg !default;
-$clearing-carousel-bg: rgba(51,51,51,0.8) !default;
+$clearing-carousel-bg: rgba(51,51,51,.8) !default;
 $clearing-img-bg: $clearing-bg !default;
 
 // We use these to style the close button
 $clearing-close-color: $iron !default;
-$clearing-close-size: 30px !default;
+$clearing-close-size: 3 !default;
 
 // We use these to style the arrows
 $clearing-arrow-size: 12px !default;
@@ -25,13 +25,13 @@ $clearing-arrow-color: $clearing-close-color !default;
 
 // We use these to style captions
 $clearing-caption-font-color: $iron !default;
-$clearing-caption-font-size: 0.875em !default;
-$clearing-caption-padding: 10px 30px 20px !default;
+$clearing-caption-font-size: .875em !default;
+$clearing-caption-padding: 1 3 2 !default;
 
 // We use these to make the image and carousel height and style
 $clearing-active-img-height: 85% !default;
-$clearing-carousel-height: 120px !default;
-$clearing-carousel-thumb-width: 120px !default;
+$clearing-carousel-height: 12 !default;
+$clearing-carousel-thumb-width: 12 !default;
 $clearing-carousel-thumb-active-border: 1px solid rgb(255,255,255) !default;
 
 @include exports("clearing") {
@@ -43,27 +43,27 @@ $clearing-carousel-thumb-active-border: 1px solid rgb(255,255,255) !default;
     /* Clearing Styles */
     .clearing-thumbs, #{data('clearing')} {
       @include clearfix;
-      margin-bottom: 0;
-      margin-#{$default-float}: 0;
+      margin-bottom: ;
+      margin-#{$default-float}: ;
       list-style: none;
 
       li {
         float: $default-float;
-        margin-#{$opposite-direction}: 10px;
+        margin-#{$opposite-direction}: 1;
       }
 
       &[class*="block-grid-"] li {
-        margin-#{$opposite-direction}: 0;
+        margin-#{$opposite-direction}: ;
       }
     }
 
     .clearing-blackout {
       background: $clearing-bg;
       position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      #{$default-float}: 0;
+      width: 1%;
+      height: 1%;
+      top: ;
+      #{$default-float}: ;
       z-index: 998;
 
       .clearing-close { display: block; }
@@ -72,17 +72,17 @@ $clearing-carousel-thumb-active-border: 1px solid rgb(255,255,255) !default;
     .clearing-container {
       position: relative;
       z-index: 998;
-      height: 100%;
+      height: 1%;
       overflow: hidden;
-      margin: 0;
+      margin: ;
     }
 
     .clearing-touch-label {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 5%;
+      left: 5%;
       color: $base;
-      font-size: 0.6em;
+      font-size: .6em;
     }
 
     .visible-img {
@@ -91,11 +91,11 @@ $clearing-carousel-thumb-active-border: 1px solid rgb(255,255,255) !default;
 
       img {
         position: absolute;
-        #{$default-float}: 50%;
-        top: 50%;
-        margin-#{$default-float}: -50%;
-        max-height: 100%;
-        max-width: 100%;
+        #{$default-float}: 5%;
+        top: 5%;
+        margin-#{$default-float}: -5%;
+        max-height: 1%;
+        max-width: 1%;
       }
     }
 
@@ -103,20 +103,20 @@ $clearing-carousel-thumb-active-border: 1px solid rgb(255,255,255) !default;
       color: $clearing-caption-font-color;
       font-size: $clearing-caption-font-size;
       line-height: 1.3;
-      margin-bottom: 0;
+      margin-bottom: ;
       text-align: center;
-      bottom: 0;
+      bottom: ;
       background: $clearing-caption-bg;
-      width: 100%;
+      width: 1%;
       padding: $clearing-caption-padding;
       position: absolute;
-      #{$default-float}: 0;
+      #{$default-float}: ;
     }
 
     .clearing-close {
       z-index: 999;
-      padding-#{$default-float}: 20px;
-      padding-top: 10px;
+      padding-#{$default-float}: 2;
+      padding-top: 1;
       font-size: $clearing-close-size;
       line-height: 1;
       color: $clearing-close-color;
@@ -126,7 +126,7 @@ $clearing-carousel-thumb-active-border: 1px solid rgb(255,255,255) !default;
       &:focus { color: $iron; }
     }
 
-    .clearing-assembled .clearing-container { height: 100%;
+    .clearing-assembled .clearing-container { height: 1%;
       .carousel > ul { display: none; }
     }
 
@@ -143,21 +143,21 @@ $clearing-carousel-thumb-active-border: 1px solid rgb(255,255,255) !default;
       .clearing-main-prev,
       .clearing-main-next {
         position: absolute;
-        height: 100%;
-        width: 40px;
-        top: 0;
+        height: 1%;
+        width: 4;
+        top: ;
         & > span {
           position: absolute;
-          top: 50%;
+          top: 5%;
           display: block;
-          width: 0;
-          height: 0;
+          width: ;
+          height: ;
           border: solid $clearing-arrow-size;
-          &:hover { opacity: 0.8; }
+          &:hover { opacity: .8; }
         }
       }
       .clearing-main-prev {
-        #{$default-float}: 0;
+        #{$default-float}: ;
         & > span {
           #{$default-float}: 5px;
           border-color: transparent;
@@ -165,7 +165,7 @@ $clearing-carousel-thumb-active-border: 1px solid rgb(255,255,255) !default;
         }
       }
       .clearing-main-next {
-        #{$opposite-direction}: 0;
+        #{$opposite-direction}: ;
         & > span {
           border-color: transparent;
           border-#{$default-float}-color: $clearing-arrow-color;
@@ -173,20 +173,20 @@ $clearing-carousel-thumb-active-border: 1px solid rgb(255,255,255) !default;
       }
     
       .clearing-main-prev.disabled,
-      .clearing-main-next.disabled { opacity: 0.3; }
+      .clearing-main-next.disabled { opacity: .3; }
 
       .clearing-assembled .clearing-container {
 
         .carousel {
           background: $clearing-carousel-bg;
           height: $clearing-carousel-height;
-          margin-top: 10px;
+          margin-top: 1;
           text-align: center;
 
           & > ul {
             display: inline-block;
             z-index: 999;
-            height: 100%;
+            height: 1%;
             position: relative;
             float: none;
 
@@ -196,16 +196,16 @@ $clearing-carousel-thumb-active-border: 1px solid rgb(255,255,255) !default;
               min-height: inherit;
               float: $default-float;
               overflow: hidden;
-              margin-#{$opposite-direction}: 0;
-              padding: 0;
+              margin-#{$opposite-direction}: ;
+              padding: ;
               position: relative;
               cursor: $cursor-pointer-value;
-              opacity: 0.4;
+              opacity: .4;
               clear: none;
 
               &.fix-height {
                 img {
-                  height: 100%;
+                  height: 1%;
                   max-width: none;
                 }
               }
@@ -218,11 +218,11 @@ $clearing-carousel-thumb-active-border: 1px solid rgb(255,255,255) !default;
 
               img {
               cursor: $cursor-pointer-value !important;
-              width: 100% !important;
+              width: 1% !important;
               }
 
               &.visible { opacity: 1; }
-              &:hover { opacity: 0.8; }
+              &:hover { opacity: .8; }
             }
           }
         }
@@ -236,10 +236,10 @@ $clearing-carousel-thumb-active-border: 1px solid rgb(255,255,255) !default;
 
       .clearing-close {
         position: absolute;
-        top: 10px;
-        #{$opposite-direction}: 20px;
-        padding-#{$default-float}: 0;
-        padding-top: 0;
+        top: 1;
+        #{$opposite-direction}: 2;
+        padding-#{$default-float}: ;
+        padding-top: ;
       }
     }
 

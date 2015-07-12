@@ -14,13 +14,13 @@ jQuery.fn.extend({
 			});
 		}
 
-		if ( this[ 0 ] ) {
+		if ( this[  ] ) {
 
 			// The elements to wrap the target around
-			wrap = jQuery( html, this[ 0 ].ownerDocument ).eq( 0 ).clone( true );
+			wrap = jQuery( html, this[  ].ownerDocument ).eq(  ).clone( true );
 
-			if ( this[ 0 ].parentNode ) {
-				wrap.insertBefore( this[ 0 ] );
+			if ( this[  ].parentNode ) {
+				wrap.insertBefore( this[  ] );
 			}
 
 			wrap.map(function() {

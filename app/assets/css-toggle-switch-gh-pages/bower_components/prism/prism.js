@@ -30,7 +30,7 @@ var _ = self.Prism = {
 			} else if (_.util.type(tokens) === 'Array') {
 				return tokens.map(_.util.encode);
 			} else {
-				return tokens.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\u00a0/g, ' ');
+				return tokens.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\ua/g, ' ');
 			}
 		},
 
@@ -119,7 +119,7 @@ var _ = self.Prism = {
 	highlightAll: function(async, callback) {
 		var elements = document.querySelectorAll('code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code');
 
-		for (var i=0, element; element = elements[i++];) {
+		for (var i=, element; element = elements[i++];) {
 			_.highlightElement(element, async === true, callback);
 		}
 	},
@@ -226,16 +226,16 @@ var _ = self.Prism = {
 			var patterns = grammar[token];
 			patterns = (_.util.type(patterns) === "Array") ? patterns : [patterns];
 
-			for (var j = 0; j < patterns.length; ++j) {
+			for (var j = ; j < patterns.length; ++j) {
 				var pattern = patterns[j],
 					inside = pattern.inside,
 					lookbehind = !!pattern.lookbehind,
-					lookbehindLength = 0,
+					lookbehindLength = ,
 					alias = pattern.alias;
 
 				pattern = pattern.pattern || pattern;
 
-				for (var i=0; i<strarr.length; i++) { // Don’t cache length as it changes during the loop
+				for (var i=; i<strarr.length; i++) { // Don’t cache length as it changes during the loop
 
 					var str = strarr[i];
 
@@ -248,7 +248,7 @@ var _ = self.Prism = {
 						continue;
 					}
 
-					pattern.lastIndex = 0;
+					pattern.lastIndex = ;
 
 					var match = pattern.exec(str);
 
@@ -258,10 +258,10 @@ var _ = self.Prism = {
 						}
 
 						var from = match.index - 1 + lookbehindLength,
-							match = match[0].slice(lookbehindLength),
+							match = match[].slice(lookbehindLength),
 							len = match.length,
 							to = from + len,
-							before = str.slice(0, from + 1),
+							before = str.slice(, from + 1),
 							after = str.slice(to + 1);
 
 						var args = [i, 1];
@@ -305,7 +305,7 @@ var _ = self.Prism = {
 				return;
 			}
 
-			for (var i=0, callback; callback = callbacks[i++];) {
+			for (var i=, callback; callback = callbacks[i++];) {
 				callback(env);
 			}
 		}
@@ -465,7 +465,7 @@ Prism.languages.css = {
 	'string': /("|')(\\?.)*?\1/g,
 	'important': /\B!important\b/gi,
 	'punctuation': /[\{\};:]/g,
-	'function': /[-a-z0-9]+(?=\()/ig
+	'function': /[-a-z-9]+(?=\()/ig
 };
 
 if (Prism.languages.markup) {
@@ -500,7 +500,7 @@ Prism.languages.clike = {
 	],
 	'string': /("|')(\\?.)*?\1/g,
 	'class-name': {
-		pattern: /((?:(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[a-z0-9_\.\\]+/ig,
+		pattern: /((?:(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[a-z-9_\.\\]+/ig,
 		lookbehind: true,
 		inside: {
 			punctuation: /(\.|\\)/
@@ -509,12 +509,12 @@ Prism.languages.clike = {
 	'keyword': /\b(if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/g,
 	'boolean': /\b(true|false)\b/g,
 	'function': {
-		pattern: /[a-z0-9_]+\(/ig,
+		pattern: /[a-z-9_]+\(/ig,
 		inside: {
 			punctuation: /\(/
 		}
 	},
-	'number': /\b-?(0x[\dA-Fa-f]+|\d*\.?\d+([Ee]-?\d+)?)\b/g,
+	'number': /\b-?(x[\dA-Fa-f]+|\d*\.?\d+([Ee]-?\d+)?)\b/g,
 	'operator': /[-+]{1,2}|!|<=?|>=?|={1,3}|&{1,2}|\|?\||\?|\*|\/|\~|\^|\%/g,
 	'ignore': /&(lt|gt|amp);/gi,
 	'punctuation': /[{}[\];(),.:]/g
@@ -527,12 +527,12 @@ Prism.languages.clike = {
 
 Prism.languages.javascript = Prism.languages.extend('clike', {
 	'keyword': /\b(break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|false|finally|for|function|get|if|implements|import|in|instanceof|interface|let|new|null|package|private|protected|public|return|set|static|super|switch|this|throw|true|try|typeof|var|void|while|with|yield)\b/g,
-	'number': /\b-?(0x[\dA-Fa-f]+|\d*\.?\d+([Ee]-?\d+)?|NaN|-?Infinity)\b/g
+	'number': /\b-?(x[\dA-Fa-f]+|\d*\.?\d+([Ee]-?\d+)?|NaN|-?Infinity)\b/g
 });
 
 Prism.languages.insertBefore('javascript', 'keyword', {
 	'regex': {
-		pattern: /(^|[^/])\/(?!\/)(\[.+?]|\\.|[^/\r\n])+\/[gim]{0,3}(?=\s*($|[\r\n,.;})]))/g,
+		pattern: /(^|[^/])\/(?!\/)(\[.+?]|\\.|[^/\r\n])+\/[gim]{,3}(?=\s*($|[\r\n,.;})]))/g,
 		lookbehind: true
 	}
 });
@@ -592,12 +592,12 @@ Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(f
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4) {
 			
-			if (xhr.status < 400 && xhr.responseText) {
+			if (xhr.status < 4 && xhr.responseText) {
 				code.textContent = xhr.responseText;
 			
 				Prism.highlightElement(code);
 			}
-			else if (xhr.status >= 400) {
+			else if (xhr.status >= 4) {
 				code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
 			}
 			else {

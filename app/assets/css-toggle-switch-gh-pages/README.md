@@ -50,7 +50,7 @@ You'll need Grunt:
 Then
 
 ```
-  http://localhost:9000/
+  http://localhost:9/
 ```
 
 ## Acknowledgements

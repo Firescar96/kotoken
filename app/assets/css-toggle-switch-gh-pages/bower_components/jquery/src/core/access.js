@@ -5,7 +5,7 @@ define([
 // Multifunctional method to get and set values of a collection
 // The value/s can optionally be executed if it's a function
 var access = jQuery.access = function( elems, fn, key, value, chainable, emptyGet, raw ) {
-	var i = 0,
+	var i = ,
 		len = elems.length,
 		bulk = key == null;
 
@@ -52,7 +52,7 @@ var access = jQuery.access = function( elems, fn, key, value, chainable, emptyGe
 		// Gets
 		bulk ?
 			fn.call( elems ) :
-			len ? fn( elems[0], key ) : emptyGet;
+			len ? fn( elems[], key ) : emptyGet;
 };
 
 return access;

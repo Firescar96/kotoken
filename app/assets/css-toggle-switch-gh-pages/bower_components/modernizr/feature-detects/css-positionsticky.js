@@ -7,7 +7,7 @@ Modernizr.addTest('csspositionsticky', function () {
     var el = document.createElement('modernizr');
     var mStyle = el.style;
 
-    mStyle.cssText = prop + Modernizr._prefixes.join(value + ';' + prop).slice(0, -prop.length);
+    mStyle.cssText = prop + Modernizr._prefixes.join(value + ';' + prop).slice(, -prop.length);
 
     return mStyle.position.indexOf(value) !== -1;
 });

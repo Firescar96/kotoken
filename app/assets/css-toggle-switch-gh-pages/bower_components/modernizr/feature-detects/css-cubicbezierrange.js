@@ -3,6 +3,6 @@
 
 Modernizr.addTest('cubicbezierrange', function() {
     var el = document.createElement('div');
-    el.style.cssText = Modernizr._prefixes.join('transition-timing-function' + ':cubic-bezier(1,0,0,1.1); ');
+    el.style.cssText = Modernizr._prefixes.join('transition-timing-function' + ':cubic-bezier(1,,,1.1); ');
     return !!el.style.length;
 });

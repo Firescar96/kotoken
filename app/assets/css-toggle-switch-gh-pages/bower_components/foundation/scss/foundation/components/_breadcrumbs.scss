@@ -17,7 +17,7 @@ $crumb-padding: rem-calc(9 14 9) !default;
 $crumb-side-padding: rem-calc(12) !default;
 
 // We use these to control border styles.
-$crumb-function-factor: -10% !default;
+$crumb-function-factor: -1% !default;
 $crumb-border-size: 1px !default;
 $crumb-border-style: solid !default;
 $crumb-border-color: scale-color($crumb-bg, $lightness: $crumb-function-factor) !default;
@@ -44,7 +44,7 @@ $crumb-slash: "/" !default;
   display: block;
   padding: $crumb-padding;
   overflow: hidden;
-  margin-#{$default-float}: 0;
+  margin-#{$default-float}: ;
   list-style: none;
   border-style: $crumb-border-style;
   border-width: $crumb-border-size;
@@ -58,7 +58,7 @@ $crumb-slash: "/" !default;
 @mixin crumbs {
 
   // A normal state will make the links look and act like clickable breadcrumbs.
-  margin: 0;
+  margin: ;
   float: $default-float;
   font-size: $crumb-font-size;
   line-height: $crumb-font-size;
@@ -102,14 +102,14 @@ $crumb-slash: "/" !default;
   &:before {
     content: "#{$crumb-slash}";
     color: $crumb-slash-color;
-    margin: 0 $crumb-side-padding;
+    margin:  $crumb-side-padding;
     position: relative;
     top: 1px;
   }
 
   &:first-child:before {
     content: " ";
-    margin: 0;
+    margin: ;
   }
 }
 

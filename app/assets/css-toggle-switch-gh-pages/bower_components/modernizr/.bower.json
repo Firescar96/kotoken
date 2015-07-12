@@ -6,7 +6,7 @@
   "_resolution": {
     "type": "version",
     "tag": "v2.8.3",
-    "commit": "d6bb30c0f12ebb3ddd01e90b0bf435e1c34e6f11"
+    "commit": "d6bb3cf12ebb3ddd1e9bbf435e1c34e6f11"
   },
   "_source": "git://github.com/Modernizr/Modernizr.git",
   "_target": ">= 2.7.2",

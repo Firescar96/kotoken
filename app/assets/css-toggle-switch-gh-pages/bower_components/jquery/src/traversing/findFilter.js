@@ -11,7 +11,7 @@ var risSimple = /^.[^:#\[\.,]*$/;
 function winnow( elements, qualifier, not ) {
 	if ( jQuery.isFunction( qualifier ) ) {
 		return jQuery.grep( elements, function( elem, i ) {
-			/* jshint -W018 */
+			/* jshint -W18 */
 			return !!qualifier.call( elem, i, elem ) !== not;
 		});
 
@@ -33,12 +33,12 @@ function winnow( elements, qualifier, not ) {
 	}
 
 	return jQuery.grep( elements, function( elem ) {
-		return ( indexOf.call( qualifier, elem ) >= 0 ) !== not;
+		return ( indexOf.call( qualifier, elem ) >=  ) !== not;
 	});
 }
 
 jQuery.filter = function( expr, elems, not ) {
-	var elem = elems[ 0 ];
+	var elem = elems[  ];
 
 	if ( not ) {
 		expr = ":not(" + expr + ")";
@@ -60,7 +60,7 @@ jQuery.fn.extend({
 
 		if ( typeof selector !== "string" ) {
 			return this.pushStack( jQuery( selector ).filter(function() {
-				for ( i = 0; i < len; i++ ) {
+				for ( i = ; i < len; i++ ) {
 					if ( jQuery.contains( self[ i ], this ) ) {
 						return true;
 					}
@@ -68,7 +68,7 @@ jQuery.fn.extend({
 			}) );
 		}
 
-		for ( i = 0; i < len; i++ ) {
+		for ( i = ; i < len; i++ ) {
 			jQuery.find( selector, self[ i ], ret );
 		}
 

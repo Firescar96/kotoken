@@ -18,7 +18,7 @@
 //
 //   -- column -- gutter -- column -- gutter -- column
 //
-//  $fg-column: 60px;             // Column Width
+//  $fg-column: 6;             // Column Width
 //  $fg-gutter: 25px;             // Gutter Width
 //  $fg-max-columns: 12;          // Total Columns For Main Container
 //
@@ -27,13 +27,13 @@
 //    margin-left: flex-gutter(); // returns (25px / 995px) = 2.51256%;
 //
 //    p {
-//      width: flex-grid(2, 4);  // returns (145px / 315px) = 46.031746%;
+//      width: flex-grid(2, 4);  // returns (145px / 315px) = 46.31746%;
 //      float: left;
-//      margin: flex-gutter(4);  // returns (25px / 315px) = 7.936508%;
+//      margin: flex-gutter(4);  // returns (25px / 315px) = 7.93658%;
 //    }
 //
 //    blockquote {
 //      float: left;
-//      width: flex-grid(2, 4); // returns (145px / 315px) = 46.031746%;
+//      width: flex-grid(2, 4); // returns (145px / 315px) = 46.31746%;
 //    }
 //  }

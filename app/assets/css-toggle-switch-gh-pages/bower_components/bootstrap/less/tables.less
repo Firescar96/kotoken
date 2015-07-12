@@ -20,8 +20,8 @@ th {
 // Baseline styles
 
 .table {
-  width: 100%;
-  max-width: 100%;
+  width: 1%;
+  max-width: 1%;
   margin-bottom: @line-height-computed;
   // Cells
   > thead,
@@ -49,7 +49,7 @@ th {
     > tr:first-child {
       > th,
       > td {
-        border-top: 0;
+        border-top: ;
       }
     }
   }
@@ -133,7 +133,7 @@ th {
 // Reset default table behavior
 
 table col[class*="col-"] {
-  position: static; // Prevent border hiding in Firefox and IE9/10 (see https://github.com/twbs/bootstrap/issues/11623)
+  position: static; // Prevent border hiding in Firefox and IE9/1 (see https://github.com/twbs/bootstrap/issues/11623)
   float: none;
   display: table-column;
 }
@@ -141,7 +141,7 @@ table {
   td,
   th {
     &[class*="col-"] {
-      position: static; // Prevent border hiding in Firefox and IE9/10 (see https://github.com/twbs/bootstrap/issues/11623)
+      position: static; // Prevent border hiding in Firefox and IE9/1 (see https://github.com/twbs/bootstrap/issues/11623)
       float: none;
       display: table-cell;
     }
@@ -170,18 +170,18 @@ table {
 
 .table-responsive {
   overflow-x: auto;
-  min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+  min-height: .1%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
 
   @media screen and (max-width: @screen-xs-max) {
-    width: 100%;
-    margin-bottom: (@line-height-computed * 0.75);
+    width: 1%;
+    margin-bottom: (@line-height-computed * .75);
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid @table-border-color;
 
     // Tighten up spacing
     > .table {
-      margin-bottom: 0;
+      margin-bottom: ;
 
       // Ensure the content doesn't wrap
       > thead,
@@ -198,7 +198,7 @@ table {
 
     // Special overrides for the bordered tables
     > .table-bordered {
-      border: 0;
+      border: ;
 
       // Nuke the appropriate borders so that the parent can handle them
       > thead,
@@ -207,11 +207,11 @@ table {
         > tr {
           > th:first-child,
           > td:first-child {
-            border-left: 0;
+            border-left: ;
           }
           > th:last-child,
           > td:last-child {
-            border-right: 0;
+            border-right: ;
           }
         }
       }
@@ -224,7 +224,7 @@ table {
         > tr:last-child {
           > th,
           > td {
-            border-bottom: 0;
+            border-bottom: ;
           }
         }
       }

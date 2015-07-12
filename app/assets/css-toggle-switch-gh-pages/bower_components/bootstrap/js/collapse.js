@@ -1,8 +1,8 @@
 /* ========================================================================
- * Bootstrap: collapse.js v3.3.0
+ * Bootstrap: collapse.js v3.3.
  * http://getbootstrap.com/javascript/#collapse
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -28,9 +28,9 @@
     if (this.options.toggle) this.toggle()
   }
 
-  Collapse.VERSION  = '3.3.0'
+  Collapse.VERSION  = '3.3.'
 
-  Collapse.TRANSITION_DURATION = 350
+  Collapse.TRANSITION_DURATION = 35
 
   Collapse.DEFAULTS = {
     toggle: true,
@@ -66,7 +66,7 @@
 
     this.$element
       .removeClass('collapse')
-      .addClass('collapsing')[dimension](0)
+      .addClass('collapsing')[dimension]()
       .attr('aria-expanded', true)
 
     this.$trigger
@@ -79,7 +79,7 @@
       this.$element
         .removeClass('collapsing')
         .addClass('collapse in')[dimension]('')
-      this.transitioning = 0
+      this.transitioning = 
       this.$element
         .trigger('shown.bs.collapse')
     }
@@ -90,7 +90,7 @@
 
     this.$element
       .one('bsTransitionEnd', $.proxy(complete, this))
-      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize])
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[][scrollSize])
   }
 
   Collapse.prototype.hide = function () {
@@ -102,7 +102,7 @@
 
     var dimension = this.dimension()
 
-    this.$element[dimension](this.$element[dimension]())[0].offsetHeight
+    this.$element[dimension](this.$element[dimension]())[].offsetHeight
 
     this.$element
       .addClass('collapsing')
@@ -116,7 +116,7 @@
     this.transitioning = 1
 
     var complete = function () {
-      this.transitioning = 0
+      this.transitioning = 
       this.$element
         .removeClass('collapsing')
         .addClass('collapse')
@@ -126,7 +126,7 @@
     if (!$.support.transition) return complete.call(this)
 
     this.$element
-      [dimension](0)
+      [dimension]()
       .one('bsTransitionEnd', $.proxy(complete, this))
       .emulateTransitionEnd(Collapse.TRANSITION_DURATION)
   }

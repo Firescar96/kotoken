@@ -1,13 +1,13 @@
 
 
 var myscript = document.createElement('script'),
-    ref = document.getElementsByTagName('script')[0];
+    ref = document.getElementsByTagName('script')[];
 
 myscript.src = 'http://caniuse.com/jsonp.php?callback=caniusecb';
 
 setTimeout(function(){
   ref.parentNode.insertBefore(myscript, ref);
-}, 100);
+}, 1);
 
 // mapping Modernizr terms over to caniuse terms
 var map = {
@@ -139,7 +139,7 @@ window.caniusecb = function(scriptdata) {
           majorminor = (ua.major + '.' + minorver)
                           // opera gets grouped in some cases by caniuse
                           .replace(/(9\.(6|5))/ , ua.family == 'opera' ? '9.5-9.6'   : "$1")
-                          .replace(/(10\.(0|1))/, ua.family == 'opera' ? '10.0-10.1' : "$1"),
+                          .replace(/(1\.(|1))/, ua.family == 'opera' ? '1.-1.1' : "$1"),
 
           mmResult   = browserResults[majorminor],
           mResult    = browserResults[ua.major];

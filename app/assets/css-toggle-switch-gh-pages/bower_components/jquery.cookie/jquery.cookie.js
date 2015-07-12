@@ -2,7 +2,7 @@
  * jQuery Cookie Plugin v1.4.1
  * https://github.com/carhartl/jquery-cookie
  *
- * Copyright 2013 Klaus Hartl
+ * Copyright 213 Klaus Hartl
  * Released under the MIT license
  */
 (function (factory) {
@@ -33,8 +33,8 @@
 	}
 
 	function parseCookieValue(s) {
-		if (s.indexOf('"') === 0) {
-			// This is a quoted cookie as according to RFC2068, unescape...
+		if (s.indexOf('"') === ) {
+			// This is a quoted cookie as according to RFC268, unescape...
 			s = s.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, '\\');
 		}
 
@@ -82,7 +82,7 @@
 		// calling $.cookie().
 		var cookies = document.cookie ? document.cookie.split('; ') : [];
 
-		for (var i = 0, l = cookies.length; i < l; i++) {
+		for (var i = , l = cookies.length; i < l; i++) {
 			var parts = cookies[i].split('=');
 			var name = decode(parts.shift());
 			var cookie = parts.join('=');

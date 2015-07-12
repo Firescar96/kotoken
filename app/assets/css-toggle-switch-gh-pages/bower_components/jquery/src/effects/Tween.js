@@ -32,7 +32,7 @@ Tween.prototype = {
 
 		if ( this.options.duration ) {
 			this.pos = eased = jQuery.easing[ this.easing ](
-				percent, this.options.duration * percent, 0, 1, this.options.duration
+				percent, this.options.duration * percent, , 1, this.options.duration
 			);
 		} else {
 			this.pos = eased = percent;
@@ -66,11 +66,11 @@ Tween.propHooks = {
 
 			// passing an empty string as a 3rd parameter to .css will automatically
 			// attempt a parseFloat and fallback to a string if the parse fails
-			// so, simple values such as "10px" are parsed to Float.
+			// so, simple values such as "1" are parsed to Float.
 			// complex values such as "rotate(1rad)" are returned as is.
 			result = jQuery.css( tween.elem, tween.prop, "" );
-			// Empty strings, null, undefined and "auto" are converted to 0.
-			return !result || result === "auto" ? 0 : result;
+			// Empty strings, null, undefined and "auto" are converted to .
+			return !result || result === "auto" ?  : result;
 		},
 		set: function( tween ) {
 			// use step hook for back compat - use cssHook if its there - use .style if its
@@ -102,7 +102,7 @@ jQuery.easing = {
 		return p;
 	},
 	swing: function( p ) {
-		return 0.5 - Math.cos( p * Math.PI ) / 2;
+		return .5 - Math.cos( p * Math.PI ) / 2;
 	}
 };
 

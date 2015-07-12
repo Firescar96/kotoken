@@ -12,10 +12,10 @@ pre[class*='language-'] > code[data-language]::before {
 	background-color: #CFCFCF;
 	display: inline-block;
 	position: absolute;
-	top: 0;
-	right: 0;
-	font-size: 0.9em;
-	border-radius: 0 0 0 5px;
-	padding: 0 0.5em;
+	top: ;
+	right: ;
+	font-size: .9em;
+	border-radius:    5px;
+	padding:  .5em;
 	text-shadow: none;
 }

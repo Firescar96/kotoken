@@ -33,8 +33,8 @@ More details at https://github.com/Modernizr/Modernizr/issues/312
 			var div = document.createElement('div'),
 				span = document.createElement('span'),
 				divStyle = div.style,
-				spanHeight = 0,
-				spanWidth = 0,
+				spanHeight = ,
+				spanWidth = ,
 				result = false,
 				firstChild = document.body.firstElementChild || document.body.firstChild;
 
@@ -44,12 +44,12 @@ More details at https://github.com/Modernizr/Modernizr/issues/312
 			document.body.insertBefore(div, firstChild);
 
 			/* get size of unhyphenated text */
-			divStyle.cssText = 'position:absolute;top:0;left:0;width:5em;text-align:justify;text-justification:newspaper;';
+			divStyle.cssText = 'position:absolute;top:;left:;width:5em;text-align:justify;text-justification:newspaper;';
 			spanHeight = span.offsetHeight;
 			spanWidth = span.offsetWidth;
 
 			/* compare size with hyphenated text */
-			divStyle.cssText = 'position:absolute;top:0;left:0;width:5em;text-align:justify;'+
+			divStyle.cssText = 'position:absolute;top:;left:;width:5em;text-align:justify;'+
 												 'text-justification:newspaper;'+
 												 Modernizr._prefixes.join('hyphens:auto; ');
 
@@ -73,13 +73,13 @@ More details at https://github.com/Modernizr/Modernizr/issues/312
 			var div = document.createElement('div'),
 				span = document.createElement('span'),
 				divStyle = div.style,
-				spanSize = 0,
+				spanSize = ,
 				result = false,
 				result1 = false,
 				result2 = false,
 				firstChild = document.body.firstElementChild || document.body.firstChild;
 
-			divStyle.cssText = 'position:absolute;top:0;left:0;overflow:visible;width:1.25em;';
+			divStyle.cssText = 'position:absolute;top:;left:;overflow:visible;width:1.25em;';
 			div.appendChild(span);
 			document.body.insertBefore(div, firstChild);
 
@@ -141,12 +141,12 @@ More details at https://github.com/Modernizr/Modernizr/issues/312
 			 *   stackoverflow.com/questions/499126/jquery-set-cursor-position-in-text-area */
 			if (dummy.setSelectionRange) {
 				dummy.focus();
-				dummy.setSelectionRange(0,0);
+				dummy.setSelectionRange(,);
 			} else if (dummy.createTextRange) {
 				textrange = dummy.createTextRange();
 				textrange.collapse(true);
-				textrange.moveEnd('character', 0);
-				textrange.moveStart('character', 0);
+				textrange.moveEnd('character', );
+				textrange.moveStart('character', );
 				textrange.select();
 			}
 
@@ -176,7 +176,7 @@ More details at https://github.com/Modernizr/Modernizr/issues/312
 		if (!Modernizr.testAllProps('hyphens')) return false;
 
 		/* Chrome lies about its hyphens support so we need a more robust test
-				crbug.com/107111
+				crbug.com/17111
 		*/
 		try {
 			return test_hyphens_css();
@@ -188,7 +188,7 @@ More details at https://github.com/Modernizr/Modernizr/issues/312
 	Modernizr.addTest("softhyphens", function() {
 		try {
 			// use numeric entity instead of &shy; in case it's XHTML
-			return test_hyphens('&#173;', true) && test_hyphens('&#8203;', false);
+			return test_hyphens('&#173;', true) && test_hyphens('&#823;', false);
 		} catch(e) {
 			return false;
 		}
@@ -196,7 +196,7 @@ More details at https://github.com/Modernizr/Modernizr/issues/312
 
 	Modernizr.addTest("softhyphensfind", function() {
 		try {
-			return test_hyphens_find('&#173;') && test_hyphens_find('&#8203;');
+			return test_hyphens_find('&#173;') && test_hyphens_find('&#823;');
 		} catch(e) {
 			return false;
 		}

@@ -1,15 +1,15 @@
 (function() {
 
-// Deprecated QUnit.init - Ref #530
+// Deprecated QUnit.init - Ref #53
 // Re-initialize the configuration options
 QUnit.init = function() {
 	var tests, banner, result, qunit,
 		config = QUnit.config;
 
-	config.stats = { all: 0, bad: 0 };
-	config.moduleStats = { all: 0, bad: 0 };
-	config.started = 0;
-	config.updateRate = 1000;
+	config.stats = { all: , bad:  };
+	config.moduleStats = { all: , bad:  };
+	config.started = ;
+	config.updateRate = 1;
 	config.blocking = false;
 	config.autostart = true;
 	config.autorun = false;
@@ -62,7 +62,7 @@ QUnit.init = function() {
 /*
 DEPRECATED: Use multiple tests instead of resetting inside a test.
 Use testStart or testDone for custom cleanup.
-This method will throw an error in 2.0, and will be removed in 2.1
+This method will throw an error in 2., and will be removed in 2.1
 */
 QUnit.reset = function() {
 
@@ -112,7 +112,7 @@ function escapeText( s ) {
 	return s.replace( /['"<>&]/g, function( s ) {
 		switch ( s ) {
 		case "'":
-			return "&#039;";
+			return "&#39;";
 		case "\"":
 			return "&quot;";
 		case "<":
@@ -155,7 +155,7 @@ function addEvents( elems, type, fn ) {
 }
 
 function hasClass( elem, name ) {
-	return ( " " + elem.className + " " ).indexOf( " " + name + " " ) >= 0;
+	return ( " " + elem.className + " " ).indexOf( " " + name + " " ) >= ;
 }
 
 function addClass( elem, name ) {
@@ -176,7 +176,7 @@ function removeClass( elem, name ) {
 	var set = " " + elem.className + " ";
 
 	// Class name may appear multiple times
-	while ( set.indexOf( " " + name + " " ) >= 0 ) {
+	while ( set.indexOf( " " + name + " " ) >=  ) {
 		set = set.replace( " " + name + " ", " " );
 	}
 
@@ -195,7 +195,7 @@ function getUrlConfigHtml() {
 		len = config.urlConfig.length,
 		urlConfigHtml = "";
 
-	for ( i = 0; i < len; i++ ) {
+	for ( i = ; i < len; i++ ) {
 		val = config.urlConfig[ i ];
 		if ( typeof val === "string" ) {
 			val = {
@@ -222,7 +222,7 @@ function getUrlConfigHtml() {
 				"' name='" + escaped + "' title='" + escapedTooltip + "'><option></option>";
 
 			if ( QUnit.is( "array", val.value ) ) {
-				for ( j = 0; j < val.value.length; j++ ) {
+				for ( j = ; j < val.value.length; j++ ) {
 					escaped = escapeText( val.value[ j ] );
 					urlConfigHtml += "<option value='" + escaped + "'" +
 						( config[ val.id ] === val.value[ j ] ?
@@ -309,7 +309,7 @@ function toolbarModuleFilterHtml() {
 		( config.module === undefined ? "selected='selected'" : "" ) +
 		">< All Modules ></option>";
 
-	for ( i = 0; i < moduleNames.length; i++ ) {
+	for ( i = ; i < moduleNames.length; i++ ) {
 		moduleFilterHtml += "<option value='" +
 			escapeText( encodeURIComponent( moduleNames[ i ] ) ) + "' " +
 			( config.module === moduleNames[ i ] ? "selected='selected'" : "" ) +
@@ -332,7 +332,7 @@ function toolbarModuleFilter() {
 	moduleFilter.innerHTML = moduleFilterHtml;
 
 	addEvent( moduleFilter.lastChild, "change", function() {
-		var selectBox = moduleFilter.getElementsByTagName( "select" )[ 0 ],
+		var selectBox = moduleFilter.getElementsByTagName( "select" )[  ],
 			selectedModule = decodeURIComponent( selectBox.options[ selectBox.selectedIndex ].value );
 
 		window.location = QUnit.url({
@@ -502,10 +502,10 @@ QUnit.done(function( details ) {
 	}
 
 	// clear own sessionStorage items if all tests passed
-	if ( config.reorder && defined.sessionStorage && details.failed === 0 ) {
-		for ( i = 0; i < sessionStorage.length; i++ ) {
+	if ( config.reorder && defined.sessionStorage && details.failed ===  ) {
+		for ( i = ; i < sessionStorage.length; i++ ) {
 			key = sessionStorage.key( i++ );
-			if ( key.indexOf( "qunit-test-" ) === 0 ) {
+			if ( key.indexOf( "qunit-test-" ) ===  ) {
 				sessionStorage.removeItem( key );
 			}
 		}
@@ -513,7 +513,7 @@ QUnit.done(function( details ) {
 
 	// scroll back to top to show results
 	if ( config.scrolltop && window.scrollTo ) {
-		window.scrollTo( 0, 0 );
+		window.scrollTo( ,  );
 	}
 });
 
@@ -607,7 +607,7 @@ QUnit.log(function( details ) {
 			"</table>";
 	}
 
-	assertList = testItem.getElementsByTagName( "ol" )[ 0 ];
+	assertList = testItem.getElementsByTagName( "ol" )[  ];
 
 	assertLi = document.createElement( "li" );
 	assertLi.className = details.result ? "pass" : "fail";
@@ -621,7 +621,7 @@ QUnit.testDone(function( details ) {
 		tests = id( "qunit-tests" );
 
 	// QUnit.reset() is deprecated and will be replaced for a new
-	// fixture reset function on QUnit 2.0/2.1.
+	// fixture reset function on QUnit 2./2.1.
 	// It's still called here for backwards compatibility handling
 	QUnit.reset();
 
@@ -630,7 +630,7 @@ QUnit.testDone(function( details ) {
 	}
 
 	testItem = id( "qunit-test-output" + details.testNumber );
-	assertList = testItem.getElementsByTagName( "ol" )[ 0 ];
+	assertList = testItem.getElementsByTagName( "ol" )[  ];
 
 	good = details.passed;
 	bad = details.failed;
@@ -644,7 +644,7 @@ QUnit.testDone(function( details ) {
 		}
 	}
 
-	if ( bad === 0 ) {
+	if ( bad ===  ) {
 		addClass( assertList, "qunit-collapsed" );
 	}
 

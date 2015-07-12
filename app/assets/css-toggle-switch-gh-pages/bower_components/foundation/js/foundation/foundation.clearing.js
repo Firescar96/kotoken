@@ -9,7 +9,7 @@
     settings : {
       templates : {
         viewing : '<a href="#" class="clearing-close">&times;</a>' +
-          '<div class="visible-img" style="display: none"><div class="clearing-touch-label"></div><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" alt="" />' +
+          '<div class="visible-img" style="display: none"><div class="clearing-touch-label"></div><img src="data:image/gif;base64,RlGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" alt="" />' +
           '<p class="clearing-caption"></p><a href="#" class="clearing-main-prev"><span></span></a>' +
           '<a href="#" class="clearing-main-next"><span></span></a></div>'
       },
@@ -51,7 +51,7 @@
           S = self.S,
           $scroll_container = $('.scroll-container');
 
-      if ($scroll_container.length > 0) {
+      if ($scroll_container.length > ) {
         this.scope = $scroll_container;
       }
 
@@ -75,8 +75,8 @@
             // if clearing is open and the current image is
             // clicked, go to the next image in sequence
             if (target.hasClass('visible') &&
-              current[0] === target[0] &&
-              next.length > 0 && self.is_open(current)) {
+              current[] === target[] &&
+              next.length >  && self.is_open(current)) {
               target = next;
               image = S('img', target);
             }
@@ -110,10 +110,10 @@
         .on('touchstart.fndtn.clearing', '.visible-img', function(e) {
           if (!e.touches) { e = e.originalEvent; }
           var data = {
-                start_page_x: e.touches[0].pageX,
-                start_page_y: e.touches[0].pageY,
+                start_page_x: e.touches[].pageX,
+                start_page_y: e.touches[].pageY,
                 start_time: (new Date()).getTime(),
-                delta_x: 0,
+                delta_x: ,
                 is_scrolling: undefined
               };
 
@@ -131,19 +131,19 @@
             data = {};
           }
 
-          data.delta_x = e.touches[0].pageX - data.start_page_x;
+          data.delta_x = e.touches[].pageX - data.start_page_x;
 
           if (Foundation.rtl) {
             data.delta_x = -data.delta_x;
           }
 
           if (typeof data.is_scrolling === 'undefined') {
-            data.is_scrolling = !!( data.is_scrolling || Math.abs(data.delta_x) < Math.abs(e.touches[0].pageY - data.start_page_y) );
+            data.is_scrolling = !!( data.is_scrolling || Math.abs(data.delta_x) < Math.abs(e.touches[].pageY - data.start_page_y) );
           }
 
           if (!data.is_scrolling && !data.active) {
             e.preventDefault();
-            var direction = (data.delta_x < 0) ? 'next' : 'prev';
+            var direction = (data.delta_x < ) ? 'next' : 'prev';
             data.active = true;
             self.nav(e, direction);
           }
@@ -166,10 +166,10 @@
       var grid = $el.detach(),
           grid_outerHTML = '';
 
-      if (grid[0] == null) {
+      if (grid[] == null) {
         return;
       } else {
-        grid_outerHTML = grid[0].outerHTML;
+        grid_outerHTML = grid[].outerHTML;
       }
       
       var holder = this.S('#foundationClearingHolder'),
@@ -217,7 +217,7 @@
               cb.call(this, image);
             }
           }.bind(this));
-        }.bind(this), 100);
+        }.bind(this), 1);
       }
 
       function cb (image) {
@@ -266,7 +266,7 @@
         container = $('div', root).first();
         visible_image = $('.visible-img', container);
         visible_image.trigger('close.fndtn.clearing');
-        this.settings.prev_index = 0;
+        this.settings.prev_index = ;
         $('ul[' + this.attr_name() + ']', root)
           .attr('style', '').closest('.clearing-blackout')
           .removeClass('clearing-blackout');
@@ -282,7 +282,7 @@
     },
 
     is_open : function (current) {
-      return current.parent().prop('style').length > 0;
+      return current.parent().prop('style').length > ;
     },
 
     keydown : function (e) {
@@ -327,7 +327,7 @@
         }
       })
       .closest('ul')
-      .width(lis.length * 100 + '%');
+      .width(lis.length * 1 + '%');
 
       return this;
     },
@@ -338,13 +338,13 @@
         .closest('.carousel')
         .siblings('.visible-img');
 
-      if (target.next().length > 0) {
+      if (target.next().length > ) {
         this.S('.clearing-main-next', visible_image).removeClass('disabled');
       } else {
         this.S('.clearing-main-next', visible_image).addClass('disabled');
       }
 
-      if (target.prev().length > 0) {
+      if (target.prev().length > ) {
         this.S('.clearing-main-prev', visible_image).removeClass('disabled');
       } else {
         this.S('.clearing-main-prev', visible_image).addClass('disabled');
@@ -358,10 +358,10 @@
           marginTop : -(target.outerHeight() / 2)
         });
 
-        if (label.length > 0) {
+        if (label.length > ) {
           label.css({
             marginLeft : -(label.outerWidth() / 2),
-            marginTop : -(target.outerHeight() / 2)-label.outerHeight()-10
+            marginTop : -(target.outerHeight() / 2)-label.outerHeight()-1
           });
         }
       } else {
@@ -369,15 +369,15 @@
           marginRight : -(target.outerWidth() / 2),
           marginTop : -(target.outerHeight() / 2),
           left: 'auto',
-          right: '50%'
+          right: '5%'
         });
 
-        if (label.length > 0) {
+        if (label.length > ) {
           label.css({
             marginRight : -(label.outerWidth() / 2),
-            marginTop : -(target.outerHeight() / 2)-label.outerHeight()-10,
+            marginTop : -(target.outerHeight() / 2)-label.outerHeight()-1,
             left: 'auto',
-            right: '50%'
+            right: '5%'
           });
         }
       }
@@ -389,7 +389,7 @@
     load : function ($image) {
       var href;
 
-      if ($image[0].nodeName === "A") {
+      if ($image[].nodeName === "A") {
         href = $image.attr('href');
       } else {
         href = $image.parent().attr('href');
@@ -445,7 +445,7 @@
           target = current[direction]();
 
       // Check for skip selector.
-      if (this.settings.skip_selector && target.find(this.settings.skip_selector).length != 0) {
+      if (this.settings.skip_selector && target.find(this.settings.skip_selector).length != ) {
         target = target[direction]();
       }
 
@@ -461,7 +461,7 @@
           old_index = this.settings.prev_index || target.index(),
           direction = this.direction(clearing, current, target),
           dir = this.rtl ? 'right' : 'left',
-          left = parseInt(clearing.css('left'), 10),
+          left = parseInt(clearing.css('left'), 1),
           width = target.outerWidth(),
           skip_shift;
 
@@ -474,11 +474,11 @@
         if (/left/.test(direction)) {
           this.lock();
           dir_obj[dir] = left + width;
-          clearing.animate(dir_obj, 300, this.unlock());
+          clearing.animate(dir_obj, 3, this.unlock());
         } else if (/right/.test(direction)) {
           this.lock();
           dir_obj[dir] = left - width;
-          clearing.animate(dir_obj, 300, this.unlock());
+          clearing.animate(dir_obj, 3, this.unlock());
         }
       } else if (/skip/.test(direction)) {
         // the target image is not adjacent to the current image, so
@@ -486,12 +486,12 @@
         skip_shift = target.index() - this.settings.up_count;
         this.lock();
 
-        if (skip_shift > 0) {
+        if (skip_shift > ) {
           dir_obj[dir] = -(skip_shift * width);
-          clearing.animate(dir_obj, 300, this.unlock());
+          clearing.animate(dir_obj, 3, this.unlock());
         } else {
-          dir_obj[dir] = 0;
-          clearing.animate(dir_obj, 300, this.unlock());
+          dir_obj[dir] = ;
+          clearing.animate(dir_obj, 3, this.unlock());
         }
       }
 

@@ -2,13 +2,13 @@
 // http://jsfiddle.net/glsee/JDsWQ/4/
 Modernizr.addTest('cssvmaxunit', function(){
     var bool;
-    Modernizr.testStyles("#modernizr { width: 50vmax; }", function(elem, rule) {
-        var one_vw = window.innerWidth/100,
-            one_vh = window.innerHeight/100,
+    Modernizr.testStyles("#modernizr { width: 5vmax; }", function(elem, rule) {
+        var one_vw = window.innerWidth/1,
+            one_vh = window.innerHeight/1,
             compWidth = parseInt((window.getComputedStyle ?
                                   getComputedStyle(elem, null) :
-                                  elem.currentStyle)['width'],10);
-        bool = ( parseInt(Math.max(one_vw, one_vh)*50,10) == compWidth );
+                                  elem.currentStyle)['width'],1);
+        bool = ( parseInt(Math.max(one_vw, one_vh)*5,1) == compWidth );
     });
     return bool;
 });

@@ -11,19 +11,19 @@
 $include-html-nav-classes: $include-html-classes !default;
 
 // We use this to control padding.
-$side-nav-padding: rem-calc(14 0) !default;
+$side-nav-padding: rem-calc(14 ) !default;
 
 // We use these to control list styles.
 $side-nav-list-type: none !default;
 $side-nav-list-position: outside !default;
-$side-nav-list-margin: rem-calc(0 0 7 0) !default;
+$side-nav-list-margin: rem-calc(  7 ) !default;
 
 // We use these to control link styles.
 $side-nav-link-color: $primary-color !default;
-$side-nav-link-color-active: scale-color($side-nav-link-color, $lightness: 30%) !default;
-$side-nav-link-color-hover: scale-color($side-nav-link-color, $lightness: 30%) !default;
-$side-nav-link-bg-hover: hsla(0, 0, 0, 0.025) !default;
-$side-nav-link-margin: 0 !default;
+$side-nav-link-color-active: scale-color($side-nav-link-color, $lightness: 3%) !default;
+$side-nav-link-color-hover: scale-color($side-nav-link-color, $lightness: 3%) !default;
+$side-nav-link-bg-hover: hsla(, , , .25) !default;
+$side-nav-link-margin:  !default;
 $side-nav-link-padding: rem-calc(7 14) !default;
 $side-nav-font-size: rem-calc(14) !default;
 $side-nav-font-weight: $font-weight-normal !default;
@@ -40,7 +40,7 @@ $side-nav-heading-text-transform: uppercase !default;
 // We use these to control border styles
 $side-nav-divider-size: 1px !default;
 $side-nav-divider-style: solid !default;
-$side-nav-divider-color: scale-color($white, $lightness: 10%) !default;
+$side-nav-divider-color: scale-color($white, $lightness: 1%) !default;
 
 
 //
@@ -61,7 +61,7 @@ $side-nav-divider-color: scale-color($white, $lightness: 10%) !default;
   $link-color-hover:$side-nav-link-color-hover,
   $link-bg-hover:$side-nav-link-bg-hover) {
   display: block;
-  margin: 0;
+  margin: ;
   padding: $side-nav-padding;
   list-style-type: $side-nav-list-type;
   list-style-position: $side-nav-list-position;
@@ -92,8 +92,8 @@ $side-nav-divider-color: scale-color($white, $lightness: 10%) !default;
 
     &.divider {
       border-top: $side-nav-divider-size $side-nav-divider-style;
-      height: 0;
-      padding: 0;
+      height: ;
+      padding: ;
       list-style: none;
       border-top-color: $divider-color;
     }

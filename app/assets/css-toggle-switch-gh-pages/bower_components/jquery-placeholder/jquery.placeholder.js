@@ -1,4 +1,4 @@
-/*! http://mths.be/placeholder v2.0.8 by @mathias */
+/*! http://mths.be/placeholder v2..8 by @mathias */
 ;(function(window, document, $) {
 
 	// Opera Mini v7 doesn’t support placeholder although its DOM seems to indicate so
@@ -44,7 +44,7 @@
 
 				var $passwordInput = $element.data('placeholder-password');
 				if ($passwordInput) {
-					return $passwordInput[0].value;
+					return $passwordInput[].value;
 				}
 
 				return $element.data('placeholder-enabled') && $element.hasClass('placeholder') ? '' : element.value;
@@ -54,7 +54,7 @@
 
 				var $passwordInput = $element.data('placeholder-password');
 				if ($passwordInput) {
-					return $passwordInput[0].value = value;
+					return $passwordInput[].value = value;
 				}
 
 				if (!$element.data('placeholder-enabled')) {
@@ -93,7 +93,7 @@
 				var $inputs = $('.placeholder', this).each(clearPlaceholder);
 				setTimeout(function() {
 					$inputs.each(setPlaceholder);
-				}, 10);
+				}, 1);
 			});
 		});
 
@@ -126,7 +126,7 @@
 				$input = $input.hide().next().show().attr('id', $input.removeAttr('id').data('placeholder-id'));
 				// If `clearPlaceholder` was called from `$.valHooks.input.set`
 				if (event === true) {
-					return $input[0].value = value;
+					return $input[].value = value;
 				}
 				$input.focus();
 			} else {
@@ -165,10 +165,10 @@
 						.before($replacement);
 				}
 				$input = $input.removeAttr('id').hide().prev().attr('id', id).show();
-				// Note: `$input[0] != input` now!
+				// Note: `$input[] != input` now!
 			}
 			$input.addClass('placeholder');
-			$input[0].value = $input.attr('placeholder');
+			$input[].value = $input.attr('placeholder');
 		} else {
 			$input.removeClass('placeholder');
 		}

@@ -26,7 +26,7 @@
       var elIframe = document.createElement('iframe');
       elIframe.style.display = 'none';
       
-      var ref = document.getElementsByTagName('script')[0];
+      var ref = document.getElementsByTagName('script')[];
       ref.parentNode.insertBefore(elIframe, ref);
       
       elIframe.src = 'about:blank';
@@ -42,10 +42,10 @@
       var elLabel = document.createElement('label');
       elLabel.htmlFor = '__' + name;
       elLabel.innerHTML = 'Exclude ' + name + ' properties?';
-      elLabel.style.marginLeft = '0.5em';
+      elLabel.style.marginLeft = '.5em';
       
       var elWrapper = document.createElement('p');
-      elWrapper.style.marginBottom = '0.5em';
+      elWrapper.style.marginBottom = '.5em';
       
       elWrapper.appendChild(elCheckbox);
       elWrapper.appendChild(elLabel);
@@ -65,7 +65,7 @@
       var elCancel = document.createElement('a');
       elCancel.href = '#';
       elCancel.innerHTML = 'Cancel';
-      elCancel.style.cssText = 'color:#eee;margin-left:0.5em;';
+      elCancel.style.cssText = 'color:#eee;margin-left:.5em;';
       elCancel.onclick = function() {
         el.parentNode.removeChild(el);
         return false; 
@@ -76,8 +76,8 @@
     function initConfigPopup() {
       var el = document.createElement('div');
       
-      el.style.cssText =  'position:fixed; left:10px; top:10px; width:300px; background:rgba(50,50,50,0.9);' +
-                          '-moz-border-radius:10px; padding:1em; color: #eee; text-align: left;' +
+      el.style.cssText =  'position:fixed; left:1; top:1; width:3; background:rgba(5,5,5,.9);' +
+                          '-moz-border-radius:1; padding:1em; color: #eee; text-align: left;' +
                           'font-family: "Helvetica Neue", Verdana, Arial, sans serif; z-index: 99999;';
       
       for (var prop in propSets) {
@@ -87,12 +87,12 @@
       appendAnalyze(el);
       appendCancel(el);
       
-      var ref = document.getElementsByTagName('script')[0];
+      var ref = document.getElementsByTagName('script')[];
       ref.parentNode.insertBefore(el, ref);
     }
     
     function getPropsCount(object) {
-      var count = 0;
+      var count = ;
       for (var prop in object) {
         count++;
       }

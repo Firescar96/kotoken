@@ -11,7 +11,7 @@
 $include-html-button-classes: $include-html-classes !default;
 
 // Sets the margin for the right side by default, and the left margin if right-to-left direction is used
-$button-bar-margin-opposite: rem-calc(10) !default;
+$button-bar-margin-opposite: rem-calc(1) !default;
 $button-group-border-width: 1px !default;
 
 //
@@ -22,8 +22,8 @@ $button-group-border-width: 1px !default;
 @mixin button-group-container($styles:true, $float:false) {
   @if $styles {
     list-style: none;
-    margin: 0;
-    #{$default-float}: 0;
+    margin: ;
+    #{$default-float}: ;
     @include clearfix();
   }
   @if $float {
@@ -38,42 +38,42 @@ $button-group-border-width: 1px !default;
 
   > button, .button {
     border-#{$default-float}: $button-group-border-width solid;
-    border-color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, .5);
   }
 
   &:first-child {
     button, .button {
-      border-#{$default-float}: 0;
+      border-#{$default-float}: ;
     }
   }
 
   // We use this to control the flow, or remove those styles completely.
   @if $float {
-    margin: 0;
+    margin: ;
     float: $float;
     display: list-item;
     // Make sure the first child doesn't get the negative margin.
-    &:first-child { margin-#{$default-float}: 0; }
+    &:first-child { margin-#{$default-float}: ; }
   }
   @else {
-    margin: 0 -2px;
+    margin:  -2px;
     display: inline-block;
   }
 
   @if $orientation == vertical {
     display:block;
-    margin:0;
+    margin:;
     > button, .button {
       border-top: $button-group-border-width solid;
-      border-color: rgba(255, 255, 255, 0.5);
-      border-left-width: 0px;
-      margin:0;
+      border-color: rgba(255, 255, 255, .5);
+      border-left-width: ;
+      margin:;
       display: block;
     }
 
     &:first-child {
       button, .button {
-        border-top: 0;
+        border-top: ;
       }
     }
   }
@@ -83,7 +83,7 @@ $button-group-border-width: 1px !default;
     &,
     & > a,
     & > button,
-    & > .button { @include radius(0); }
+    & > .button { @include radius(); }
     &:first-child,
     &:first-child > a,
     &:first-child > button,
@@ -111,7 +111,7 @@ $button-group-border-width: 1px !default;
     &,
     & > a,
     & > button,
-    & > .button { @include radius(0); }
+    & > .button { @include radius(); }
     &:first-child,
     &:first-child > a,
     &:first-child > button,
@@ -138,8 +138,8 @@ $button-group-border-width: 1px !default;
 
   // We use this to make the buttons even width across their container
   @if $even {
-    width: percentage((100/$even) / 100);
-    button, .button { width: 100%; }
+    width: percentage((1/$even) / 1);
+    button, .button { width: 1%; }
   }
 }
 

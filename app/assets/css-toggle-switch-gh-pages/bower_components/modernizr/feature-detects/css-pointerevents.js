@@ -4,7 +4,7 @@
 // Test and project pages:
 // ausi.github.com/Feature-detection-technique-for-pointer-events/
 // github.com/ausi/Feature-detection-technique-for-pointer-events/wiki
-// github.com/Modernizr/Modernizr/issues/80
+// github.com/Modernizr/Modernizr/issues/8
 
 
 Modernizr.addTest('pointerevents', function(){

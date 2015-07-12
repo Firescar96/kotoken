@@ -16,13 +16,13 @@ table, tr, th, td {
 
 table {
 	margin-top: 1em;
-	width: 100%;
+	width: 1%;
 }
 
 tbody th {
 	text-align: left;
 	font-size: 14px;
-	width: 200px;
+	width: 2;
 }
 
 th h3 {
@@ -31,7 +31,7 @@ th h3 {
 }
 
 th span.links {
-	font-size: 10px;
+	font-size: 1;
 }
 
 dt {
@@ -47,7 +47,7 @@ div.test_wrap {
 	border: 1px solid #CCC;
 	text-align: center;
 	vertical-align: top;
-	min-height: 50px;
+	min-height: 5;
 	margin-right: 5px;
 	background: white;
 	position: relative;
@@ -56,35 +56,35 @@ div.test_wrap {
 div.test_wrap h3 {
 	text-align: center;
 	margin: 2px;
-	font-size: 10px;
+	font-size: 1;
 }
 
 div.auto {
 	display: -moz-inline-stack;
 	display: inline-block;
 	border: 1px solid;
-	width: 30px;
-	height: 30px;
+	width: 3;
+	height: 3;
 }
 
 div.square {
 	display: -moz-inline-stack;
 	display: inline-block;
 	border: 1px solid;
-	width: 30px;
-	height: 30px;
+	width: 3;
+	height: 3;
 	background: red;
 }
 
 div.info {
 	display: none;
 	position: absolute;
-	top: 100%;
+	top: 1%;
 	z-index: 2;
-	left: 0;
+	left: ;
 	background: white;
 	padding: 2px;
-	min-width: 300px;
+	min-width: 3;
 	border: 1px solid;
 	text-align: left;
 }
@@ -133,19 +133,19 @@ p.condition {
 .current span {
     border-radius: 6px;
     -moz-border-radius: 6px;
-    background: none repeat scroll 0 0 #E6EA69;
+    background: none repeat scroll   #E6EA69;
     color: black;
     float: right;
     font-size: 8px;
-    padding: 0 1px;
+    padding:  1px;
 }
 
 #intro, #options {
-	width: 400px;
+	width: 4;
 	background: #EEE;
-	border-radius: 10px;
-	padding: 5px 10px;
-	margin: 10px;
+	border-radius: 1;
+	padding: 5px 1;
+	margin: 1;
 	float: left;
 }
 
@@ -159,7 +159,7 @@ p.condition {
 
 #opt_submit {
 	display: block;
-	margin: 10px;
+	margin: 1;
 }
 
 #options label {

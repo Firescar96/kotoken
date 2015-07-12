@@ -1,8 +1,8 @@
 /* ========================================================================
- * Bootstrap: modal.js v3.3.0
+ * Bootstrap: modal.js v3.3.
  * http://getbootstrap.com/javascript/#modals
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -19,7 +19,7 @@
     this.$element       = $(element)
     this.$backdrop      =
     this.isShown        = null
-    this.scrollbarWidth = 0
+    this.scrollbarWidth = 
 
     if (this.options.remote) {
       this.$element
@@ -30,10 +30,10 @@
     }
   }
 
-  Modal.VERSION  = '3.3.0'
+  Modal.VERSION  = '3.3.'
 
-  Modal.TRANSITION_DURATION = 300
-  Modal.BACKDROP_TRANSITION_DURATION = 150
+  Modal.TRANSITION_DURATION = 3
+  Modal.BACKDROP_TRANSITION_DURATION = 15
 
   Modal.DEFAULTS = {
     backdrop: true,
@@ -72,10 +72,10 @@
 
       that.$element
         .show()
-        .scrollTop(0)
+        .scrollTop()
 
       if (transition) {
-        that.$element[0].offsetWidth // force reflow
+        that.$element[].offsetWidth // force reflow
       }
 
       that.$element
@@ -127,7 +127,7 @@
     $(document)
       .off('focusin.bs.modal') // guard against infinite focus loop
       .on('focusin.bs.modal', $.proxy(function (e) {
-        if (this.$element[0] !== e.target && !this.$element.has(e.target).length) {
+        if (this.$element[] !== e.target && !this.$element.has(e.target).length) {
           this.$element.trigger('focus')
         }
       }, this))
@@ -170,11 +170,11 @@
         .on('click.dismiss.bs.modal', $.proxy(function (e) {
           if (e.target !== e.currentTarget) return
           this.options.backdrop == 'static'
-            ? this.$element[0].focus.call(this.$element[0])
+            ? this.$element[].focus.call(this.$element[])
             : this.hide.call(this)
         }, this))
 
-      if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
+      if (doAnimate) this.$backdrop[].offsetWidth // force reflow
 
       this.$backdrop.addClass('in')
 
@@ -209,7 +209,7 @@
   }
 
   Modal.prototype.setScrollbar = function () {
-    var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
+    var bodyPad = parseInt((this.$body.css('padding-right') || ), 1)
     if (this.scrollbarWidth) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
   }
 
@@ -218,12 +218,12 @@
   }
 
   Modal.prototype.measureScrollbar = function () { // thx walsh
-    if (document.body.clientWidth >= window.innerWidth) return 0
+    if (document.body.clientWidth >= window.innerWidth) return 
     var scrollDiv = document.createElement('div')
     scrollDiv.className = 'modal-scrollbar-measure'
     this.$body.append(scrollDiv)
     var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
-    this.$body[0].removeChild(scrollDiv)
+    this.$body[].removeChild(scrollDiv)
     return scrollbarWidth
   }
 

@@ -3,15 +3,15 @@ Modernizr.addTest('cssscrollbar', function() {
 
 	var bool,
 
-		styles = "#modernizr{overflow: scroll; width: 40px }#" +
+		styles = "#modernizr{overflow: scroll; width: 4 }#" +
 			Modernizr._prefixes
-				.join("scrollbar{width:0px}"+' #modernizr::')
+				.join("scrollbar{width:}"+' #modernizr::')
 				.split('#')
 				.slice(1)
-				.join('#') + "scrollbar{width:0px}";
+				.join('#') + "scrollbar{width:}";
 
 	Modernizr.testStyles(styles, function(node) {
-		bool = 'scrollWidth' in node && node.scrollWidth == 40;
+		bool = 'scrollWidth' in node && node.scrollWidth == 4;
 	});
 
 	return bool;

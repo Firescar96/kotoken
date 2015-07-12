@@ -3,7 +3,7 @@
   @include prefixer(transform, $property, webkit moz ms o spec);
 }
 
-@mixin transform-origin($axes: 50%) {
+@mixin transform-origin($axes: 5%) {
 // x-axis - left | center | right  | length | %
 // y-axis - top  | center | bottom | length | %
 // z-axis -                          length

@@ -11,7 +11,7 @@
 * @param timeOutMillis the max amount of time to wait. If not specified, 3 sec is used.
 */
 function waitFor(testFx, onReady, timeOutMillis) {
-    var maxtimeOutMillis = timeOutMillis ? timeOutMillis : 3001, //< Default Max Timout is 3s
+    var maxtimeOutMillis = timeOutMillis ? timeOutMillis : 31, //< Default Max Timout is 3s
         start = new Date().getTime(),
         condition = false,
         interval = setInterval(function() {
@@ -29,11 +29,11 @@ function waitFor(testFx, onReady, timeOutMillis) {
                     clearInterval(interval); //< Stop this interval
                 }
             }
-        }, 100); //< repeat check every 250ms
+        }, 1); //< repeat check every 25ms
 };
 
 
-if (phantom.args.length === 0 || phantom.args.length > 2) {
+if (phantom.args.length ===  || phantom.args.length > 2) {
     console.log('Usage: run-qunit.js URL');
     phantom.exit();
 }
@@ -45,7 +45,7 @@ page.onConsoleMessage = function(msg) {
     console.log(msg);
 };
 
-page.open(phantom.args[0], function(status){
+page.open(phantom.args[], function(status){
     if (status !== "success") {
         console.log("Unable to access network");
         phantom.exit();
@@ -62,11 +62,11 @@ page.open(phantom.args[0], function(status){
             var failedNum = page.evaluate(function(){
                 var el = document.getElementById('qunit-testresult');
                 try {
-                    return el.getElementsByClassName('failed')[0].innerHTML;
+                    return el.getElementsByClassName('failed')[].innerHTML;
                 } catch (e) { }
-                return 10000;
+                return 1;
             });
-            phantom.exit((parseInt(failedNum, 10) > 0) ? 1 : 0);
+            phantom.exit((parseInt(failedNum, 1) > ) ? 1 : );
         });
     }
 });

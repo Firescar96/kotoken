@@ -7,6 +7,6 @@
 //   http://www.html5rocks.com/en/tutorials/doodles/gamepad/#toc-featuredetect
 
 // but a patch will bring them up to date with the spec when it lands (and they'll pass this test)
-//   https://bugzilla.mozilla.org/show_bug.cgi?id=690935
+//   https://bugzilla.mozilla.org/show_bug.cgi?id=69935
 
 Modernizr.addTest('gamepads', !!Modernizr.prefixed('getGamepads', navigator));

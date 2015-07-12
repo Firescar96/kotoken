@@ -30,7 +30,7 @@
             settings.callback();
           });
         } else {
-          alertBox.fadeOut(300, function () {
+          alertBox.fadeOut(3, function () {
             S(this).trigger('close').trigger('close.fndtn.alert').remove();
             settings.callback();
           });

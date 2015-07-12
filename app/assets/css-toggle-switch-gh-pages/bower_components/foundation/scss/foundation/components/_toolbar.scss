@@ -5,16 +5,16 @@
 
 .toolbar {
 	background: $oil;
-	width: 100%;
-	font-size: 0;
+	width: 1%;
+	font-size: ;
 	display: inline-block;
 
 	&.label-bottom .tab .tab-content {
-		i, img { margin-bottom: 10px; }
+		i, img { margin-bottom: 1; }
 	}
 
 	&.label-right .tab .tab-content {
-		i, img { margin-right: 10px; display: inline-block;}
+		i, img { margin-right: 1; display: inline-block;}
 		label { display: inline-block; }
 	}
 
@@ -23,7 +23,7 @@
 	}
 
 	&.vertical {
-		height: 100%;
+		height: 1%;
 		width: auto;
 
 		.tab {
@@ -36,13 +36,13 @@
 	.tab {
 		text-align: center;
 		width: 25%;
-		margin: 0 auto;
+		margin:  auto;
 		display: block;
-		padding: 20px;
+		padding: 2;
 		float: left;
 
 		&:hover {
-			background: rgba($white, 0.1);
+			background: rgba($white, .1);
 		}
 	}
 }		
@@ -54,17 +54,17 @@
 	label { color: $iron; }
 
 	i {
-		font-size: 30px;
+		font-size: 3;
 		display: block;
-		margin: 0 auto;
+		margin:  auto;
 		color: $iron;
 		vertical-align: middle;
 	}
 
 	img {
-		width: 30px;
-		height: 30px;
+		width: 3;
+		height: 3;
 		display: block;
-		margin: 0 auto;
+		margin:  auto;
 	}
 }

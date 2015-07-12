@@ -48,7 +48,7 @@ Prism.hooks.add('wrap', function(env) {
 		
 		var href = env.content;
 		
-		if (env.type == 'email-link' && href.indexOf('mailto:') != 0) {
+		if (env.type == 'email-link' && href.indexOf('mailto:') != ) {
 			href = 'mailto:' + href;
 		}
 		else if (env.type == 'md-link') {

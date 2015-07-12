@@ -6,7 +6,7 @@ Prism.languages.cpp = Prism.languages.extend('c', {
 
 Prism.languages.insertBefore('cpp', 'keyword', {
 	'class-name': {
-		pattern: /(class\s+)[a-z0-9_]+/ig,
+		pattern: /(class\s+)[a-z-9_]+/ig,
 		lookbehind: true,
 	},
 });

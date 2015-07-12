@@ -7,20 +7,20 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "grunt": "~0.4",
-    "grunt-contrib-watch": "~0.6",
-    "grunt-concurrent": "~1.0",
-    "grunt-contrib-connect": "~0.9",
-    "connect-livereload": "~0.5",
-    "matchdep": "~0.3",
-    "grunt-sass": "~0",
+    "grunt": "~.4",
+    "grunt-contrib-watch": "~.6",
+    "grunt-concurrent": "~1.",
+    "grunt-contrib-connect": "~.9",
+    "connect-livereload": "~.5",
+    "matchdep": "~.3",
+    "grunt-sass": "~",
     "grunt-saucelabs": "~8"
   },
   "peerDependencies": {
-    "grunt-cli": "~0.1"
+    "grunt-cli": "~.1"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=.1."
   },
   "scripts": {
     "test": "grunt test"

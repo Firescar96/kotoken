@@ -9,7 +9,7 @@ pre[class*="language-"] {
 	direction: ltr;
 	font-family: Consolas, Monaco, 'Andale Mono', monospace;
 	text-align: left;
-	text-shadow: 0 -.1em .2em black;
+	text-shadow:  -.1em .2em black;
 	white-space: pre;
 	word-spacing: normal;
 	word-break: normal;
@@ -27,55 +27,55 @@ pre[class*="language-"] {
 
 pre[class*="language-"],
 :not(pre) > code[class*="language-"] {
-	background: hsl(0, 0%, 8%); /* #141414 */
+	background: hsl(, %, 8%); /* #141414 */
 }
 
 /* Code blocks */
 pre[class*="language-"] {
 	border-radius: .5em;
-	border: .3em solid hsl(0, 0%, 33%); /* #282A2B */
+	border: .3em solid hsl(, %, 33%); /* #282A2B */
 	box-shadow: 1px 1px .5em black inset;
-	margin: .5em 0;
+	margin: .5em ;
 	overflow: auto;
 	padding: 1em;
 }
 
 pre[class*="language-"]::selection {
 	/* Safari */
-	background: hsl(200, 4%, 16%); /* #282A2B */
+	background: hsl(2, 4%, 16%); /* #282A2B */
 }
 
 pre[class*="language-"]::selection {
 	/* Firefox */
-	background: hsl(200, 4%, 16%); /* #282A2B */
+	background: hsl(2, 4%, 16%); /* #282A2B */
 }
 
 /* Text Selection colour */
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
 	text-shadow: none;
-	background: hsla(0, 0%, 93%, 0.15); /* #EDEDED */
+	background: hsla(, %, 93%, .15); /* #EDEDED */
 }
 
 pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
 code[class*="language-"]::selection, code[class*="language-"] ::selection {
 	text-shadow: none;
-	background: hsla(0, 0%, 93%, 0.15); /* #EDEDED */
+	background: hsla(, %, 93%, .15); /* #EDEDED */
 }
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
 	border-radius: .3em;
-	border: .13em solid hsl(0, 0%, 33%); /* #545454 */
+	border: .13em solid hsl(, %, 33%); /* #545454 */
 	box-shadow: 1px 1px .3em -.1em black inset;
-	padding: .15em .2em .05em;
+	padding: .15em .2em .5em;
 }
 
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: hsl(0, 0%, 47%); /* #777777 */
+	color: hsl(, %, 47%); /* #777777 */
 }
 
 .token.punctuation {
@@ -122,7 +122,7 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 
 .token.regex,
 .token.important {
-	color: hsl(42, 75%, 65%); /* #E9C062 */
+	color: hsl(42, 75%, 65%); /* #E9C62 */
 }
 
 .token.important {
@@ -134,7 +134,7 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 }
 
 pre[data-line] {
-	padding: 1em 0 1em 3em;
+	padding: 1em  1em 3em;
 	position: relative;
 }
 
@@ -152,35 +152,35 @@ pre[data-line] {
 }
 
 .line-highlight {
-	background: -moz-linear-gradient(left, hsla(0, 0%, 33%, .1) 70%, hsla(0, 0%, 33%, 0)); /* #545454 */
-	background: -o-linear-gradient(left, hsla(0, 0%, 33%, .1) 70%, hsla(0, 0%, 33%, 0)); /* #545454 */
-	background: -webkit-linear-gradient(left, hsla(0, 0%, 33%, .1) 70%, hsla(0, 0%, 33%, 0)); /* #545454 */
-	background: hsla(0, 0%, 33%, 0.25); /* #545454 */
-	background: linear-gradient(left, hsla(0, 0%, 33%, .1) 70%, hsla(0, 0%, 33%, 0)); /* #545454 */
-	border-bottom: 1px dashed hsl(0, 0%, 33%); /* #545454 */
-	border-top: 1px dashed hsl(0, 0%, 33%); /* #545454 */
-	left: 0;
+	background: -moz-linear-gradient(left, hsla(, %, 33%, .1) 7%, hsla(, %, 33%, )); /* #545454 */
+	background: -o-linear-gradient(left, hsla(, %, 33%, .1) 7%, hsla(, %, 33%, )); /* #545454 */
+	background: -webkit-linear-gradient(left, hsla(, %, 33%, .1) 7%, hsla(, %, 33%, )); /* #545454 */
+	background: hsla(, %, 33%, .25); /* #545454 */
+	background: linear-gradient(left, hsla(, %, 33%, .1) 7%, hsla(, %, 33%, )); /* #545454 */
+	border-bottom: 1px dashed hsl(, %, 33%); /* #545454 */
+	border-top: 1px dashed hsl(, %, 33%); /* #545454 */
+	left: ;
 	line-height: inherit;
-	margin-top: 0.75em; /* Same as .prism’s padding-top */
-	padding: inherit 0;
+	margin-top: .75em; /* Same as .prism’s padding-top */
+	padding: inherit ;
 	pointer-events: none;
 	position: absolute;
-	right: 0;
+	right: ;
 	white-space: pre;
-	z-index: 0;
+	z-index: ;
 }
 
 .line-highlight:before,
 .line-highlight[data-end]:after {
 	background-color: hsl(215, 15%, 59%); /* #8794A6 */
 	border-radius: 999px;
-	box-shadow: 0 1px white;
-	color: hsl(24, 20%, 95%); /* #F5F2F0 */
+	box-shadow:  1px white;
+	color: hsl(24, 2%, 95%); /* #F5F2F */
 	content: attr(data-start);
 	font: bold 65%/1.5 sans-serif;
 	left: .6em;
 	min-width: 1em;
-	padding: 0 .5em;
+	padding:  .5em;
 	position: absolute;
 	text-align: center;
 	text-shadow: none;

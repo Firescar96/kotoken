@@ -14,17 +14,17 @@
       keyboard                 : true,      // enable left, right and esc keystrokes
       tip_location             : 'bottom',  // 'top' or 'bottom' in relation to parent
       nub_position             : 'auto',    // override on a per tooltip bases
-      scroll_speed             : 1500,      // Page scrolling speed in milliseconds, 0 = no scroll animation
+      scroll_speed             : 15,      // Page scrolling speed in milliseconds,  = no scroll animation
       scroll_animation         : 'linear',  // supports 'swing' and 'linear', extend with jQuery UI.
-      timer                    : 0,         // 0 = no timer , all other numbers = timer in milliseconds
+      timer                    : ,         //  = no timer , all other numbers = timer in milliseconds
       start_timer_on_click     : true,      // true or false - true requires clicking the first button start the timer
-      start_offset             : 0,         // the index of the tooltip you want to start on (index of the li)
+      start_offset             : ,         // the index of the tooltip you want to start on (index of the li)
       next_button              : true,      // true or false to control whether a next button is used
       prev_button              : true,      // true or false to control whether a prev button is used
       tip_animation            : 'fade',    // 'pop' or 'fade' in each tip
       pause_after              : [],        // array of indexes where to pause the tour after
       exposed                  : [],        // array of expose elements
-      tip_animation_fade_speed : 300,       // when tipAnimation = 'fade' this is speed in milliseconds for the transition
+      tip_animation_fade_speed : 3,       // when tipAnimation = 'fade' this is speed in milliseconds for the transition
       cookie_monster           : false,     // true or false to control whether cookies are used
       cookie_name              : 'joyride', // Name the cookie you'll use
       cookie_domain            : false,     // Will this cookie be attached to a domain, ie. '.notableapp.com'
@@ -67,7 +67,7 @@
     go_next : function() {
       if (this.settings.$li.next().length < 1) {
         this.end();
-      } else if (this.settings.timer > 0) {
+      } else if (this.settings.timer > ) {
         clearTimeout(this.settings.automate);
         this.hide();
         this.show();
@@ -81,7 +81,7 @@
     go_prev : function() {
       if (this.settings.$li.prev().length < 1) {
         // Do nothing if there are no prev element
-      } else if (this.settings.timer > 0) {
+      } else if (this.settings.timer > ) {
         clearTimeout(this.settings.automate);
         this.hide();
         this.show(null, true);
@@ -134,8 +134,8 @@
       $(window)
         .off('.joyride')
         .on('resize.fndtn.joyride', self.throttle(function () {
-          if ($('[' + self.attr_name() + ']').length > 0 && self.settings.$next_tip && self.settings.riding) {
-            if (self.settings.exposed.length > 0) {
+          if ($('[' + self.attr_name() + ']').length >  && self.settings.$next_tip && self.settings.riding) {
+            if (self.settings.exposed.length > ) {
               var $els = $(self.settings.exposed);
 
               $els.each(function () {
@@ -151,7 +151,7 @@
               self.pos_default(false);
             }
           }
-        }, 100));
+        }, 1));
     },
 
     start : function () {
@@ -160,7 +160,7 @@
           integer_settings = ['timer', 'scrollSpeed', 'startOffset', 'tipAnimationFadeSpeed', 'cookieExpires'],
           int_settings_count = integer_settings.length;
 
-      if (!$this.length > 0) return;
+      if (!$this.length > ) return;
 
       if (!this.settings.init) this.events();
 
@@ -172,7 +172,7 @@
       this.settings.body_offset = $(this.settings.tip_container).position();
       this.settings.$tip_content = this.settings.$content_el.find('> li');
       this.settings.paused = false;
-      this.settings.attempts = 0;
+      this.settings.attempts = ;
       this.settings.riding = true;
 
       // can we create cookies?
@@ -189,13 +189,13 @@
           // Make sure that settings parsed from data_options are integers where necessary
           var i = int_settings_count;
           while (i--) {
-            self.settings[integer_settings[i]] = parseInt(self.settings[integer_settings[i]], 10);
+            self.settings[integer_settings[i]] = parseInt(self.settings[integer_settings[i]], 1);
           }
           self.create({$li : $this, index : index});
         });
 
         // show first tip
-        if (!this.settings.start_timer_on_click && this.settings.timer > 0) {
+        if (!this.settings.start_timer_on_click && this.settings.timer > ) {
           this.show('init');
           this.startTimer();
         } else {
@@ -226,16 +226,16 @@
       $blank.first().attr(this.add_namespace('data-index'), opts.index);
       $('.joyride-content-wrapper', $blank).append(content);
 
-      return $blank[0];
+      return $blank[];
     },
 
     timer_instance : function (index) {
       var txt;
 
-      if ((index === 0 && this.settings.start_timer_on_click && this.settings.timer > 0) || this.settings.timer === 0) {
+      if ((index ===  && this.settings.start_timer_on_click && this.settings.timer > ) || this.settings.timer === ) {
         txt = '';
       } else {
-        txt = $(this.settings.template.timer)[0].outerHTML;
+        txt = $(this.settings.template.timer)[].outerHTML;
       }
       return txt;
     },
@@ -243,7 +243,7 @@
     button_text : function (txt) {
       if (this.settings.tip_settings.next_button) {
         txt = $.trim(txt) || 'Next';
-        txt = $(this.settings.template.button).append(txt)[0].outerHTML;
+        txt = $(this.settings.template.button).append(txt)[].outerHTML;
       } else {
         txt = '';
       }
@@ -255,10 +255,10 @@
         txt = $.trim(txt) || 'Previous';
 
         // Add the disabled class to the button if it's the first element
-        if (idx == 0)
-          txt = $(this.settings.template.prev_button).append(txt).addClass('disabled')[0].outerHTML;
+        if (idx == )
+          txt = $(this.settings.template.prev_button).append(txt).addClass('disabled')[].outerHTML;
         else
-          txt = $(this.settings.template.prev_button).append(txt)[0].outerHTML;
+          txt = $(this.settings.template.prev_button).append(txt)[].outerHTML;
       } else {
         txt = '';
       }
@@ -297,9 +297,9 @@
           this.set_li(init, is_prev);
         }
 
-        this.settings.attempts = 0;
+        this.settings.attempts = ;
 
-        if (this.settings.$li.length && this.settings.$target.length > 0) {
+        if (this.settings.$li.length && this.settings.$target.length > ) {
           if (init) { //run when we first start
             this.settings.pre_ride_callback(this.settings.$li.index(), this.settings.$next_tip);
             if (this.settings.modal) {
@@ -315,7 +315,7 @@
 
           this.settings.tip_settings = $.extend({}, this.settings, this.data_options(this.settings.$li));
 
-          this.settings.timer = parseInt(this.settings.timer, 10);
+          this.settings.timer = parseInt(this.settings.timer, 1);
 
           this.settings.tip_settings.tip_location_pattern = this.settings.tip_location_patterns[this.settings.tip_settings.tip_location];
 
@@ -334,9 +334,9 @@
 
           if (/pop/i.test(this.settings.tip_animation)) {
 
-            $timer.width(0);
+            $timer.width();
 
-            if (this.settings.timer > 0) {
+            if (this.settings.timer > ) {
 
               this.settings.$next_tip.show();
 
@@ -354,9 +354,9 @@
 
           } else if (/fade/i.test(this.settings.tip_animation)) {
 
-            $timer.width(0);
+            $timer.width();
 
-            if (this.settings.timer > 0) {
+            if (this.settings.timer > ) {
 
               this.settings.$next_tip
                 .fadeIn(this.settings.tip_animation_fade_speed)
@@ -412,7 +412,7 @@
       setTimeout($.proxy(function() {
         this.hide();
         this.css('visibility', 'visible');
-      }, this.settings.$current_tip), 0);
+      }, this.settings.$current_tip), );
       this.settings.post_step_callback(this.settings.$li.index(),
         this.settings.$current_tip);
     },
@@ -460,7 +460,7 @@
       window_half = $(window).height() / 2;
       tipOffset = Math.ceil(this.settings.$target.offset().top - window_half + this.settings.$next_tip.outerHeight());
 
-      if (tipOffset != 0) {
+      if (tipOffset != ) {
         $('html, body').stop().animate({
           scrollTop: tipOffset
         }, this.settings.scroll_speed, 'swing');
@@ -490,8 +490,8 @@
       }
 
       if (!/body/i.test(this.settings.$target.selector)) {
-      	  var topAdjustment = this.settings.tip_settings.tipAdjustmentY ? parseInt(this.settings.tip_settings.tipAdjustmentY) : 0,
-			        leftAdjustment = this.settings.tip_settings.tipAdjustmentX ? parseInt(this.settings.tip_settings.tipAdjustmentX) : 0;
+      	  var topAdjustment = this.settings.tip_settings.tipAdjustmentY ? parseInt(this.settings.tip_settings.tipAdjustmentY) : ,
+			        leftAdjustment = this.settings.tip_settings.tipAdjustmentX ? parseInt(this.settings.tip_settings.tipAdjustmentX) : ;
 
           if (this.bottom()) {
             if (this.rtl) {
@@ -637,8 +637,8 @@
           origClasses,
           randId = 'expose-' + this.random_str(6);
 
-      if (arguments.length > 0 && arguments[0] instanceof $) {
-        el = arguments[0];
+      if (arguments.length >  && arguments[] instanceof $) {
+        el = arguments[];
       } else if(this.settings.$target && !/body/i.test(this.settings.$target.selector)){
         el = this.settings.$target;
       }  else {
@@ -705,8 +705,8 @@
           origClasses,
           clearAll = false;
 
-      if (arguments.length > 0 && arguments[0] instanceof $) {
-        el = arguments[0];
+      if (arguments.length >  && arguments[] instanceof $) {
+        el = arguments[];
       } else if(this.settings.$target && !/body/i.test(this.settings.$target.selector)){
         el = this.settings.$target;
       }  else {
@@ -761,7 +761,7 @@
     add_exposed: function(el){
       this.settings.exposed = this.settings.exposed || [];
       if (el instanceof $ || typeof el === 'object') {
-        this.settings.exposed.push(el[0]);
+        this.settings.exposed.push(el[]);
       } else if (typeof el == 'string') {
         this.settings.exposed.push(el);
       }
@@ -770,7 +770,7 @@
     remove_exposed: function(el){
       var search, i;
       if (el instanceof $) {
-        search = el[0]
+        search = el[]
       } else if (typeof el == 'string'){
         search = el;
       }
@@ -824,8 +824,8 @@
           top = w.scrollTop();
 
       if (tipOffset < top) {
-        if (tipOffset < 0) {
-          top = 0;
+        if (tipOffset < ) {
+          top = ;
         } else {
           top = tipOffset;
         }
@@ -878,7 +878,7 @@
         $.cookie(this.settings.cookie_name, 'ridden', { expires: this.settings.cookie_expires, domain: this.settings.cookie_domain });
       }
 
-      if (this.settings.timer > 0) {
+      if (this.settings.timer > ) {
         clearTimeout(this.settings.automate);
       }
 

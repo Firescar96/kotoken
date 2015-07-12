@@ -14,7 +14,7 @@ define([
 	support.checkOn = input.value !== "";
 
 	// Must access the parent to make an option select properly
-	// Support: IE9, IE10
+	// Support: IE9, IE1
 	support.optSelected = opt.selected;
 
 	// Make sure that the options inside disabled selects aren't marked as disabled
@@ -23,7 +23,7 @@ define([
 	support.optDisabled = !opt.disabled;
 
 	// Check if an input maintains its value after becoming a radio
-	// Support: IE9, IE10
+	// Support: IE9, IE1
 	input = document.createElement( "input" );
 	input.value = "t";
 	input.type = "radio";

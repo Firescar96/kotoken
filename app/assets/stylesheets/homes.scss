@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import "VAlign.css";
 @import "mixins";
 
 $headColor : #000;
@@ -10,37 +9,33 @@ $bgColor : #2D2D2D;
 $buttonbgColor : #7D7D7D;
 $txtbgColor : #fff;
 
+$screen-md : 992px;
+
 #homes {
   height: 100%;
+  color: #fff;
 
   .bg-warning {
     color: #d80;
-    background-color: #800
-  }
-
-  header{
-    text-align: center;
-    background-color: $headColor;
-    color: #fff;
-    border-bottom: solid 10px $bgColor;
-    height: 20%;
+    background-color: #800;
   }
 
   h1 {
     font-size: 60px;
-    color: #ffe;
   }
 
   h2 {
     font-size: 40px;
-    color: #ffe;
   }
 
   h3 {
     font-size: 30px;
     font-style: italic;
     margin-top: 5px;
-    color: #ffe;
+  }
+
+  h4 {
+    font-size: 20px;
   }
 
   main {
@@ -48,78 +43,158 @@ $txtbgColor : #fff;
     margin: auto;
     background-color: $bgColor;
 
+    @media (max-width: $screen-md) {
+      .twopane {
+
+      &#register2, &login1 {
+        text-align: center;
+      }
+        >* {
+          display: block;
+          margin: 30px auto;
+          width: 75%;
+          height: 200px;
+          &#confirm, &#create, &#show{
+            height: 150px;
+          }
+          &#addressInfo {
+            display: inline-block;
+            height: inherit;
+            width: 90%;
+            text-align: left;
+          }
+        }
+      }
+    }
+    @media (min-width: $screen-md) {
+      .twopane {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+
+        >* {
+          margin: 30px auto;
+          width: 25%;
+
+          &#register {
+            float: left;
+            height: 200px;
+          }
+          &#login {
+            float: right;
+            height: 200px;
+          }
+          &#confirm {
+            float: right;
+            margin: 30px auto;
+            float: right;
+            height: 200px;
+          }
+          &#token-select {
+            width: 50%;
+            height: 200px;
+          }
+          &#addressInfo {
+            width: 650px;
+            height: auto;
+          }
+          &#create, &#show {
+            height: 200px;
+          }
+        }
+      }
+    }
+
     >div {
       width: 80%;
 
-      #createsection {
-        padding-left: 2%;
-        padding-right: 2%;
-        * {
-          margin-bottom: 5%;
-        }
+      h2, h3 {
+        text-align: center;
       }
 
-      #loginsection {
-        padding-left: 2%;
-        padding-right: 2%;
-        * {
-          margin-bottom: 5%;
-        }
+      button {
+        font-size: 40px;
       }
-    }
 
-    #create, #login {
-      font-size: 24px;
-    }
+      #createerror, #tokenerror {
+        text-align: center;
+      }
 
-    #useid, #logincode {
-      margin: 0% 1%;
-      width: 48%;
-    }
+      &#register1 {
+        #token-select {
+          height: 50%;
+          display: block;
+          min-height: 1;
 
-    #token-select {
-      width: 100%;
-      height: 50%;
-      display: block;
-      margin: auto;
+          >div {
+            padding: 0;
+            height: 200px;
 
-      label {
-        width: 25%;
-        height: 50%;
-        padding: 0;
-        margin: 0;
-        display: inline-block;
-        //@include transition(color 0.2s ease-out);
-        &[for=brick] {
-          @include colorize($buttonbgColor, $txtbgColor);
-        }
-        &[for=steak] {
-          @include colorize($buttonbgColor, $txtbgColor);
-        }
-        &[for=bitcoin] {
-          @include colorize($buttonbgColor, $txtbgColor);
-        }
-        &[for=phone] {
-          @include colorize($buttonbgColor, $txtbgColor);
-        }
+            >label {
+              position: absolute;
+              margin: 0;
+              width: 95%;
+              height: 45%;
+              align-items: center;
+              display: flex;
 
-        input {
-          display: none;
+              //@include transition(color .2s ease-out);
+              &[for=brick] {
+                top: 0;
+                @include colorize($buttonbgColor, $txtbgColor);
+              }
+              &[for=steak] {
+                bottom: 0;
+                @include colorize($buttonbgColor, $txtbgColor);
+              }
+              &[for=bitcoin] {
+                top: 0;
+                right: 0;
+                @include colorize($buttonbgColor, $txtbgColor);
+              }
+              &[for=phone] {
+                bottom: 0;
+                right: 0;
+                @include colorize($buttonbgColor, $txtbgColor);
+              }
 
-          + span {
-            position: absolute;
-            top: 50%;
-            transform: translate(0, -50%);
-            position: relative;
-            text-align: center;
-            font-size: 30px;
+              input {
+                display: none;
+
+                + span {
+                  position: absolute;
+                  position: relative;
+                  text-align: center;
+                  font-size: 30px;
+                  flex:1;
+                }
+
+                &:checked + span {
+                  text-shadow:  1px  rgba(255,255,255,.5);
+                }
+              }
+            }
           }
-
-          &:checked + span {
-            text-shadow: 0 1px 0 rgba(255,255,255,0.5);
-          }
         }
       }
+
+      &#register2, &#login1 {
+        label {
+          margin: 20px;
+          @extend h2;
+          display: block;
+
+          input {
+            float: right;
+          }
+        }
+        h4 {
+          color: shade(#fff,30%);
+          letter-spacing: 1px;
+        }
+      }
+
     }
 
   }

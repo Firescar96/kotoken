@@ -16,6 +16,7 @@
  *= require accounts
  */
 
+ $headColor : #000;
  $bgColor : #2D2D2D;
 
 html {
@@ -23,47 +24,67 @@ html {
   height: 100%;
   background-color: $bgColor;
 
-body {
-  height: 100%;
-  background: #fff; /* Old browsers */
-  font-family: 'Overlock', cursive !important;
-  font-weight: 900 !important;
-  font-style: italic !important;
-  color: #000 !important;
-}
-
-::-webkit-input-placeholder { /* WebKit browsers */
-  color:    #ccc;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #ccc;
-   opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #ccc;
-   opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-   color:    #ccc;
-}
-
-input[type=text] {
-  color: #fff;
-  font-size: 25px;
-  background-color: transparent;
-  padding: 10px;
-  border: none;
-  outline: 0;
-  border-bottom: solid 2px #c9c9c9;
-  transition: border 0.3s;
-
-  &:focus {
-    border: none;
-    border-left: solid 1px #999;
-    border-right: solid 1px #999;
-    border-top: solid 1px #999;
-    border-bottom: solid 2px #c9c9c9;
+  body {
+    height: 100%;
+    background: #fff; /* Old browsers */
+    font-family: 'Overlock', cursive !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    color: #000 !important;
   }
-}
+
+  header{
+    text-align: center;
+    background-color: $headColor;
+    color: #fff;
+    height: 20%;
+  }
+
+  ::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #ccc;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+     color:    #ccc;
+     opacity:  1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+     color:    #ccc;
+     opacity:  1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 1+ */
+     color:    #ccc;
+  }
+
+  input[type=text] {
+    color: #fff;
+    font-size: 25px;
+    background-color: transparent;
+    padding: 1;
+    border: none;
+    outline: 0;
+    border-bottom: solid 2px #c9c9c9;
+    transition: border .3s;
+
+    &:focus {
+      border: none;
+      border-left: solid 1px #999;
+      border-right: solid 1px #999;
+      border-top: solid 1px #999;
+      border-bottom: solid 2px #c9c9c9;
+    }
+  }
+
+  .hidden {
+    display: none !important;
+  }
+  .aligner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .aligner-item {
+    flex: 1;
+  }
 
 }

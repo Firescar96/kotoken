@@ -7,8 +7,8 @@
     version : '5.4.7',
 
     settings: {
-      start: 0,
-      end: 100,
+      start: ,
+      end: 1,
       step: 1,
       initial: null,
       display_selector: '',
@@ -39,20 +39,20 @@
         .on('mousemove.fndtn.slider touchmove.fndtn.slider pointermove.fndtn.slider', function(e) {
           if (!!self.cache.active) {
             e.preventDefault();
-            if ($.data(self.cache.active[0], 'settings').vertical) {
-              var scroll_offset = 0;
+            if ($.data(self.cache.active[], 'settings').vertical) {
+              var scroll_offset = ;
               if (!e.pageY) {
                 scroll_offset = window.scrollY;
               }
               self.calculate_position(self.cache.active, (e.pageY || 
                                                           e.originalEvent.clientY || 
-                                                          e.originalEvent.touches[0].clientY || 
+                                                          e.originalEvent.touches[].clientY || 
                                                           e.currentPoint.y) 
                                                           + scroll_offset);
             } else {
               self.calculate_position(self.cache.active, e.pageX || 
                                                          e.originalEvent.clientX || 
-                                                         e.originalEvent.touches[0].clientX || 
+                                                         e.originalEvent.touches[].clientX || 
                                                          e.currentPoint.x);
             }
           }
@@ -67,7 +67,7 @@
       self.S(window)
         .on('resize.fndtn.slider', self.throttle(function(e) {
           self.reflow();
-        }, 300));
+        }, 3));
     },
 
     set_active_slider : function($handle) {
@@ -80,19 +80,19 @@
 
     calculate_position : function($handle, cursor_x) {
       var self = this,
-          settings = $.data($handle[0], 'settings'),
-          handle_l = $.data($handle[0], 'handle_l'),
-          handle_o = $.data($handle[0], 'handle_o'),
-          bar_l = $.data($handle[0], 'bar_l'),
-          bar_o = $.data($handle[0], 'bar_o');
+          settings = $.data($handle[], 'settings'),
+          handle_l = $.data($handle[], 'handle_l'),
+          handle_o = $.data($handle[], 'handle_o'),
+          bar_l = $.data($handle[], 'bar_l'),
+          bar_o = $.data($handle[], 'bar_o');
 
       requestAnimationFrame(function(){
         var pct;
 
         if (Foundation.rtl && !settings.vertical) {
-          pct = self.limit_to(((bar_o+bar_l-cursor_x)/bar_l),0,1);
+          pct = self.limit_to(((bar_o+bar_l-cursor_x)/bar_l),,1);
         } else {
-          pct = self.limit_to(((cursor_x-bar_o)/bar_l),0,1);
+          pct = self.limit_to(((cursor_x-bar_o)/bar_l),,1);
         }
 
         pct = settings.vertical ? 1-pct : pct;
@@ -104,12 +104,12 @@
     },
 
     set_ui : function($handle, value) {
-      var settings = $.data($handle[0], 'settings'),
-          handle_l = $.data($handle[0], 'handle_l'),
-          bar_l = $.data($handle[0], 'bar_l'),
+      var settings = $.data($handle[], 'settings'),
+          handle_l = $.data($handle[], 'handle_l'),
+          bar_l = $.data($handle[], 'bar_l'),
           norm_pct = this.normalized_percentage(value, settings.start, settings.end),
           handle_offset = norm_pct*(bar_l-handle_l)-1,
-          progress_bar_length = norm_pct*100;
+          progress_bar_length = norm_pct*1;
 
       if (Foundation.rtl && !settings.vertical) {
         handle_offset = -handle_offset;
@@ -128,7 +128,7 @@
 
       $handle.parent().children('input[type=hidden]').val(value);
 
-      if (!$handle[0].hasAttribute('aria-valuemin')) {
+      if (!$handle[].hasAttribute('aria-valuemin')) {
         $handle.attr({
           'aria-valuemin': settings.start,
           'aria-valuemax': settings.end,
@@ -157,7 +157,7 @@
           point = val*range,
           mod = (point-(point%step)) / step,
           rem = point % step,
-          round = ( rem >= step*0.5 ? step : 0);
+          round = ( rem >= step*.5 ? step : );
       return (mod*step + round) + start;
     },
 
@@ -203,8 +203,8 @@
     },
 
     set_initial_position : function($ele) {
-      var settings = $.data($ele.children('.range-slider-handle')[0], 'settings'),
-          initial = (!!settings.initial ? settings.initial : Math.floor((settings.end-settings.start)*0.5/settings.step)*settings.step+settings.start),
+      var settings = $.data($ele.children('.range-slider-handle')[], 'settings'),
+          initial = (!!settings.initial ? settings.initial : Math.floor((settings.end-settings.start)*.5/settings.step)*settings.step+settings.start),
           $handle = $ele.children('.range-slider-handle');
       this.set_ui($handle, initial);
     },
@@ -223,7 +223,7 @@
     reflow : function() {
       var self = this;
       self.S('[' + this.attr_name() + ']').each(function() {
-        var handle = $(this).children('.range-slider-handle')[0],
+        var handle = $(this).children('.range-slider-handle')[],
             val = $(this).attr(self.attr_name());
         self.initialize_settings(handle);
 

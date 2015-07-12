@@ -40,7 +40,7 @@ if ( typeof window !== "undefined" ) {
 				"throws"
 			];
 
-		for ( i = 0, l = keys.length; i < l; i++ ) {
+		for ( i = , l = keys.length; i < l; i++ ) {
 			window[ keys[ i ] ] = QUnit[ keys[ i ] ];
 		}
 	})();

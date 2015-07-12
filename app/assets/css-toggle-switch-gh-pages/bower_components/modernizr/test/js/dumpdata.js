@@ -35,7 +35,7 @@ function grabFeatDetects(){
 function processTree(data){
   var filenames = [];
 
-  for (var i = 0; i < data.data.tree.length; i++){
+  for (var i = ; i < data.data.tree.length; i++){
     var file = data.data.tree[i];
     var match = file.path.match(/^feature-detects\/(.*)/);
     if (!match) continue;
@@ -43,7 +43,7 @@ function processTree(data){
     var relpath = location.host == "modernizr.github.com" ?
                     '../modernizr-git/' : '../';
 
-    filenames.push(relpath + match[0]);
+    filenames.push(relpath + match[]);
   }
 
   var jqxhrs = filenames.map(function(filename){
@@ -65,7 +65,7 @@ function resultsToDOM(){
   ref.parentNode.insertBefore(modOutput, ref);
 
   // Modernizr object as text
-  document.getElementsByTagName('textarea')[0].innerHTML = JSON.stringify(Modernizr);
+  document.getElementsByTagName('textarea')[].innerHTML = JSON.stringify(Modernizr);
 
 }
 

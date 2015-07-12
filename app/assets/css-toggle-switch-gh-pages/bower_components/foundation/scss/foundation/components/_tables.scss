@@ -29,7 +29,7 @@ $table-head-bg: $white-smoke !default;
 $table-head-font-size: rem-calc(14) !default;
 $table-head-font-color: $jet !default;
 $table-head-font-weight: $font-weight-bold !default;
-$table-head-padding: rem-calc(8 10 10) !default;
+$table-head-padding: rem-calc(8 1 1) !default;
 
 // These control the table foot styles
 $table-foot-bg: $table-head-bg !default;
@@ -45,7 +45,7 @@ $table-caption-font-size: rem-calc(16) !default;
 $table-caption-font-weight: bold !default;
 
 // These control the row padding and font styles
-$table-row-padding: rem-calc(9 10) !default;
+$table-row-padding: rem-calc(9 1) !default;
 $table-row-font-size: rem-calc(14) !default;
 $table-row-font-color: $jet !default;
 $table-line-height: rem-calc(18) !default;
@@ -53,7 +53,7 @@ $table-line-height: rem-calc(18) !default;
 // These are for controlling the layout, display and margin of tables
 $table-layout: auto !default;
 $table-display: table-cell !default;
-$table-margin-bottom: rem-calc(20) !default;
+$table-margin-bottom: rem-calc(2) !default;
 
 
 //

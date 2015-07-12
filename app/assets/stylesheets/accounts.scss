@@ -9,40 +9,98 @@ $bgColor : #2D2D2D;
 $buttonbgColor : #7D7D7D;
 $txtbgColor : #fff;
 
+$screen-md : 992px;
+
 #accounts {
   font-size: 20px;
   background-color: $bgColor ;
   color: #fff;
-
   height: 100%;
+
   .inline {
     display: inline-block;
   }
 
   input[type=text] {
-    color: #000;
+    color: #fff;
     width: 25%;
   }
 
   h1 {
     font-size: 50px;
-    color: #fff;
   }
 
   h2 {
     font-size: 40px;
-    color: #fff;
   }
 
   h3 {
     font-size: 30px;
     font-style: italic;
     margin-top: 5px;
-    color: #fff;
+  }
+
+  button {
+    font-size: 40px;
+  }
+
+  #status-page, #token-page {
+    width: 100%;
   }
 
   #balancesection {
-    background-color: $headColor;
+    display: inline-block;
+    width: 100%;
+    >h1 {
+      background-color: shade($bgColor,40%);
+      margin: 0;
+      padding: 20px;
+    }
+    #balance {
+      text-align: center;
+      display: block;
+      margin: auto;
+      width: 60%;
+      min-width: 170px;
+      div:nth-child(even) {
+        background-color: shade($bgColor,40%);
+      }
+      @media (max-width: $screen-md) {
+        >div {
+          display: inline-block;
+          width: 100%;
+          >* {
+            margin: auto;
+            padding: 5px;
+            &.key {
+              float: left;
+            }
+            &.value {
+              float: right;
+            }
+          }
+        }
+      }
+      @media (min-width: $screen-md) {
+        width: 100%;
+
+        >div {
+          float: left;
+          width: 25%;
+        }
+      }
+    }
+  }
+
+  #send-token {
+    display: block;
+    margin: 20px auto;
+    height: 100px;
+    width: 50%;
+  }
+
+  #transaction-ledger, #transaction-maker {
+    margin-top: 20px;
   }
 
   #token-select {
@@ -57,27 +115,29 @@ $txtbgColor : #fff;
       height: 200px;
 
       >label {
+        position: absolute;
         width: 95%;
         height: 45%;
         align-items: center;
         display: flex;
-        margin: 5% auto;
 
         //@include transition(color 0.2s ease-out);
-        &[for=brick] {
+        &[for*=brick] {
           top:0;
           @include colorize($buttonbgColor, $txtbgColor);
         }
-        &[for=steak] {
+        &[for*=steak] {
           bottom:0;
           @include colorize($buttonbgColor, $txtbgColor);
         }
-        &[for=bitcoin] {
+        &[for*=bitcoin] {
           top:0;
+          right: 0;
           @include colorize($buttonbgColor, $txtbgColor);
         }
-        &[for=phone] {
+        &[for*=phone] {
           bottom:0;
+          right: 0;
           @include colorize($buttonbgColor, $txtbgColor);
         }
 
@@ -100,13 +160,53 @@ $txtbgColor : #fff;
     }
   }
 
+  #token-transact1, #token-transact2 {
+    width: 100%;
+    height: 50%;
+    display: block;
+    min-height: 100px;
+    margin: 0;
+    text-align: center;
+
+    label {
+      display: inline-block;
+      margin: auto;
+      width: 80%;
+      span {
+        font-size: 25px;
+        height: 40%;
+        margin: auto;
+      }
+
+      input {
+        @media (max-width: $screen-md) {
+          width: 100%;
+        }
+        @media (min-width: $screen-md) {
+          width: 50%;
+        }
+      }
+    }
+    button {
+      display: block;
+      height: 100px;
+      margin: 20px auto;
+      @media (max-width: $screen-md) {
+        width: 80%;
+      }
+      @media (min-width: $screen-md) {
+        width: 50%;
+      }
+    }
+  }
+
   .bg-success {
     color: #0f0;
     background-color: #00a
   }
 
   .bg-warning {
-    color: #d80;
+    color: #d800;
     background-color: #800
   }
 
@@ -115,7 +215,7 @@ $txtbgColor : #fff;
   }
 
   .table-striped > tbody > tr:nth-child(odd) > td {
-    background-color: shade($bgColor,20%);
+    background-color: shade($bgColor,40%);
   }
 
   .table-striped > tbody > tr > td {

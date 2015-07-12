@@ -18,20 +18,20 @@
 $include-html-button-classes: $include-html-classes !default;
 
 // We use these to control different shared styles for Split Buttons
-$split-button-function-factor: 10% !default;
+$split-button-function-factor: 1% !default;
 $split-button-pip-color: $white !default;
 $split-button-pip-color-alt: $oil !default;
-$split-button-active-bg-tint: rgba(0,0,0,0.1) !default;
+$split-button-active-bg-tint: rgba(,,,.1) !default;
 
 // We use these to control tiny split buttons
-$split-button-padding-tny: $button-pip-tny * 10 !default;
+$split-button-padding-tny: $button-pip-tny * 1 !default;
 $split-button-span-width-tny: $button-pip-tny * 6 !default;
 $split-button-pip-size-tny: $button-pip-tny !default;
 $split-button-pip-top-tny: $button-pip-tny * 2 !default;
 $split-button-pip-default-float-tny: rem-calc(-6) !default;
 
 // We use these to control small split buttons
-$split-button-padding-sml: $button-pip-sml * 10 !default;
+$split-button-padding-sml: $button-pip-sml * 1 !default;
 $split-button-span-width-sml: $button-pip-sml * 6 !default;
 $split-button-pip-size-sml: $button-pip-sml !default;
 $split-button-pip-top-sml: $button-pip-sml * 1.5 !default;
@@ -75,23 +75,23 @@ $split-button-pip-default-float-lrg: rem-calc(-6) !default;
     // Styling for the split arrow clickable area
     span {
       display: block;
-      height: 100%;
+      height: 1%;
       position: absolute;
-      #{$opposite-direction}: 0;
-      top: 0;
+      #{$opposite-direction}: ;
+      top: ;
       border-#{$default-float}: solid 1px;
 
       // Building the triangle pip indicator
       &:after {
         position: absolute;
         content: "";
-        width: 0;
-        height: 0;
+        width: ;
+        height: ;
         display: block;
         border-style: inset;
-        top: 50%;
+        top: 5%;
 
-        #{$default-float}: 50%;
+        #{$default-float}: 5%;
       }
 
       &:active { background-color: $split-button-active-bg-tint; }
@@ -101,7 +101,7 @@ $split-button-pip-default-float-lrg: rem-calc(-6) !default;
   // Control the border color for the span area of the split button
   @if $span-border {
     span {
-      border-#{$default-float}-color: rgba(255,255,255,0.5);
+      border-#{$default-float}-color: rgba(255,255,255,.5);
     }
   }
 
@@ -184,7 +184,7 @@ $split-button-pip-default-float-lrg: rem-calc(-6) !default;
       &.secondary { @include split-button(false, $split-button-pip-color-alt, false, false); }
 
       &.radius span { @include side-radius($opposite-direction, $global-radius); }
-      &.round span { @include side-radius($opposite-direction, 1000px); }
+      &.round span { @include side-radius($opposite-direction, 1); }
     }
 
   }

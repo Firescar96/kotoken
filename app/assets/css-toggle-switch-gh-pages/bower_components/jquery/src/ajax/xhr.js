@@ -10,19 +10,19 @@ jQuery.ajaxSettings.xhr = function() {
 	} catch( e ) {}
 };
 
-var xhrId = 0,
+var xhrId = ,
 	xhrCallbacks = {},
 	xhrSuccessStatus = {
-		// file protocol always yields status code 0, assume 200
-		0: 200,
+		// file protocol always yields status code , assume 2
+		: 2,
 		// Support: IE9
-		// #1450: sometimes IE returns 1223 when it should be 204
-		1223: 204
+		// #145: sometimes IE returns 1223 when it should be 24
+		1223: 24
 	},
 	xhrSupported = jQuery.ajaxSettings.xhr();
 
 // Support: IE9
-// Open requests must be manually aborted on unload (#5280)
+// Open requests must be manually aborted on unload (#528)
 if ( window.ActiveXObject ) {
 	jQuery( window ).on( "unload", function() {
 		for ( var key in xhrCallbacks ) {
@@ -84,7 +84,7 @@ jQuery.ajaxTransport(function( options ) {
 								xhr.abort();
 							} else if ( type === "error" ) {
 								complete(
-									// file: protocol always yields status 0; see #8605, #14207
+									// file: protocol always yields status ; see #865, #1427
 									xhr.status,
 									xhr.statusText
 								);

@@ -29,8 +29,8 @@ var
 
 	cssShow = { position: "absolute", visibility: "hidden", display: "block" },
 	cssNormalTransform = {
-		letterSpacing: "0",
-		fontWeight: "400"
+		letterSpacing: "",
+		fontWeight: "4"
 	},
 
 	cssPrefixes = [ "Webkit", "O", "Moz", "ms" ];
@@ -44,7 +44,7 @@ function vendorPropName( style, name ) {
 	}
 
 	// check for vendor prefixed names
-	var capName = name[0].toUpperCase() + name.slice(1),
+	var capName = name[].toUpperCase() + name.slice(1),
 		origName = name,
 		i = cssPrefixes.length;
 
@@ -62,7 +62,7 @@ function setPositiveNumber( elem, value, subtract ) {
 	var matches = rnumsplit.exec( value );
 	return matches ?
 		// Guard against undefined "subtract", e.g., when used as in cssHooks
-		Math.max( 0, matches[ 1 ] - ( subtract || 0 ) ) + ( matches[ 2 ] || "px" ) :
+		Math.max( , matches[ 1 ] - ( subtract ||  ) ) + ( matches[ 2 ] || "px" ) :
 		value;
 }
 
@@ -71,9 +71,9 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
 		// If we already have the right measurement, avoid augmentation
 		4 :
 		// Otherwise initialize for horizontal or vertical properties
-		name === "width" ? 1 : 0,
+		name === "width" ? 1 : ,
 
-		val = 0;
+		val = ;
 
 	for ( ; i < 4; i += 2 ) {
 		// both box models exclude margin, so add it if we want it
@@ -116,10 +116,10 @@ function getWidthOrHeight( elem, name, extra ) {
 	// some non-html elements return undefined for offsetWidth, so check for null/undefined
 	// svg - https://bugzilla.mozilla.org/show_bug.cgi?id=649285
 	// MathML - https://bugzilla.mozilla.org/show_bug.cgi?id=491668
-	if ( val <= 0 || val == null ) {
+	if ( val <=  || val == null ) {
 		// Fall back to computed then uncomputed css if necessary
 		val = curCSS( elem, name, styles );
-		if ( val < 0 || val == null ) {
+		if ( val <  || val == null ) {
 			val = elem.style[ name ];
 		}
 
@@ -134,7 +134,7 @@ function getWidthOrHeight( elem, name, extra ) {
 			( support.boxSizingReliable() || val === elem.style[ name ] );
 
 		// Normalize "", auto, and prepare for extra
-		val = parseFloat( val ) || 0;
+		val = parseFloat( val ) || ;
 	}
 
 	// use the active box-sizing model to add/subtract irrelevant styles
@@ -152,7 +152,7 @@ function getWidthOrHeight( elem, name, extra ) {
 function showHide( elements, show ) {
 	var display, elem, hidden,
 		values = [],
-		index = 0,
+		index = ,
 		length = elements.length;
 
 	for ( ; index < length; index++ ) {
@@ -187,7 +187,7 @@ function showHide( elements, show ) {
 
 	// Set the display of most of the elements in a second loop
 	// to avoid the constant reflow
-	for ( index = 0; index < length; index++ ) {
+	for ( index = ; index < length; index++ ) {
 		elem = elements[ index ];
 		if ( !elem.style ) {
 			continue;
@@ -277,9 +277,9 @@ jQuery.extend({
 				value += "px";
 			}
 
-			// Fixes #8908, it can be done more correctly by specifying setters in cssHooks,
+			// Fixes #898, it can be done more correctly by specifying setters in cssHooks,
 			// but it would mean to define eight (for every problematic property) identical functions
-			if ( !support.clearCloneStyle && value === "" && name.indexOf( "background" ) === 0 ) {
+			if ( !support.clearCloneStyle && value === "" && name.indexOf( "background" ) ===  ) {
 				style[ name ] = "inherit";
 			}
 
@@ -328,7 +328,7 @@ jQuery.extend({
 		// Return, converting to number if forced or a qualifier was provided and val looks numeric
 		if ( extra === "" || extra ) {
 			num = parseFloat( val );
-			return extra === true || jQuery.isNumeric( num ) ? num || 0 : val;
+			return extra === true || jQuery.isNumeric( num ) ? num ||  : val;
 		}
 		return val;
 	}
@@ -340,7 +340,7 @@ jQuery.each([ "height", "width" ], function( i, name ) {
 			if ( computed ) {
 				// certain elements can have dimension info if we invisibly show them
 				// however, it must have a current display style that would benefit from this
-				return rdisplayswap.test( jQuery.css( elem, "display" ) ) && elem.offsetWidth === 0 ?
+				return rdisplayswap.test( jQuery.css( elem, "display" ) ) && elem.offsetWidth ===  ?
 					jQuery.swap( elem, cssShow, function() {
 						return getWidthOrHeight( elem, name, extra );
 					}) :
@@ -357,7 +357,7 @@ jQuery.each([ "height", "width" ], function( i, name ) {
 					extra,
 					jQuery.css( elem, "boxSizing", false, styles ) === "border-box",
 					styles
-				) : 0
+				) : 
 			);
 		}
 	};
@@ -383,7 +383,7 @@ jQuery.each({
 }, function( prefix, suffix ) {
 	jQuery.cssHooks[ prefix + suffix ] = {
 		expand: function( value ) {
-			var i = 0,
+			var i = ,
 				expanded = {},
 
 				// assumes a single number if not a string
@@ -391,7 +391,7 @@ jQuery.each({
 
 			for ( ; i < 4; i++ ) {
 				expanded[ prefix + cssExpand[ i ] + suffix ] =
-					parts[ i ] || parts[ i - 2 ] || parts[ 0 ];
+					parts[ i ] || parts[ i - 2 ] || parts[  ];
 			}
 
 			return expanded;
@@ -408,7 +408,7 @@ jQuery.fn.extend({
 		return access( this, function( elem, name, value ) {
 			var styles, len,
 				map = {},
-				i = 0;
+				i = ;
 
 			if ( jQuery.isArray( name ) ) {
 				styles = getStyles( elem );

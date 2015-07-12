@@ -12,7 +12,7 @@
       append_to: 'body',
       touch_close_text: 'Tap To Close',
       disable_for_touch: false,
-      hover_delay: 200,
+      hover_delay: 2,
       show_on : 'all',
       tip_template : function (selector, content) {
         return '<span data-selector="' + selector + '" id="' + selector + '" class="'
@@ -148,7 +148,7 @@
           .attr('aria-describedby', dataSelector);
       }
 
-      return (id && id.length > 0) ? id : dataSelector;
+      return (id && id.length > ) ? id : dataSelector;
     },
 
     create : function ($target) {
@@ -186,7 +186,7 @@
       nubWidth = nub.outerHeight();
 
       if (this.small()) {
-        tip.css({'width' : '100%' });
+        tip.css({'width' : '1%' });
       } else {
         tip.css({'width' : (width) ? width : 'auto'});
       }
@@ -200,10 +200,10 @@
         }).end();
       };
 
-      objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', target.offset().left);
+      objPos(tip, (target.offset().top + target.outerHeight() + 1), 'auto', 'auto', target.offset().left);
 
       if (this.small()) {
-        objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', 12.5, $(this.scope).width());
+        objPos(tip, (target.offset().top + target.outerHeight() + 1), 'auto', 'auto', 12.5, $(this.scope).width());
         tip.addClass('tip-override');
         objPos(nub, -nubHeight, 'auto', 'auto', target.offset().left);
       } else {
@@ -212,7 +212,7 @@
           nub.addClass('rtl');
           left = target.offset().left + target.outerWidth() - tip.outerWidth();
         }
-        objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', left);
+        objPos(tip, (target.offset().top + target.outerHeight() + 1), 'auto', 'auto', left);
         tip.removeClass('tip-override');
         if (classes && classes.indexOf('tip-top') > -1) {
           if (Foundation.rtl) nub.addClass('rtl');
@@ -255,7 +255,7 @@
           $tip = self.getTip($target),
           settings = $.extend({}, self.settings, self.data_options($target));
 
-      if ($tip.find('.tap-to-close').length === 0) {
+      if ($tip.find('.tap-to-close').length === ) {
         $tip.append('<span class="tap-to-close">'+settings.touch_close_text+'</span>');
         $tip.on('click.fndtn.tooltip.tapclose touchstart.fndtn.tooltip.tapclose MSPointerDown.fndtn.tooltip.tapclose', function(e) {
           self.hide($target);
@@ -274,13 +274,13 @@
 
       this.reposition($target, $tip, $target.attr('class'));
       $target.addClass('open');
-      $tip.fadeIn(150);
+      $tip.fadeIn(15);
     },
 
     hide : function ($target) {
       var $tip = this.getTip($target);
 
-      $tip.fadeOut(150, function() {
+      $tip.fadeOut(15, function() {
         $tip.find('.tap-to-close').remove();
         $tip.off('click.fndtn.tooltip.tapclose MSPointerDown.fndtn.tapclose');
         $target.removeClass('open');

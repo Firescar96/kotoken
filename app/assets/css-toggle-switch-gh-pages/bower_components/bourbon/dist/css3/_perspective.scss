@@ -3,6 +3,6 @@
   @include prefixer(perspective, $depth, webkit moz spec);
 }
 
-@mixin perspective-origin($value: 50% 50%) {
+@mixin perspective-origin($value: 5% 5%) {
   @include prefixer(perspective-origin, $value, webkit moz spec);
 }

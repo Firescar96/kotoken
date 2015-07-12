@@ -67,7 +67,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     // Webkit ghosts their properties in lowercase but Opera & Moz do not.
     // Microsoft uses a lowercase `ms` instead of the correct `Ms` in IE8+
-    //   erik.eae.net/archives/2008/03/10/21.48.10/
+    //   erik.eae.net/archives/28/3/1/21.48.1/
 
     // More here: github.com/Modernizr/Modernizr/issues/issue/21
     omPrefixes = 'Webkit Moz O ms',
@@ -78,7 +78,7 @@ window.Modernizr = (function( window, document, undefined ) {
     /*>>domprefixes*/
 
     /*>>ns*/
-    ns = {'svg': 'http://www.w3.org/2000/svg'},
+    ns = {'svg': 'http://www.w3.org/2/svg'},
     /*>>ns*/
 
     tests = {},
@@ -103,7 +103,7 @@ window.Modernizr = (function( window, document, undefined ) {
           // IE6 and 7 won't return offsetWidth or offsetHeight unless it's in the body element, so we fake it.
           fakeBody = body || document.createElement('body');
 
-      if ( parseInt(nodes, 10) ) {
+      if ( parseInt(nodes, 1) ) {
           // In order not to give false positives we create a node for each test
           // This also allows the method to scale for unspecified uses
           while ( nodes-- ) {
@@ -121,7 +121,7 @@ window.Modernizr = (function( window, document, undefined ) {
       style = ['&#173;','<style id="s', mod, '">', rule, '</style>'].join('');
       div.id = mod;
       // IE6 will false positive on some tests due to the style element inside the test div somehow interfering offsetHeight, so insert it into body or fakebody.
-      // Opera will act all quirky when injecting elements in documentElement when page is served as xml, needs fakebody too. #270
+      // Opera will act all quirky when injecting elements in documentElement when page is served as xml, needs fakebody too. #27
       (body ? div : fakeBody).innerHTML += style;
       fakeBody.appendChild(div);
       if ( !body ) {
@@ -224,7 +224,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     // TODO :: Add flag for hasownprop ? didn't last time
 
-    // hasOwnProperty shim by kangax needed for Safari 2.0 support
+    // hasOwnProperty shim by kangax needed for Safari 2. support
     _hasOwnProperty = ({}).hasOwnProperty, hasOwnProp;
 
     if ( !is(_hasOwnProperty, 'undefined') && !is(_hasOwnProperty.call, 'undefined') ) {
@@ -377,7 +377,7 @@ window.Modernizr = (function( window, document, undefined ) {
      */
     function testPropsAll( prop, prefixed, elem ) {
 
-        var ucProp  = prop.charAt(0).toUpperCase() + prop.slice(1),
+        var ucProp  = prop.charAt().toUpperCase() + prop.slice(1),
             props   = (prop + ' ' + cssomPrefixes.join(ucProp + ' ') + ucProp).split(' ');
 
         // did they call .prefixed('boxSizing') or are we just testing a prop?
@@ -406,13 +406,13 @@ window.Modernizr = (function( window, document, undefined ) {
     };
 
     // The *old* flexbox
-    // www.w3.org/TR/2009/WD-css3-flexbox-20090723/
+    // www.w3.org/TR/29/WD-css3-flexbox-29723/
 
     tests['flexboxlegacy'] = function() {
         return testPropsAll('boxDirection');
     };
 
-    // On the S60 and BB Storm, getContext exists, but always returns undefined
+    // On the S6 and BB Storm, getContext exists, but always returns undefined
     // so we actually have to call getContext() to verify
     // github.com/Modernizr/Modernizr/issues/issue/97/
 
@@ -425,7 +425,7 @@ window.Modernizr = (function( window, document, undefined ) {
         return !!(Modernizr['canvas'] && is(document.createElement('canvas').getContext('2d').fillText, 'function'));
     };
 
-    // webk.it/70117 is tracking a legit WebGL feature detect proposal
+    // webk.it/7117 is tracking a legit WebGL feature detect proposal
 
     // We do a soft detect which may false positive in order to avoid
     // an expensive context creation: bugzil.la/732441
@@ -506,7 +506,7 @@ window.Modernizr = (function( window, document, undefined ) {
     // Per 1.6:
     // This used to be Modernizr.historymanagement but the longer
     // name has been deprecated in favor of a shorter and property-matching one.
-    // The old API is still available in 1.6, but as of 2.0 will throw a warning,
+    // The old API is still available in 1.6, but as of 2. will throw a warning,
     // and in the first release thereafter disappear entirely.
     tests['history'] = function() {
       return !!(window.history && history.pushState);
@@ -517,9 +517,9 @@ window.Modernizr = (function( window, document, undefined ) {
         return ('draggable' in div) || ('ondragstart' in div && 'ondrop' in div);
     };
 
-    // FF3.6 was EOL'ed on 4/24/12, but the ESR version of FF10
+    // FF3.6 was EOL'ed on 4/24/12, but the ESR version of FF1
     // will be supported until FF19 (2/12/13), at which time, ESR becomes FF17.
-    // FF10 still uses prefixes, so check for it until then.
+    // FF1 still uses prefixes, so check for it until then.
     // for more ESR info, see: mozilla.org/en-US/firefox/organizations/faq/
     tests['websockets'] = function() {
         return 'WebSocket' in window || 'MozWebSocket' in window;
@@ -530,7 +530,7 @@ window.Modernizr = (function( window, document, undefined ) {
     tests['rgba'] = function() {
         // Set an rgba() color and check the returned value
 
-        setCss('background-color:rgba(150,255,150,.5)');
+        setCss('background-color:rgba(15,255,15,.5)');
 
         return contains(mStyle.backgroundColor, 'rgba');
     };
@@ -539,7 +539,7 @@ window.Modernizr = (function( window, document, undefined ) {
         // Same as rgba(), in fact, browsers re-map hsla() to rgba() internally,
         //   except IE9 who retains it as hsla
 
-        setCss('background-color:hsla(120,40%,100%,.5)');
+        setCss('background-color:hsla(12,4%,1%,.5)');
 
         return contains(mStyle.backgroundColor, 'rgba') || contains(mStyle.backgroundColor, 'hsla');
     };
@@ -583,7 +583,7 @@ window.Modernizr = (function( window, document, undefined ) {
         return testPropsAll('boxShadow');
     };
 
-    // FF3.0 will false positive on this test
+    // FF3. will false positive on this test
     tests['textshadow'] = function() {
         return document.createElement('div').style.textShadow === '';
     };
@@ -592,14 +592,14 @@ window.Modernizr = (function( window, document, undefined ) {
     tests['opacity'] = function() {
         // Browsers that actually have CSS Opacity implemented have done so
         //  according to spec, which means their return values are within the
-        //  range of [0.0,1.0] - including the leading zero.
+        //  range of [.,1.] - including the leading zero.
 
         setCssAll('opacity:.55');
 
         // The non-literal . in this regex is intentional:
-        //   German Chrome returns this value as 0,55
+        //   German Chrome returns this value as ,55
         // github.com/Modernizr/Modernizr/issues/#issue/59/comment/516632
-        return (/^0.55$/).test(mStyle.opacity);
+        return (/^.55$/).test(mStyle.opacity);
     };
 
 
@@ -633,7 +633,7 @@ window.Modernizr = (function( window, document, undefined ) {
              // legacy webkit syntax (FIXME: remove when syntax not in use anymore)
               (str1 + '-webkit- '.split(' ').join(str2 + str1) +
              // standard syntax             // trailing 'background-image:'
-              prefixes.join(str3 + str1)).slice(0, -str1.length)
+              prefixes.join(str3 + str1)).slice(, -str1.length)
         );
 
         return contains(mStyle.backgroundImage, 'gradient');
@@ -688,9 +688,9 @@ window.Modernizr = (function( window, document, undefined ) {
         injectElementWithStyles('@font-face {font-family:"font";src:url("https://")}', function( node, rule ) {
           var style = document.getElementById('smodernizr'),
               sheet = style.sheet || style.styleSheet,
-              cssText = sheet ? (sheet.cssRules && sheet.cssRules[0] ? sheet.cssRules[0].cssText : sheet.cssText || '') : '';
+              cssText = sheet ? (sheet.cssRules && sheet.cssRules[] ? sheet.cssRules[].cssText : sheet.cssText || '') : '';
 
-          bool = /src/i.test(cssText) && cssText.indexOf(rule.split(' ')[0]) === 0;
+          bool = /src/i.test(cssText) && cssText.indexOf(rule.split(' ')[]) === ;
         });
 
         return bool;
@@ -701,7 +701,7 @@ window.Modernizr = (function( window, document, undefined ) {
     tests['generatedcontent'] = function() {
         var bool;
 
-        injectElementWithStyles(['#',mod,'{font:0/0 a}#',mod,':after{content:"',smile,'";visibility:hidden;font:3px/1 a}'].join(''), function( node ) {
+        injectElementWithStyles(['#',mod,'{font:/ a}#',mod,':after{content:"',smile,'";visibility:hidden;font:3px/1 a}'].join(''), function( node ) {
           bool = node.offsetHeight >= 3;
         });
 
@@ -717,12 +717,12 @@ window.Modernizr = (function( window, document, undefined ) {
     // e.g.  Modernizr.video     // true
     //       Modernizr.video.ogg // 'probably'
     //
-    // Codec values from : github.com/NielsLeenheer/html5test/blob/9106a8/index.html#L845
+    // Codec values from : github.com/NielsLeenheer/html5test/blob/916a8/index.html#L845
     //                     thx to NielsLeenheer and zcorpan
 
     // Note: in some older browsers, "no" was a return value instead of empty string.
-    //   It was live in FF3.5.0 and 3.5.1, but fixed in 3.5.2
-    //   It was also live in Safari 4.0.0 - 4.0.4, but fixed in 4.0.5
+    //   It was live in FF3.5. and 3.5.1, but fixed in 3.5.2
+    //   It was also live in Safari 4.. - 4..4, but fixed in 4..5
 
     tests['video'] = function() {
         var elem = document.createElement('video'),
@@ -735,7 +735,7 @@ window.Modernizr = (function( window, document, undefined ) {
                 bool.ogg  = elem.canPlayType('video/ogg; codecs="theora"')      .replace(/^no$/,'');
 
                 // Without QuickTime, this value will be `undefined`. github.com/Modernizr/Modernizr/issues/546
-                bool.h264 = elem.canPlayType('video/mp4; codecs="avc1.42E01E"') .replace(/^no$/,'');
+                bool.h264 = elem.canPlayType('video/mp4; codecs="avc1.42E1E"') .replace(/^no$/,'');
 
                 bool.webm = elem.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/^no$/,'');
             }
@@ -859,7 +859,7 @@ window.Modernizr = (function( window, document, undefined ) {
         // Currently Safari 4 and Opera 11 have support only for the input placeholder
         // Both tests are available in feature-detects/forms-placeholder.js
         Modernizr['input'] = (function( props ) {
-            for ( var i = 0, len = props.length; i < len; i++ ) {
+            for ( var i = , len = props.length; i < len; i++ ) {
                 attrs[ props[i] ] = !!(props[i] in inputElem);
             }
             if (attrs.list){
@@ -880,7 +880,7 @@ window.Modernizr = (function( window, document, undefined ) {
         // Big thanks to @miketaylr for the html5 forms expertise. miketaylr.com/
         Modernizr['inputtypes'] = (function(props) {
 
-            for ( var i = 0, bool, inputElemType, defaultView, len = props.length; i < len; i++ ) {
+            for ( var i = , bool, inputElemType, defaultView, len = props.length; i < len; i++ ) {
 
                 inputElem.setAttribute('type', inputElemType = props[i]);
                 bool = inputElem.type !== 'text';
@@ -903,7 +903,7 @@ window.Modernizr = (function( window, document, undefined ) {
                               defaultView.getComputedStyle(inputElem, null).WebkitAppearance !== 'textfield' &&
                               // Mobile android web browser has false positive, so must
                               // check the height to see if the widget is actually there.
-                              (inputElem.offsetHeight !== 0);
+                              (inputElem.offsetHeight !== );
 
                       docElement.removeChild(inputElem);
 
@@ -1010,7 +1010,7 @@ window.Modernizr = (function( window, document, undefined ) {
     ;(function(window, document) {
         /*jshint evil:true */
         /** version */
-        var version = '3.7.0';
+        var version = '3.7.';
 
         /** Preset options */
         var options = window.html5 || {};
@@ -1028,7 +1028,7 @@ window.Modernizr = (function( window, document, undefined ) {
         var expando = '_html5shiv';
 
         /** The id for the the documents expando */
-        var expanID = 0;
+        var expanID = ;
 
         /** Cached data for each document */
         var expandoData = {};
@@ -1072,7 +1072,7 @@ window.Modernizr = (function( window, document, undefined ) {
          */
         function addStyleSheet(ownerDocument, cssText) {
           var p = ownerDocument.createElement('p'),
-          parent = ownerDocument.getElementsByTagName('head')[0] || ownerDocument.documentElement;
+          parent = ownerDocument.getElementsByTagName('head')[] || ownerDocument.documentElement;
 
           p.innerHTML = 'x<style>' + cssText + '</style>';
           return parent.insertBefore(p.lastChild, parent.firstChild);
@@ -1136,7 +1136,7 @@ window.Modernizr = (function( window, document, undefined ) {
           // * Attributes like `name` or `type` cannot be set/changed once an element
           //   is inserted into a document/fragment
           // * Link elements with `src` attributes that are inaccessible, as with
-          //   a 403 response, will cause the tab/window to crash
+          //   a 43 response, will cause the tab/window to crash
           // * Script elements appended to fragments will execute when their `src`
           //   or `text` property is set
           return node.canHaveChildren && !reSkip.test(nodeName) && !node.tagUrn ? data.frag.appendChild(node) : node;
@@ -1157,7 +1157,7 @@ window.Modernizr = (function( window, document, undefined ) {
           }
           data = data || getExpandoData(ownerDocument);
           var clone = data.frag.cloneNode(),
-          i = 0,
+          i = ,
           elems = getElements(),
           l = elems.length;
           for(;i<l;i++){
@@ -1221,7 +1221,7 @@ window.Modernizr = (function( window, document, undefined ) {
                                           // corrects block display not defined in IE6/7/8/9
                                           'article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}' +
                                             // adds styling not present in IE6/7/8/9
-                                            'mark{background:#FF0;color:#000}' +
+                                            'mark{background:#FF;color:#}' +
                                             // hides non-rendered elements
                                             'template{display:none}'
                                          );
@@ -1325,7 +1325,7 @@ window.Modernizr = (function( window, document, undefined ) {
     //   * If a browser does not support media queries at all (eg. oldIE) the mq() will always return false
     //   * A max-width or orientation query will be evaluated against the current state, which may change later.
     //   * You must specify values. Eg. If you are testing support for the min-width media query use:
-    //       Modernizr.mq('(min-width:0)')
+    //       Modernizr.mq('(min-width:)')
     // usage:
     // Modernizr.mq('only screen and (max-width:768)')
     Modernizr.mq            = testMediaQuery;

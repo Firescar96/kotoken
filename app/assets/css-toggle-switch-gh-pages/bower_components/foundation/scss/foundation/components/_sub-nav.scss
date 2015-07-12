@@ -16,7 +16,7 @@
 $include-html-nav-classes: $include-html-classes !default;
 
 // We use these to control margin and padding
-$sub-nav-list-margin: rem-calc(-4 0 18) !default;
+$sub-nav-list-margin: rem-calc(-4  18) !default;
 $sub-nav-list-padding-top: rem-calc(4) !default;
 
 // We use this to control the definition
@@ -74,7 +74,7 @@ $sub-nav-item-divider-margin: rem-calc(12) !default;
     float: $default-float;
     display: inline;
     margin-#{$default-float}: rem-calc(16);
-    margin-bottom: 0;
+    margin-bottom: ;
     font-family: $sub-nav-font-family;
     font-weight: $sub-nav-font-weight;
     font-size: $font-size;
@@ -101,16 +101,16 @@ $sub-nav-item-divider-margin: rem-calc(12) !default;
       }
     }
     @if $sub-nav-item-divider != "" {
-      margin-#{$default-float}: 0;
+      margin-#{$default-float}: ;
 
       &:before {
         content: "#{$sub-nav-item-divider}";
-        margin: 0 $sub-nav-item-divider-margin;
+        margin:  $sub-nav-item-divider-margin;
       }
 
       &:first-child:before {
         content: "";
-        margin: 0;
+        margin: ;
       }
     }
   }

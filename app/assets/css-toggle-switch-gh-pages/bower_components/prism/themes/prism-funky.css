@@ -27,16 +27,16 @@ pre[class*="language-"] {
 /* Code blocks */
 pre[class*="language-"] {
 	padding: .4em .8em;
-	margin: .5em 0;
+	margin: .5em ;
 	overflow: auto;
-	background: url('data:image/svg+xml;charset=utf-8,<svg%20version%3D"1.1"%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20width%3D"100"%20height%3D"100"%20fill%3D"rgba(0%2C0%2C0%2C.2)">%0D%0A<polygon%20points%3D"0%2C50%2050%2C0%200%2C0"%20%2F>%0D%0A<polygon%20points%3D"0%2C100%2050%2C100%20100%2C50%20100%2C0"%20%2F>%0D%0A<%2Fsvg>');
+	background: url('data:image/svg+xml;charset=utf-8,<svg%2version%3D"1.1"%2xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2%2Fsvg"%2width%3D"1"%2height%3D"1"%2fill%3D"rgba(%2C%2C%2C.2)">%D%A<polygon%2points%3D"%2C5%25%2C%2%2C"%2%2F>%D%A<polygon%2points%3D"%2C1%25%2C1%21%2C5%21%2C"%2%2F>%D%A<%2Fsvg>');
 	background-size: 1em 1em;
 }
 
 code[class*="language-"] {
 	background: black;
 	color: white;
-	box-shadow: -.3em 0 0 .3em black, .3em 0 0 .3em black;
+	box-shadow: -.3em   .3em black, .3em   .3em black;
 }
 
 /* Inline code */
@@ -67,7 +67,7 @@ code[class*="language-"] {
 .token.number,
 .token.constant,
 .token.symbol {
-	color: #0cf;
+	color: #cf;
 }
 
 .token.selector,

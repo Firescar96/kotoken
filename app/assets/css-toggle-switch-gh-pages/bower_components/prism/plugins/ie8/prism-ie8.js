@@ -26,7 +26,7 @@ if (!('textContent' in dummy) && ('innerText' in dummy) && Object.defineProperty
 
 // IE8 doesn't have DOMContentLoaded
 if (!document.addEventListener && 'textContent' in dummy) {
-	setTimeout(Prism.highlightAll, 10);
+	setTimeout(Prism.highlightAll, 1);
 }
 
 // Test if innerHTML line break bug is present

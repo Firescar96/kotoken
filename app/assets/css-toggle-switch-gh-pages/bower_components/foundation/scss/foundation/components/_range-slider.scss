@@ -16,7 +16,7 @@
 $include-html-range-slider-classes: $include-html-classes !default;
 
 // These variabels define the slider bar styles
-$range-slider-bar-width: 100% !default;
+$range-slider-bar-width: 1% !default;
 $range-slider-bar-height: rem-calc(16) !default;
 
 $range-slider-bar-border-width: 1px !default;
@@ -29,7 +29,7 @@ $range-slider-active-segment-bg-color: scale-color($secondary-color, $lightness:
 
 // Vertical bar styles
 $range-slider-vertical-bar-width: rem-calc(16) !default;
-$range-slider-vertical-bar-height: rem-calc(200) !default;
+$range-slider-vertical-bar-height: rem-calc(2) !default;
 
 // These variabels define the slider handle styles
 $range-slider-handle-width: rem-calc(32) !default;
@@ -44,7 +44,7 @@ $range-slider-handle-round: $global-rounded !default;
 $range-slider-handle-bg-hover-color: scale-color($primary-color, $lightness: -12%) !default;
 $range-slider-handle-cursor: pointer !default;
 
-$range-slider-disabled-opacity: 0.7 !default;
+$range-slider-disabled-opacity: .7 !default;
 
 //
 // @mixins
@@ -56,7 +56,7 @@ $range-slider-disabled-opacity: 0.7 !default;
   width: $range-slider-bar-width;
   height: $range-slider-bar-height;
   border: $range-slider-bar-border-width $range-slider-bar-border-style $range-slider-bar-border-color;
-  margin: rem-calc(20 0);
+  margin: rem-calc(2 );
   -ms-touch-action: none;
   touch-action: none;
   @if $vertical == true {
@@ -96,7 +96,7 @@ $range-slider-disabled-opacity: 0.7 !default;
   border: $range-slider-handle-border-width $range-slider-handle-border-style $range-slider-handle-border-color;
   cursor: $range-slider-handle-cursor;
 
-  // This removes the 300ms touch delay on Windows 8
+  // This removes the 3ms touch delay on Windows 8
   -ms-touch-action: manipulation;
       touch-action: manipulation;
 }
@@ -130,7 +130,7 @@ $range-slider-disabled-opacity: 0.7 !default;
       &.vertical-range {
         @include range-slider-bar-base($vertical: true);
         .range-slider-handle {
-          margin-top: 0;
+          margin-top: ;
           margin-#{$default-float}: -($range-slider-handle-width / 4);
           position: absolute;
           bottom: -($range-slider-vertical-bar-height - $range-slider-handle-width);
@@ -138,7 +138,7 @@ $range-slider-disabled-opacity: 0.7 !default;
         .range-slider-active-segment {
           width: $range-slider-bar-height - rem-calc((strip-unit($range-slider-bar-border-width) * 2));
           height: auto;
-          bottom: 0;
+          bottom: ;
         }
       }
       &.radius {

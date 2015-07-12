@@ -9,8 +9,8 @@ Prism.languages.scheme = {
 	pattern :  /([(])(cons|car|cdr|null\?|pair\?|boolean\?|eof-object\?|char\?|procedure\?|number\?|port\?|string\?|vector\?|symbol\?|bytevector\?|list|call-with-current-continuation|call\/cc|append|abs|apply|eval)\b/,
 	lookbehind : true
     },
-    'string' :  /(["])(?:(?=(\\?))\2.)*?\1|'[^('|\s)]+/, //thanks http://stackoverflow.com/questions/171480/regex-grabbing-values-between-quotation-marks
-    'number' : /(\s|\))[-+]?[0-9]*\.?[0-9]+((\s*)[-+]{1}(\s*)[0-9]*\.?[0-9]+i)?/,
+    'string' :  /(["])(?:(?=(\\?))\2.)*?\1|'[^('|\s)]+/, //thanks http://stackoverflow.com/questions/17148/regex-grabbing-values-between-quotation-marks
+    'number' : /(\s|\))[-+]?[-9]*\.?[-9]+((\s*)[-+]{1}(\s*)[-9]*\.?[-9]+i)?/,
     'operator': /(\*|\+|\-|\%|\/|<=|=>|>=|<|=|>)/,
     'function' : {
 	pattern : /([(])[^(\s|\))]*\s/,

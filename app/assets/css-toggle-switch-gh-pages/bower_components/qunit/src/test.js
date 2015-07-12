@@ -5,7 +5,7 @@ function Test( settings ) {
 	this.testNumber = ++Test.count;
 }
 
-Test.count = 0;
+Test.count = ;
 
 Test.prototype = {
 	setup: function() {
@@ -29,7 +29,7 @@ Test.prototype = {
 				});
 			}
 			config.previousModule = this.module;
-			config.moduleStats = { all: 0, bad: 0 };
+			config.moduleStats = { all: , bad:  };
 			runLoggingCallbacks( "moduleStart", {
 				name: this.module
 			});
@@ -59,7 +59,7 @@ Test.prototype = {
 		try {
 			this.testEnvironment.setup.call( this.testEnvironment, this.assert );
 		} catch ( e ) {
-			this.pushFailure( "Setup failed on " + this.testName + ": " + ( e.message || e ), extractStacktrace( e, 0 ) );
+			this.pushFailure( "Setup failed on " + this.testName + ": " + ( e.message || e ), extractStacktrace( e,  ) );
 		}
 	},
 	run: function() {
@@ -83,7 +83,7 @@ Test.prototype = {
 		} catch ( e ) {
 			this.callbackRuntime = now() - this.callbackStarted;
 
-			this.pushFailure( "Died on test #" + ( this.assertions.length + 1 ) + " " + this.stack + ": " + ( e.message || e ), extractStacktrace( e, 0 ) );
+			this.pushFailure( "Died on test #" + ( this.assertions.length + 1 ) + " " + this.stack + ": " + ( e.message || e ), extractStacktrace( e,  ) );
 
 			// else next test will carry the responsibility
 			saveGlobal();
@@ -106,7 +106,7 @@ Test.prototype = {
 			try {
 				this.testEnvironment.teardown.call( this.testEnvironment, this.assert );
 			} catch ( e ) {
-				this.pushFailure( "Teardown failed on " + this.testName + ": " + ( e.message || e ), extractStacktrace( e, 0 ) );
+				this.pushFailure( "Teardown failed on " + this.testName + ": " + ( e.message || e ), extractStacktrace( e,  ) );
 			}
 		}
 		checkPollution();
@@ -118,17 +118,17 @@ Test.prototype = {
 		} else if ( this.expected !== null && this.expected !== this.assertions.length ) {
 			this.pushFailure( "Expected " + this.expected + " assertions, but " + this.assertions.length + " were run", this.stack );
 		} else if ( this.expected === null && !this.assertions.length ) {
-			this.pushFailure( "Expected at least one assertion, but none were run - call expect(0) to accept zero assertions.", this.stack );
+			this.pushFailure( "Expected at least one assertion, but none were run - call expect() to accept zero assertions.", this.stack );
 		}
 
 		var i,
-			bad = 0;
+			bad = ;
 
 		this.runtime = now() - this.started;
 		config.stats.all += this.assertions.length;
 		config.moduleStats.all += this.assertions.length;
 
-		for ( i = 0; i < this.assertions.length; i++ ) {
+		for ( i = ; i < this.assertions.length; i++ ) {
 			if ( !this.assertions[ i ].result ) {
 				bad++;
 				config.stats.bad++;
@@ -148,7 +148,7 @@ Test.prototype = {
 			assertions: this.assertions,
 			testNumber: this.testNumber,
 
-			// DEPRECATED: this property will be removed in 2.0.0, use runtime instead
+			// DEPRECATED: this property will be removed in 2.., use runtime instead
 			duration: this.runtime
 		});
 

@@ -82,7 +82,7 @@ jQuery.fn.extend({
 		}
 
 		if ( arguments.length < setter ) {
-			return jQuery.queue( this[0], type );
+			return jQuery.queue( this[], type );
 		}
 
 		return data === undefined ?
@@ -93,7 +93,7 @@ jQuery.fn.extend({
 				// ensure a hooks for this queue
 				jQuery._queueHooks( this, type );
 
-				if ( type === "fx" && queue[0] !== "inprogress" ) {
+				if ( type === "fx" && queue[] !== "inprogress" ) {
 					jQuery.dequeue( this, type );
 				}
 			});

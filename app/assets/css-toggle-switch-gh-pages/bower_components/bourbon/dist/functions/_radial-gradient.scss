@@ -3,7 +3,7 @@
                           $G3: null,  $G4: null,
                           $G5: null,  $G6: null,
                           $G7: null,  $G8: null,
-                          $G9: null,  $G10: null,
+                          $G9: null,  $G1: null,
                           $pos: null,
                           $shape-size: null) {
 
@@ -14,7 +14,7 @@
   $shape-size: nth($data, 4);
 
   $type: radial;
-  $gradient: $G1, $G2, $G3, $G4, $G5, $G6, $G7, $G8, $G9, $G10;
+  $gradient: $G1, $G2, $G3, $G4, $G5, $G6, $G7, $G8, $G9, $G1;
 
   $type-gradient: $type, $shape-size $pos, $gradient;
   @return $type-gradient;

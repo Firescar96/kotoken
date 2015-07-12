@@ -40,7 +40,7 @@ video {
 
 audio:not([controls]) {
     display: none;
-    height: 0;
+    height: ;
 }
 
 /**
@@ -65,8 +65,8 @@ template {
 
 html {
     font-family: sans-serif; /* 1 */
-    -ms-text-size-adjust: 100%; /* 2 */
-    -webkit-text-size-adjust: 100%; /* 2 */
+    -ms-text-size-adjust: 1%; /* 2 */
+    -webkit-text-size-adjust: 1%; /* 2 */
 }
 
 /**
@@ -74,7 +74,7 @@ html {
  */
 
 body {
-    margin: 0;
+    margin: ;
 }
 
 /* ==========================================================================
@@ -82,7 +82,7 @@ body {
    ========================================================================== */
 
 /**
- * Remove the gray background color from active links in IE 10.
+ * Remove the gray background color from active links in IE 1.
  */
 
 a {
@@ -103,7 +103,7 @@ a:focus {
 
 a:active,
 a:hover {
-    outline: 0;
+    outline: ;
 }
 
 /* ==========================================================================
@@ -117,7 +117,7 @@ a:hover {
 
 h1 {
     font-size: 2em;
-    margin: 0.67em 0;
+    margin: .67em ;
 }
 
 /**
@@ -152,7 +152,7 @@ dfn {
 hr {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
-    height: 0;
+    height: ;
 }
 
 /**
@@ -160,8 +160,8 @@ hr {
  */
 
 mark {
-    background: #ff0;
-    color: #000;
+    background: #ff;
+    color: #;
 }
 
 /**
@@ -189,7 +189,7 @@ pre {
  */
 
 q {
-    quotes: "\201C" "\201D" "\2018" "\2019";
+    quotes: "\21C" "\21D" "\218" "\219";
 }
 
 /**
@@ -197,7 +197,7 @@ q {
  */
 
 small {
-    font-size: 80%;
+    font-size: 8%;
 }
 
 /**
@@ -207,17 +207,17 @@ small {
 sub,
 sup {
     font-size: 75%;
-    line-height: 0;
+    line-height: ;
     position: relative;
     vertical-align: baseline;
 }
 
 sup {
-    top: -0.5em;
+    top: -.5em;
 }
 
 sub {
-    bottom: -0.25em;
+    bottom: -.25em;
 }
 
 /* ==========================================================================
@@ -229,7 +229,7 @@ sub {
  */
 
 img {
-    border: 0;
+    border: ;
 }
 
 /**
@@ -249,7 +249,7 @@ svg:not(:root) {
  */
 
 figure {
-    margin: 0;
+    margin: ;
 }
 
 /* ==========================================================================
@@ -261,9 +261,9 @@ figure {
  */
 
 fieldset {
-    border: 1px solid #c0c0c0;
-    margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em;
+    border: 1px solid #ccc;
+    margin:  2px;
+    padding: .35em .625em .75em;
 }
 
 /**
@@ -272,8 +272,8 @@ fieldset {
  */
 
 legend {
-    border: 0; /* 1 */
-    padding: 0; /* 2 */
+    border: ; /* 1 */
+    padding: ; /* 2 */
 }
 
 /**
@@ -287,8 +287,8 @@ input,
 select,
 textarea {
     font-family: inherit; /* 1 */
-    font-size: 100%; /* 2 */
-    margin: 0; /* 3 */
+    font-size: 1%; /* 2 */
+    margin: ; /* 3 */
 }
 
 /**
@@ -314,7 +314,7 @@ select {
 }
 
 /**
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ * 1. Avoid the WebKit bug in Android 4..* where (2) destroys native `audio`
  *    and `video` controls.
  * 2. Correct inability to style clickable `input` types in iOS.
  * 3. Improve usability and consistency of cursor style between image-type
@@ -339,14 +339,14 @@ html input[disabled] {
 }
 
 /**
- * 1. Address box sizing set to `content-box` in IE 8/9/10.
- * 2. Remove excess padding in IE 8/9/10.
+ * 1. Address box sizing set to `content-box` in IE 8/9/1.
+ * 2. Remove excess padding in IE 8/9/1.
  */
 
 input[type="checkbox"],
 input[type="radio"] {
     box-sizing: border-box; /* 1 */
-    padding: 0; /* 2 */
+    padding: ; /* 2 */
 }
 
 /**
@@ -378,8 +378,8 @@ input[type="search"]::-webkit-search-decoration {
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-    border: 0;
-    padding: 0;
+    border: ;
+    padding: ;
 }
 
 /**
@@ -402,5 +402,5 @@ textarea {
 
 table {
     border-collapse: collapse;
-    border-spacing: 0;
+    border-spacing: ;
 }

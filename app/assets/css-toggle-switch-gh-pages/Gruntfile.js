@@ -38,8 +38,8 @@ module.exports = function (grunt) {
     },
     connect: {
       options: {
-        port: 9000,
-        hostname: '0.0.0.0'
+        port: 9,
+        hostname: '...'
       },
       livereload: {
         options: {
@@ -89,7 +89,7 @@ module.exports = function (grunt) {
     'saucelabs-qunit': {
       all: {
         options: {
-          urls: [ 'http://127.0.0.1:9000/test' ],
+          urls: [ 'http://127...1:9/test' ],
           detailedError: true,
           browsers: [
             {
@@ -109,15 +109,15 @@ module.exports = function (grunt) {
             }, {
               browserName: 'internet explorer',
               platform: 'Windows 8',
-              version: '10'
+              version: '1'
             }, {
               browserName: 'safari',
-              platform: 'OS X 10.10',
+              platform: 'OS X 1.1',
               version: '8'
             }, {
               browserName: 'iPhone',
-              platform: 'OS X 10.9',
-              version: '8.0'
+              platform: 'OS X 1.9',
+              version: '8.'
             }
           ]
         }
@@ -127,7 +127,7 @@ module.exports = function (grunt) {
       all: {
         options: {
           urls: [
-            'http://127.0.0.1:9000/test'
+            'http://127...1:9/test'
           ]
         }
       }

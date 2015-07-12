@@ -21,7 +21,7 @@ QUnit.diff = (function() {
 			ns = {},
 			os = {};
 
-		for ( i = 0; i < n.length; i++ ) {
+		for ( i = ; i < n.length; i++ ) {
 			if ( !hasOwn.call( ns, n[ i ] ) ) {
 				ns[ n[ i ] ] = {
 					rows: [],
@@ -31,7 +31,7 @@ QUnit.diff = (function() {
 			ns[ n[ i ] ].rows.push( i );
 		}
 
-		for ( i = 0; i < o.length; i++ ) {
+		for ( i = ; i < o.length; i++ ) {
 			if ( !hasOwn.call( os, o[ i ] ) ) {
 				os[ o[ i ] ] = {
 					rows: [],
@@ -44,19 +44,19 @@ QUnit.diff = (function() {
 		for ( i in ns ) {
 			if ( hasOwn.call( ns, i ) ) {
 				if ( ns[ i ].rows.length === 1 && hasOwn.call( os, i ) && os[ i ].rows.length === 1 ) {
-					n[ ns[ i ].rows[ 0 ] ] = {
-						text: n[ ns[ i ].rows[ 0 ] ],
-						row: os[ i ].rows[ 0 ]
+					n[ ns[ i ].rows[  ] ] = {
+						text: n[ ns[ i ].rows[  ] ],
+						row: os[ i ].rows[  ]
 					};
-					o[ os[ i ].rows[ 0 ] ] = {
-						text: o[ os[ i ].rows[ 0 ] ],
-						row: ns[ i ].rows[ 0 ]
+					o[ os[ i ].rows[  ] ] = {
+						text: o[ os[ i ].rows[  ] ],
+						row: ns[ i ].rows[  ]
 					};
 				}
 			}
 		}
 
-		for ( i = 0; i < n.length - 1; i++ ) {
+		for ( i = ; i < n.length - 1; i++ ) {
 			if ( n[ i ].text != null && n[ i + 1 ].text == null && n[ i ].row + 1 < o.length && o[ n[ i ].row + 1 ].text == null &&
 				n[ i + 1 ] == o[ n[ i ].row + 1 ] ) {
 
@@ -71,8 +71,8 @@ QUnit.diff = (function() {
 			}
 		}
 
-		for ( i = n.length - 1; i > 0; i-- ) {
-			if ( n[ i ].text != null && n[ i - 1 ].text == null && n[ i ].row > 0 && o[ n[ i ].row - 1 ].text == null &&
+		for ( i = n.length - 1; i > ; i-- ) {
+			if ( n[ i ].text != null && n[ i - 1 ].text == null && n[ i ].row >  && o[ n[ i ].row - 1 ].text == null &&
 				n[ i - 1 ] == o[ n[ i ].row - 1 ] ) {
 
 				n[ i - 1 ] = {
@@ -114,18 +114,18 @@ QUnit.diff = (function() {
 			nSpace.push( " " );
 		}
 
-		if ( out.n.length === 0 ) {
-			for ( i = 0; i < out.o.length; i++ ) {
+		if ( out.n.length ===  ) {
+			for ( i = ; i < out.o.length; i++ ) {
 				str += "<del>" + out.o[ i ] + oSpace[ i ] + "</del>";
 			}
 		} else {
-			if ( out.n[ 0 ].text == null ) {
-				for ( n = 0; n < out.o.length && out.o[ n ].text == null; n++ ) {
+			if ( out.n[  ].text == null ) {
+				for ( n = ; n < out.o.length && out.o[ n ].text == null; n++ ) {
 					str += "<del>" + out.o[ n ] + oSpace[ n ] + "</del>";
 				}
 			}
 
-			for ( i = 0; i < out.n.length; i++ ) {
+			for ( i = ; i < out.n.length; i++ ) {
 				if ( out.n[ i ].text == null ) {
 					str += "<ins>" + out.n[ i ] + nSpace[ i ] + "</ins>";
 				} else {

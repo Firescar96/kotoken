@@ -9,7 +9,7 @@
 
     var elem = document.createElement('a'),
         eStyle = elem.style,
-        val = "right 10px bottom 10px";
+        val = "right 1 bottom 1";
 
     Modernizr.addTest('bgpositionshorthand', function(){
         eStyle.cssText = "background-position: " + val + ";";

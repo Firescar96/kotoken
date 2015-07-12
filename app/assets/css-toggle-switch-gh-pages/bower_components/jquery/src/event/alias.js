@@ -9,7 +9,7 @@ jQuery.each( ("blur focus focusin focusout load resize scroll unload click dblcl
 
 	// Handle event binding
 	jQuery.fn[ name ] = function( data, fn ) {
-		return arguments.length > 0 ?
+		return arguments.length >  ?
 			this.on( name, null, data, fn ) :
 			this.trigger( name );
 	};

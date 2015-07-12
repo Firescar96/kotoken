@@ -1,4 +1,4 @@
-@mixin position ($position: relative, $coordinates: 0 0 0 0) {
+@mixin position ($position: relative, $coordinates:    ) {
 
   @if type-of($position) == list {
     $coordinates: $position;

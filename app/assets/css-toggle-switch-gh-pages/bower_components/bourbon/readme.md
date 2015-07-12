@@ -44,13 +44,13 @@ Import Bourbon at the beginning of application.css.scss. All additional styleshe
 
 [Help! I'm getting an undefined mixin error.](https://github.com/thoughtbot/bourbon/wiki/Rails-Help-%5C-Undefined-mixin)
 
-##### [Rails 3.0.x Install Instructions](https://github.com/thoughtbot/bourbon/wiki/Rails-3.0.x-Install) | [Rails 2.3 Install Instructions](https://github.com/thoughtbot/bourbon/wiki/Bourbon-v2.x-or-Rails-2.3-Install)
+##### [Rails 3..x Install Instructions](https://github.com/thoughtbot/bourbon/wiki/Rails-3..x-Install) | [Rails 2.3 Install Instructions](https://github.com/thoughtbot/bourbon/wiki/Bourbon-v2.x-or-Rails-2.3-Install)
 
 ### Non-Rails projects
 Bourbon includes an easy way to generate a directory with all the necessary files.  
 For command line help: `$ bourbon help` or visit the [Command line tools wiki](https://github.com/thoughtbot/bourbon/wiki/Command-Line-Tools)
 
-##### Install (Bourbon v3.0+)
+##### Install (Bourbon v3.+)
 
     gem install bourbon
 
@@ -70,7 +70,7 @@ Lastly, import the mixins at the beginning of your stylesheet(s):
 
     @import 'bourbon/bourbon';
 
-Note: Bourbon no longer requires a custom `sass --watch` command for Bourbon v3.0+
+Note: Bourbon no longer requires a custom `sass --watch` command for Bourbon v3.+
 
 ##### Other Commands
 Visit the [Command line tools wiki](https://github.com/thoughtbot/bourbon/wiki/Command-Line-Tools) for a complete list
@@ -97,4 +97,4 @@ The names and logos for thoughtbot are trademarks of thoughtbot, inc.
 Got questions? Need help? Tweet at [@phillapier](http://twitter.com/phillapier).
 
 ### License
-Bourbon is Copyright © 2011-2013 thoughtbot. It is free software, and may be redistributed under the terms specified in the LICENSE file.
+Bourbon is Copyright © 211-213 thoughtbot. It is free software, and may be redistributed under the terms specified in the LICENSE file.

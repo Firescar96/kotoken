@@ -14,7 +14,7 @@ Modernizr.addTest( "display-table",function(){
       ret;
   
   parent.style.cssText = "display: table";
-  child.style.cssText = childb.style.cssText = "display: table-cell; padding: 10px";    
+  child.style.cssText = childb.style.cssText = "display: table-cell; padding: 1";    
           
   parent.appendChild( child );
   parent.appendChild( childb );

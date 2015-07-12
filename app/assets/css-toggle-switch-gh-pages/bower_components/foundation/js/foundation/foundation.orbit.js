@@ -15,7 +15,7 @@
         number_container,
         bullets_container,
         timer_container,
-        idx = 0,
+        idx = ,
         animate,
         timer,
         locked = false,
@@ -96,8 +96,8 @@
       if (next_idx < idx) {dir = 'prev';}
       if (next_idx >= slides.length) {
         if (!settings.circular) return false;
-        next_idx = 0;
-      } else if (next_idx < 0) {
+        next_idx = ;
+      } else if (next_idx < ) {
         if (!settings.circular) return false;
         next_idx = slides.length - 1;
       }
@@ -123,7 +123,7 @@
           settings.after_slide_change(idx, slides.length);
         };
         if (slides_container.height() != next.height() && settings.variable_height) {
-          slides_container.animate({'height': next.height()}, 250, 'linear', unlock);
+          slides_container.animate({'height': next.height()}, 25, 'linear', unlock);
         } else {
           unlock();
         }
@@ -137,7 +137,7 @@
       };
 
       if (next.height() > slides_container.height() && settings.variable_height) {
-        slides_container.animate({'height': next.height()}, 250, 'linear', start_animation);
+        slides_container.animate({'height': next.height()}, 25, 'linear', start_animation);
       } else {
         start_animation();
       }
@@ -241,10 +241,10 @@
         container.on('touchstart.fndtn.orbit', function(e) {
           if (!e.touches) {e = e.originalEvent;}
           var data = {
-            start_page_x: e.touches[0].pageX,
-            start_page_y: e.touches[0].pageY,
+            start_page_x: e.touches[].pageX,
+            start_page_y: e.touches[].pageY,
             start_time: (new Date()).getTime(),
-            delta_x: 0,
+            delta_x: ,
             is_scrolling: undefined
           };
           container.data('swipe-transition', data);
@@ -258,15 +258,15 @@
           var data = container.data('swipe-transition');
           if (typeof data === 'undefined') {data = {};}
 
-          data.delta_x = e.touches[0].pageX - data.start_page_x;
+          data.delta_x = e.touches[].pageX - data.start_page_x;
 
           if ( typeof data.is_scrolling === 'undefined') {
-            data.is_scrolling = !!( data.is_scrolling || Math.abs(data.delta_x) < Math.abs(e.touches[0].pageY - data.start_page_y) );
+            data.is_scrolling = !!( data.is_scrolling || Math.abs(data.delta_x) < Math.abs(e.touches[].pageY - data.start_page_y) );
           }
 
           if (!data.is_scrolling && !data.active) {
             e.preventDefault();
-            var direction = (data.delta_x < 0) ? (idx+1) : (idx-1);
+            var direction = (data.delta_x < ) ? (idx+1) : (idx-1);
             data.active = true;
             self._goto(direction);
           }
@@ -292,8 +292,8 @@
       Foundation.utils.image_loaded(this.slides().children('img'), self.compute_dimensions);
       Foundation.utils.image_loaded(this.slides().children('img'), function() {
         container.prev('.'+settings.preloader_class).css('display', 'none');
-        self.update_slide_number(0);
-        self.update_active_link(0);
+        self.update_slide_number();
+        self.update_active_link();
         slides_container.trigger('ready.fndtn.orbit');
       });
     };
@@ -321,7 +321,7 @@
       clearTimeout(timeout);
       el.addClass(settings.timer_paused_class);
       left = -1;
-      self.update_progress(0);
+      self.update_progress();
     };
 
     this.start = function() {
@@ -329,7 +329,7 @@
       left = (left === -1) ? duration : left;
       el.removeClass(settings.timer_paused_class);
       start = new Date().getTime();
-      progress.animate({'width': '100%'}, left, 'linear');
+      progress.animate({'width': '1%'}, left, 'linear');
       timeout = setTimeout(function() {
         self.restart();
         callback();
@@ -343,7 +343,7 @@
       el.addClass(settings.timer_paused_class);
       var end = new Date().getTime();
       left = left - (end - start);
-      var w = 100 - ((left / duration) * 100);
+      var w = 1 - ((left / duration) * 1);
       self.update_progress(w);
       el.trigger('timer-stopped.fndtn.orbit');
     };
@@ -354,21 +354,21 @@
     var is_rtl = ($('html[dir=rtl]').length === 1);
     var margin = is_rtl ? 'marginRight' : 'marginLeft';
     var animMargin = {};
-    animMargin[margin] = '0%';
+    animMargin[margin] = '%';
 
     this.next = function(current, next, callback) {
-      current.animate({marginLeft:'-100%'}, duration);
+      current.animate({marginLeft:'-1%'}, duration);
       next.animate(animMargin, duration, function() {
-        current.css(margin, '100%');
+        current.css(margin, '1%');
         callback();
       });
     };
 
     this.prev = function(current, prev, callback) {
-      current.animate({marginLeft:'100%'}, duration);
-      prev.css(margin, '-100%');
+      current.animate({marginLeft:'1%'}, duration);
+      prev.css(margin, '-1%');
       prev.animate(animMargin, duration, function() {
-        current.css(margin, '100%');
+        current.css(margin, '1%');
         callback();
       });
     };
@@ -380,17 +380,17 @@
     var margin = is_rtl ? 'marginRight' : 'marginLeft';
 
     this.next = function(current, next, callback) {
-      next.css({'margin':'0%', 'opacity':'0.01'});
+      next.css({'margin':'%', 'opacity':'.1'});
       next.animate({'opacity':'1'}, duration, 'linear', function() {
-        current.css('margin', '100%');
+        current.css('margin', '1%');
         callback();
       });
     };
 
     this.prev = function(current, prev, callback) {
-      prev.css({'margin':'0%', 'opacity':'0.01'});
+      prev.css({'margin':'%', 'opacity':'.1'});
       prev.animate({'opacity':'1'}, duration, 'linear', function() {
-        current.css('margin', '100%');
+        current.css('margin', '1%');
         callback();
       });
     };
@@ -406,11 +406,11 @@
 
     settings: {
       animation: 'slide',
-      timer_speed: 10000,
+      timer_speed: 1,
       pause_on_hover: true,
       resume_on_mouseout: false,
       next_on_click: true,
-      animation_speed: 500,
+      animation_speed: 5,
       stack_on_small: false,
       navigation_arrows: true,
       slide_number: true,

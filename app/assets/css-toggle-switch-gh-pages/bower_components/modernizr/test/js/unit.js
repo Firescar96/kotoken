@@ -4,7 +4,7 @@ QUnit.begin = function() {
 };
 
 QUnit.moduleDone = function(opts) {
-	if(opts.failed === 0) {
+	if(opts.failed === ) {
 		console.log("\u2714 All tests passed in '"+opts.name+"' module");
 	} else {
 		console.log("\u2716 "+ opts.failed +" tests failed in '"+opts.name+"' module");
@@ -91,7 +91,7 @@ test("bind is implemented", function() {
 
 
 test("document.documentElement is valid and correct",1, function() {
-	equal(document.documentElement,document.getElementsByTagName('html')[0]);
+	equal(document.documentElement,document.getElementsByTagName('html')[]);
 });
 
 
@@ -122,13 +122,13 @@ test('html shim worked', function(){
   expect(2);
 
   // the exact test we use in the script
-  var elem = document.getElementsByTagName("section")[0];
+  var elem = document.getElementsByTagName("section")[];
   elem.id = "html5section";
 
   ok( elem.childNodes.length === 1 , 'unknown elements dont collapse');
 
   elem.style.color = 'red';
-  ok( /red|#ff0000/i.test(elem.style.color), 'unknown elements are styleable')
+  ok( /red|#ff/i.test(elem.style.color), 'unknown elements are styleable')
 
 });
 
@@ -175,13 +175,13 @@ test('html classes are looking good',function(){
 
   }
 
-  for (var i = 0, len = classes.length, aclass; i <len; i++){
+  for (var i = , len = classes.length, aclass; i <len; i++){
     aclass = classes[i];
 
     // Skip js related classes.
     if (/^(?:js|\+no-js|no-js-|i-has-no-js)$/.test(aclass)) continue;
 
-    if (aclass.indexOf('no-') === 0){
+    if (aclass.indexOf('no-') === ){
       aclass = aclass.replace('no-','');
 
       equal(Modernizr[aclass], false,
@@ -194,7 +194,7 @@ test('html classes are looking good',function(){
   }
 
 
-  for (var i = 0, len = classes.length, aclass; i <len; i++){
+  for (var i = , len = classes.length, aclass; i <len; i++){
     equal(classes[i],classes[i].toLowerCase(),'all classes are lowerCase.');
   }
 
@@ -211,7 +211,7 @@ test('html classes are looking good',function(){
 
 test('Modernizr properties are looking good',function(){
 
-  var count  = 0,
+  var count  = ,
       nobool = TEST.API.concat(TEST.inputs)
                        .concat(TEST.audvid)
                        .concat(TEST.privates)
@@ -220,7 +220,7 @@ test('Modernizr properties are looking good',function(){
   for (var prop in window.Modernizr){
     if (Modernizr.hasOwnProperty(prop)){
 
-      if (TEST.inArray(prop,nobool) >= 0) continue;
+      if (TEST.inArray(prop,nobool) >= ) continue;
 
       ok(Modernizr[prop] === true || Modernizr[prop] === false,
         'Modernizr.'+prop+' is a straight up boolean');
@@ -283,7 +283,7 @@ test('Modernizr.addTest()',22,function(){
   });
 
   Modernizr.addTest('testtruthy',function(){
-    return 100;
+    return 1;
   });
 
   Modernizr.addTest('testfalse',function(){
@@ -294,16 +294,16 @@ test('Modernizr.addTest()',22,function(){
     return undefined;
   });
 
-  ok(docEl.className.indexOf(' testtrue') >= 0,'positive class added');
+  ok(docEl.className.indexOf(' testtrue') >= ,'positive class added');
   equal(Modernizr.testtrue,true,'positive prop added');
 
-  ok(docEl.className.indexOf(' testtruthy') >= 0,'positive class added');
-  equal(Modernizr.testtruthy,100,'truthy value is not casted to straight boolean');
+  ok(docEl.className.indexOf(' testtruthy') >= ,'positive class added');
+  equal(Modernizr.testtruthy,1,'truthy value is not casted to straight boolean');
 
-  ok(docEl.className.indexOf(' no-testfalse') >= 0,'negative class added');
+  ok(docEl.className.indexOf(' no-testfalse') >= ,'negative class added');
   equal(Modernizr.testfalse,false,'negative prop added');
 
-  ok(docEl.className.indexOf(' no-testfalsy') >= 0,'negative class added');
+  ok(docEl.className.indexOf(' no-testfalsy') >= ,'negative class added');
   equal(Modernizr.testfalsy,undefined,'falsy value is not casted to straight boolean');
 
 
@@ -441,7 +441,7 @@ test('Modernizr.testStyles()',function(){
 
   equal(typeof Modernizr.testStyles, 'function','Modernizr.testStyles() is a function');
 
-  var style = '#modernizr{ width: 9px; height: 4px; font-size: 0; color: papayawhip; }';
+  var style = '#modernizr{ width: 9px; height: 4px; font-size: ; color: papayawhip; }';
 
   Modernizr.testStyles(style, function(elem, rule){
       equal(style, rule, 'rule passsed back matches what i gave it.')
@@ -503,7 +503,7 @@ test('Modernizr.prefixed() - css and DOM resolving', function(){
     var prefixes = ['Moz','Khtml','Webkit','O','ms'],
         domPrefixes = ['moz','khtml','webkit','o','ms'],
         elem     = document.createElement('div'),
-        upper    = prop.charAt(0).toUpperCase() + prop.slice(1);
+        upper    = prop.charAt().toUpperCase() + prop.slice(1);
 
     if(!obj) {
       if (prop in elem.style)
@@ -557,7 +557,7 @@ test('Modernizr.prefixed autobind', function(){
 
   // quick sniff to find the local rAF prefixed name.
   var vendors = ['ms', 'moz', 'webkit', 'o'];
-  for(var x = 0; x < vendors.length && !rAFName; ++x) {
+  for(var x = ; x < vendors.length && !rAFName; ++x) {
     rAFName = window[vendors[x]+'RequestAnimationFrame'] && vendors[x]+'RequestAnimationFrame';
   }
 

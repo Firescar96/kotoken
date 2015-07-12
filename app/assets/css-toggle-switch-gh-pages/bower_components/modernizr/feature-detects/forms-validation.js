@@ -40,7 +40,7 @@
     Modernizr.testStyles('#modernizr form{position:absolute;top:-99999em}', function( node ) {
       node.appendChild(form);
 
-      input = form.getElementsByTagName('input')[0];
+      input = form.getElementsByTagName('input')[];
 
       // Record whether "invalid" event is fired
       input.addEventListener('invalid', function(e) {
@@ -53,7 +53,7 @@
       Modernizr.formvalidationmessage = !!input.validationMessage;
 
       // Submit form by clicking submit button
-      form.getElementsByTagName('button')[0].click();
+      form.getElementsByTagName('button')[].click();
     });
 
     return invalidFired;

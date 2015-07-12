@@ -43,28 +43,28 @@
   .col(1); // kickstart it
 }
 
-.calc-grid-column(@index, @class, @type) when (@type = width) and (@index > 0) {
+.calc-grid-column(@index, @class, @type) when (@type = width) and (@index > ) {
   .col-@{class}-@{index} {
     width: percentage((@index / @grid-columns));
   }
 }
-.calc-grid-column(@index, @class, @type) when (@type = push) and (@index > 0) {
+.calc-grid-column(@index, @class, @type) when (@type = push) and (@index > ) {
   .col-@{class}-push-@{index} {
     left: percentage((@index / @grid-columns));
   }
 }
-.calc-grid-column(@index, @class, @type) when (@type = push) and (@index = 0) {
-  .col-@{class}-push-0 {
+.calc-grid-column(@index, @class, @type) when (@type = push) and (@index = ) {
+  .col-@{class}-push- {
     left: auto;
   }
 }
-.calc-grid-column(@index, @class, @type) when (@type = pull) and (@index > 0) {
+.calc-grid-column(@index, @class, @type) when (@type = pull) and (@index > ) {
   .col-@{class}-pull-@{index} {
     right: percentage((@index / @grid-columns));
   }
 }
-.calc-grid-column(@index, @class, @type) when (@type = pull) and (@index = 0) {
-  .col-@{class}-pull-0 {
+.calc-grid-column(@index, @class, @type) when (@type = pull) and (@index = ) {
+  .col-@{class}-pull- {
     right: auto;
   }
 }
@@ -75,7 +75,7 @@
 }
 
 // Basic looping in LESS
-.loop-grid-columns(@index, @class, @type) when (@index >= 0) {
+.loop-grid-columns(@index, @class, @type) when (@index >= ) {
   .calc-grid-column(@index, @class, @type);
   // next iteration
   .loop-grid-columns((@index - 1), @class, @type);

@@ -24,9 +24,9 @@ jQuery.fn.load = function( url, params, callback ) {
 		self = this,
 		off = url.indexOf(" ");
 
-	if ( off >= 0 ) {
+	if ( off >=  ) {
 		selector = jQuery.trim( url.slice( off ) );
-		url = url.slice( 0, off );
+		url = url.slice( , off );
 	}
 
 	// If it's a function
@@ -42,7 +42,7 @@ jQuery.fn.load = function( url, params, callback ) {
 	}
 
 	// If we have elements to modify, make the request
-	if ( self.length > 0 ) {
+	if ( self.length >  ) {
 		jQuery.ajax({
 			url: url,
 

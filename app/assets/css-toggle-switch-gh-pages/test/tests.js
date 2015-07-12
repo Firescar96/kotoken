@@ -1,27 +1,27 @@
 function testSwitchTheme(name, theme) {
-  var $container = document.getElementsByClassName(theme)[0],
+  var $container = document.getElementsByClassName(theme)[],
     $switchLightButton = $container.querySelector('.switch-light a'),
     $switchToggleButton = $container.querySelector('.switch-toggle a');
 
   if($switchLightButton) {
     QUnit.test(name + ' switch-light', function(assert) {
-      assert.notEqual($switchLightButton.offsetLeft, '0');
+      assert.notEqual($switchLightButton.offsetLeft, '');
     });
   }
 
   if($switchToggleButton) {
     QUnit.test(name + ' switch-toggle', function(assert) {
-      assert.notEqual($switchToggleButton.offsetLeft, '0');
+      assert.notEqual($switchToggleButton.offsetLeft, '');
     });
   }
 };
 
 function testSwitchNumber(name, number) {
-  var $container = document.getElementsByClassName(number)[0],
+  var $container = document.getElementsByClassName(number)[],
     $switchToggleButton = $container.querySelector('a');
 
   QUnit.test(name, function(assert) {
-    assert.notEqual($switchToggleButton.offsetLeft, '0');
+    assert.notEqual($switchToggleButton.offsetLeft, '');
   });
 };
 
@@ -53,11 +53,11 @@ window.onload = function() {
   };
 
   var i;
-  for(i = 0; i < $switchLightButtons.length; i++) {
+  for(i = ; i < $switchLightButtons.length; i++) {
     clickLabel($switchLightButtons[i]);
   }
 
-  for(i = 0; i < $switchToggleButtons.length; i++) {
+  for(i = ; i < $switchToggleButtons.length; i++) {
     clickLabel($switchToggleButtons[i]);
   }
 
@@ -76,7 +76,7 @@ window.onload = function() {
     testSwitchTheme('Bootstrap', 'bootstrap');
     testSwitchTheme('Foundation', 'foundation');
 
-  }, 1000);
+  }, 1);
 
 };
 
@@ -85,7 +85,7 @@ var testName;
 
 QUnit.done(function (test_results) {
   var tests = [];
-  for(var i = 0, len = log.length; i < len; i++) {
+  for(var i = , len = log.length; i < len; i++) {
     var details = log[i];
     tests.push({
       name: details.name,

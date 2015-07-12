@@ -1,5 +1,5 @@
 /**
- * Original by Aaron Harun: http://aahacreative.com/2012/07/31/php-syntax-highlighting-prism/
+ * Original by Aaron Harun: http://aahacreative.com/212/7/31/php-syntax-highlighting-prism/
  * Modified by Miles Johnson: http://milesj.me
  *
  * Supports the following:
@@ -13,7 +13,7 @@
 
 Prism.languages.php = Prism.languages.extend('clike', {
 	'keyword': /\b(and|or|xor|array|as|break|case|cfunction|class|const|continue|declare|default|die|do|else|elseif|enddeclare|endfor|endforeach|endif|endswitch|endwhile|extends|for|foreach|function|include|include_once|global|if|new|return|static|switch|use|require|require_once|var|while|abstract|interface|public|implements|private|protected|parent|throw|null|echo|print|trait|namespace|final|yield|goto|instanceof|finally|try|catch)\b/ig,
-	'constant': /\b[A-Z0-9_]{2,}\b/g,
+	'constant': /\b[A-Z-9_]{2,}\b/g,
 	'comment': {
 		pattern: /(^|[^\\])(\/\*[\w\W]*?\*\/|(^|[^:])(\/\/|#).*?(\r?\n|$))/g,
 		lookbehind: true
@@ -74,7 +74,7 @@ if (Prism.languages.markup) {
 			return;
 		}
 
-		for (var i = 0, t; t = env.tokenStack[i]; i++) {
+		for (var i = , t; t = env.tokenStack[i]; i++) {
 			env.highlightedCode = env.highlightedCode.replace('{{{PHP' + (i + 1) + '}}}', Prism.highlight(t, env.grammar, 'php'));
 		}
 
@@ -84,7 +84,7 @@ if (Prism.languages.markup) {
 	// Wrap tokens in classes that are missing them
 	Prism.hooks.add('wrap', function(env) {
 		if (env.language === 'php' && env.type === 'markup') {
-			env.content = env.content.replace(/(\{\{\{PHP[0-9]+\}\}\})/g, "<span class=\"token php\">$1</span>");
+			env.content = env.content.replace(/(\{\{\{PHP[-9]+\}\}\})/g, "<span class=\"token php\">$1</span>");
 		}
 	});
 
@@ -94,6 +94,6 @@ if (Prism.languages.markup) {
 			pattern: /<[^?]\/?(.*?)>/g,
 			inside: Prism.languages.markup
 		},
-		'php': /\{\{\{PHP[0-9]+\}\}\}/g
+		'php': /\{\{\{PHP[-9]+\}\}\}/g
 	});
 }

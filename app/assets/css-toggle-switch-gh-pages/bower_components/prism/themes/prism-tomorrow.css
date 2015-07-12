@@ -29,7 +29,7 @@ pre[class*="language-"] {
 /* Code blocks */
 pre[class*="language-"] {
 	padding: 1em;
-	margin: .5em 0;
+	margin: .5em ;
 	overflow: auto;
 }
 
@@ -70,7 +70,7 @@ pre[class*="language-"] {
 .token.boolean,
 .token.number,
 .token.function {
-	color: #f08d49;
+	color: #f8d49;
 }
 
 .token.property,

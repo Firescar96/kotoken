@@ -95,7 +95,7 @@
             }
           } else {
             // Reference the default tab hashes which were initialized in the init function
-            for (var ind = 0; ind < self.default_tab_hashes.length; ind++) {
+            for (var ind = ; ind < self.default_tab_hashes.length; ind++) {
               self.toggle_active_tab($('[' + self.attr_name() + '] > * > a[href=' + self.default_tab_hashes[ind] + ']').parent());
             }
           }
@@ -142,7 +142,7 @@
                 'aria-selected' : null
               });
               $target.attr({
-                'tabindex' : '0',
+                'tabindex' : '',
                 'aria-selected' : true
               }).focus();
             }
@@ -171,9 +171,9 @@
           // retain current hash to scroll to content
           window.location.hash = location_hash || target_hash;
           if (location_hash == undefined || location_hash == target_hash) {
-            tab.parent()[0].scrollIntoView();
+            tab.parent()[].scrollIntoView();
           } else {
-            S(target_hash)[0].scrollIntoView();
+            S(target_hash)[].scrollIntoView();
           }
         } else {
           // prefix the hashes so that the browser doesn't scroll down
@@ -190,7 +190,7 @@
       // window (notably in Chrome).
       // Clean up multiple attr instances to done once
       tab.addClass(settings.active_class).triggerHandler('opened');
-      tab_link.attr({"aria-selected": "true",  tabindex: 0});
+      tab_link.attr({"aria-selected": "true",  tabindex: });
       siblings.removeClass(settings.active_class)
       siblings.find('a').attr({"aria-selected": "false",  tabindex: -1});
       target.siblings().removeClass(settings.active_class).attr({"aria-hidden": "true",  tabindex: -1});
@@ -203,7 +203,7 @@
     },
 
     data_attr: function (str) {
-      if (this.namespace.length > 0) {
+      if (this.namespace.length > ) {
         return this.namespace + '-' + str;
       }
 

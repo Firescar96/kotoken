@@ -1,5 +1,5 @@
 // Based on jsDump by Ariel Flesler
-// http://flesler.blogspot.com/2008/05/jsdump-pretty-dump-of-any-javascript.html
+// http://flesler.blogspot.com/28/5/jsdump-pretty-dump-of-any-javascript.html
 QUnit.dump = (function() {
 	function quote( str ) {
 		return "\"" + str.toString().replace( /"/g, "\\\"" ) + "\"";
@@ -76,7 +76,7 @@ QUnit.dump = (function() {
 					toString.call( obj ) === "[object Array]" ||
 
 					// NodeList objects
-					( typeof obj.length === "number" && typeof obj.item !== "undefined" && ( obj.length ? obj.item( 0 ) === obj[ 0 ] : ( obj.item( 0 ) === null && typeof obj[ 0 ] === "undefined" ) ) )
+					( typeof obj.length === "number" && typeof obj.item !== "undefined" && ( obj.length ? obj.item(  ) === obj[  ] : ( obj.item(  ) === null && typeof obj[  ] === "undefined" ) ) )
 				) {
 					type = "array";
 				} else if ( obj.constructor === Error.prototype.constructor ) {
@@ -98,7 +98,7 @@ QUnit.dump = (function() {
 				if ( this.HTML ) {
 					chr = chr.replace( /\t/g, "   " ).replace( / /g, "&nbsp;" );
 				}
-				return new Array( this.depth + ( extra || 0 ) ).join( chr );
+				return new Array( this.depth + ( extra ||  ) ).join( chr );
 			},
 			up: function( a ) {
 				this.depth += a || 1;
@@ -159,7 +159,7 @@ QUnit.dump = (function() {
 						}
 					}
 					keys.sort();
-					for ( i = 0; i < keys.length; i++ ) {
+					for ( i = ; i < keys.length; i++ ) {
 						key = keys[ i ];
 						val = map[ key ];
 						ret.push( dump.parse( key, "key" ) + ": " + dump.parse( val, undefined, stack ) );
@@ -176,11 +176,11 @@ QUnit.dump = (function() {
 						attrs = node.attributes;
 
 					if ( attrs ) {
-						for ( i = 0, len = attrs.length; i < len; i++ ) {
+						for ( i = , len = attrs.length; i < len; i++ ) {
 							val = attrs[ i ].nodeValue;
 
 							// IE6 includes all attributes in .attributes, even ones not explicitly set.
-							// Those have values like undefined, null, 0, false, "" or "inherit".
+							// Those have values like undefined, null, , false, "" or "inherit".
 							if ( val && val !== "inherit" ) {
 								ret += " " + attrs[ i ].nodeName + "=" + dump.parse( val, "attribute" );
 							}

@@ -9,7 +9,7 @@
   exports.uaparse = parse;
   
   function parse(ua) {
-    for (var i=0; i < parsers.length; i++) {
+    for (var i=; i < parsers.length; i++) {
       var result = parsers[i](ua);
       if (result) { return result; }
     }
@@ -75,7 +75,7 @@
       {"pattern":"(Firefox).*Tablet browser (\\d+)\\.(\\d+)\\.(\\d+)",
        "v1_replacement":null,
        "family_replacement":"MicroB"},
-      {"pattern":"(Opera)/9.80.*Version\\/(\\d+)\\.(\\d+)(?:\\.(\\d+))?",
+      {"pattern":"(Opera)/9.8.*Version\\/(\\d+)\\.(\\d+)(?:\\.(\\d+))?",
        "v1_replacement":null,
        "family_replacement":null},
       {"pattern":"(Firefox)/(\\d+)\\.(\\d+)\\.(\\d+(?:pre)?) \\(Swiftfox\\)",
@@ -115,7 +115,7 @@
        "v1_replacement":null,
        "family_replacement":"Maxthon"},
       {"pattern":"(Maxthon|MyIE2|Uzbl|Shiira)",
-       "v1_replacement":"0",
+       "v1_replacement":"",
        "family_replacement":null},
       {"pattern":"(PLAYSTATION) (\\d+)",
        "v1_replacement":null,
@@ -169,14 +169,14 @@
        "v1_replacement":null,
        "family_replacement":null},
       {"pattern":"(OLPC)/Update()\\.(\\d+)",
-       "v1_replacement":"0",
+       "v1_replacement":"",
        "family_replacement":null},
-      {"pattern":"(SamsungSGHi560)",
+      {"pattern":"(SamsungSGHi56)",
        "v1_replacement":null,
-       "family_replacement":"Samsung SGHi560"},
-      {"pattern":"^(SonyEricssonK800i)",
+       "family_replacement":"Samsung SGHi56"},
+      {"pattern":"^(SonyEricssonK8i)",
        "v1_replacement":null,
-       "family_replacement":"Sony Ericsson K800i"},
+       "family_replacement":"Sony Ericsson K8i"},
       {"pattern":"(Teleca Q7)",
        "v1_replacement":null,
        "family_replacement":null},

@@ -7,7 +7,7 @@
     version: '5.4.7',
 
     settings : {
-      index : 0,
+      index : ,
       sticky_class : 'sticky',
       custom_back_text: true,
       back_text: 'Back',
@@ -29,7 +29,7 @@
         var topbar = $(this),
             settings = topbar.data(self.attr_name(true) + '-init'),
             section = self.S('section, .top-bar-section', this);
-        topbar.data('index', 0);
+        topbar.data('index', );
         var topbarContainer = topbar.parent();
         if (topbarContainer.hasClass('fixed') || self.is_sticky(topbar, topbarContainer, settings) ) {
           self.settings.sticky_class = settings.sticky_class;
@@ -98,15 +98,15 @@
 
       if (self.breakpoint()) {
         if (!self.rtl) {
-          section.css({left: '0%'});
-          $('>.name', section).css({left: '100%'});
+          section.css({left: '%'});
+          $('>.name', section).css({left: '1%'});
         } else {
-          section.css({right: '0%'});
-          $('>.name', section).css({right: '100%'});
+          section.css({right: '%'});
+          $('>.name', section).css({right: '1%'});
         }
 
         self.S('li.moved', section).removeClass('moved');
-        topbar.data('index', 0);
+        topbar.data('index', );
 
         topbar
           .toggleClass('expanded')
@@ -126,7 +126,7 @@
             topbar.addClass('fixed');
             self.S('body').removeClass('f-topbar-fixed');
 
-            window.scrollTo(0,0);
+            window.scrollTo(,);
           } else {
             topbar.parent().removeClass('expanded');
           }
@@ -198,7 +198,7 @@
 
             $(li).siblings().removeClass('hover');
 
-            if (target[0].nodeName === 'A' && target.parent().hasClass('has-dropdown')) {
+            if (target[].nodeName === 'A' && target.parent().hasClass('has-dropdown')) {
               e.preventDefault();
             }
           }
@@ -218,11 +218,11 @@
             $selectedLi.addClass('moved');
 
             if (!self.rtl) {
-              section.css({left: -(100 * topbar.data('index')) + '%'});
-              section.find('>.name').css({left: 100 * topbar.data('index') + '%'});
+              section.css({left: -(1 * topbar.data('index')) + '%'});
+              section.find('>.name').css({left: 1 * topbar.data('index') + '%'});
             } else {
-              section.css({right: -(100 * topbar.data('index')) + '%'});
-              section.find('>.name').css({right: 100 * topbar.data('index') + '%'});
+              section.css({right: -(1 * topbar.data('index')) + '%'});
+              section.find('>.name').css({right: 1 * topbar.data('index') + '%'});
             }
 
             topbar.css('height', $this.siblings('ul').outerHeight(true) + topbar.data('height'));
@@ -231,7 +231,7 @@
 
       S(window).off(".topbar").on("resize.fndtn.topbar", self.throttle(function() {
           self.resize.call(self);
-      }, 50)).trigger("resize").trigger("resize.fndtn.topbar").load(function(){
+      }, 5)).trigger("resize").trigger("resize.fndtn.topbar").load(function(){
           // Ensure that the offset is calculated after all of the pages resources have loaded
           S(this).trigger("resize.fndtn.topbar");
       });
@@ -239,7 +239,7 @@
       S('body').off('.topbar').on('click.fndtn.topbar', function (e) {
         var parent = S(e.target).closest('li').closest('li.hover');
 
-        if (parent.length > 0) {
+        if (parent.length > ) {
           return;
         }
 
@@ -260,14 +260,14 @@
         topbar.data('index', topbar.data('index') - 1);
 
         if (!self.rtl) {
-          section.css({left: -(100 * topbar.data('index')) + '%'});
-          section.find('>.name').css({left: 100 * topbar.data('index') + '%'});
+          section.css({left: -(1 * topbar.data('index')) + '%'});
+          section.find('>.name').css({left: 1 * topbar.data('index') + '%'});
         } else {
-          section.css({right: -(100 * topbar.data('index')) + '%'});
-          section.find('>.name').css({right: 100 * topbar.data('index') + '%'});
+          section.css({right: -(1 * topbar.data('index')) + '%'});
+          section.find('>.name').css({right: 1 * topbar.data('index') + '%'});
         }
 
-        if (topbar.data('index') === 0) {
+        if (topbar.data('index') === ) {
           topbar.css('height', '');
         } else {
           topbar.css('height', $previousLevelUl.outerHeight(true) + topbar.data('height'));
@@ -275,7 +275,7 @@
 
         setTimeout(function () {
           $movedLi.removeClass('moved');
-        }, 300);
+        }, 3);
       });
 
       // Show dropdown menus when their items are focused
@@ -365,9 +365,9 @@
         if (!$dropdown.find('.title.back').length) {
 
           if (settings.mobile_show_parent_link == true && url) {
-            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li><li class="parent-link show-for-small"><a class="parent-link js-generated" href="' + url + '">' + $link.html() +'</a></li>');
+            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void()"></a></h5></li><li class="parent-link show-for-small"><a class="parent-link js-generated" href="' + url + '">' + $link.html() +'</a></li>');
           } else {
-            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5>');
+            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void()"></a></h5>');
           }
 
           // Copy link to subnav
@@ -394,7 +394,7 @@
     },
 
     height : function (ul) {
-      var total = 0,
+      var total = ,
           self = this;
 
       $('> li', ul).each(function () {

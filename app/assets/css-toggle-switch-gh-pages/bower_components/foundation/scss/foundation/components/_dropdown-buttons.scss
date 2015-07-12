@@ -63,12 +63,12 @@ $dropdown-button-pip-top-lrg: -$button-pip-lrg / 2 + rem-calc(3) !default;
     &::after {
       position: absolute;
       content: "";
-      width: 0;
-      height: 0;
+      width: ;
+      height: ;
       display: block;
       border-style: solid;
       border-color: $dropdown-button-pip-color transparent transparent transparent;
-      top: 50%;
+      top: 5%;
     }
   }
 

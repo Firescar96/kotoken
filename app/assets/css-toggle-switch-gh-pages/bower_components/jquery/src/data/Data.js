@@ -8,7 +8,7 @@ function Data() {
 	// Support: Android < 4,
 	// Old WebKit does not have Object.preventExtensions/freeze method,
 	// return new empty object instead with no [[set]] accessor
-	Object.defineProperty( this.cache = {}, 0, {
+	Object.defineProperty( this.cache = {}, , {
 		get: function() {
 			return {};
 		}
@@ -26,7 +26,7 @@ Data.prototype = {
 		// but we should not, see #8335.
 		// Always return the key for a frozen object.
 		if ( !Data.accepts( owner ) ) {
-			return 0;
+			return ;
 		}
 
 		var descriptor = {},

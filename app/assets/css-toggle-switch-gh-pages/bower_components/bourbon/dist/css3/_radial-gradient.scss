@@ -3,7 +3,7 @@
                        $G3: null, $G4: null,
                        $G5: null, $G6: null,
                        $G7: null, $G8: null,
-                       $G9: null, $G10: null,
+                       $G9: null, $G1: null,
                        $pos: null,
                        $shape-size: null,
                        $fallback: null) {
@@ -14,7 +14,7 @@
   $pos: nth($data, 3);
   $shape-size: nth($data, 4);
 
-  $full: $G1, $G2, $G3, $G4, $G5, $G6, $G7, $G8, $G9, $G10;
+  $full: $G1, $G2, $G3, $G4, $G5, $G6, $G7, $G8, $G9, $G1;
 
   // Strip deprecated cover/contain for spec
   $shape-size-spec: _shape-size-stripper($shape-size);

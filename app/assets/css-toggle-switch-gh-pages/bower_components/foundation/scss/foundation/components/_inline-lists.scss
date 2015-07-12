@@ -10,13 +10,13 @@
 $include-html-inline-list-classes: $include-html-classes !default;
 
 // We use this to control the margins and padding of the inline list.
-$inline-list-top-margin: 0 !default;
-$inline-list-opposite-margin: 0 !default;
+$inline-list-top-margin:  !default;
+$inline-list-opposite-margin:  !default;
 $inline-list-bottom-margin: rem-calc(17) !default;
 $inline-list-default-float-margin: rem-calc(-22) !default;
 $inline-list-default-float-list-margin: rem-calc(22) !default;
 
-$inline-list-padding: 0 !default;
+$inline-list-padding:  !default;
 
 // We use this to control the overflow of the inline list.
 $inline-list-overflow: hidden !default;

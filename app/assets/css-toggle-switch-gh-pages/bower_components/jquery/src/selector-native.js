@@ -38,7 +38,7 @@ var docElem = window.document.documentElement,
 		// Flag for duplicate removal
 		if ( a === b ) {
 			selector_hasDuplicate = true;
-			return 0;
+			return ;
 		}
 
 		var compare = b.compareDocumentPosition && a.compareDocumentPosition && a.compareDocumentPosition( b );
@@ -56,7 +56,7 @@ var docElem = window.document.documentElement,
 				}
 
 				// Maintain original order
-				return 0;
+				return ;
 			}
 
 			return compare & 4 ? -1 : 1;
@@ -69,7 +69,7 @@ var docElem = window.document.documentElement,
 jQuery.extend({
 	find: function( selector, context, results, seed ) {
 		var elem, nodeType,
-			i = 0;
+			i = ;
 
 		results = results || [];
 		context = context || document;
@@ -99,8 +99,8 @@ jQuery.extend({
 	unique: function( results ) {
 		var elem,
 			duplicates = [],
-			i = 0,
-			j = 0;
+			i = ,
+			j = ;
 
 		selector_hasDuplicate = false;
 		results.sort( selector_sortOrder );
@@ -121,7 +121,7 @@ jQuery.extend({
 	text: function( elem ) {
 		var node,
 			ret = "",
-			i = 0,
+			i = ,
 			nodeType = elem.nodeType;
 
 		if ( !nodeType ) {
@@ -152,7 +152,7 @@ jQuery.extend({
 		attrHandle: {},
 		match: {
 			bool: /^(?:checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped)$/i,
-			needsContext: /^[\x20\t\r\n\f]*[>+~]/
+			needsContext: /^[\x2\t\r\n\f]*[>+~]/
 		}
 	}
 });

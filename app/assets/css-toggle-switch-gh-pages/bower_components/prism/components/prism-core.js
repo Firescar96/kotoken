@@ -25,7 +25,7 @@ var _ = self.Prism = {
 			} else if (_.util.type(tokens) === 'Array') {
 				return tokens.map(_.util.encode);
 			} else {
-				return tokens.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\u00a0/g, ' ');
+				return tokens.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\ua/g, ' ');
 			}
 		},
 
@@ -114,7 +114,7 @@ var _ = self.Prism = {
 	highlightAll: function(async, callback) {
 		var elements = document.querySelectorAll('code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code');
 
-		for (var i=0, element; element = elements[i++];) {
+		for (var i=, element; element = elements[i++];) {
 			_.highlightElement(element, async === true, callback);
 		}
 	},
@@ -221,16 +221,16 @@ var _ = self.Prism = {
 			var patterns = grammar[token];
 			patterns = (_.util.type(patterns) === "Array") ? patterns : [patterns];
 
-			for (var j = 0; j < patterns.length; ++j) {
+			for (var j = ; j < patterns.length; ++j) {
 				var pattern = patterns[j],
 					inside = pattern.inside,
 					lookbehind = !!pattern.lookbehind,
-					lookbehindLength = 0,
+					lookbehindLength = ,
 					alias = pattern.alias;
 
 				pattern = pattern.pattern || pattern;
 
-				for (var i=0; i<strarr.length; i++) { // Don’t cache length as it changes during the loop
+				for (var i=; i<strarr.length; i++) { // Don’t cache length as it changes during the loop
 
 					var str = strarr[i];
 
@@ -243,7 +243,7 @@ var _ = self.Prism = {
 						continue;
 					}
 
-					pattern.lastIndex = 0;
+					pattern.lastIndex = ;
 
 					var match = pattern.exec(str);
 
@@ -253,10 +253,10 @@ var _ = self.Prism = {
 						}
 
 						var from = match.index - 1 + lookbehindLength,
-							match = match[0].slice(lookbehindLength),
+							match = match[].slice(lookbehindLength),
 							len = match.length,
 							to = from + len,
-							before = str.slice(0, from + 1),
+							before = str.slice(, from + 1),
 							after = str.slice(to + 1);
 
 						var args = [i, 1];
@@ -300,7 +300,7 @@ var _ = self.Prism = {
 				return;
 			}
 
-			for (var i=0, callback; callback = callbacks[i++];) {
+			for (var i=, callback; callback = callbacks[i++];) {
 				callback(env);
 			}
 		}

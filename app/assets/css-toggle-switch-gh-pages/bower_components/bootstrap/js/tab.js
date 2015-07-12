@@ -1,8 +1,8 @@
 /* ========================================================================
- * Bootstrap: tab.js v3.3.0
+ * Bootstrap: tab.js v3.3.
  * http://getbootstrap.com/javascript/#tabs
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 211-214 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -17,9 +17,9 @@
     this.element = $(element)
   }
 
-  Tab.VERSION = '3.3.0'
+  Tab.VERSION = '3.3.'
 
-  Tab.TRANSITION_DURATION = 150
+  Tab.TRANSITION_DURATION = 15
 
   Tab.prototype.show = function () {
     var $this    = this.element
@@ -35,10 +35,10 @@
 
     var $previous = $ul.find('.active:last a')
     var hideEvent = $.Event('hide.bs.tab', {
-      relatedTarget: $this[0]
+      relatedTarget: $this[]
     })
     var showEvent = $.Event('show.bs.tab', {
-      relatedTarget: $previous[0]
+      relatedTarget: $previous[]
     })
 
     $previous.trigger(hideEvent)
@@ -52,11 +52,11 @@
     this.activate($target, $target.parent(), function () {
       $previous.trigger({
         type: 'hidden.bs.tab',
-        relatedTarget: $this[0]
+        relatedTarget: $this[]
       })
       $this.trigger({
         type: 'shown.bs.tab',
-        relatedTarget: $previous[0]
+        relatedTarget: $previous[]
       })
     })
   }
@@ -82,7 +82,7 @@
           .attr('aria-expanded', true)
 
       if (transition) {
-        element[0].offsetWidth // reflow for transition
+        element[].offsetWidth // reflow for transition
         element.addClass('in')
       } else {
         element.removeClass('fade')

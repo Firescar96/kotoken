@@ -1,89 +1,97 @@
 <div id="accounts">
-  <section id="balancesection">
-    <div>
-      <h1>Account ID: <span id="useid"></span></h1>
+  <header class="aligner">
+    <div class"aligner-item">
+      <%= image_tag("knottymasthead.png") %>
+      <br/>
     </div>
-    <div class="text-center row">
-      <div class="col-xs-3">
-        <h2>Brick</h2>
-        <h2 class="inline">#</h2>
-        <h3 id="brickAmt" class="inline">0</h3>
-      </div>
-      <div class="col-xs-3">
-        <h2>Steak</h2>
-        <h2 class="inline">#</h2>
-        <h3 id="steakAmt" class="inline">0</h3>
-      </div>
-      <div class="col-xs-3">
-        <h2>Bitcoin</h2>
-        <h2 class="inline">#</h2>
-        <h3 id="bitcoinAmt" class="inline">0</h3>
-      </div>
-      <div class="col-xs-3">
-        <h2>Phone</h2>
-        <h2 class="inline">#</h2>
-        <h3 id="phoneAmt" class="inline">0</h3>
-      </div>
-    </div>
-  </section>
-  <div class="container-fluid">
-    <div class="row text-center">
-      <div class="col-xs-12 col-md-6">
-        <h3>Send Token</h3>
-        <h2 id="transaction-result"></h2>
-        <br/>
-        <div id="token-select" class="row text-center">
-          <div class="col-xs-6">
-            <label for="brick">
-              <input id="brick" name="token" type="radio" value="AaLWdxW4mCB4Z7i2nW5ocgM6cT7jWEybcD"/>
-              <span>Brick</span>
-            </label>
-
-            <label for="steak">
-              <input id="steak" name="token" type="radio" value="AVBLsxjac7LCYxiXcMnUAricYxVq1YgbkZ"/>
-              <span>Steak</span>
-              </label>
+  </header>
+  <main class="aligner">
+    <div id="status-page">
+      <section id="balancesection">
+        <h1>Account ID: <span id="useid"></span></h1>
+        <div id="balance">
+          <div>
+            <h2 class="key">Brick</h2>
+            <h2 class="inline value">#<span id="brickAmt">0</span></h2>
           </div>
-          <div class="col-xs-6">
-            <label for="bitcoin">
-              <input id="bitcoin" name="token" type="radio" value="AL9VwZMgDQ2bqLXorU2bJoiMu3MjamZQFm"/>
-              <span>Bitcoin</span>
-            </label>
-
-            <label for="phone">
-              <input id="phone" name="token" type="radio" value="AcPeTwYT5s2xJmXpDCuMr3JWGvJ9vEMkNF"/>
-              <span>Phone</span>
-            </label>
+          <diV>
+            <h2 class="key">Steak</h2>
+            <h2 class="inline value">#<span id="steakAmt">0</span></h2>
+          </div>
+          <div>
+            <h2 class="key">Bitcoin</h2>
+            <h2 class="inline value">#<span id="bitcoinAmt">0</span></h2>
+          </div>
+          <div>
+            <h2 class="key">Phone</h2>
+            <h2 class="inline value">#<span id="phoneAmt">0</span></h2>
           </div>
         </div>
-        <br/>
-        <input id="toid" type="text" name="token" placeholder="receiving user id">
-        <input id="make-transaction" class="btn btn-danger" type="button" name="token" value="Make Transaction">
+      </section>
 
-        <br/>
-        <br/>
-        <br/>
+      <button id="send-token" type="button" class="btn btn-default" name="sendtoken">send token</button>
+
+      <div class="container-fluid">
+        <div class="row text-center">
+          <section id="transaction-ledger" class="col-xs-12 col-md-6 col-md-offset-3">
+            <h3>Transaction Ledger</h3>
+            <br/>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>From</th><th>To</th><th>Token</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% (1..7).each_entry do |transaction| %>
+                <tr>
+                  <td>Content</td>
+                  <td><%= transaction %></td>
+                  <td>a</td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </section>
+        </div>
       </div>
-      <div class="col-xs-12 col-md-6">
-        <h3>Transaction Ledger</h3>
-        <br/>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>From</th><th>To</th><th>Token</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% (1..5).each_entry do |transaction| %>
-            <tr>
-              <td>Content</td>
-              <td><%= transaction %></td>
-              <td>a</td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+    </div>
+  </main>
+    <div id="token-page" class="col-xs-12 hidden">
+      <h3>Send Token</h3>
+      <h3 id="transaction-result2"></h3>
+      <br/>
+      <div id="token-select" class="row text-center">
+        <div class="col-xs-6">
+          <label for="brick2">
+            <input id="brick2" name="token" type="radio" value="AaLWdxW4mCB4Z7i2nW5ocgM6cT7jWEybcD"/>
+            <span>Brick</span>
+          </label>
+
+          <label for="steak2">
+            <input id="steak2" name="token" type="radio" value="AVBLsxjac7LCYxiXcMnUAricYxVq1YgbkZ"/>
+            <span>Steak</span>
+            </label>
+        </div>
+        <div class="col-xs-6">
+          <label for="bitcoin2">
+            <input id="bitcoin2" name="token" type="radio" value="AL9VwZMgDQ2bqLXorU2bJoiMu3MjamZQFm"/>
+            <span>Bitcoin</span2>
+          </label>
+
+          <label for="phone2">
+            <input id="phone2" name="token" type="radio" value="AcPeTwYT5s2xJmXpDCuMr3JWGvJ9vEMkNF"/>
+            <span>Phone</span>
+          </label>
+        </div>
+      </div>
+      <br/>
+      <div id="token-transact2">
+        <label for="toid2">
+          <span>Receiving user 5-digit address</span>
+          <input id="toid2" type="text" name="token" placeholder="address">
+        </label>
+        <button id="make-transaction2" class="btn btn-default" name="token">make transaction</button>
       </div>
     </div>
   </div>
-</div>

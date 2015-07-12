@@ -56,13 +56,13 @@ h6, .h6 { font-size: @font-size-h6; }
 // -------------------------
 
 p {
-  margin: 0 0 (@line-height-computed / 2);
+  margin:   (@line-height-computed / 2);
 }
 
 .lead {
   margin-bottom: @line-height-computed;
   font-size: floor((@font-size-base * 1.15));
-  font-weight: 300;
+  font-weight: 3;
   line-height: 1.4;
 
   @media (min-width: @screen-sm-min) {
@@ -74,10 +74,10 @@ p {
 // Emphasis & misc
 // -------------------------
 
-// Ex: (12px small font / 14px base font) * 100% = about 85%
+// Ex: (12px small font / 14px base font) * 1% = about 85%
 small,
 .small {
-  font-size: floor((100% * @font-size-small / @font-size-base));
+  font-size: floor((1% * @font-size-small / @font-size-base));
 }
 
 mark,
@@ -146,7 +146,7 @@ mark,
 
 .page-header {
   padding-bottom: ((@line-height-computed / 2) - 1);
-  margin: (@line-height-computed * 2) 0 @line-height-computed;
+  margin: (@line-height-computed * 2)  @line-height-computed;
   border-bottom: 1px solid @page-header-border-color;
 }
 
@@ -157,11 +157,11 @@ mark,
 // Unordered and Ordered lists
 ul,
 ol {
-  margin-top: 0;
+  margin-top: ;
   margin-bottom: (@line-height-computed / 2);
   ul,
   ol {
-    margin-bottom: 0;
+    margin-bottom: ;
   }
 }
 
@@ -169,7 +169,7 @@ ol {
 
 // Unstyled keeps list items block level, just removes default browser padding and list-style
 .list-unstyled {
-  padding-left: 0;
+  padding-left: ;
   list-style: none;
 }
 
@@ -187,7 +187,7 @@ ol {
 
 // Description Lists
 dl {
-  margin-top: 0; // Remove browser default
+  margin-top: ; // Remove browser default
   margin-bottom: @line-height-computed;
 }
 dt,
@@ -198,7 +198,7 @@ dt {
   font-weight: bold;
 }
 dd {
-  margin-left: 0; // Undo browser default
+  margin-left: ; // Undo browser default
 }
 
 // Horizontal description lists
@@ -214,7 +214,7 @@ dd {
   @media (min-width: @grid-float-breakpoint) {
     dt {
       float: left;
-      width: (@dl-horizontal-offset - 20);
+      width: (@dl-horizontal-offset - 2);
       clear: left;
       text-align: right;
       .text-overflow();
@@ -237,14 +237,14 @@ abbr[data-original-title] {
   border-bottom: 1px dotted @abbr-border-color;
 }
 .initialism {
-  font-size: 90%;
+  font-size: 9%;
   text-transform: uppercase;
 }
 
 // Blockquotes
 blockquote {
   padding: (@line-height-computed / 2) @line-height-computed;
-  margin: 0 0 @line-height-computed;
+  margin:   @line-height-computed;
   font-size: @blockquote-font-size;
   border-left: 5px solid @blockquote-border-color;
 
@@ -252,35 +252,35 @@ blockquote {
   ul,
   ol {
     &:last-child {
-      margin-bottom: 0;
+      margin-bottom: ;
     }
   }
 
-  // Note: Deprecated small and .small as of v3.1.0
-  // Context: https://github.com/twbs/bootstrap/issues/11660
+  // Note: Deprecated small and .small as of v3.1.
+  // Context: https://github.com/twbs/bootstrap/issues/1166
   footer,
   small,
   .small {
     display: block;
-    font-size: 80%; // back to default font-size
+    font-size: 8%; // back to default font-size
     line-height: @line-height-base;
     color: @blockquote-small-color;
 
     &:before {
-      content: '\2014 \00A0'; // em dash, nbsp
+      content: '\214 \A'; // em dash, nbsp
     }
   }
 }
 
 // Opposite alignment of blockquote
 //
-// Heads up: `blockquote.pull-right` has been deprecated as of v3.1.0.
+// Heads up: `blockquote.pull-right` has been deprecated as of v3.1..
 .blockquote-reverse,
 blockquote.pull-right {
   padding-right: 15px;
-  padding-left: 0;
+  padding-left: ;
   border-right: 5px solid @blockquote-border-color;
-  border-left: 0;
+  border-left: ;
   text-align: right;
 
   // Account for citation
@@ -289,7 +289,7 @@ blockquote.pull-right {
   .small {
     &:before { content: ''; }
     &:after {
-      content: '\00A0 \2014'; // nbsp, em dash
+      content: '\A \214'; // nbsp, em dash
     }
   }
 }

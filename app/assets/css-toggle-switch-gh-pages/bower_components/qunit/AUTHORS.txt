@@ -21,7 +21,7 @@ Paul Elliott <paul@hashrocket.com>
 Nikita Vasilyev <me@elv1s.ru>
 Benjamin Lee <leebenjp@gmail.com>
 Paul Irish <paul.irish@gmail.com>
-Oleg Slobodskoi <oleg008@gmail.com>
+Oleg Slobodskoi <oleg8@gmail.com>
 Anton Matzneller <obhvsbypqghgc@gmail.com>
 Aurélien Bombo <hellosexyprout@gmail.com>
 Mathias Bynens <mathias@qiwi.be>
@@ -81,7 +81,7 @@ Corey Frang <gnarf37@gmail.com>
 Nathan Dauber <nathan@radialogica.com>
 Michał Gołębiowski <m.goleb@gmail.com>
 XhmikosR <xhmikosr@yahoo.com>
-Patrick Stapleton <github@gdi2290.com>
+Patrick Stapleton <github@gdi229.com>
 DarkPark <darkpark@pisem.net>
 Oleg Gaidarenko <markelog@gmail.com>
 Mike Sidorov <mikes.ekb@gmail.com>

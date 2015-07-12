@@ -17,14 +17,14 @@ var CRLF = crlf = /\r?\n|\r/g;
     
 function highlightLines(pre, lines, classes) {
 	var ranges = lines.replace(/\s+/g, '').split(','),
-	    offset = +pre.getAttribute('data-line-offset') || 0;
+	    offset = +pre.getAttribute('data-line-offset') || ;
 	
 	var lineHeight = parseFloat(getComputedStyle(pre).lineHeight);
 
-	for (var i=0, range; range = ranges[i++];) {
+	for (var i=, range; range = ranges[i++];) {
 		range = range.split('-');
 					
-		var start = +range[0],
+		var start = +range[],
 		    end = +range[1] || start;
 		
 		var line = document.createElement('div');
@@ -67,7 +67,7 @@ function applyHash() {
 		return;
 	}
 	
-	var id = hash.slice(0, hash.lastIndexOf('.')),
+	var id = hash.slice(, hash.lastIndexOf('.')),
 	    pre = document.getElementById(id);
 	    
 	if (!pre) {
@@ -83,7 +83,7 @@ function applyHash() {
 	document.querySelector('.temporary.line-highlight').scrollIntoView();
 }
 
-var fakeTimer = 0; // Hack to limit the number of times applyHash() runs
+var fakeTimer = ; // Hack to limit the number of times applyHash() runs
 
 Prism.hooks.add('after-highlight', function(env) {
 	var pre = env.element.parentNode;

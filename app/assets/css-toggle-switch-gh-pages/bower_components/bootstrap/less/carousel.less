@@ -11,7 +11,7 @@
 .carousel-inner {
   position: relative;
   overflow: hidden;
-  width: 100%;
+  width: 1%;
 
   > .item {
     display: none;
@@ -29,23 +29,23 @@
     @media all and (transform-3d), (-webkit-transform-3d) {
       transition: transform .6s ease-in-out;
       backface-visibility: hidden;
-      perspective: 1000;
+      perspective: 1;
 
       &.next,
       &.active.right {
-        transform: translate3d(100%, 0, 0);
-        left: 0;
+        transform: translate3d(1%, , );
+        left: ;
       }
       &.prev,
       &.active.left {
-        transform: translate3d(-100%, 0, 0);
-        left: 0;
+        transform: translate3d(-1%, , );
+        left: ;
       }
       &.next.left,
       &.prev.right,
       &.active {
-        transform: translate3d(0, 0, 0);
-        left: 0;
+        transform: translate3d(, , );
+        left: ;
       }
     }
   }
@@ -57,32 +57,32 @@
   }
 
   > .active {
-    left: 0;
+    left: ;
   }
 
   > .next,
   > .prev {
     position: absolute;
-    top: 0;
-    width: 100%;
+    top: ;
+    width: 1%;
   }
 
   > .next {
-    left: 100%;
+    left: 1%;
   }
   > .prev {
-    left: -100%;
+    left: -1%;
   }
   > .next.left,
   > .prev.right {
-    left: 0;
+    left: ;
   }
 
   > .active.left {
-    left: -100%;
+    left: -1%;
   }
   > .active.right {
-    left: 100%;
+    left: 1%;
   }
 
 }
@@ -92,9 +92,9 @@
 
 .carousel-control {
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
+  top: ;
+  left: ;
+  bottom: ;
   width: @carousel-control-width;
   .opacity(@carousel-control-opacity);
   font-size: @carousel-control-font-size;
@@ -106,18 +106,18 @@
 
   // Set gradients for backgrounds
   &.left {
-    #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
+    #gradient > .horizontal(@start-color: rgba(,,,.5); @end-color: rgba(,,,.1));
   }
   &.right {
     left: auto;
-    right: 0;
-    #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
+    right: ;
+    #gradient > .horizontal(@start-color: rgba(,,,.1); @end-color: rgba(,,,.5));
   }
 
   // Hover/focus state
   &:hover,
   &:focus {
-    outline: 0;
+    outline: ;
     color: @carousel-control-color;
     text-decoration: none;
     .opacity(.9);
@@ -129,37 +129,37 @@
   .glyphicon-chevron-left,
   .glyphicon-chevron-right {
     position: absolute;
-    top: 50%;
+    top: 5%;
     z-index: 5;
     display: inline-block;
   }
   .icon-prev,
   .glyphicon-chevron-left {
-    left: 50%;
-    margin-left: -10px;
+    left: 5%;
+    margin-left: -1;
   }
   .icon-next,
   .glyphicon-chevron-right {
-    right: 50%;
-    margin-right: -10px;
+    right: 5%;
+    margin-right: -1;
   }
   .icon-prev,
   .icon-next {
-    width:  20px;
-    height: 20px;
-    margin-top: -10px;
+    width:  2;
+    height: 2;
+    margin-top: -1;
     font-family: serif;
   }
 
 
   .icon-prev {
     &:before {
-      content: '\2039';// SINGLE LEFT-POINTING ANGLE QUOTATION MARK (U+2039)
+      content: '\239';// SINGLE LEFT-POINTING ANGLE QUOTATION MARK (U+239)
     }
   }
   .icon-next {
     &:before {
-      content: '\203a';// SINGLE RIGHT-POINTING ANGLE QUOTATION MARK (U+203A)
+      content: '\23a';// SINGLE RIGHT-POINTING ANGLE QUOTATION MARK (U+23A)
     }
   }
 }
@@ -171,23 +171,23 @@
 
 .carousel-indicators {
   position: absolute;
-  bottom: 10px;
-  left: 50%;
+  bottom: 1;
+  left: 5%;
   z-index: 15;
-  width: 60%;
-  margin-left: -30%;
-  padding-left: 0;
+  width: 6%;
+  margin-left: -3%;
+  padding-left: ;
   list-style: none;
   text-align: center;
 
   li {
     display: inline-block;
-    width:  10px;
-    height: 10px;
+    width:  1;
+    height: 1;
     margin: 1px;
     text-indent: -999px;
     border: 1px solid @carousel-indicator-border-color;
-    border-radius: 10px;
+    border-radius: 1;
     cursor: pointer;
 
     // IE8-9 hack for event handling
@@ -198,11 +198,11 @@
     //
     // For IE8, we set solid black as it doesn't support `rgba()`. For IE9, we
     // set alpha transparency for the best results possible.
-    background-color: #000 \9; // IE8
-    background-color: rgba(0,0,0,0); // IE9
+    background-color: # \9; // IE8
+    background-color: rgba(,,,); // IE9
   }
   .active {
-    margin: 0;
+    margin: ;
     width:  12px;
     height: 12px;
     background-color: @carousel-indicator-active-bg;
@@ -216,10 +216,10 @@
   position: absolute;
   left: 15%;
   right: 15%;
-  bottom: 20px;
-  z-index: 10;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  bottom: 2;
+  z-index: 1;
+  padding-top: 2;
+  padding-bottom: 2;
   color: @carousel-caption-color;
   text-align: center;
   text-shadow: @carousel-text-shadow;
@@ -238,10 +238,10 @@
     .glyphicon-chevron-right,
     .icon-prev,
     .icon-next {
-      width: 30px;
-      height: 30px;
+      width: 3;
+      height: 3;
       margin-top: -15px;
-      font-size: 30px;
+      font-size: 3;
     }
     .glyphicon-chevron-left,
     .icon-prev {
@@ -255,13 +255,13 @@
 
   // Show and left align the captions
   .carousel-caption {
-    left: 20%;
-    right: 20%;
-    padding-bottom: 30px;
+    left: 2%;
+    right: 2%;
+    padding-bottom: 3;
   }
 
   // Move up the indicators
   .carousel-indicators {
-    bottom: 20px;
+    bottom: 2;
   }
 }

@@ -1,6 +1,6 @@
 Prism.languages.http = {
     'request-line': {
-        pattern: /^(POST|GET|PUT|DELETE|OPTIONS|PATCH|TRACE|CONNECT)\b\shttps?:\/\/\S+\sHTTP\/[0-9.]+/g,
+        pattern: /^(POST|GET|PUT|DELETE|OPTIONS|PATCH|TRACE|CONNECT)\b\shttps?:\/\/\S+\sHTTP\/[-9.]+/g,
         inside: {
             // HTTP Verb
             property: /^\b(POST|GET|PUT|DELETE|OPTIONS|PATCH|TRACE|CONNECT)\b/g,
@@ -9,10 +9,10 @@ Prism.languages.http = {
         }
     },
     'response-status': {
-        pattern: /^HTTP\/1.[01] [0-9]+.*/g,
+        pattern: /^HTTP\/1.[1] [-9]+.*/g,
         inside: {
-            // Status, e.g. 200 OK
-            property: /[0-9]+[A-Z\s-]+$/ig
+            // Status, e.g. 2 OK
+            property: /[-9]+[A-Z\s-]+$/ig
         }
     },
     // HTTP header name

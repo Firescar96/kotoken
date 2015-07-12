@@ -26,7 +26,7 @@
   "_resolution": {
     "type": "branch",
     "branch": "gh-pages",
-    "commit": "3e9491d33bb2e8b959f0cd97ebad927285885158"
+    "commit": "3e9491d33bb2e8b959fcd97ebad927285885158"
   },
   "_source": "git://github.com/LeaVerou/prism.git",
   "_target": "gh-pages",
