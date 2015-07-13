@@ -11,7 +11,7 @@ $("#accounts").ready(function() {
 
   $('#useid').text(localStorage.getItem("useid"))
 
-  var updateBalance = function(){
+  var updatePage = function(){
     $.get( "/accounts", {flag: "balance", bucket_id: localStorage.getItem("bucket_id")})
       .done(function(data) {
         data = JSON.parse(data);
@@ -34,9 +34,25 @@ $("#accounts").ready(function() {
           }
         });
       });
+
+    $.get( "/accounts", {flag: "transactions", bucket_id: localStorage.getItem("bucket_id") })
+      .done(function(data) {
+        data = JSON.parse(data);
+        console.log(data);
+        $.each(data, function(index, transaction) {
+          console.log(transaction);
+          $("#transaction-history tbody").html(
+            "<tr> \
+              <td>"+transaction["from"]+"</td> \
+              <td>"+transaction["to"]+"</td> \
+              <td>"+transaction["asset"]+"</td> \
+            </tr>"
+          )
+        })
+      })
   }
-  updateBalance();
-  setInterval(updateBalance, 10000);
+  updatePage();
+  setInterval(updatePage, 10000);
 
   $('input[type=radio]').click(function() {
     $('#token-select label').toggleClass('checked', false);
@@ -44,16 +60,16 @@ $("#accounts").ready(function() {
     $(this).parent().toggleClass('checked', this.checked);
   });
 
-  $("#make-transaction2").click(function() {
+  $("#make-transaction").click(function() {
     var error = "";
-    if(!$.isNumeric($("#toid2").val()))
+    if(!$.isNumeric($("#toid").val()))
       error = "recieving address must be numeric";
 
     if( $('input[name=token]:checked').val() == undefined)
       error = "select a token to send";
 
     if(error != "") {
-      $("#transaction-result2").text(error).removeClass("bg-success").addClass("bg-warning");
+      $("#transaction-result").text(error).removeClass("bg-success").addClass("bg-warning");
       console.error(error);
       return;
     }
@@ -61,21 +77,21 @@ $("#accounts").ready(function() {
       flag: "transaction",
       bucket_id: localStorage.getItem("bucket_id"),
       asset: $('input[name=token]:checked').val(),
-      toid: $("#toid2").val()
+      toid: $("#toid").val()
     })
     .done(function(data) {
       data = JSON.parse(data);
       console.log(data.message);
       if(data.success) {
-        $("#transaction-result2").text("Success").removeClass("bg-warning").addClass("bg-success");
-        $('#token-select label2').toggleClass('checked', false);
-        $("#toid2").val("");
+        $("#transaction-result").text("Success").removeClass("bg-warning").addClass("bg-success");
+        $('#token-select label').toggleClass('checked', false);
+        $("#toid").val("");
 
         $("#token-page").toggleClass("hidden",true)
         $("#status-page").toggleClass("hidden",false)
       }
       else
-        $("#transaction-result2").html(data.message).removeClass("bg-success").addClass("bg-warning");
+        $("#transaction-result").html(data.message).removeClass("bg-success").addClass("bg-warning");
     });
 
   })

@@ -26,22 +26,42 @@ $screen-md : 992px;
     width: 25%;
   }
 
-  h1 {
-    font-size: 50px;
+  @media only screen and (max-width: $screen-md),
+  only screen and (orientation : portrait) {
+    h1 {
+      font-size: 80px;
+    }
+
+    h2 {
+      font-size: 60px;
+    }
+
+    h3 {
+      font-size: 50px;
+      font-style: italic;
+      margin-top: 5px;
+    }
   }
 
-  h2 {
-    font-size: 40px;
-  }
+  @media only screen and (min-width: $screen-md),
+  only screen and (orientation : landscape) {
+    h1 {
+      font-size: 60px;
+    }
 
-  h3 {
-    font-size: 30px;
-    font-style: italic;
-    margin-top: 5px;
+    h2 {
+      font-size: 40px;
+    }
+
+    h3 {
+      font-size: 30px;
+      font-style: italic;
+      margin-top: 5px;
+    }
   }
 
   button {
-    font-size: 40px;
+    font-size: 60px;
   }
 
   #status-page, #token-page {
@@ -50,6 +70,11 @@ $screen-md : 992px;
 
   #balancesection {
     display: inline-block;
+    text-align: left;
+    @media only screen and (max-width: $screen-md),
+    only screen and (orientation : portrait) {
+      text-align: center;
+    }
     width: 100%;
     >h1 {
       background-color: shade($bgColor,40%);
@@ -144,13 +169,15 @@ $screen-md : 992px;
         }
 
         input {
+          @extend h3;
           display: none;
+
 
           + span {
             position: absolute;
             position: relative;
             text-align: center;
-            font-size: 30px;
+            @extend h3;
             flex:1;
           }
 
@@ -162,7 +189,11 @@ $screen-md : 992px;
     }
   }
 
-  #token-transact2 {
+  #token-page {
+    text-align: center;
+  }
+
+  #token-transact {
     width: 100%;
     height: 50%;
     display: block;
@@ -180,7 +211,7 @@ $screen-md : 992px;
         width: 40%;
       }
       span {
-        font-size: 25px;
+        @extend h3;
         height: 40%;
         margin: 0;
         @media (min-width: $screen-md) {
@@ -189,6 +220,7 @@ $screen-md : 992px;
       }
 
       input {
+        @extend h3;
         float: right;
         @media (max-width: $screen-md) {
           width: 100%;
@@ -202,6 +234,7 @@ $screen-md : 992px;
       display: block;
       height: 100px;
       margin: 20px auto;
+      font-size: 60px;
       @media (max-width: $screen-md) {
         width: 80%;
       }

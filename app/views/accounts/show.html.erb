@@ -36,20 +36,13 @@
           <section id="transaction-ledger" class="col-xs-12 col-md-6 col-md-offset-3">
             <h3>Transaction Ledger</h3>
             <br/>
-            <table class="table table-striped">
+            <table id="transaction-history" class="table table-striped">
               <thead>
                 <tr>
                   <th>From</th><th>To</th><th>Token</th>
                 </tr>
               </thead>
               <tbody>
-                <% (1..7).each_entry do |transaction| %>
-                <tr>
-                  <td>Content</td>
-                  <td><%= transaction %></td>
-                  <td>a</td>
-                </tr>
-                <% end %>
               </tbody>
             </table>
           </section>
@@ -59,39 +52,39 @@
   </main>
     <div id="token-page" class="col-xs-12 hidden">
       <h3>Send Token</h3>
-      <h3 id="transaction-result2"></h3>
+      <h3 id="transaction-result"></h3>
       <br/>
       <div id="token-select" class="row text-center">
         <div class="col-xs-6">
-          <label for="brick2">
-            <input id="brick2" name="token" type="radio" value="AaLWdxW4mCB4Z7i2nW5ocgM6cT7jWEybcD"/>
+          <label for="brick">
+            <input id="brick" name="token" type="radio" value="AaLWdxW4mCB4Z7i2nW5ocgM6cT7jWEybcD"/>
             <span>Brick</span>
           </label>
 
-          <label for="steak2">
-            <input id="steak2" name="token" type="radio" value="AVBLsxjac7LCYxiXcMnUAricYxVq1YgbkZ"/>
+          <label for="steak">
+            <input id="steak" name="token" type="radio" value="AVBLsxjac7LCYxiXcMnUAricYxVq1YgbkZ"/>
             <span>Steak</span>
             </label>
         </div>
         <div class="col-xs-6">
-          <label for="bitcoin2">
-            <input id="bitcoin2" name="token" type="radio" value="AL9VwZMgDQ2bqLXorU2bJoiMu3MjamZQFm"/>
+          <label for="bitcoin">
+            <input id="bitcoin" name="token" type="radio" value="AL9VwZMgDQ2bqLXorU2bJoiMu3MjamZQFm"/>
             <span>Bitcoin</span2>
           </label>
 
-          <label for="phone2">
-            <input id="phone2" name="token" type="radio" value="AcPeTwYT5s2xJmXpDCuMr3JWGvJ9vEMkNF"/>
+          <label for="phone">
+            <input id="phone" name="token" type="radio" value="AcPeTwYT5s2xJmXpDCuMr3JWGvJ9vEMkNF"/>
             <span>Phone</span>
           </label>
         </div>
       </div>
       <br/>
-      <div id="token-transact2">
-        <label for="toid2">
+      <div id="token-transact">
+        <label for="toid">
           <span>Receiving user 5-digit address</span>
-          <input id="toid2" type="text" name="token" placeholder="address">
+          <input id="toid" type="text" name="token" placeholder="address">
         </label>
-        <button id="make-transaction2" class="btn btn-default" name="token">make transaction</button>
+        <button id="make-transaction" class="btn btn-default" name="token">make transaction</button>
       </div>
     </div>
   </div>

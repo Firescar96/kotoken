@@ -54,4 +54,3 @@ group :development, :test do
   #Auto reload pages when I modify them
   gem 'guard-livereload', '~> 2.4', require: false
 end
-

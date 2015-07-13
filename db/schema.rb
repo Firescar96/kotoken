@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150703054021) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -20,4 +23,5 @@ ActiveRecord::Schema.define(version: 20150703054021) do
     t.string   "passcode"
     t.string   "bucket_id"
   end
+
 end
