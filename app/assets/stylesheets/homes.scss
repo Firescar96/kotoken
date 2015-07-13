@@ -20,35 +20,65 @@ $screen-md : 992px;
     background-color: #800;
   }
 
-  h1 {
-    font-size: 60px;
+  @media only screen and (max-width: $screen-md),
+  only screen and (orientation : portrait) {
+    h1 {
+      font-size: 80px;
+    }
+
+    h2 {
+      font-size: 60px;
+    }
+
+    h3 {
+      font-size: 50px;
+      font-style: italic;
+      margin-top: 5px;
+    }
+
+    h4 {
+      font-size: 40px;
+    }
   }
 
-  h2 {
-    font-size: 40px;
-  }
+  @media only screen and (min-width: $screen-md),
+  only screen and (orientation : landscape) {
+    h1 {
+      font-size: 60px;
+    }
 
-  h3 {
-    font-size: 30px;
-    font-style: italic;
-    margin-top: 5px;
-  }
+    h2 {
+      font-size: 40px;
+    }
 
-  h4 {
-    font-size: 20px;
+    h3 {
+      font-size: 30px;
+      font-style: italic;
+      margin-top: 5px;
+    }
+
+    h4 {
+      font-size: 20px;
+    }
   }
 
   main {
+    width: 100%;
     height: 80%;
     margin: auto;
     background-color: $bgColor;
 
-    @media (max-width: $screen-md) {
-      .twopane {
-
-      &#register2, &login1 {
+    @media only screen and (max-width: $screen-md),
+    only screen and (orientation : portrait) {
+      #register1, #register2, #login1 {
         text-align: center;
+        width: 100%;
       }
+      .twopane {
+        width: 100%;
+        margin: auto;
+        text-align: center;
+
         >* {
           display: block;
           margin: 30px auto;
@@ -66,7 +96,8 @@ $screen-md : 992px;
         }
       }
     }
-    @media (min-width: $screen-md) {
+    @media only screen and (min-width: $screen-md),
+    only screen and (orientation : landscape) {
       .twopane {
         width: 80%;
         margin: auto;
@@ -114,7 +145,7 @@ $screen-md : 992px;
       }
 
       button {
-        font-size: 40px;
+        font-size: 60px;
       }
 
       #createerror, #tokenerror {
@@ -142,10 +173,12 @@ $screen-md : 992px;
               //@include transition(color .2s ease-out);
               &[for=brick] {
                 top: 0;
+                left: 0;
                 @include colorize($buttonbgColor, $txtbgColor);
               }
               &[for=steak] {
                 bottom: 0;
+                left: 0;
                 @include colorize($buttonbgColor, $txtbgColor);
               }
               &[for=bitcoin] {
@@ -161,12 +194,13 @@ $screen-md : 992px;
 
               input {
                 display: none;
+                @extend h4;
 
                 + span {
+                  @extend h4;
                   position: absolute;
                   position: relative;
                   text-align: center;
-                  font-size: 30px;
                   flex:1;
                 }
 
@@ -180,13 +214,25 @@ $screen-md : 992px;
       }
 
       &#register2, &#login1 {
+        section {
+            margin: 40px 20px;
+            display: inline-block;
+        }
+
         label {
-          margin: 20px;
-          @extend h2;
-          display: block;
+          margin: 0px 20px;
+          display: inline-block;
+
+          span {
+            @extend h3;
+            width: 60%;
+            float: left;
+          }
 
           input {
             float: right;
+            @extend h3;
+            width: 40%;
           }
         }
         h4 {

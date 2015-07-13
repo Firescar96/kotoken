@@ -1,9 +1,9 @@
 <div id="homes">
   <header class="aligner">
-    <div class"aligner-item">
+    <div class="aligner-item">
       <%= image_tag("knottymasthead.png") %>
       <br/>
-  </div>
+    </div>
   </header>
 
   <main class="aligner container-fluid">
@@ -50,20 +50,26 @@
       <div class="twopane">
         <div id="addressInfo">
           <h3 id="createerror"></h3>
+          <section>
           <label for="address">
             <span>5-digit address</span>
             <input id="address" name="address" type="text" class="createcode digits" placeholder="address" /input>
-            <h4>Hint: use the one on your card</h4>
           </label>
+          <h4>Hint: use the one on your card</h4>
+          </section>
+          <section>
           <label for="passcode">
             <span>7-digit password</span>
             <input id="passcode" name="passcode" type="text" class="createcode digits" placeholder="passcode" />
-            <h4>Hint: phone-numbers are 7 digits</h4>
           </label>
+            <h4>Hint: phone-numbers are 7 digits</h4>
+          </section>
+          <section>
           <label for="confirmcode">
             <span>confirm password</span>
             <input id="confirmcode" name="confirm" type="text" class="createcode digits" placeholder="confirm" />
           </label>
+          </section>
         </div>
         <button id="create" type="button" class="btn btn-default">create</button>
       </div>
@@ -74,16 +80,20 @@
       <div class="twopane">
         <div id="addressInfo">
           <h3 id="loginerror"></h3>
-          <label for="useid">
-            <span>5-digit address</span>
-            <input id="useid" name="useid" type="text" placeholder="address"> </input>
+          <section>
+            <label for="useid">
+              <span>5-digit address</span>
+              <input id="useid" name="useid" type="text" placeholder="address"> </input>
+            </label>
             <h4>Hint: you probably used the one on your card</h4>
-          </label>
-          <label for="logincode">
-            <span>7-digit password</span>
-            <input id="logincode" name="logincode" type="text" placeholder="passcode" />
+          </section>
+          <section>
+            <label for="logincode">
+              <span>7-digit password</span>
+              <input id="logincode" name="logincode" type="text" placeholder="passcode" />
+            </label>
             <h4>Hint: you probably used your phone number</h4>
-          </label>
+          </section>
         </div>
         <button id="show" type="button" class="btn btn-default">login</button>
       </div>

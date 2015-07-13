@@ -124,10 +124,12 @@ $screen-md : 992px;
         //@include transition(color 0.2s ease-out);
         &[for*=brick] {
           top:0;
+          left: 0;
           @include colorize($buttonbgColor, $txtbgColor);
         }
         &[for*=steak] {
           bottom:0;
+          left: 0;
           @include colorize($buttonbgColor, $txtbgColor);
         }
         &[for*=bitcoin] {
