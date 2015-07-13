@@ -9,7 +9,7 @@ $("#accounts").ready(function() {
     $("#token-page").toggleClass("hidden",false)
   })
 
-  $('#useid').text(localStorage.getItem("useid"))
+  $('#uid').text(localStorage.getItem("uid"))
 
   var updatePage = function(){
     $.get( "/accounts", {flag: "balance", bucket_id: localStorage.getItem("bucket_id")})
@@ -18,16 +18,16 @@ $("#accounts").ready(function() {
         $.each(data, function( index, asset) {
           switch(asset.asset_id) {
             case brickAsset:
-              $("#brickAmt").text(asset.confirmed)
+              $("#brickAmt").text(asset.total)
               break;
             case steakAsset:
-              $("#steakAmt").text(asset.confirmed)
+              $("#steakAmt").text(asset.total)
               break;
             case bitcoinAsset:
-              $("#bitcoinAmt").text(asset.confirmed)
+              $("#bitcoinAmt").text(asset.total)
               break;
             case phoneAsset:
-              $("#phoneAmt").text(asset.confirmed)
+              $("#phoneAmt").text(asset.total)
               break;
             default:
               break;
@@ -38,7 +38,6 @@ $("#accounts").ready(function() {
     $.get( "/accounts", {flag: "transactions", bucket_id: localStorage.getItem("bucket_id") })
       .done(function(data) {
         data = JSON.parse(data);
-        console.log(data);
         $.each(data, function(index, transaction) {
           console.log(transaction);
           $("#transaction-history tbody").html(
@@ -81,7 +80,6 @@ $("#accounts").ready(function() {
     })
     .done(function(data) {
       data = JSON.parse(data);
-      console.log(data.message);
       if(data.success) {
         $("#transaction-result").text("Success").removeClass("bg-warning").addClass("bg-success");
         $('#token-select label').toggleClass('checked', false);

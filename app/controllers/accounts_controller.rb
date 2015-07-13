@@ -22,7 +22,7 @@ class AccountsController < ApplicationController
         if fromAccount == nil
           next
         end
-        transaction["from"] = fromAccount.useid
+        transaction["from"] = fromAccount.uid
       end
 
       toBucket = action["outputs"][0]["bucket_id"]
@@ -30,7 +30,7 @@ class AccountsController < ApplicationController
       if toAccount == nil
         next
       end
-      transaction["to"] = toAccount.useid
+      transaction["to"] = toAccount.uid
 
       case action["outputs"][0]["asset_id"]
       when brickAsset
@@ -67,7 +67,7 @@ class AccountsController < ApplicationController
       end
     end
     if params['flag'] == "bucket_id"
-      @account  = Account.where(useid: params[:useid], passcode: params[:passcode]).take
+      @account  = Account.where(uid: params[:uid], passcode: params[:passcode]).take
       if @account == nil
         response["success"] = false
         response["message"] = "account could not be found"
@@ -99,7 +99,7 @@ class AccountsController < ApplicationController
   def create
     response = {}
     if params["flag"] == "transaction"
-      toAccount = Account.where(useid: params[:toid]).take
+      toAccount = Account.where(uid: params[:toid]).take
       if toAccount == nil
         response["success"] = false
         response["message"] = "account not found"
@@ -111,29 +111,30 @@ class AccountsController < ApplicationController
       chain_client = Rails.application.config.chain_client
       begin
         chain_client.transfer_asset(
-        inputs: [
-          {
-            asset_id: params[:asset],
-            bucket_id: params[:bucket_id],
-            amount: 1
-          }
-        ],
-        outputs: [
-          {
-            asset_id: params[:asset],
-            bucket_id: toAccount.bucket_id,
-            amount: 1
-          }
-        ]
+          inputs: [
+            {
+              asset_id: params[:asset],
+              bucket_id: params[:bucket_id],
+              amount: 1,
+              min_confirmations: 0
+            }
+          ],
+          outputs: [
+            {
+              asset_id: params[:asset],
+              bucket_id: toAccount.bucket_id,
+              amount: 1
+            }
+          ]
         )
-      rescue ::ChainWallets::ChainAPIError => exception
-        puts exception
-        response["success"] = false
-        response["message"] = exception.to_s
-        respond_to do |format|
-          format.html { render :text =>  JSON.generate(response)}
-        end
-        return
+        rescue ::ChainWallets::ChainAPIError => exception
+          puts exception
+          response["success"] = false
+          response["message"] = exception.to_s
+          respond_to do |format|
+            format.html { render :text =>  JSON.generate(response)}
+          end
+          return
       end
       response["success"] = true
       respond_to do |format|
@@ -142,18 +143,18 @@ class AccountsController < ApplicationController
       return
     end
 
-    @account  = Account.where(useid: params[:useid]).take
-    if @account != nil
-      respond_to do |format|
-        response["success"] = false
-        response["message"] = "account alredy exists"
-        format.html { render :text =>  JSON.generate(response)}
+    @account  = Account.where(uid: params[:uid]).take
+      if @account != nil
+        respond_to do |format|
+          response["success"] = false
+          response["message"] = "account alredy exists"
+          format.html { render :text =>  JSON.generate(response)}
+        end
+        return
       end
-      return
-    end
 
     @account = Account.new(account_params)
-    @account.useid = params[:useid]
+    @account.uid = params[:uid]
     @account.passcode = params[:passcode]
     chain_client = Rails.application.config.chain_client
     bucket = chain_client.create_bucket("d9e0997d-43da-4770-9f0e-2b96913bfc13")
@@ -161,13 +162,13 @@ class AccountsController < ApplicationController
     asset = params[:asset]
 
     chain_client.issue_asset(
-    asset,
-    [
-      {
-        bucket_id: bucket["bucket_id"],
-        amount: 10
-      }
-    ]
+      asset,
+      [
+        {
+          bucket_id: bucket["bucket_id"],
+          amount: 10
+        }
+      ]
     )
 
     respond_to do |format|
@@ -199,13 +200,13 @@ class AccountsController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_account
-    @account =  Account.where(useid: params[:id], passcode: params[:passcode])
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_account
+      @account =  Account.where(uid: params[:id], passcode: params[:passcode])
+    end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def account_params
-    params[:account]
-  end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def account_params
+      params[:account]
+    end
 end

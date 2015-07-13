@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150703054021) do
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "useid"
+    t.string   "uid"
     t.string   "passcode"
     t.string   "bucket_id"
   end
