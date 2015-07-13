@@ -68,7 +68,8 @@ class AccountsController < ApplicationController
             {
               asset_id: params[:asset],
               bucket_id: params[:bucket_id],
-              amount: 1
+              amount: 1,
+              min_confirmations: 0
             }
           ],
           outputs: [

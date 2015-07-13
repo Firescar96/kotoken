@@ -18,16 +18,16 @@ $("#accounts").ready(function() {
         $.each(data, function( index, asset) {
           switch(asset.asset_id) {
             case brickAsset:
-              $("#brickAmt").text(asset.confirmed)
+              $("#brickAmt").text(asset.total)
               break;
             case steakAsset:
-              $("#steakAmt").text(asset.confirmed)
+              $("#steakAmt").text(asset.total)
               break;
             case bitcoinAsset:
-              $("#bitcoinAmt").text(asset.confirmed)
+              $("#bitcoinAmt").text(asset.total)
               break;
             case phoneAsset:
-              $("#phoneAmt").text(asset.confirmed)
+              $("#phoneAmt").text(asset.total)
               break;
             default:
               break;
