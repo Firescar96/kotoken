@@ -33,7 +33,7 @@ class AccountsController < ApplicationController
       end
     end
     if params['flag'] == "activity"
-      activity = chain_client.get_wallet_asset_activity("d9e0997d-43da-4770-9f0e-2b96913bfc13")
+#      activity = chain_client.get_bucket_asset_activity(BUCKET ID OF ACCOUNT)
       respond_to do |format|
         format.html { render :text => activity.to_json.to_s}
     end
@@ -44,7 +44,7 @@ class AccountsController < ApplicationController
   # GET /accounts/1.json
   def show
     #chain_client = Rails.application.config.chain_client
-    #@activity = chain_client.get_wallet_asset_activity("d9e0997d-43da-4770-9f0e-2b96913bfc13")
+    #@activity = chain_client.get_bucket_asset_activity(BUCKET ID OF ACCOUNT)
   end
 
   # POST /accounts
