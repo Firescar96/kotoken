@@ -17,7 +17,7 @@ class AccountsController < ApplicationController
       end
     end
     if params['flag'] == "bucket_id"
-      @account  = Account.where(useid: params[:useid], passcode: params[:passcode]).take
+      @account  = Account.where(uid: params[:uid], passcode: params[:passcode]).take
       if @account == nil
         response["success"] = false
         response["message"] = "account could not be found"
@@ -52,7 +52,7 @@ class AccountsController < ApplicationController
   def create
     response = {}
     if params["flag"] == "transaction"
-      toAccount = Account.where(useid: params[:toid]).take
+      toAccount = Account.where(uid: params[:toid]).take
       if toAccount == nil
         response["success"] = false
         response["message"] = "account not found"
@@ -96,7 +96,7 @@ class AccountsController < ApplicationController
       return
     end
 
-    @account  = Account.where(useid: params[:useid]).take
+    @account  = Account.where(uid: params[:uid]).take
       if @account != nil
         respond_to do |format|
           response["success"] = false
@@ -107,7 +107,7 @@ class AccountsController < ApplicationController
       end
 
     @account = Account.new(account_params)
-    @account.useid = params[:useid]
+    @account.uid = params[:uid]
     @account.passcode = params[:passcode]
     chain_client = Rails.application.config.chain_client
     bucket = chain_client.create_bucket("d9e0997d-43da-4770-9f0e-2b96913bfc13")
@@ -155,7 +155,7 @@ class AccountsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_account
-      @account =  Account.where(useid: params[:id], passcode: params[:passcode])
+      @account =  Account.where(uid: params[:id], passcode: params[:passcode])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

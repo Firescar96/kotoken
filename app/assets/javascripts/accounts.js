@@ -9,7 +9,7 @@ $("#accounts").ready(function() {
     $("#token-page").toggleClass("hidden",false)
   })
 
-  $('#useid').text(localStorage.getItem("useid"))
+  $('#uid').text(localStorage.getItem("uid"))
 
   var updateBalance = function(){
     $.get( "/accounts", {flag: "balance", bucket_id: localStorage.getItem("bucket_id")})

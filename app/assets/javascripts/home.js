@@ -44,12 +44,12 @@ $('#homes').ready(function() {
 
      console.log(error);
     if(error == "") {
-      $.post( "/accounts", { useid: $("#address").val(), passcode: $("#passcode").val(), asset: $('input[name=token]:checked').val()} )
+      $.post( "/accounts", { uid: $("#address").val(), passcode: $("#passcode").val(), asset: $('input[name=token]:checked').val()} )
         .done(function(data) {
           data = jQuery.parseJSON(data);
 
           if(data.success) {
-            localStorage.setItem("useid",$("#address").val());
+            localStorage.setItem("uid",$("#address").val());
             localStorage.setItem("passcode",$("#passcode").val());
             localStorage.setItem("bucket_id",data.bucket_id);
 
@@ -57,7 +57,7 @@ $('#homes').ready(function() {
 
             $("#createerror").text("").removeClass("bg-warning");
 
-            location.href = "/accounts/"+localStorage.getItem("useid");
+            location.href = "/accounts/"+localStorage.getItem("uid");
           }
           else {
             event.preventDefault();
@@ -80,18 +80,18 @@ $('#homes').ready(function() {
   })
 
   $("#show").click(function() {
-    $.get( "/accounts", { flag: "bucket_id", useid: $("#useid").val(), passcode: $("#logincode").val() } )
+    $.get( "/accounts", { flag: "bucket_id", uid: $("#uid").val(), passcode: $("#logincode").val() } )
       .done(function(data) {
         data = jQuery.parseJSON(data);
         console.log(data);
 
         if(data.success) {
-          localStorage.setItem("useid",$("#useid").val());
+          localStorage.setItem("uid",$("#uid").val());
           localStorage.setItem("passcode",$("#logincode").val());
           localStorage.setItem("bucket_id",data.bucket_id);
 
           $("#loginerror").text("").removeClass("bg-warning");
-          location.href = "/accounts/"+$("#useid").val();
+          location.href = "/accounts/"+$("#uid").val();
         }else {
           event.preventDefault();
           $("#loginerror").text(data.message).addClass("bg-warning");
