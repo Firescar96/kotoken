@@ -62,7 +62,7 @@ $("#accounts").ready(function() {
   $("#make-transaction").click(function() {
     var error = "";
     if(!$.isNumeric($("#toid").val()))
-      error = "recieving address must be numeric";
+      error = "receiving address must be numeric";
 
     if( $('input[name=token]:checked').val() == undefined)
       error = "select a token to send";

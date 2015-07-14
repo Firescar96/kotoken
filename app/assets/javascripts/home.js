@@ -92,6 +92,9 @@ $('#homes').ready(function() {
 
           $("#loginerror").text("").removeClass("bg-warning");
           location.href = "/accounts/"+$("#uid").val();
+
+          $("#uid").val("")
+          $("#logincode").val("")
         }else {
           event.preventDefault();
           $("#loginerror").text(data.message).addClass("bg-warning");

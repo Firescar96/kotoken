@@ -38,7 +38,6 @@ $screen-md : 992px;
 
     h3 {
       font-size: 50px;
-      font-style: italic;
       margin-top: 5px;
     }
   }
@@ -55,7 +54,6 @@ $screen-md : 992px;
 
     h3 {
       font-size: 30px;
-      font-style: italic;
       margin-top: 5px;
     }
   }
@@ -208,7 +206,7 @@ $screen-md : 992px;
         width: 80%;
       }
       @media (min-width: $screen-md) {
-        width: 40%;
+        width: 50%;
       }
       span {
         @extend h3;
