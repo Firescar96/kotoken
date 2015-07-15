@@ -51,7 +51,7 @@ $("#accounts").ready(function() {
       })
   }
   updatePage();
-  setInterval(updatePage, 10000);
+  setInterval(updatePage, 1000);
 
   $('input[type=radio]').click(function() {
     $('#token-select label').toggleClass('checked', false);
